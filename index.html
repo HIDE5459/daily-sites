@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Sites — 毎日3サイト</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#06060A;color:#F0F0F5;font-family:'Space Grotesk',sans-serif;min-height:100vh;padding:60px 40px}
+h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;letter-spacing:-.03em;margin-bottom:8px;background:linear-gradient(135deg,#A855F7,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sub{color:#7B7B9A;margin-bottom:60px;font-size:.95rem}
+.day{margin-bottom:60px}
+.day-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:#A855F7;margin-bottom:20px;font-weight:600}
+.sites{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.site-card{background:#0F0F1A;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:28px;text-decoration:none;color:inherit;display:block;transition:all .3s}
+.site-card:hover{border-color:rgba(168,85,247,.4);transform:translateY(-2px)}
+.site-genre{font-size:.72rem;text-transform:uppercase;letter-spacing:.15em;color:#7B7B9A;margin-bottom:10px}
+.site-name{font-size:1.3rem;font-weight:700;margin-bottom:8px}
+.site-desc{font-size:.85rem;color:#7B7B9A;line-height:1.6}
+.site-link{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:.78rem;color:#A855F7;letter-spacing:.05em}
+</style>
+</head>
+<body>
+<h1>Daily Sites</h1>
+<p class="sub">毎日3ジャンル × 世界レベルのデザイン</p>
+<div class="day">
+  <div class="day-label">Day 1 — 2026.03.25</div>
+  <div class="sites">
+    <a class="site-card" href="nexus-ai/">
+      <div class="site-genre">SaaS / AI Product</div>
+      <div class="site-name">Nexus AI</div>
+      <div class="site-desc">AIワークフロー自動化。Linear × Vercel風ダークデザイン。カウンターアニメ・グロウ・グリッド演出。</div>
+      <div class="site-link">→ nexus-ai/</div>
+    </a>
+    <a class="site-card" href="aurum-tokyo/">
+      <div class="site-genre">Luxury Jewelry</div>
+      <div class="site-name">Aurum Tokyo</div>
+      <div class="site-desc">東京・銀座の高級ジュエリーブランド。Cartier × 日本的ミニマル。セリフ体・ゴールド・圧倒的な余白。</div>
+      <div class="site-link">→ aurum-tokyo/</div>
+    </a>
+    <a class="site-card" href="volta-fest/">
+      <div class="site-genre">Music Festival</div>
+      <div class="site-name">Volta Fest</div>
+      <div class="site-desc">東京電子音楽フェス。SXSW × パンクエネルギー。カウントダウン・ティッカー・スケジュールタブ搭載。</div>
+      <div class="site-link">→ volta-fest/</div>
+    </a>
+  </div>
+</div>
+</body>
+</html>
