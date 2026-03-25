@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURUM TOKYO — 純金の記憶</title>
+<meta name="description" content="東京・銀座の高級ジュエリーブランド。一点一点、職人の手で生まれる永遠の輝き。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #FAFAF7;
+  --warm-white: #F5F3EE;
+  --gold: #B8963E;
+  --gold-light: #D4AF6B;
+  --gold-pale: #F0E6C8;
+  --charcoal: #1A1A1A;
+  --stone: #8B8278;
+  --light-stone: #C4BDB5;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Jost', sans-serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--charcoal);font-family:var(--font-sans);font-weight:300;line-height:1.7;overflow-x:hidden}
+
+/* ─── NAV ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:28px 60px;display:flex;align-items:center;justify-content:space-between;transition:all .5s}
+nav.scrolled{background:rgba(250,250,247,.95);backdrop-filter:blur(10px);padding:18px 60px;border-bottom:1px solid rgba(184,150,62,.15)}
+.nav-left{display:flex;gap:36px;list-style:none}
+.nav-left a,.nav-right a{color:var(--stone);text-decoration:none;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;font-weight:400;transition:color .3s}
+.nav-left a:hover,.nav-right a:hover{color:var(--charcoal)}
+.nav-logo{font-family:var(--font-serif);font-size:1.5rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--charcoal)}
+.nav-right{display:flex;gap:36px;list-style:none;align-items:center}
+.nav-bag{font-size:.8rem;cursor:pointer;color:var(--stone);transition:color .3s}
+.nav-bag:hover{color:var(--charcoal)}
+
+/* ─── HERO ─── */
+.hero{height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero-left{background:var(--charcoal);display:flex;flex-direction:column;justify-content:flex-end;padding:80px 64px;position:relative;overflow:hidden}
+.hero-left::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=900&q=80') center/cover;opacity:.35}
+.hero-text{position:relative;z-index:1}
+.hero-eyebrow{font-family:var(--font-sans);font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold-light);margin-bottom:20px}
+.hero-h1{font-family:var(--font-serif);font-size:clamp(3rem,5vw,4.5rem);font-weight:300;line-height:1.1;color:#FFF;letter-spacing:-.01em}
+.hero-h1 em{font-style:italic;color:var(--gold-light)}
+.hero-line{width:40px;height:1px;background:var(--gold);margin:28px 0}
+.hero-desc{color:rgba(255,255,255,.55);font-size:.875rem;line-height:1.8;max-width:340px}
+.hero-cta{display:inline-flex;align-items:center;gap:12px;margin-top:36px;color:#fff;text-decoration:none;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;transition:gap .3s}
+.hero-cta:hover{gap:20px}
+.hero-cta-arrow{width:36px;height:1px;background:#fff;position:relative;transition:width .3s}
+.hero-cta:hover .hero-cta-arrow{width:50px}
+.hero-cta-arrow::after{content:'';position:absolute;right:-1px;top:-3px;width:7px;height:7px;border-top:1px solid #fff;border-right:1px solid #fff;transform:rotate(45deg)}
+
+.hero-right{background:var(--warm-white);display:flex;flex-direction:column;justify-content:center;align-items:flex-end;padding:80px 64px;gap:32px}
+.hero-collection-label{font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(--stone);writing-mode:vertical-rl;text-orientation:mixed;align-self:flex-end;margin-bottom:auto}
+.hero-featured-img{width:100%;max-width:380px;aspect-ratio:3/4;object-fit:cover;border-radius:2px}
+.hero-featured-img-placeholder{width:100%;max-width:380px;aspect-ratio:3/4;background:linear-gradient(160deg,var(--gold-pale),#E8DCC4);border-radius:2px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.hero-featured-img-placeholder::before{content:'';position:absolute;width:200px;height:200px;border:1px solid rgba(184,150,62,.3);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%)}
+.hero-featured-img-placeholder::after{content:'◇';font-size:3rem;color:rgba(184,150,62,.4);font-family:var(--font-serif)}
+.hero-featured-cap{font-family:var(--font-serif);font-size:1.3rem;font-weight:400;color:var(--charcoal);letter-spacing:.05em;text-align:right}
+.hero-featured-cap span{display:block;font-size:.75rem;font-family:var(--font-sans);letter-spacing:.1em;text-transform:uppercase;color:var(--stone);margin-top:4px;font-weight:400}
+
+/* ─── MARQUEE ─── */
+.marquee-wrap{padding:20px 0;border-top:1px solid rgba(184,150,62,.2);border-bottom:1px solid rgba(184,150,62,.2);background:var(--charcoal);overflow:hidden}
+.marquee-track{display:flex;gap:0;white-space:nowrap;animation:marquee 22s linear infinite}
+.marquee-item{font-family:var(--font-serif);font-size:1rem;color:var(--gold-light);letter-spacing:.15em;padding:0 40px;opacity:.7}
+.marquee-dot{color:var(--gold);padding:0 8px}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─── COLLECTIONS ─── */
+.collections{padding:120px 60px;max-width:1400px;margin:0 auto}
+.collections-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:64px}
+.collections-header h2{font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;letter-spacing:.02em;line-height:1.2}
+.collections-header h2 em{font-style:italic;color:var(--gold)}
+.see-all{display:flex;align-items:center;gap:10px;text-decoration:none;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--stone);transition:gap .3s,color .3s}
+.see-all:hover{gap:18px;color:var(--charcoal)}
+.see-all-line{width:30px;height:1px;background:currentColor;position:relative;transition:width .3s}
+.see-all-line::after{content:'';position:absolute;right:-1px;top:-3px;width:7px;height:7px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg)}
+.collection-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:auto auto;gap:3px}
+.col-item{overflow:hidden;position:relative;cursor:pointer}
+.col-item:first-child{grid-row:1/3}
+.col-img{width:100%;height:100%;min-height:300px;object-fit:cover;transition:transform .8s cubic-bezier(.25,.46,.45,.94)}
+.col-item:hover .col-img{transform:scale(1.04)}
+.col-img-placeholder{width:100%;min-height:300px;transition:transform .8s cubic-bezier(.25,.46,.45,.94);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.col-item:hover .col-img-placeholder{transform:scale(1.04)}
+.col-item:nth-child(1) .col-img-placeholder{background:linear-gradient(160deg,#E8DCC4,#D4C4A0);min-height:620px}
+.col-item:nth-child(2) .col-img-placeholder{background:linear-gradient(160deg,#1A1A1A,#2D2D2D)}
+.col-item:nth-child(3) .col-img-placeholder{background:linear-gradient(160deg,#E0D8CC,#C8BFB5)}
+.col-item:nth-child(4) .col-img-placeholder{background:linear-gradient(160deg,#2D2A26,#1A1814)}
+.col-item:nth-child(5) .col-img-placeholder{background:linear-gradient(160deg,#C4BAB0,#A89890)}
+.col-overlay{position:absolute;bottom:0;left:0;right:0;padding:32px;background:linear-gradient(transparent,rgba(0,0,0,.55));opacity:0;transition:opacity .4s}
+.col-item:hover .col-overlay{opacity:1}
+.col-name{color:#fff;font-family:var(--font-serif);font-size:1.2rem;font-weight:400}
+.col-sub{color:rgba(255,255,255,.6);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;margin-top:4px}
+.col-symbol{font-size:2.5rem;color:rgba(184,150,62,.35);font-family:var(--font-serif)}
+
+/* ─── CRAFT ─── */
+.craft{padding:120px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1400px;margin:0 auto}
+.craft-text{}
+.craft-number{font-family:var(--font-serif);font-size:7rem;font-weight:300;color:var(--gold-pale);line-height:1;margin-bottom:-20px;position:relative;z-index:0}
+.craft-h2{font-family:var(--font-serif);font-size:clamp(2rem,3vw,2.8rem);font-weight:300;line-height:1.25;letter-spacing:.02em;margin-bottom:28px;position:relative;z-index:1}
+.craft-h2 em{font-style:italic;color:var(--gold)}
+.craft-body{font-size:.95rem;color:var(--stone);line-height:1.9;margin-bottom:40px}
+.craft-details{display:flex;gap:48px;margin-bottom:40px}
+.craft-detail-item{}
+.craft-detail-num{font-family:var(--font-serif);font-size:2.2rem;font-weight:300;color:var(--charcoal)}
+.craft-detail-label{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--light-stone);margin-top:4px}
+.craft-link{display:inline-flex;align-items:center;gap:12px;text-decoration:none;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--charcoal);transition:gap .3s}
+.craft-link:hover{gap:20px}
+.craft-link-line{width:36px;height:1px;background:var(--gold);position:relative;transition:width .3s}
+.craft-link:hover .craft-link-line{width:52px}
+.craft-link-line::after{content:'';position:absolute;right:-1px;top:-3px;width:7px;height:7px;border-top:1px solid var(--gold);border-right:1px solid var(--gold);transform:rotate(45deg)}
+.craft-visual{position:relative}
+.craft-main-img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:2px}
+.craft-main-placeholder{width:100%;aspect-ratio:4/5;background:linear-gradient(160deg,#2D2A26,#1A1814);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:4rem;color:rgba(184,150,62,.3);font-family:var(--font-serif)}
+.craft-badge{position:absolute;bottom:-24px;right:-24px;width:120px;height:120px;background:var(--gold);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.craft-badge-year{font-family:var(--font-serif);font-size:1.8rem;color:#fff;font-weight:300;line-height:1}
+.craft-badge-text{font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:2px}
+
+/* ─── MATERIALS ─── */
+.materials{padding:100px 60px;background:var(--charcoal)}
+.materials-inner{max-width:1400px;margin:0 auto}
+.materials-header{margin-bottom:60px}
+.materials-header h2{font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;color:#fff;letter-spacing:.02em}
+.materials-header h2 em{font-style:italic;color:var(--gold-light)}
+.materials-header p{color:rgba(255,255,255,.45);font-size:.9rem;margin-top:16px;max-width:480px;line-height:1.8}
+.materials-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06)}
+.mat-item{background:var(--charcoal);padding:40px 32px;border:none;transition:background .3s;cursor:default}
+.mat-item:hover{background:#222}
+.mat-sym{font-family:var(--font-serif);font-size:2.5rem;color:var(--gold-light);margin-bottom:20px;display:block}
+.mat-name{font-family:var(--font-serif);font-size:1.2rem;font-weight:400;color:#fff;margin-bottom:8px}
+.mat-desc{font-size:.8rem;color:rgba(255,255,255,.4);line-height:1.7}
+
+/* ─── TESTIMONIAL ─── */
+.testimonial{padding:120px 60px;background:var(--warm-white);text-align:center}
+.testimonial-inner{max-width:800px;margin:0 auto}
+.testimonial-mark{font-family:var(--font-serif);font-size:5rem;color:var(--gold-pale);line-height:.5;margin-bottom:32px}
+.testimonial-body{font-family:var(--font-serif);font-size:clamp(1.3rem,2vw,1.8rem);font-weight:300;font-style:italic;line-height:1.6;color:var(--charcoal);margin-bottom:36px}
+.testimonial-author{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--stone)}
+.testimonial-gold-line{width:40px;height:1px;background:var(--gold);margin:24px auto}
+
+/* ─── NEWSLETTER ─── */
+.newsletter{padding:100px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1400px;margin:0 auto;border-top:1px solid rgba(184,150,62,.15)}
+.newsletter h2{font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:300;line-height:1.2;letter-spacing:.02em}
+.newsletter h2 em{font-style:italic;color:var(--gold)}
+.newsletter p{color:var(--stone);font-size:.9rem;margin-top:16px;line-height:1.8}
+.newsletter-form{display:flex;flex-direction:column;gap:16px}
+.newsletter-input{background:transparent;border:none;border-bottom:1px solid var(--light-stone);padding:14px 0;font-family:var(--font-sans);font-size:.95rem;color:var(--charcoal);outline:none;transition:border-color .3s;font-weight:300}
+.newsletter-input:focus{border-color:var(--gold)}
+.newsletter-input::placeholder{color:var(--light-stone);letter-spacing:.05em}
+.newsletter-btn{display:inline-flex;align-items:center;gap:16px;background:var(--charcoal);color:#fff;padding:16px 32px;font-family:var(--font-sans);font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;border:none;cursor:pointer;align-self:flex-start;transition:background .3s;margin-top:8px}
+.newsletter-btn:hover{background:var(--gold)}
+.newsletter-note{font-size:.72rem;color:var(--light-stone);letter-spacing:.05em}
+
+/* ─── FOOTER ─── */
+footer{background:var(--charcoal);padding:80px 60px 40px}
+.footer-inner{max-width:1400px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:64px}
+.footer-logo{font-family:var(--font-serif);font-size:1.5rem;color:#fff;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px}
+.footer-brand-text{font-size:.8rem;color:rgba(255,255,255,.35);line-height:1.8;max-width:240px}
+.footer-col h4{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);margin-bottom:20px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.footer-col a{color:rgba(255,255,255,.4);text-decoration:none;font-size:.8rem;transition:color .3s;letter-spacing:.05em}
+.footer-col a:hover{color:rgba(255,255,255,.8)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:40px;border-top:1px solid rgba(255,255,255,.07)}
+.footer-copy{font-size:.72rem;color:rgba(255,255,255,.25);letter-spacing:.05em}
+.footer-gold{color:var(--gold-light)}
+
+/* ─── REVEAL ─── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.25,.46,.45,.94),transform .9s cubic-bezier(.25,.46,.45,.94)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ─── MOBILE ─── */
+@media(max-width:900px){
+  nav{padding:20px 24px}
+  .nav-left{display:none}
+  .hero{grid-template-columns:1fr;height:auto}
+  .hero-left{min-height:60vh;padding:80px 32px 48px}
+  .hero-right{padding:48px 32px}
+  .collections{padding:80px 24px}
+  .collection-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .col-item:first-child{grid-row:auto}
+  .col-item:nth-child(1) .col-img-placeholder{min-height:320px}
+  .craft{padding:80px 24px;grid-template-columns:1fr}
+  .materials{padding:80px 24px}
+  .materials-grid{grid-template-columns:1fr 1fr}
+  .newsletter{padding:80px 24px;grid-template-columns:1fr}
+  footer{padding:60px 24px 32px}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .footer-bottom{flex-direction:column;gap:16px}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <ul class="nav-left">
+    <li><a href="#">Collections</a></li>
+    <li><a href="#">The Craft</a></li>
+    <li><a href="#">Custom Orders</a></li>
+  </ul>
+  <div class="nav-logo">Aurum</div>
+  <ul class="nav-right">
+    <li><a href="#">Atelier</a></li>
+    <li><a href="#">Search</a></li>
+    <li><span class="nav-bag">○ 0</span></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-text">
+      <p class="hero-eyebrow">New Collection — Haru 2024</p>
+      <h1 class="hero-h1">金の記憶、<br>永遠の<em>輝き</em></h1>
+      <div class="hero-line"></div>
+      <p class="hero-desc">一点一点、東京の職人が手で生み出す宝飾品。素材の語る言葉に耳を傾け、あなたの物語を形にする。</p>
+      <a href="#" class="hero-cta">
+        コレクションを見る
+        <span class="hero-cta-arrow"></span>
+      </a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <span class="hero-collection-label">Haru Collection 2024</span>
+    <div class="hero-featured-img-placeholder"></div>
+    <div>
+      <div class="hero-featured-cap">
+        Koi Pendant
+        <span>18K Gold · Natural Diamond</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Handcrafted in Tokyo</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Certified Ethical Sourcing</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">100-Year Warranty</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Bespoke Orders Welcome</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Since 1987</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Handcrafted in Tokyo</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Certified Ethical Sourcing</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">100-Year Warranty</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Bespoke Orders Welcome</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Since 1987</span><span class="marquee-dot">◆</span>
+  </div>
+</div>
+
+<section class="collections reveal">
+  <div class="collections-header">
+    <h2>私たちの<em>コレクション</em></h2>
+    <a href="#" class="see-all">すべて見る <span class="see-all-line"></span></a>
+  </div>
+  <div class="collection-grid">
+    <div class="col-item">
+      <div class="col-img-placeholder"><span class="col-symbol">◇</span></div>
+      <div class="col-overlay">
+        <div class="col-name">Haru Collection</div>
+        <div class="col-sub">Spring 2024 · 18 pieces</div>
+      </div>
+    </div>
+    <div class="col-item">
+      <div class="col-img-placeholder"><span class="col-symbol" style="color:rgba(212,175,107,.5)">✦</span></div>
+      <div class="col-overlay">
+        <div class="col-name">Tsuki Series</div>
+        <div class="col-sub">Moonlight · 9 pieces</div>
+      </div>
+    </div>
+    <div class="col-item">
+      <div class="col-img-placeholder"><span class="col-symbol">◈</span></div>
+      <div class="col-overlay">
+        <div class="col-name">Shiro Collection</div>
+        <div class="col-sub">White Gold · 12 pieces</div>
+      </div>
+    </div>
+    <div class="col-item">
+      <div class="col-img-placeholder"><span class="col-symbol" style="color:rgba(212,175,107,.5)">❋</span></div>
+      <div class="col-overlay">
+        <div class="col-name">Koi Pendant</div>
+        <div class="col-sub">Signature · 1 piece</div>
+      </div>
+    </div>
+    <div class="col-item">
+      <div class="col-img-placeholder"><span class="col-symbol">◉</span></div>
+      <div class="col-overlay">
+        <div class="col-name">Wedding Rings</div>
+        <div class="col-sub">Eternal · Bespoke</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="craft reveal">
+  <div class="craft-text">
+    <div class="craft-number">37</div>
+    <h2 class="craft-h2">37年の<em>技術</em>が、<br>あなたの指に宿る</h2>
+    <p class="craft-body">私たちの職人は代々、銀座の工房で金と向き合ってきた。機械は一切使わない。すべての線、すべてのカットが、指先の感覚と経験のみによって生まれる。それが、Aurumの誓い。</p>
+    <div class="craft-details">
+      <div class="craft-detail-item">
+        <div class="craft-detail-num">1987</div>
+        <div class="craft-detail-label">創業</div>
+      </div>
+      <div class="craft-detail-item">
+        <div class="craft-detail-num">3代</div>
+        <div class="craft-detail-label">職人の系譜</div>
+      </div>
+      <div class="craft-detail-item">
+        <div class="craft-detail-num">100年</div>
+        <div class="craft-detail-label">品質保証</div>
+      </div>
+    </div>
+    <a href="#" class="craft-link">
+      職人のこだわり
+      <span class="craft-link-line"></span>
+    </a>
+  </div>
+  <div class="craft-visual">
+    <div class="craft-main-placeholder">◆</div>
+    <div class="craft-badge">
+      <span class="craft-badge-year">1987</span>
+      <span class="craft-badge-text">Est. Tokyo</span>
+    </div>
+  </div>
+</section>
+
+<section class="materials reveal">
+  <div class="materials-inner">
+    <div class="materials-header">
+      <h2>厳選された<em>素材</em></h2>
+      <p>世界の産地から、倫理的に調達された最高品質の素材のみを使用。それぞれの石が持つ固有の声を聞き、最適な形に導く。</p>
+    </div>
+    <div class="materials-grid">
+      <div class="mat-item">
+        <span class="mat-sym">◈</span>
+        <div class="mat-name">ダイヤモンド</div>
+        <p class="mat-desc">南アフリカ産・GIA認定。カット・カラー・クラリティを職人が直接選定。</p>
+      </div>
+      <div class="mat-item">
+        <span class="mat-sym">◇</span>
+        <div class="mat-name">18K ゴールド</div>
+        <p class="mat-desc">純金75%のアロイ。日本の空気にも馴染む独自の配合で変色しにくい。</p>
+      </div>
+      <div class="mat-item">
+        <span class="mat-sym">✦</span>
+        <div class="mat-name">プラチナ950</div>
+        <p class="mat-desc">純度95%。婚約指輪に最適な強度と輝きを持つ希少金属。</p>
+      </div>
+      <div class="mat-item">
+        <span class="mat-sym">❋</span>
+        <div class="mat-name">天然石</div>
+        <p class="mat-desc">ルビー、サファイア、エメラルド。職人が産地で直接買い付け。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial reveal">
+  <div class="testimonial-inner">
+    <div class="testimonial-mark">&ldquo;</div>
+    <p class="testimonial-body">プロポーズの指輪をオーダーメイドでお願いしました。彼女の好みを伝えただけなのに、私が想像していた以上のものができあがりました。あの日のことは一生忘れません。</p>
+    <div class="testimonial-gold-line"></div>
+    <p class="testimonial-author">K.T. — 東京都在住 · 婚約指輪オーダー</p>
+  </div>
+</section>
+
+<section class="newsletter reveal">
+  <div>
+    <h2>新作コレクションの<br><em>最初</em>に知る</h2>
+    <p>ニュースレターに登録いただいた方に、シーズン開始の1週間前に新コレクションをご案内します。</p>
+  </div>
+  <div class="newsletter-form">
+    <input type="email" class="newsletter-input" placeholder="メールアドレス">
+    <button class="newsletter-btn">登録する</button>
+    <p class="newsletter-note">スパムはお送りしません。いつでも解除できます。</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Aurum</div>
+        <p class="footer-brand-text">1987年創業。東京・銀座の工房から、世界へ。人の手が、金に魂を吹き込む。</p>
+      </div>
+      <div class="footer-col">
+        <h4>Collections</h4>
+        <ul>
+          <li><a href="#">Haru 2024</a></li>
+          <li><a href="#">Tsuki Series</a></li>
+          <li><a href="#">Wedding</a></li>
+          <li><a href="#">Custom Order</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Atelier</h4>
+        <ul>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Craftsmen</a></li>
+          <li><a href="#">Materials</a></li>
+          <li><a href="#">Process</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Visit Us</h4>
+        <ul>
+          <li><a href="#">Ginza Atelier</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Care Guide</a></li>
+          <li><a href="#">Warranty</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2024 Aurum Tokyo. All rights reserved. <span class="footer-gold">銀座三丁目</span></span>
+      <span class="footer-copy">Instagram · Pinterest · WeChat</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
+});
+const reveals=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
+},{threshold:.1});
+reveals.forEach(r=>io.observe(r));
+</script>
+</body>
+</html>
