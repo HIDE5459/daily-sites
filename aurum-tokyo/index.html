@@ -3,299 +3,230 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AURUM TOKYO — 純金の記憶、永遠の輝き</title>
-<meta name="description" content="東京・銀座の高級ジュエリーブランド。1987年創業。職人の手が生み出す、世界に一つだけのジュエリー。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<title>AURUM TOKYO</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+JP:wght@200;300&display=swap" rel="stylesheet">
 <style>
-:root{--cream:#FAFAF7;--warm:#F5F3EE;--gold:#B8963E;--gold-l:#D4AF6B;--gold-p:#F0E6C8;--dark:#1A1A1A;--stone:#8B8278;--light:#C4BDB5;--font-serif:'Noto Serif JP',serif;--font-sans:'Noto Sans JP',sans-serif}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--gold:#B8963E;--gold-l:#D4AF6B;--black:#0A0A0A;--white:#FAF9F6;--stone:#9A9080;--font-serif:'Cormorant Garamond',serif;--font-sans:'Noto Sans JP',sans-serif}
 html{scroll-behavior:smooth}
-body{background:var(--cream);color:var(--dark);font-family:var(--font-sans);font-weight:300;line-height:1.8;overflow-x:hidden}
+body{background:var(--black);color:var(--white);font-family:var(--font-serif);overflow-x:hidden}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:28px 60px;display:flex;align-items:center;justify-content:space-between;transition:all .5s}
-nav.scrolled{background:rgba(250,250,247,.95);backdrop-filter:blur(10px);padding:18px 60px;border-bottom:1px solid rgba(184,150,62,.15)}
-.nav-links{display:flex;gap:36px;list-style:none}
-.nav-links a,.nav-right a{color:var(--stone);text-decoration:none;font-size:.78rem;letter-spacing:.12em;transition:color .3s}
-.nav-links a:hover,.nav-right a:hover{color:var(--dark)}
-.nav-logo{font-family:var(--font-serif);font-size:1.4rem;font-weight:400;letter-spacing:.2em;color:var(--dark)}
-.nav-right{display:flex;gap:28px;list-style:none;align-items:center}
+/* NAV — 極限まで薄い */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:28px 40px;display:flex;align-items:center;justify-content:space-between;mix-blend-mode:difference}
+.nl,.nr{display:flex;gap:36px;list-style:none}
+.nl a,.nr a{color:#fff;text-decoration:none;font-family:var(--font-sans);font-size:.68rem;letter-spacing:.18em;font-weight:200;text-transform:uppercase;opacity:.6;transition:opacity .3s}
+.nl a:hover,.nr a:hover{opacity:1}
+.n-logo{font-family:var(--font-serif);font-size:1.4rem;font-weight:300;color:#fff;letter-spacing:.3em;text-transform:uppercase}
 
-.hero{height:100vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
-.hero-left{background:var(--dark);display:flex;flex-direction:column;justify-content:flex-end;padding:80px 60px;position:relative;overflow:hidden}
-.hero-left-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=900&q=80') center/cover;opacity:.3}
-.hero-text{position:relative;z-index:1}
-.hero-eyebrow{font-family:var(--font-sans);font-size:.72rem;letter-spacing:.25em;color:var(--gold-l);margin-bottom:20px}
-.hero-h1{font-family:var(--font-serif);font-size:clamp(2.5rem,4.5vw,4rem);font-weight:300;line-height:1.2;color:#FFF;letter-spacing:.05em}
-.hero-h1 em{font-style:normal;color:var(--gold-l)}
-.hero-line{width:40px;height:1px;background:var(--gold);margin:24px 0}
-.hero-desc{color:rgba(255,255,255,.5);font-size:.875rem;line-height:1.9;max-width:320px}
-.hero-cta{display:inline-flex;align-items:center;gap:14px;margin-top:32px;color:#fff;text-decoration:none;font-size:.75rem;letter-spacing:.15em;transition:gap .3s}
-.hero-cta:hover{gap:22px}
-.hero-cta-line{width:36px;height:1px;background:#fff;position:relative;transition:width .3s}
-.hero-cta:hover .hero-cta-line{width:52px}
-.hero-cta-line::after{content:'';position:absolute;right:-1px;top:-3px;width:6px;height:6px;border-top:1px solid #fff;border-right:1px solid #fff;transform:rotate(45deg)}
+/* CHAPTER 1 — フルスクリーン写真ヒーロー */
+.ch1{height:100vh;position:relative;overflow:hidden;display:flex;align-items:flex-end}
+.ch1-img{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1400&q=85') center/cover}
+.ch1-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,10,.1) 0%,rgba(10,10,10,.0) 40%,rgba(10,10,10,.75) 100%)}
+.ch1-text{position:relative;z-index:1;padding:0 60px 80px;width:100%}
+.ch1-eyebrow{font-family:var(--font-sans);font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-l);margin-bottom:16px;opacity:.8}
+.ch1-h1{font-size:clamp(4rem,8vw,8rem);font-weight:300;line-height:.95;letter-spacing:-.01em;font-style:italic}
+.ch1-h1 span{display:block;font-style:normal;font-size:clamp(2rem,4vw,4rem);color:var(--gold-l)}
+.ch1-scroll{position:absolute;right:40px;bottom:40px;display:flex;flex-direction:column;align-items:center;gap:10px;font-family:var(--font-sans);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;opacity:.4;color:#fff}
+.ch1-scroll-line{width:1px;height:48px;background:#fff;position:relative;overflow:hidden}
+.ch1-scroll-line::after{content:'';position:absolute;top:-100%;left:0;right:0;bottom:0;background:var(--gold);animation:sd 2s ease-in-out infinite}
+@keyframes sd{0%{top:-100%}100%{top:100%}}
 
-.hero-right{background:var(--warm);display:flex;flex-direction:column;justify-content:center;align-items:flex-end;padding:80px 60px;gap:28px}
-.hero-season{font-size:.68rem;letter-spacing:.25em;color:var(--stone);writing-mode:vertical-rl;align-self:flex-end;margin-bottom:auto}
-.hero-img-wrap{width:100%;max-width:360px;aspect-ratio:3/4;background:linear-gradient(160deg,var(--gold-p),#E8DCC4);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.hero-img-wrap::before{content:'';position:absolute;width:180px;height:180px;border:1px solid rgba(184,150,62,.25);border-radius:50%}
-.hero-img-sym{font-size:4rem;color:rgba(184,150,62,.3);font-family:var(--font-serif)}
-.hero-cap{font-family:var(--font-serif);font-size:1.1rem;font-weight:400;color:var(--dark);letter-spacing:.08em;text-align:right;line-height:1.5}
-.hero-cap span{display:block;font-size:.72rem;font-family:var(--font-sans);letter-spacing:.12em;color:var(--stone);margin-top:6px;font-weight:300}
+/* CHAPTER 2 — テキストのみ、大型タイポ */
+.ch2{min-height:80vh;display:flex;flex-direction:column;justify-content:center;padding:100px 60px;border-bottom:1px solid rgba(255,255,255,.06)}
+.ch2-label{font-family:var(--font-sans);font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:32px;opacity:.7}
+.ch2-body{font-size:clamp(1.6rem,3.5vw,3.2rem);font-weight:300;line-height:1.5;max-width:900px;color:rgba(255,255,255,.85)}
+.ch2-body em{font-style:italic;color:var(--gold-l)}
+.ch2-aside{margin-top:60px;padding-left:60px;border-left:1px solid rgba(184,150,62,.3);max-width:400px}
+.ch2-aside p{font-family:var(--font-sans);font-size:.8rem;color:rgba(255,255,255,.35);line-height:1.9;font-weight:200}
 
-.marquee-wrap{padding:18px 0;border-top:1px solid rgba(184,150,62,.2);border-bottom:1px solid rgba(184,150,62,.2);background:var(--dark);overflow:hidden}
-.marquee-track{display:flex;white-space:nowrap;animation:mq 22s linear infinite}
-.mq-item{font-family:var(--font-serif);font-size:.95rem;color:var(--gold-l);letter-spacing:.15em;padding:0 36px;opacity:.7}
-.mq-dot{color:var(--gold);padding:0 6px}
-@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* CHAPTER 3 — コレクション、フルブリード2カラム */
+.ch3{display:grid;grid-template-columns:1fr 1fr}
+.ch3-item{aspect-ratio:3/4;position:relative;overflow:hidden;cursor:pointer}
+.ch3-item-img{position:absolute;inset:0;transition:transform 1s cubic-bezier(.25,.46,.45,.94)}
+.ch3-item:hover .ch3-item-img{transform:scale(1.04)}
+.c3-1{background:url('https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=800&q=80') center/cover}
+.c3-2{background:linear-gradient(160deg,#1A1410,#2D2520)}
+.c3-3{background:linear-gradient(160deg,#0D0D0D,#1A1410)}
+.c3-4{background:url('https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=80') center/cover;filter:grayscale(20%)}
+.ch3-item-info{position:absolute;bottom:0;left:0;right:0;padding:32px;background:linear-gradient(transparent,rgba(10,10,10,.7));transform:translateY(20px);opacity:0;transition:all .4s}
+.ch3-item:hover .ch3-item-info{transform:translateY(0);opacity:1}
+.ci-cat{font-family:var(--font-sans);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-l);margin-bottom:6px;font-weight:200}
+.ci-name{font-size:1.4rem;font-weight:300;color:#fff;font-style:italic}
+.ch3-big{grid-column:1/3;aspect-ratio:16/7}
+.ch3-big .c3-big-bg{background:url('https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?w=1400&q=80') center/cover;filter:brightness(.5)}
+.ch3-center-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px}
+.ch3-center-text h2{font-size:clamp(2.5rem,6vw,6rem);font-weight:300;font-style:italic;line-height:1;color:#fff;margin-bottom:20px}
+.ch3-center-text span{font-family:var(--font-sans);font-size:.7rem;letter-spacing:.2em;color:var(--gold-l);text-transform:uppercase;font-weight:200}
 
-.collections{padding:100px 60px;max-width:1400px;margin:0 auto}
-.col-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px}
-.col-head h2{font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:300;letter-spacing:.05em;line-height:1.3}
-.col-head h2 em{font-style:normal;color:var(--gold);font-weight:400}
-.see-all{display:flex;align-items:center;gap:10px;text-decoration:none;font-size:.72rem;letter-spacing:.15em;color:var(--stone);transition:gap .3s,color .3s}
-.see-all:hover{gap:18px;color:var(--dark)}
-.see-all-line{width:28px;height:1px;background:currentColor;position:relative}
-.see-all-line::after{content:'';position:absolute;right:-1px;top:-3px;width:6px;height:6px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg)}
-.col-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:auto auto;gap:3px}
-.col-item{overflow:hidden;position:relative;cursor:pointer}
-.col-item:first-child{grid-row:1/3}
-.col-ph{width:100%;min-height:280px;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:2.5rem;color:rgba(184,150,62,.3);transition:transform .8s cubic-bezier(.25,.46,.45,.94);position:relative;overflow:hidden}
-.col-item:hover .col-ph{transform:scale(1.04)}
-.col-item:nth-child(1) .col-ph{background:linear-gradient(160deg,#E8DCC4,#D4C4A0);min-height:580px}
-.col-item:nth-child(2) .col-ph{background:linear-gradient(160deg,#1A1A1A,#2D2D2D)}
-.col-item:nth-child(3) .col-ph{background:linear-gradient(160deg,#E0D8CC,#C8BFB5)}
-.col-item:nth-child(4) .col-ph{background:linear-gradient(160deg,#2D2A26,#1A1814)}
-.col-item:nth-child(5) .col-ph{background:linear-gradient(160deg,#C4BAB0,#A89890)}
-.col-overlay{position:absolute;bottom:0;left:0;right:0;padding:28px;background:linear-gradient(transparent,rgba(0,0,0,.6));opacity:0;transition:opacity .4s}
-.col-item:hover .col-overlay{opacity:1}
-.col-name{color:#fff;font-family:var(--font-serif);font-size:1.1rem;font-weight:400;letter-spacing:.08em}
-.col-sub{color:rgba(255,255,255,.5);font-size:.72rem;letter-spacing:.1em;margin-top:4px}
+/* CHAPTER 4 — 職人の話、左右分割 */
+.ch4{display:grid;grid-template-columns:1fr 1fr;min-height:80vh}
+.ch4-left{background:#0F0E0C;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.ch4-left-num{font-size:20rem;font-weight:300;color:rgba(184,150,62,.04);position:absolute;line-height:1;font-style:italic}
+.ch4-left-content{position:relative;z-index:1;padding:60px;text-align:center}
+.ch4-year{font-family:var(--font-sans);font-size:.65rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:20px;font-weight:200}
+.ch4-quote{font-size:clamp(1.4rem,2.5vw,2.2rem);font-weight:300;font-style:italic;line-height:1.5;color:rgba(255,255,255,.7);max-width:360px}
+.ch4-right{padding:80px 60px;display:flex;flex-direction:column;justify-content:center;background:var(--black);border-left:1px solid rgba(255,255,255,.06)}
+.ch4-label{font-family:var(--font-sans);font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;font-weight:200}
+.ch4-title{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;line-height:1.4;margin-bottom:28px}
+.ch4-title em{font-style:italic;color:var(--gold-l)}
+.ch4-body{font-family:var(--font-sans);font-size:.82rem;color:rgba(255,255,255,.38);line-height:2;font-weight:200;max-width:440px;margin-bottom:40px}
+.ch4-nums{display:flex;gap:40px}
+.cn{font-size:2.2rem;font-weight:300;font-style:italic;color:rgba(255,255,255,.6)}
+.cn-l{font-family:var(--font-sans);font-size:.65rem;letter-spacing:.1em;color:rgba(255,255,255,.25);margin-top:4px;font-weight:200}
+.cta-line{display:inline-flex;align-items:center;gap:16px;color:var(--gold-l);text-decoration:none;font-family:var(--font-sans);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;font-weight:200;margin-top:40px;transition:gap .3s}
+.cta-line:hover{gap:24px}
+.cta-line-bar{width:32px;height:1px;background:var(--gold);position:relative}
+.cta-line-bar::after{content:'';position:absolute;right:-1px;top:-3px;width:6px;height:6px;border-top:1px solid var(--gold);border-right:1px solid var(--gold);transform:rotate(45deg)}
 
-.craft{padding:100px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1400px;margin:0 auto}
-.craft-num-bg{font-family:var(--font-serif);font-size:7rem;font-weight:300;color:var(--gold-p);line-height:1;margin-bottom:-20px;position:relative;z-index:0}
-.craft-h2{font-family:var(--font-serif);font-size:clamp(1.8rem,2.8vw,2.6rem);font-weight:300;line-height:1.35;letter-spacing:.04em;margin-bottom:24px;position:relative;z-index:1}
-.craft-h2 em{font-style:normal;color:var(--gold)}
-.craft-body{font-size:.9rem;color:var(--stone);line-height:2;margin-bottom:36px}
-.craft-nums{display:flex;gap:44px;margin-bottom:36px}
-.cn-val{font-family:var(--font-serif);font-size:2rem;font-weight:300;color:var(--dark)}
-.cn-label{font-size:.68rem;letter-spacing:.12em;color:var(--light);margin-top:4px}
-.craft-link{display:inline-flex;align-items:center;gap:12px;text-decoration:none;font-size:.72rem;letter-spacing:.15em;color:var(--dark);transition:gap .3s}
-.craft-link:hover{gap:20px}
-.craft-link-line{width:32px;height:1px;background:var(--gold);position:relative}
-.craft-link-line::after{content:'';position:absolute;right:-1px;top:-3px;width:6px;height:6px;border-top:1px solid var(--gold);border-right:1px solid var(--gold);transform:rotate(45deg)}
-.craft-vis{position:relative}
-.craft-ph{width:100%;aspect-ratio:4/5;background:linear-gradient(160deg,#2D2A26,#1A1814);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:4rem;color:rgba(184,150,62,.3)}
-.craft-badge{position:absolute;bottom:-20px;right:-20px;width:110px;height:110px;background:var(--gold);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.cb-year{font-family:var(--font-serif);font-size:1.6rem;color:#fff;font-weight:300;line-height:1}
-.cb-text{font-size:.5rem;letter-spacing:.1em;color:rgba(255,255,255,.7);margin-top:2px}
+/* CHAPTER 5 — マテリアル */
+.ch5{padding:80px 60px;border-top:1px solid rgba(255,255,255,.06)}
+.ch5-row{display:grid;grid-template-columns:2fr 3fr;gap:80px;align-items:start}
+.ch5-label{font-family:var(--font-sans);font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-weight:200}
+.ch5-heading{font-size:clamp(2rem,3vw,3rem);font-weight:300;line-height:1.3;font-style:italic}
+.ch5-items{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.05)}
+.ch5-item{background:var(--black);padding:32px 24px;transition:background .3s}
+.ch5-item:hover{background:#0F0E0C}
+.ch5-sym{font-size:1.8rem;font-style:italic;color:rgba(184,150,62,.4);margin-bottom:12px}
+.ch5-name{font-size:1rem;font-weight:300;color:rgba(255,255,255,.7);margin-bottom:8px;font-style:italic}
+.ch5-desc{font-family:var(--font-sans);font-size:.75rem;color:rgba(255,255,255,.25);line-height:1.8;font-weight:200}
 
-.materials{padding:90px 60px;background:var(--dark)}
-.mat-inner{max-width:1400px;margin:0 auto}
-.mat-head{margin-bottom:52px}
-.mat-head h2{font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:300;color:#fff;letter-spacing:.05em}
-.mat-head h2 em{font-style:normal;color:var(--gold-l)}
-.mat-head p{color:rgba(255,255,255,.4);font-size:.875rem;margin-top:14px;max-width:460px;line-height:1.9}
-.mat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06)}
-.mat-item{background:var(--dark);padding:36px 28px;transition:background .3s}
-.mat-item:hover{background:#222}
-.mat-sym{font-family:var(--font-serif);font-size:2.2rem;color:var(--gold-l);margin-bottom:18px;display:block}
-.mat-name{font-family:var(--font-serif);font-size:1.1rem;font-weight:400;color:#fff;margin-bottom:8px}
-.mat-desc{font-size:.8rem;color:rgba(255,255,255,.35);line-height:1.8}
+/* CHAPTER 6 — お客様の声 */
+.ch6{padding:100px 60px;text-align:center;border-top:1px solid rgba(255,255,255,.06)}
+.ch6-mark{font-size:5rem;color:rgba(184,150,62,.15);font-style:italic;line-height:.8;margin-bottom:24px}
+.ch6-text{font-size:clamp(1.2rem,2.5vw,2rem);font-weight:300;font-style:italic;line-height:1.7;color:rgba(255,255,255,.65);max-width:700px;margin:0 auto 32px}
+.ch6-line{width:32px;height:1px;background:var(--gold);margin:0 auto 20px}
+.ch6-author{font-family:var(--font-sans);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.25);font-weight:200}
 
-.testimonial{padding:100px 60px;background:var(--warm);text-align:center}
-.test-inner{max-width:720px;margin:0 auto}
-.test-mark{font-family:var(--font-serif);font-size:4rem;color:var(--gold-p);line-height:.5;margin-bottom:28px}
-.test-body{font-family:var(--font-serif);font-size:clamp(1.1rem,1.8vw,1.5rem);font-weight:300;line-height:1.9;color:var(--dark);margin-bottom:32px}
-.test-author{font-size:.72rem;letter-spacing:.18em;color:var(--stone)}
-.test-line{width:36px;height:1px;background:var(--gold);margin:20px auto}
+/* CHAPTER 7 — お問い合わせ */
+.ch7{height:60vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
+.ch7-bg{position:absolute;inset:0;background:linear-gradient(135deg,#1A1208,#0A0A0A)}
+.ch7-content{position:relative;z-index:1}
+.ch7-label{font-family:var(--font-sans);font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;font-weight:200}
+.ch7-h2{font-size:clamp(2.5rem,5vw,5rem);font-weight:300;font-style:italic;line-height:1.1;margin-bottom:36px;color:#fff}
+.btn-gold{display:inline-block;padding:14px 40px;border:1px solid var(--gold);color:var(--gold-l);text-decoration:none;font-family:var(--font-sans);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:200;transition:all .4s}
+.btn-gold:hover{background:var(--gold);color:var(--black)}
 
-.newsletter{padding:90px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1400px;margin:0 auto;border-top:1px solid rgba(184,150,62,.15)}
-.newsletter h2{font-family:var(--font-serif);font-size:clamp(1.5rem,2.5vw,2.2rem);font-weight:300;line-height:1.4;letter-spacing:.04em}
-.newsletter h2 em{font-style:normal;color:var(--gold)}
-.newsletter p{color:var(--stone);font-size:.875rem;margin-top:14px;line-height:1.9}
-.nl-form{display:flex;flex-direction:column;gap:14px}
-.nl-input{background:transparent;border:none;border-bottom:1px solid var(--light);padding:12px 0;font-family:var(--font-sans);font-size:.9rem;color:var(--dark);outline:none;transition:border-color .3s;font-weight:300}
-.nl-input:focus{border-color:var(--gold)}
-.nl-input::placeholder{color:var(--light)}
-.nl-btn{display:inline-flex;align-items:center;justify-content:center;background:var(--dark);color:#fff;padding:14px 32px;font-family:var(--font-sans);font-size:.75rem;letter-spacing:.15em;border:none;cursor:pointer;align-self:flex-start;transition:background .3s;margin-top:6px}
-.nl-btn:hover{background:var(--gold)}
-.nl-note{font-size:.7rem;color:var(--light)}
-
-footer{background:var(--dark);padding:72px 60px 36px}
-.foot-inner{max-width:1400px;margin:0 auto}
-.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;margin-bottom:56px}
-.foot-logo{font-family:var(--font-serif);font-size:1.4rem;color:#fff;letter-spacing:.2em;margin-bottom:16px}
-.foot-text{font-size:.8rem;color:rgba(255,255,255,.3);line-height:1.9;max-width:220px}
-.foot-col h4{font-size:.65rem;letter-spacing:.2em;color:var(--gold-l);margin-bottom:18px}
-.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
-.foot-col a{color:rgba(255,255,255,.35);text-decoration:none;font-size:.8rem;transition:color .3s;letter-spacing:.04em}
-.foot-col a:hover{color:rgba(255,255,255,.75)}
-.foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:36px;border-top:1px solid rgba(255,255,255,.07)}
-.foot-copy{font-size:.72rem;color:rgba(255,255,255,.22);letter-spacing:.04em}
-.foot-gold{color:var(--gold-l)}
-
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.25,.46,.45,.94),transform .9s cubic-bezier(.25,.46,.45,.94)}
-.reveal.visible{opacity:1;transform:translateY(0)}
+/* FOOTER */
+footer{padding:48px 60px;border-top:1px solid rgba(255,255,255,.06);display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+.foot-links{display:flex;gap:28px;flex-wrap:wrap}
+.foot-links a{color:rgba(255,255,255,.25);text-decoration:none;font-family:var(--font-sans);font-size:.68rem;letter-spacing:.1em;font-weight:200;transition:color .3s}
+.foot-links a:hover{color:rgba(255,255,255,.6)}
+.foot-logo{font-family:var(--font-serif);font-size:1.2rem;font-weight:300;letter-spacing:.3em;text-transform:uppercase;text-align:center;color:#fff}
+.foot-copy{font-family:var(--font-sans);font-size:.65rem;color:rgba(255,255,255,.18);text-align:right;font-weight:200}
 
 @media(max-width:900px){
-  nav{padding:20px 24px}.nav-links{display:none}
-  .hero{grid-template-columns:1fr;height:auto}
-  .hero-left{min-height:60vh;padding:80px 28px 48px}
-  .hero-right{padding:40px 28px}
-  .collections{padding:72px 24px}.col-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
-  .col-item:first-child{grid-row:auto}.col-item:nth-child(1) .col-ph{min-height:280px}
-  .craft{padding:72px 24px;grid-template-columns:1fr}
-  .materials{padding:72px 24px}.mat-grid{grid-template-columns:1fr 1fr}
-  .newsletter{padding:72px 24px;grid-template-columns:1fr}
-  footer{padding:56px 24px 28px}.foot-top{grid-template-columns:1fr 1fr}
-  .foot-bottom{flex-direction:column;gap:12px}
+  nav .nl{display:none}
+  .ch3{grid-template-columns:1fr}
+  .ch3-big{grid-column:auto}
+  .ch3-big{aspect-ratio:4/3}
+  .ch4{grid-template-columns:1fr}
+  .ch5-row{grid-template-columns:1fr}
+  footer{grid-template-columns:1fr}
+  .foot-copy{text-align:left}
+  .ch1-h1{font-size:3.5rem}
 }
 </style>
 </head>
 <body>
-<nav id="nav">
-  <ul class="nav-links">
+<nav>
+  <ul class="nl">
     <li><a href="#">コレクション</a></li>
     <li><a href="#">職人の技</a></li>
-    <li><a href="#">特注品</a></li>
   </ul>
-  <div class="nav-logo">AURUM</div>
-  <ul class="nav-right">
+  <div class="n-logo">Aurum</div>
+  <ul class="nr">
+    <li><a href="#">特注品</a></li>
     <li><a href="#">アトリエ</a></li>
-    <li><a href="#">検索</a></li>
-    <li><a href="#">○ 0</a></li>
   </ul>
 </nav>
 
-<section class="hero">
-  <div class="hero-left">
-    <div class="hero-left-bg"></div>
-    <div class="hero-text">
-      <p class="hero-eyebrow">新作コレクション — 春 2024</p>
-      <h1 class="hero-h1">純金の記憶、<br>永遠の<em>輝き</em></h1>
-      <div class="hero-line"></div>
-      <p class="hero-desc">一点一点、東京の職人が手で生み出すジュエリー。素材の語る言葉に耳を傾け、あなただけの物語を形にする。</p>
-      <a href="#" class="hero-cta">
-        コレクションを見る
-        <span class="hero-cta-line"></span>
-      </a>
-    </div>
+<section class="ch1">
+  <div class="ch1-img"></div>
+  <div class="ch1-text">
+    <p class="ch1-eyebrow">Haru Collection 2024 — 銀座アトリエより</p>
+    <h1 class="ch1-h1">純金の記憶、<span>永遠の輝き</span></h1>
   </div>
-  <div class="hero-right">
-    <span class="hero-season">春コレクション 2024</span>
-    <div class="hero-img-wrap"><span class="hero-img-sym">◇</span></div>
-    <div class="hero-cap">
-      錦鯉ペンダント
-      <span>18Kゴールド・天然ダイヤモンド</span>
-    </div>
-  </div>
+  <div class="ch1-scroll">SCROLL<div class="ch1-scroll-line"></div></div>
 </section>
 
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <span class="mq-item">東京・銀座の工房で製作</span><span class="mq-dot">◆</span>
-    <span class="mq-item">倫理的調達を認定</span><span class="mq-dot">◆</span>
-    <span class="mq-item">100年保証</span><span class="mq-dot">◆</span>
-    <span class="mq-item">特注品承ります</span><span class="mq-dot">◆</span>
-    <span class="mq-item">1987年創業</span><span class="mq-dot">◆</span>
-    <span class="mq-item">東京・銀座の工房で製作</span><span class="mq-dot">◆</span>
-    <span class="mq-item">倫理的調達を認定</span><span class="mq-dot">◆</span>
-    <span class="mq-item">100年保証</span><span class="mq-dot">◆</span>
-    <span class="mq-item">特注品承ります</span><span class="mq-dot">◆</span>
-    <span class="mq-item">1987年創業</span><span class="mq-dot">◆</span>
-  </div>
-</div>
-
-<section class="collections reveal">
-  <div class="col-head">
-    <h2>私たちの<em>コレクション</em></h2>
-    <a href="#" class="see-all">すべて見る <span class="see-all-line"></span></a>
-  </div>
-  <div class="col-grid">
-    <div class="col-item"><div class="col-ph">◇</div><div class="col-overlay"><div class="col-name">春コレクション</div><div class="col-sub">2024年春 · 18点</div></div></div>
-    <div class="col-item"><div class="col-ph" style="color:rgba(212,175,107,.5)">✦</div><div class="col-overlay"><div class="col-name">月光シリーズ</div><div class="col-sub">ムーンライト · 9点</div></div></div>
-    <div class="col-item"><div class="col-ph">◈</div><div class="col-overlay"><div class="col-name">白金コレクション</div><div class="col-sub">ホワイトゴールド · 12点</div></div></div>
-    <div class="col-item"><div class="col-ph" style="color:rgba(212,175,107,.5)">❋</div><div class="col-overlay"><div class="col-name">錦鯉ペンダント</div><div class="col-sub">シグネチャー · 1点</div></div></div>
-    <div class="col-item"><div class="col-ph">◉</div><div class="col-overlay"><div class="col-name">婚約指輪</div><div class="col-sub">永遠 · 特注品</div></div></div>
-  </div>
+<section class="ch2">
+  <div class="ch2-label">私たちについて</div>
+  <p class="ch2-body">1987年、銀座の小さな工房で生まれた。<em>機械を使わない</em>、という一つの誓いとともに。37年間、それは変わっていない。</p>
+  <div class="ch2-aside"><p>職人の指が金に触れるとき、そこには言葉にならない対話がある。一点一点、素材の声を聴きながら、あなただけの宝飾品が生まれる。</p></div>
 </section>
 
-<section class="craft reveal">
-  <div>
-    <div class="craft-num-bg">37</div>
-    <h2 class="craft-h2">37年の<em>技術</em>が、<br>あなたの指に宿る</h2>
-    <p class="craft-body">私たちの職人は代々、銀座の工房で金と向き合ってきた。機械は一切使わない。すべての線、すべてのカットが、指先の感覚と経験のみによって生まれる。それが、Aurumの誓い。</p>
-    <div class="craft-nums">
-      <div><div class="cn-val">1987</div><div class="cn-label">創業年</div></div>
-      <div><div class="cn-val">3代</div><div class="cn-label">職人の系譜</div></div>
-      <div><div class="cn-val">100年</div><div class="cn-label">品質保証</div></div>
-    </div>
-    <a href="#" class="craft-link">職人のこだわりを見る <span class="craft-link-line"></span></a>
-  </div>
-  <div class="craft-vis">
-    <div class="craft-ph">◆</div>
-    <div class="craft-badge"><span class="cb-year">1987</span><span class="cb-text">Est. Tokyo</span></div>
-  </div>
-</section>
-
-<section class="materials reveal">
-  <div class="mat-inner">
-    <div class="mat-head">
-      <h2>厳選された<em>素材</em></h2>
-      <p>世界の産地から、倫理的に調達された最高品質の素材のみを使用。それぞれの石が持つ固有の表情を生かし、最適な形に導く。</p>
-    </div>
-    <div class="mat-grid">
-      <div class="mat-item"><span class="mat-sym">◈</span><div class="mat-name">ダイヤモンド</div><p class="mat-desc">南アフリカ産・GIA認定。カット・カラー・クラリティを職人が直接選定。</p></div>
-      <div class="mat-item"><span class="mat-sym">◇</span><div class="mat-name">18Kゴールド</div><p class="mat-desc">純金75%のアロイ。日本の気候に合わせた独自配合で変色しにくい。</p></div>
-      <div class="mat-item"><span class="mat-sym">✦</span><div class="mat-name">プラチナ950</div><p class="mat-desc">純度95%。婚約指輪に最適な強度と輝きを持つ希少金属。</p></div>
-      <div class="mat-item"><span class="mat-sym">❋</span><div class="mat-name">天然石</div><p class="mat-desc">ルビー、サファイア、エメラルド。職人が産地で直接買い付け。</p></div>
+<section class="ch3">
+  <div class="ch3-item"><div class="ch3-item-img c3-1"></div><div class="ch3-item-info"><div class="ci-cat">婚約指輪</div><div class="ci-name">Hana Ring</div></div></div>
+  <div class="ch3-item"><div class="ch3-item-img c3-2" style="display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:8rem;color:rgba(184,150,62,.15);font-style:italic">◇</div><div class="ch3-item-info"><div class="ci-cat">ペンダント</div><div class="ci-name">Tsuki Pendant</div></div></div>
+  <div class="ch3-item"><div class="ch3-item-img c3-3" style="display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:8rem;color:rgba(184,150,62,.1);font-style:italic">✦</div><div class="ch3-item-info"><div class="ci-cat">ブレスレット</div><div class="ci-name">Kawa Series</div></div></div>
+  <div class="ch3-item"><div class="ch3-item-img c3-4"></div><div class="ch3-item-info"><div class="ci-cat">イヤリング</div><div class="ci-name">Shiro Drops</div></div></div>
+  <div class="ch3-item ch3-big">
+    <div class="ch3-item-img c3-big-bg" style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1573408301185-9519f94815b7?w=1400&q=80') center/cover;filter:brightness(.45)"></div>
+    <div class="ch3-center-text">
+      <h2>Spring 2024</h2>
+      <span>新コレクション 4月15日公開</span>
     </div>
   </div>
 </section>
 
-<section class="testimonial reveal">
-  <div class="test-inner">
-    <div class="test-mark">&ldquo;</div>
-    <p class="test-body">プロポーズ用の指輪をオーダーメイドでお願いしました。彼女の好みを伝えただけなのに、私が思い描いていた以上のものができあがりました。あの日のことは一生忘れません。</p>
-    <div class="test-line"></div>
-    <p class="test-author">K.T. — 東京都在住 · 婚約指輪オーダー</p>
+<section class="ch4">
+  <div class="ch4-left">
+    <div class="ch4-left-num">37</div>
+    <div class="ch4-left-content">
+      <div class="ch4-year">Since 1987</div>
+      <p class="ch4-quote">「金は語る。職人はただ、その声を形にするだけだ」</p>
+    </div>
+  </div>
+  <div class="ch4-right">
+    <div class="ch4-label">職人の系譜</div>
+    <h2 class="ch4-title">37年の<em>技術</em>が、<br>あなたの指に宿る</h2>
+    <p class="ch4-body">私たちの職人は代々、銀座の工房で金と向き合ってきた。機械は一切使わない。すべての線、すべてのカットが、指先の感覚と経験のみによって生まれる。</p>
+    <div class="ch4-nums">
+      <div><div class="cn">1987</div><div class="cn-l">創業</div></div>
+      <div><div class="cn">3代</div><div class="cn-l">職人の系譜</div></div>
+      <div><div class="cn">100年</div><div class="cn-l">保証</div></div>
+    </div>
+    <a href="#" class="cta-line">職人の仕事を見る<span class="cta-line-bar"></span></a>
   </div>
 </section>
 
-<section class="newsletter reveal">
-  <div>
-    <h2>新作を<em>最初</em>に知る</h2>
-    <p>ニュースレターに登録いただいた方には、シーズン開始の1週間前に新コレクションをご案内します。</p>
+<section class="ch5">
+  <div class="ch5-row">
+    <div>
+      <div class="ch5-label">素材へのこだわり</div>
+      <h2 class="ch5-heading">世界から、<br>最良の声を。</h2>
+    </div>
+    <div class="ch5-items">
+      <div class="ch5-item"><div class="ch5-sym">◈</div><div class="ch5-name">Diamond</div><div class="ch5-desc">南アフリカ産・GIA認定。職人が産地で直接選定。</div></div>
+      <div class="ch5-item"><div class="ch5-sym">◇</div><div class="ch5-name">18K Gold</div><div class="ch5-desc">純金75%。日本の気候に合わせた独自配合。</div></div>
+      <div class="ch5-item"><div class="ch5-sym">✦</div><div class="ch5-name">Platinum 950</div><div class="ch5-desc">純度95%。婚約指輪に最適な強度と輝き。</div></div>
+      <div class="ch5-item"><div class="ch5-sym">❋</div><div class="ch5-name">Natural Gems</div><div class="ch5-desc">ルビー、サファイア、エメラルド。産地直輸入。</div></div>
+    </div>
   </div>
-  <div class="nl-form">
-    <input type="email" class="nl-input" placeholder="メールアドレスを入力">
-    <button class="nl-btn">登録する</button>
-    <p class="nl-note">スパムはお送りしません。いつでも解除できます。</p>
+</section>
+
+<section class="ch6">
+  <div class="ch6-mark">&ldquo;</div>
+  <p class="ch6-text">プロポーズの指輪をオーダーメイドでお願いしました。あの日のことは一生忘れません。</p>
+  <div class="ch6-line"></div>
+  <div class="ch6-author">K.T. · 東京都在住 · 婚約指輪オーダー</div>
+</section>
+
+<section class="ch7">
+  <div class="ch7-bg"></div>
+  <div class="ch7-content">
+    <div class="ch7-label">お問い合わせ</div>
+    <h2 class="ch7-h2">あなたの物語を、<br>金に刻む</h2>
+    <a href="#" class="btn-gold">アトリエへ相談する</a>
   </div>
 </section>
 
 <footer>
-  <div class="foot-inner">
-    <div class="foot-top">
-      <div><div class="foot-logo">AURUM</div><p class="foot-text">1987年創業。東京・銀座の工房から、世界へ。人の手が、金に魂を吹き込む。</p></div>
-      <div class="foot-col"><h4>コレクション</h4><ul><li><a href="#">春 2024</a></li><li><a href="#">月光シリーズ</a></li><li><a href="#">婚約指輪</a></li><li><a href="#">特注品</a></li></ul></div>
-      <div class="foot-col"><h4>アトリエ</h4><ul><li><a href="#">私たちについて</a></li><li><a href="#">職人紹介</a></li><li><a href="#">素材へのこだわり</a></li><li><a href="#">制作工程</a></li></ul></div>
-      <div class="foot-col"><h4>ご来店</h4><ul><li><a href="#">銀座アトリエ</a></li><li><a href="#">お問い合わせ</a></li><li><a href="#">お手入れガイド</a></li><li><a href="#">保証について</a></li></ul></div>
-    </div>
-    <div class="foot-bottom">
-      <span class="foot-copy">© 2024 Aurum Tokyo. 無断転載禁止. <span class="foot-gold">東京都中央区銀座三丁目</span></span>
-      <span class="foot-copy">Instagram · Pinterest</span>
-    </div>
+  <div class="foot-links">
+    <a href="#">コレクション</a><a href="#">職人の技</a><a href="#">特注品</a><a href="#">アクセス</a><a href="#">プライバシー</a>
   </div>
+  <div class="foot-logo">Aurum</div>
+  <div class="foot-copy">© 2024 Aurum Tokyo<br>東京都中央区銀座三丁目</div>
 </footer>
-
-<script>
-window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60)});
-const reveals=document.querySelectorAll('.reveal');
-const io=new IntersectionObserver(e=>{e.forEach(r=>{if(r.isIntersecting){r.target.classList.add('visible');io.unobserve(r.target);}});},{threshold:.08});
-reveals.forEach(r=>io.observe(r));
-</script>
 </body>
 </html>

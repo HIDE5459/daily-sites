@@ -3,294 +3,281 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>そらクリニック — こころと体に、やさしい医療を</title>
-<meta name="description" content="東京・代々木のメンタルヘルスクリニック。オンライン予約対応。心療内科・精神科・カウンセリング。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<title>そらクリニック | こころとからだのケア</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#F8FAF9;--white:#FFFFFF;--mint:#4ABFA0;--mint-l:#E6F7F3;--mint-d:#2D9B82;--sage:#7EA99A;--dark:#1C2B28;--muted:#6B7E79;--light:#B8CCC8;--warn:#F5A623;--font-serif:'Noto Serif JP',serif;--font-sans:'Noto Sans JP',sans-serif}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --mint:#3DBFA0;--mint-l:#E8F8F4;--mint-m:#A8DDD1;
+  --peach:#F7A58C;--lav:#C4B5E8;--lav-l:#F0EDF9;
+  --warm:#FDF8F3;--text:#2D3142;--muted:#8B92A5;
+  --font:'Noto Sans JP',sans-serif;--serif:'Noto Serif JP',serif
+}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--dark);font-family:var(--font-sans);font-weight:300;line-height:1.8;overflow-x:hidden}
+body{background:var(--warm);color:var(--text);font-family:var(--font);overflow-x:hidden}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 56px;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
-nav.scrolled{background:rgba(248,250,249,.96);backdrop-filter:blur(12px);padding:14px 56px;box-shadow:0 1px 0 rgba(0,0,0,.06)}
-.nav-logo{display:flex;align-items:center;gap:10px}
-.nav-logo-mark{width:36px;height:36px;background:var(--mint);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem}
-.nav-logo-text{font-family:var(--font-serif);font-size:1.1rem;font-weight:400;color:var(--dark);letter-spacing:.06em}
-.nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:400;transition:color .2s}
-.nav-links a:hover{color:var(--dark)}
-.nav-book{background:var(--mint);color:#fff;padding:10px 24px;border-radius:100px;font-size:.875rem;font-weight:500;border:none;cursor:pointer;transition:all .2s;font-family:var(--font-sans)}
-.nav-book:hover{background:var(--mint-d);transform:translateY(-1px);box-shadow:0 8px 24px rgba(74,191,160,.3)}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,248,243,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(61,191,160,.12);padding:0 40px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.n-logo{display:flex;align-items:center;gap:10px}
+.n-logo-mark{width:32px;height:32px;background:var(--mint);border-radius:50% 50% 50% 20%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.9rem}
+.n-logo-text{font-family:var(--serif);font-size:1.1rem;font-weight:400;color:var(--text);letter-spacing:.05em}
+.n-links{display:flex;gap:28px}
+.n-links a{color:var(--muted);text-decoration:none;font-size:.82rem;font-weight:300;transition:color .2s}
+.n-links a:hover{color:var(--mint)}
+.n-cta{background:var(--mint);color:#fff;padding:9px 22px;border-radius:50px;font-size:.82rem;font-weight:500;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.n-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(61,191,160,.35)}
 
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
-.hero-left{display:flex;flex-direction:column;justify-content:center;padding:120px 64px 80px;background:var(--white)}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--mint-l);color:var(--mint-d);padding:6px 14px;border-radius:100px;font-size:.78rem;font-weight:500;margin-bottom:28px;width:fit-content}
-.hero-tag::before{content:'';width:6px;height:6px;background:var(--mint);border-radius:50%}
-h1{font-family:var(--font-serif);font-size:clamp(2.2rem,3.5vw,3.2rem);font-weight:300;line-height:1.4;letter-spacing:.02em;margin-bottom:20px}
-h1 em{color:var(--mint);font-style:normal}
-.hero-sub{font-size:.95rem;color:var(--muted);line-height:1.9;max-width:440px;margin-bottom:36px}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
-.btn-mint{background:var(--mint);color:#fff;padding:14px 28px;border-radius:100px;font-size:.9rem;font-weight:500;border:none;cursor:pointer;transition:all .25s;font-family:var(--font-sans);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
-.btn-mint:hover{background:var(--mint-d);transform:translateY(-2px);box-shadow:0 12px 32px rgba(74,191,160,.3)}
-.btn-outline{background:transparent;color:var(--dark);padding:14px 28px;border-radius:100px;font-size:.9rem;font-weight:400;border:1.5px solid var(--light);cursor:pointer;transition:all .25s;font-family:var(--font-sans);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+/* HERO — 有機的ブロブ */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:100px 60px 80px;gap:60px;position:relative;overflow:hidden}
+.blob1{position:absolute;top:-10%;right:-5%;width:600px;height:600px;background:radial-gradient(ellipse,rgba(61,191,160,.12),transparent 70%);border-radius:60% 40% 70% 30%/50% 60% 40% 70%;animation:blob 12s ease-in-out infinite}
+.blob2{position:absolute;bottom:-15%;left:-8%;width:500px;height:500px;background:radial-gradient(ellipse,rgba(196,181,232,.15),transparent 70%);border-radius:40% 60% 30% 70%/60% 40% 70% 30%;animation:blob 15s ease-in-out infinite reverse}
+@keyframes blob{0%,100%{border-radius:60% 40% 70% 30%/50% 60% 40% 70%}50%{border-radius:30% 70% 40% 60%/60% 30% 70% 40%}}
+.hero-text{position:relative;z-index:1}
+.hero-chip{display:inline-flex;align-items:center;gap:8px;background:var(--mint-l);color:var(--mint);padding:6px 16px;border-radius:50px;font-size:.75rem;font-weight:500;margin-bottom:28px}
+.chip-dot{width:6px;height:6px;background:var(--mint);border-radius:50%;animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.6}}
+.hero-h1{font-family:var(--serif);font-size:clamp(2.2rem,3.5vw,3.5rem);font-weight:400;line-height:1.45;color:var(--text);margin-bottom:20px}
+.hero-h1 em{color:var(--mint);font-style:normal}
+.hero-p{font-size:.9rem;color:var(--muted);line-height:2;font-weight:300;max-width:420px;margin-bottom:36px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+.btn-primary{background:var(--mint);color:#fff;padding:13px 28px;border-radius:50px;font-size:.85rem;font-weight:500;text-decoration:none;box-shadow:0 8px 24px rgba(61,191,160,.3);transition:all .25s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(61,191,160,.4)}
+.btn-outline{background:transparent;color:var(--text);padding:13px 28px;border-radius:50px;border:1.5px solid rgba(45,49,66,.15);font-size:.85rem;text-decoration:none;transition:all .25s}
 .btn-outline:hover{border-color:var(--mint);color:var(--mint)}
-.hero-trust{display:flex;align-items:center;gap:16px}
-.trust-avatars{display:flex}
-.avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--mint-l),var(--mint));border:2px solid #fff;margin-left:-8px}
-.avatar:first-child{margin-left:0}
-.trust-text{font-size:.82rem;color:var(--muted);line-height:1.5}
-.trust-text strong{color:var(--dark);font-weight:500}
-.hero-right{background:linear-gradient(160deg,#E8F5F1,#D4EDE7);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:80px 48px}
-.hero-card{background:#fff;border-radius:20px;padding:32px;box-shadow:0 24px 64px rgba(0,0,0,.08);max-width:320px;width:100%;position:relative;z-index:1}
-.hc-label{font-size:.72rem;color:var(--muted);letter-spacing:.08em;margin-bottom:20px;font-weight:400}
-.hc-title{font-family:var(--font-serif);font-size:1.05rem;font-weight:400;color:var(--dark);margin-bottom:20px;line-height:1.5}
-.hc-slots{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
-.slot{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-radius:10px;cursor:pointer;transition:background .2s}
-.slot:hover{background:var(--mint-l)}
-.slot.open{background:var(--mint-l)}
-.slot-time{font-size:.85rem;font-weight:500;color:var(--dark)}
-.slot-status{font-size:.72rem;padding:3px 10px;border-radius:100px;font-weight:500}
-.slot.open .slot-status{background:var(--mint);color:#fff}
-.slot.full .slot-status{background:#F0F0F0;color:var(--muted)}
-.slot-doctor{font-size:.75rem;color:var(--muted);font-weight:300}
-.hc-btn{width:100%;padding:13px;background:var(--mint);color:#fff;border:none;border-radius:100px;font-size:.875rem;font-weight:500;cursor:pointer;font-family:var(--font-sans);transition:all .2s}
-.hc-btn:hover{background:var(--mint-d)}
-.hero-circles{position:absolute;inset:0}
-.hc1{position:absolute;width:300px;height:300px;border:1px solid rgba(74,191,160,.15);border-radius:50%;top:-80px;right:-80px}
-.hc2{position:absolute;width:200px;height:200px;border:1px solid rgba(74,191,160,.1);border-radius:50%;bottom:40px;left:-40px}
+.hero-trust{display:flex;gap:24px}
+.ht{display:flex;flex-direction:column}
+.ht-n{font-size:1.6rem;font-weight:500;color:var(--text)}
+.ht-l{font-size:.72rem;color:var(--muted);font-weight:300}
+.hero-card{position:relative;z-index:1}
+.hc-main{background:#fff;border-radius:28px;padding:32px;box-shadow:0 20px 60px rgba(45,49,66,.08)}
+.hc-top{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+.hc-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--mint),var(--lav));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.3rem}
+.hc-name{font-size:.95rem;font-weight:500}
+.hc-sub{font-size:.75rem;color:var(--muted);margin-top:2px;font-weight:300}
+.hc-label{font-size:.72rem;color:var(--muted);font-weight:300;margin-bottom:12px}
+.slot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:20px}
+.slot{padding:8px 4px;border-radius:10px;background:var(--mint-l);color:var(--mint);font-size:.72rem;text-align:center;font-weight:500;cursor:pointer;transition:all .2s}
+.slot:hover,.slot.sel{background:var(--mint);color:#fff}
+.slot.off{background:#F5F5F5;color:var(--muted);cursor:default}
+.hc-btn{width:100%;background:var(--mint);color:#fff;padding:12px;border-radius:14px;border:none;font-family:var(--font);font-size:.85rem;font-weight:500;cursor:pointer;transition:all .25s}
+.hc-btn:hover{background:#2DA88C;box-shadow:0 8px 20px rgba(61,191,160,.3)}
+.float-badges{position:absolute}
+.fb1{top:-20px;right:20px;background:#fff;border-radius:16px;padding:10px 16px;box-shadow:0 8px 24px rgba(45,49,66,.1);display:flex;align-items:center;gap:8px;font-size:.78rem;font-weight:500}
+.fb2{bottom:0px;left:-20px;background:#fff;border-radius:16px;padding:10px 16px;box-shadow:0 8px 24px rgba(45,49,66,.1);font-size:.75rem;color:var(--muted);font-weight:300}
+.fb-icon{width:28px;height:28px;border-radius:50%;background:var(--lav-l);display:flex;align-items:center;justify-content:center;font-size:.85rem}
 
-.issues{padding:80px 56px;background:var(--white)}
-.issues-inner{max-width:1200px;margin:0 auto}
-.issues-label{font-size:.72rem;letter-spacing:.14em;color:var(--mint);font-weight:500;margin-bottom:16px}
-.issues-title{font-family:var(--font-serif);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:300;line-height:1.45;margin-bottom:48px}
-.issues-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.issue-card{background:var(--bg);padding:28px;border-radius:16px;transition:box-shadow .3s}
-.issue-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.06)}
-.issue-icon{font-size:1.6rem;margin-bottom:14px}
-.issue-card h3{font-size:.95rem;font-weight:500;color:var(--dark);margin-bottom:8px;line-height:1.5}
-.issue-card p{font-size:.85rem;color:var(--muted);line-height:1.8}
+/* SYMPTOMS */
+.symptoms{padding:80px 60px;background:#fff}
+.sec-chip{display:inline-block;background:var(--mint-l);color:var(--mint);padding:4px 14px;border-radius:50px;font-size:.72rem;font-weight:500;margin-bottom:16px}
+.sec-title{font-family:var(--serif);font-size:clamp(1.6rem,2.5vw,2.4rem);font-weight:400;color:var(--text);margin-bottom:8px;line-height:1.4}
+.sec-sub{font-size:.85rem;color:var(--muted);font-weight:300;line-height:1.9;max-width:480px}
+.symp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.symp-card{background:var(--warm);border-radius:20px;padding:28px 24px;transition:all .3s;cursor:pointer}
+.symp-card:hover{background:var(--mint-l);transform:translateY(-4px);box-shadow:0 12px 32px rgba(61,191,160,.12)}
+.symp-icon{width:48px;height:48px;border-radius:14px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+.ic1{background:rgba(61,191,160,.12)}
+.ic2{background:rgba(196,181,232,.2)}
+.ic3{background:rgba(247,165,140,.15)}
+.ic4{background:rgba(61,191,160,.1)}
+.ic5{background:rgba(196,181,232,.15)}
+.ic6{background:rgba(247,165,140,.12)}
+.symp-card h3{font-size:.95rem;font-weight:500;margin-bottom:8px;color:var(--text)}
+.symp-card p{font-size:.78rem;color:var(--muted);line-height:1.75;font-weight:300}
 
-.features{padding:80px 56px;background:var(--dark)}
-.features-inner{max-width:1200px;margin:0 auto}
-.feat-label{font-size:.72rem;letter-spacing:.14em;color:var(--mint);font-weight:500;margin-bottom:16px}
-.feat-title{font-family:var(--font-serif);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:300;color:#fff;line-height:1.45;margin-bottom:56px}
-.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
-.feat-item{background:#243530;padding:36px 28px;transition:background .3s}
-.feat-item:hover{background:#2A3D38}
-.feat-num{font-family:var(--font-serif);font-size:2.5rem;color:rgba(74,191,160,.3);line-height:1;margin-bottom:16px;font-weight:300}
-.feat-item h3{font-size:.95rem;font-weight:500;color:#fff;margin-bottom:10px}
-.feat-item p{font-size:.83rem;color:rgba(255,255,255,.4);line-height:1.8}
+/* STEPS */
+.steps{padding:80px 60px;background:linear-gradient(180deg,#fff 0%,var(--warm) 100%)}
+.steps-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.step-list{display:flex;flex-direction:column;gap:0}
+.step-item{display:flex;gap:20px;padding:28px 0;border-bottom:1px solid rgba(45,49,66,.06);transition:background .2s}
+.step-item:last-child{border-bottom:none}
+.step-num{width:44px;height:44px;border-radius:50%;background:var(--mint-l);color:var(--mint);font-size:.85rem;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-title{font-size:.95rem;font-weight:500;margin-bottom:6px}
+.step-desc{font-size:.8rem;color:var(--muted);line-height:1.75;font-weight:300}
 
-.doctors{padding:80px 56px;background:var(--white)}
-.doc-inner{max-width:1200px;margin:0 auto}
-.doc-label{font-size:.72rem;letter-spacing:.14em;color:var(--mint);font-weight:500;margin-bottom:16px}
-.doc-title{font-family:var(--font-serif);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:300;line-height:1.45;margin-bottom:48px}
-.doc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-.doc-card{text-align:center}
-.doc-photo{width:120px;height:120px;background:linear-gradient(135deg,var(--mint-l),var(--mint));border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:rgba(74,191,160,.5)}
-.doc-name{font-family:var(--font-serif);font-size:1.05rem;font-weight:400;color:var(--dark);margin-bottom:4px}
-.doc-title-text{font-size:.78rem;color:var(--mint);font-weight:500;margin-bottom:10px;letter-spacing:.04em}
-.doc-bio{font-size:.82rem;color:var(--muted);line-height:1.8}
+/* DOCTORS */
+.doctors{padding:80px 60px;background:#fff}
+.doc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+.doc-card{background:var(--warm);border-radius:20px;padding:28px;transition:all .3s}
+.doc-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(45,49,66,.08)}
+.doc-avatar{width:72px;height:72px;border-radius:50%;margin-bottom:16px;overflow:hidden;background:linear-gradient(135deg,var(--mint-m),var(--lav))}
+.doc-av-img{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;color:#fff}
+.doc-name{font-size:1rem;font-weight:500;margin-bottom:4px}
+.doc-role{font-size:.75rem;color:var(--mint);font-weight:400;margin-bottom:12px}
+.doc-bio{font-size:.78rem;color:var(--muted);line-height:1.8;font-weight:300}
+.doc-tag{display:inline-block;background:var(--mint-l);color:var(--mint);padding:3px 10px;border-radius:50px;font-size:.68rem;margin-top:12px;font-weight:400}
 
-.flow{padding:80px 56px;background:var(--bg)}
-.flow-inner{max-width:1000px;margin:0 auto}
-.flow-label{font-size:.72rem;letter-spacing:.14em;color:var(--mint);font-weight:500;margin-bottom:16px}
-.flow-title{font-family:var(--font-serif);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:300;line-height:1.45;margin-bottom:48px}
-.flow-steps{display:flex;flex-direction:column;gap:0}
-.flow-step{display:grid;grid-template-columns:80px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid rgba(184,204,200,.4);position:relative}
-.flow-step:last-child{border-bottom:none}
-.fs-num{width:56px;height:56px;background:var(--mint-l);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:1.2rem;color:var(--mint-d);font-weight:400;flex-shrink:0}
-.fs-content h3{font-size:1rem;font-weight:500;color:var(--dark);margin-bottom:6px}
-.fs-content p{font-size:.875rem;color:var(--muted);line-height:1.8}
+/* FAQ */
+.faq{padding:80px 60px;background:var(--warm)}
+.faq-inner{display:grid;grid-template-columns:1fr 2fr;gap:80px}
+.faq-list{display:flex;flex-direction:column;gap:0}
+.faq-item{border-bottom:1px solid rgba(45,49,66,.08);overflow:hidden}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-size:.9rem;font-weight:400;color:var(--text)}
+.faq-q span{color:var(--mint);font-size:1.1rem;transition:transform .3s}
+.faq-item.open .faq-q span{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-item.open .faq-a{max-height:200px}
+.faq-a p{font-size:.82rem;color:var(--muted);line-height:1.85;padding-bottom:20px;font-weight:300}
 
-.booking{padding:80px 56px;background:linear-gradient(135deg,var(--mint),var(--mint-d));text-align:center}
-.booking-inner{max-width:680px;margin:0 auto}
-.booking h2{font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:300;color:#fff;line-height:1.4;margin-bottom:16px}
-.booking p{color:rgba(255,255,255,.75);font-size:.95rem;margin-bottom:36px;line-height:1.8}
-.btn-white{background:#fff;color:var(--mint-d);padding:16px 36px;border-radius:100px;font-size:1rem;font-weight:500;border:none;cursor:pointer;font-family:var(--font-sans);transition:all .25s;display:inline-block;text-decoration:none}
-.btn-white:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.15)}
-.booking-note{font-size:.78rem;color:rgba(255,255,255,.6);margin-top:16px}
+/* CTA */
+.cta{margin:0 40px 80px;background:linear-gradient(135deg,var(--mint),#2DA88C);border-radius:32px;padding:64px 60px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:40px}
+.cta h2{font-family:var(--serif);font-size:clamp(1.6rem,2.5vw,2.4rem);font-weight:400;color:#fff;line-height:1.4}
+.cta p{font-size:.88rem;color:rgba(255,255,255,.75);margin-top:10px;font-weight:300;line-height:1.8}
+.btn-white{background:#fff;color:var(--mint);padding:14px 32px;border-radius:50px;font-size:.88rem;font-weight:500;text-decoration:none;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.15);transition:all .25s}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,.2)}
 
-footer{background:var(--dark);padding:64px 56px 36px}
-.foot-inner{max-width:1200px;margin:0 auto}
-.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px}
-.foot-logo-w{font-family:var(--font-serif);font-size:1.1rem;color:#fff;letter-spacing:.06em}
-.foot-brand-p{font-size:.82rem;color:rgba(255,255,255,.3);margin-top:12px;line-height:1.8;max-width:240px}
-.foot-col h4{font-size:.72rem;letter-spacing:.12em;color:var(--mint);font-weight:500;margin-bottom:16px}
-.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.foot-col a{color:rgba(255,255,255,.35);text-decoration:none;font-size:.82rem;transition:color .2s;font-weight:300}
-.foot-col a:hover{color:rgba(255,255,255,.7)}
-.foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid rgba(255,255,255,.07);flex-wrap:wrap;gap:12px}
-.foot-copy{font-size:.72rem;color:rgba(255,255,255,.22)}
-
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
+/* FOOTER */
+footer{background:#fff;border-top:1px solid rgba(45,49,66,.07);padding:48px 60px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.foot-brand .f-logo{font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:12px;color:var(--text)}
+.foot-brand p{font-size:.78rem;color:var(--muted);line-height:1.85;font-weight:300}
+footer h4{font-size:.8rem;font-weight:500;margin-bottom:14px;color:var(--text)}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+footer ul li a{font-size:.78rem;color:var(--muted);text-decoration:none;font-weight:300;transition:color .2s}
+footer ul li a:hover{color:var(--mint)}
+.foot-bottom{margin-top:40px;padding-top:24px;border-top:1px solid rgba(45,49,66,.07);font-size:.72rem;color:var(--muted);font-weight:300;grid-column:1/-1}
 
 @media(max-width:900px){
-  nav{padding:16px 24px}.nav-links{display:none}
-  .hero{grid-template-columns:1fr;min-height:auto}
-  .hero-left{padding:90px 28px 48px}
-  .hero-right{padding:48px 28px;min-height:400px}
-  .issues{padding:60px 24px}.issues-grid{grid-template-columns:1fr}
-  .features{padding:60px 24px}.feat-grid{grid-template-columns:1fr}
-  .doctors{padding:60px 24px}.doc-grid{grid-template-columns:1fr}
-  .flow{padding:60px 24px}
-  .booking{padding:60px 24px}
-  footer{padding:56px 24px 28px}.foot-top{grid-template-columns:1fr 1fr}
-  .foot-bottom{flex-direction:column}
+  .hero{grid-template-columns:1fr;padding:80px 24px 60px}
+  .hero-card{display:none}
+  .symp-grid{grid-template-columns:1fr 1fr}
+  .steps-inner{grid-template-columns:1fr}
+  .doc-grid{grid-template-columns:1fr 1fr}
+  .faq-inner{grid-template-columns:1fr}
+  .cta{grid-template-columns:1fr;padding:40px 28px}
+  footer{grid-template-columns:1fr 1fr;padding:40px 24px}
+  section,.symptoms,.steps,.doctors,.faq{padding:56px 24px}
 }
 </style>
 </head>
 <body>
-<nav id="nav">
-  <div class="nav-logo">
-    <div class="nav-logo-mark">☽</div>
-    <span class="nav-logo-text">そらクリニック</span>
+<nav>
+  <div class="n-logo">
+    <div class="n-logo-mark">✿</div>
+    <span class="n-logo-text">そらクリニック</span>
   </div>
-  <ul class="nav-links">
-    <li><a href="#">診療科目</a></li>
-    <li><a href="#">医師紹介</a></li>
-    <li><a href="#">初診の方へ</a></li>
-    <li><a href="#">アクセス</a></li>
-  </ul>
-  <button class="nav-book">オンライン予約</button>
+  <div class="n-links">
+    <a href="#">こんな方に</a>
+    <a href="#">受診の流れ</a>
+    <a href="#">医師紹介</a>
+    <a href="#">よくある質問</a>
+  </div>
+  <a href="#" class="n-cta">予約する</a>
 </nav>
 
 <section class="hero">
-  <div class="hero-left">
-    <div class="hero-tag">心療内科 · 精神科 · カウンセリング</div>
-    <h1>こころと体に、<br><em>やさしい</em>医療を</h1>
-    <p class="hero-sub">一人で抱えないでください。そらクリニックは、あなたのペースに合わせた、安心できる医療環境を提供しています。初診はオンラインでも受け付けています。</p>
+  <div class="blob1"></div>
+  <div class="blob2"></div>
+  <div class="hero-text">
+    <div class="hero-chip"><div class="chip-dot"></div>初回相談 無料</div>
+    <h1 class="hero-h1">こころが<em>疲れたとき</em>、<br>一人で抱えないで。</h1>
+    <p class="hero-p">そらクリニックは、不安・ストレス・睡眠の悩みに寄り添う心療内科・精神科クリニックです。完全予約制、プライバシーに配慮した空間でお待ちしています。</p>
     <div class="hero-btns">
-      <a href="#" class="btn-mint">オンラインで予約する →</a>
-      <a href="#" class="btn-outline">初診の方へ</a>
+      <a href="#" class="btn-primary">無料相談を予約する</a>
+      <a href="#" class="btn-outline">診療内容を見る</a>
     </div>
     <div class="hero-trust">
-      <div class="trust-avatars">
-        <div class="avatar"></div><div class="avatar"></div><div class="avatar"></div><div class="avatar"></div>
-      </div>
-      <div class="trust-text"><strong>2,400名以上</strong>が当院で<br>新しい一歩を踏み出しました</div>
+      <div class="ht"><div class="ht-n">8,000+</div><div class="ht-l">相談実績</div></div>
+      <div class="ht"><div class="ht-n">4.9★</div><div class="ht-l">患者満足度</div></div>
+      <div class="ht"><div class="ht-n">当日</div><div class="ht-l">予約可能</div></div>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-circles">
-      <div class="hc1"></div><div class="hc2"></div>
+  <div class="hero-card">
+    <div class="float-badges">
+      <div class="fb1" style="top:-16px;right:16px"><div class="fb-icon">🩺</div><span>田中先生 が担当します</span></div>
+      <div class="fb2" style="bottom:-12px;left:-16px;display:flex;align-items:center;gap:8px"><div class="fb-icon">✅</div><span>プライバシー完全保護</span></div>
     </div>
-    <div class="hero-card">
-      <div class="hc-label">本日の予約可能枠</div>
-      <div class="hc-title">心療内科 初診<br>田中 由美 医師</div>
-      <div class="hc-slots">
-        <div class="slot full"><div><div class="slot-time">10:00</div><div class="slot-doctor">田中 由美 医師</div></div><span class="slot-status">満枠</span></div>
-        <div class="slot open"><div><div class="slot-time">14:00</div><div class="slot-doctor">田中 由美 医師</div></div><span class="slot-status">空き有り</span></div>
-        <div class="slot open"><div><div class="slot-time">15:30</div><div class="slot-doctor">佐藤 健一 医師</div></div><span class="slot-status">空き有り</span></div>
-        <div class="slot full"><div><div class="slot-time">17:00</div><div class="slot-doctor">田中 由美 医師</div></div><span class="slot-status">満枠</span></div>
+    <div class="hc-main">
+      <div class="hc-top">
+        <div class="hc-avatar">🌿</div>
+        <div><div class="hc-name">オンライン予約</div><div class="hc-sub">最短 当日受診可能</div></div>
       </div>
-      <button class="hc-btn">この時間帯を予約する</button>
+      <div class="hc-label">本日の空き枠</div>
+      <div class="slot-grid">
+        <div class="slot off">09:00</div>
+        <div class="slot">10:30</div>
+        <div class="slot sel">11:00</div>
+        <div class="slot">14:00</div>
+        <div class="slot">15:30</div>
+        <div class="slot off">16:00</div>
+        <div class="slot">17:00</div>
+        <div class="slot">18:30</div>
+      </div>
+      <button class="hc-btn">この時間で予約する</button>
     </div>
   </div>
 </section>
 
-<section class="issues reveal">
-  <div class="issues-inner">
-    <div class="issues-label">こんなお悩みはありませんか？</div>
-    <h2 class="issues-title">一人で抱え込まずに、<br>まずは話してみませんか</h2>
-    <div class="issues-grid">
-      <div class="issue-card"><div class="issue-icon">😔</div><h3>気分が落ち込んで、何もやる気が出ない</h3><p>好きだったことへの興味が薄れ、日常生活が重く感じられる。そんな状態が続いていませんか。</p></div>
-      <div class="issue-card"><div class="issue-icon">😰</div><h3>不安感や緊張が強く、仕事や人間関係がつらい</h3><p>会議に出るのが怖い、外に出られない。原因が分からない不安に悩まされていませんか。</p></div>
-      <div class="issue-card"><div class="issue-icon">😴</div><h3>眠れない、または眠りすぎてしまう</h3><p>夜になっても頭が冴えて眠れない、または朝起きられない。睡眠の乱れは心のサインです。</p></div>
-      <div class="issue-card"><div class="issue-icon">🫀</div><h3>身体の不調が続くのに、検査では異常がない</h3><p>頭痛、動悸、胃の不快感。心と体はつながっています。心療内科でご相談ください。</p></div>
-      <div class="issue-card"><div class="issue-icon">💼</div><h3>仕事のストレスが限界に達している</h3><p>燃え尽き症候群、職場のハラスメント、適応障害。働く人の心の問題をサポートします。</p></div>
-      <div class="issue-card"><div class="issue-icon">🌱</div><h3>自分のことをもっとよく理解したい</h3><p>なぜこうなるのか知りたい。カウンセリングを通じて、自己理解を深めるお手伝いをします。</p></div>
+<section class="symptoms">
+  <div class="sec-chip">こんな方へ</div>
+  <h2 class="sec-title">一つでも当てはまる方は、<br>ご相談ください</h2>
+  <p class="sec-sub">「これくらいで病院に…」と思わなくて大丈夫。早めの相談が、回復を早めます。</p>
+  <div class="symp-grid">
+    <div class="symp-card"><div class="symp-icon ic1">😔</div><h3>気分の落ち込み</h3><p>理由もなく気持ちが沈む、何もやる気が起きない日が続いている。</p></div>
+    <div class="symp-card"><div class="symp-icon ic2">😰</div><h3>不安・パニック</h3><p>急に動悸がする、電車に乗れなくなった、不安が頭から離れない。</p></div>
+    <div class="symp-card"><div class="symp-icon ic3">😴</div><h3>眠れない・眠すぎる</h3><p>夜中に何度も目が覚める、寝ても疲れが取れない、朝起きられない。</p></div>
+    <div class="symp-card"><div class="symp-icon ic4">😤</div><h3>イライラ・怒り</h3><p>些細なことで感情が爆発する、後で後悔することを繰り返してしまう。</p></div>
+    <div class="symp-card"><div class="symp-icon ic5">🧠</div><h3>集中できない</h3><p>仕事中に考えがまとまらない、物忘れが増えた気がする。</p></div>
+    <div class="symp-card"><div class="symp-icon ic6">😞</div><h3>職場・人間関係</h3><p>職場のストレスが限界、人と会うのが怖くなってきた。</p></div>
+  </div>
+</section>
+
+<section class="steps">
+  <div class="steps-inner">
+    <div>
+      <div class="sec-chip">受診の流れ</div>
+      <h2 class="sec-title">はじめての方も、<br>安心して受診できます</h2>
+      <p class="sec-sub" style="margin-top:10px">完全予約制・待合室での長時間待機なし。プライバシーに最大限配慮しています。</p>
+    </div>
+    <div class="step-list">
+      <div class="step-item"><div class="step-num">01</div><div><div class="step-title">オンライン予約</div><div class="step-desc">24時間いつでも予約可能。問診票はスマホで事前記入できます。</div></div></div>
+      <div class="step-item"><div class="step-num">02</div><div><div class="step-title">初回診察（30〜45分）</div><div class="step-desc">じっくり話を聴きます。薬の処方は希望する場合のみ。</div></div></div>
+      <div class="step-item"><div class="step-num">03</div><div><div class="step-title">治療方針のご提案</div><div class="step-desc">カウンセリング・薬物療法・生活改善など複数の選択肢をご説明します。</div></div></div>
+      <div class="step-item"><div class="step-num">04</div><div><div class="step-title">定期的なフォローアップ</div><div class="step-desc">オンライン診療も対応。通院のペースは相談しながら決めます。</div></div></div>
     </div>
   </div>
 </section>
 
-<section class="features reveal">
-  <div class="features-inner">
-    <div class="feat-label">そらクリニックの特徴</div>
-    <h2 class="feat-title">あなたが安心して<br>来られる場所でありたい</h2>
-    <div class="feat-grid">
-      <div class="feat-item"><div class="feat-num">01</div><h3>完全個室・プライバシー保護</h3><p>待合室での他の患者様との接触を最小限に。完全個室診察で、安心してお話しいただけます。</p></div>
-      <div class="feat-item"><div class="feat-num">02</div><h3>オンライン診察対応</h3><p>スマートフォンやPCからビデオ通話で受診可能。通院が難しい方もご利用いただけます。</p></div>
-      <div class="feat-item"><div class="feat-num">03</div><h3>当日予約・夜間診察</h3><p>平日20時まで診察受付。当日の空き枠もオンラインでリアルタイム確認できます。</p></div>
-      <div class="feat-item"><div class="feat-num">04</div><h3>多職種チームによるサポート</h3><p>精神科医・心理士・看護師・医療ソーシャルワーカーがチームで支えます。</p></div>
-      <div class="feat-item"><div class="feat-num">05</div><h3>薬に頼らない選択肢も</h3><p>カウンセリング、TMS療法、マインドフルネスなど、薬以外のアプローチも提供しています。</p></div>
-      <div class="feat-item"><div class="feat-num">06</div><h3>セカンドオピニオン歓迎</h3><p>他院でのご診断に疑問を感じている方も、遠慮なくご相談ください。</p></div>
+<section class="doctors">
+  <div class="sec-chip">医師紹介</div>
+  <h2 class="sec-title">経験豊富な医師が<br>丁寧に対応します</h2>
+  <div class="doc-grid">
+    <div class="doc-card"><div class="doc-avatar"><div class="doc-av-img">👩‍⚕️</div></div><div class="doc-name">田中 みのり 先生</div><div class="doc-role">院長 / 精神科・心療内科</div><div class="doc-bio">東京大学医学部卒。うつ病・不安障害の専門家として15年以上の診療経験。</div><div class="doc-tag">うつ病 / 不安障害</div></div>
+    <div class="doc-card"><div class="doc-avatar"><div class="doc-av-img" style="background:linear-gradient(135deg,#C4B5E8,#F7A58C)">👨‍⚕️</div></div><div class="doc-name">鈴木 健太 先生</div><div class="doc-role">副院長 / 精神科</div><div class="doc-bio">産業医の資格も持つ。職場のメンタルヘルス・発達障害に強み。</div><div class="doc-tag">発達障害 / 職場ストレス</div></div>
+    <div class="doc-card"><div class="doc-avatar"><div class="doc-av-img" style="background:linear-gradient(135deg,#F7A58C,#FFCF77)">👩‍⚕️</div></div><div class="doc-name">伊藤 さくら 先生</div><div class="doc-role">心療内科</div><div class="doc-bio">女性のメンタルヘルス専門。産後うつ・更年期・摂食障害の相談に対応。</div><div class="doc-tag">女性の心の悩み</div></div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="faq-inner">
+    <div>
+      <div class="sec-chip">よくある質問</div>
+      <h2 class="sec-title">不安なことは、<br>ここで解決</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">精神科・心療内科の違いは？<span>+</span></div><div class="faq-a"><p>精神科は主に精神症状（幻覚・妄想など）を扱い、心療内科はストレスによる身体症状（胃痛・不眠など）も対象です。当院はどちらの症状にも対応しています。</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">初診は何を持っていけばいいですか？<span>+</span></div><div class="faq-a"><p>健康保険証と、他の医療機関からの紹介状（お持ちの場合）。それ以外の準備は不要です。お薬手帳があればご持参ください。</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">家族や職場に知られませんか？<span>+</span></div><div class="faq-a"><p>ご本人の同意なしに情報を外部に伝えることは一切ありません。個室での診察、請求書の表記変更にも対応しています。</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">薬を処方されますか？<span>+</span></div><div class="faq-a"><p>薬の使用はご希望がある場合のみです。カウンセリングや生活習慣の改善のみで対応することも可能です。</p></div></div>
     </div>
   </div>
 </section>
 
-<section class="doctors reveal">
-  <div class="doc-inner">
-    <div class="doc-label">医師紹介</div>
-    <h2 class="doc-title">あなたの話を、<br>きちんと聴く医師がいます</h2>
-    <div class="doc-grid">
-      <div class="doc-card">
-        <div class="doc-photo">👩‍⚕️</div>
-        <div class="doc-name">田中 由美</div>
-        <div class="doc-title-text">院長 · 心療内科専門医</div>
-        <p class="doc-bio">慶應義塾大学医学部卒。10年以上にわたり心療内科・精神科領域に従事。患者様の話をゆっくり丁寧に聴くことを大切にしています。</p>
-      </div>
-      <div class="doc-card">
-        <div class="doc-photo">👨‍⚕️</div>
-        <div class="doc-name">佐藤 健一</div>
-        <div class="doc-title-text">副院長 · 精神科専門医</div>
-        <p class="doc-bio">東京大学医学部卒。うつ病・不安障害・ADHD診療を専門とする。CBT（認知行動療法）の認定資格を保有。</p>
-      </div>
-      <div class="doc-card">
-        <div class="doc-photo">👩‍⚕️</div>
-        <div class="doc-name">山口 さくら</div>
-        <div class="doc-title-text">臨床心理士 · 公認心理師</div>
-        <p class="doc-bio">早稲田大学大学院修了。カウンセリング歴12年。トラウマ・対人関係・自己肯定感の問題を専門としています。</p>
-      </div>
-    </div>
+<div class="cta">
+  <div>
+    <h2>まず、話してみませんか。</h2>
+    <p>初回相談は無料。オンライン・対面どちらも選べます。今日の予約が、明日を変えます。</p>
   </div>
-</section>
-
-<section class="flow reveal">
-  <div class="flow-inner">
-    <div class="flow-label">初診の流れ</div>
-    <h2 class="flow-title">はじめての方も、<br>安心して受診いただけます</h2>
-    <div class="flow-steps">
-      <div class="flow-step"><div class="fs-num">1</div><div class="fs-content"><h3>オンラインで予約する</h3><p>24時間いつでも予約可能。希望の医師・日時を選んで、5分で完了します。保険証の準備だけでOK。</p></div></div>
-      <div class="flow-step"><div class="fs-num">2</div><div class="fs-content"><h3>問診票に答える</h3><p>受診前に専用フォームで体調・お悩みをお知らせください。当日の診察をよりスムーズにするためです。</p></div></div>
-      <div class="flow-step"><div class="fs-num">3</div><div class="fs-content"><h3>医師と話す（30〜60分）</h3><p>初診は時間をかけてお話を聴きます。焦らなくて大丈夫。気になることは何でもご相談ください。</p></div></div>
-      <div class="flow-step"><div class="fs-num">4</div><div class="fs-content"><h3>一緒に治療方針を決める</h3><p>診断・薬・カウンセリングなど、治療の選択肢をご説明します。無理なく続けられる方法を一緒に考えます。</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="booking reveal">
-  <div class="booking-inner">
-    <h2>今日から、<br>一歩踏み出しませんか</h2>
-    <p>「受診するほどでもないかも」と思っていても、その気持ち自体が大切なサインです。まずはお気軽にご相談ください。</p>
-    <a href="#" class="btn-white">オンラインで予約する（無料）</a>
-    <p class="booking-note">初診 · オンライン可 · 当日予約受付中</p>
-  </div>
-</section>
+  <a href="#" class="btn-white">無料で相談する →</a>
+</div>
 
 <footer>
-  <div class="foot-inner">
-    <div class="foot-top">
-      <div><div class="foot-logo-w">そらクリニック</div><p class="foot-brand-p">東京都渋谷区代々木1-2-3<br>月–土 10:00〜20:00（日祝休診）<br>Tel: 03-XXXX-XXXX</p></div>
-      <div class="foot-col"><h4>診療案内</h4><ul><li><a href="#">心療内科</a></li><li><a href="#">精神科</a></li><li><a href="#">カウンセリング</a></li><li><a href="#">TMS療法</a></li></ul></div>
-      <div class="foot-col"><h4>初めての方</h4><ul><li><a href="#">初診の流れ</a></li><li><a href="#">料金案内</a></li><li><a href="#">よくある質問</a></li><li><a href="#">オンライン診療</a></li></ul></div>
-      <div class="foot-col"><h4>クリニック情報</h4><ul><li><a href="#">医師紹介</a></li><li><a href="#">アクセス</a></li><li><a href="#">採用情報</a></li><li><a href="#">プライバシーポリシー</a></li></ul></div>
-    </div>
-    <div class="foot-bottom">
-      <span class="foot-copy">© 2024 そらクリニック. 無断転載禁止.</span>
-      <span class="foot-copy">医療法人社団 そら会</span>
-    </div>
+  <div class="foot-brand">
+    <div class="f-logo">そらクリニック</div>
+    <p>東京都渋谷区神宮前3-1-2<br>月〜土 9:00–19:00（日祝休診）<br>03-XXXX-XXXX</p>
   </div>
+  <div><h4>診療内容</h4><ul><li><a href="#">うつ病・抑うつ</a></li><li><a href="#">不安障害・パニック</a></li><li><a href="#">睡眠障害</a></li><li><a href="#">発達障害</a></li></ul></div>
+  <div><h4>クリニック情報</h4><ul><li><a href="#">医師紹介</a></li><li><a href="#">施設・設備</a></li><li><a href="#">アクセス</a></li><li><a href="#">採用情報</a></li></ul></div>
+  <div><h4>サポート</h4><ul><li><a href="#">よくある質問</a></li><li><a href="#">プライバシーポリシー</a></li><li><a href="#">特定商取引法</a></li></ul></div>
+  <div class="foot-bottom">© 2024 そらクリニック. All rights reserved.</div>
 </footer>
-
-<script>
-window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60)});
-const reveals=document.querySelectorAll('.reveal');
-const io=new IntersectionObserver(e=>{e.forEach(r=>{if(r.isIntersecting){r.target.classList.add('visible');io.unobserve(r.target);}});},{threshold:.08});
-reveals.forEach(r=>io.observe(r));
-</script>
 </body>
 </html>
