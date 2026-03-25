@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MA建築設計事務所 — 空間に、静けさを設計する</title>
+<meta name="description" content="東京の建築・インテリアデザイン事務所。住宅・商業施設・リノベーション。余白と光を大切にした空間設計。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--white:#FAFAFA;--off:#F4F2EF;--concrete:#E8E4DF;--stone:#C4BEB6;--charcoal:#2C2C2C;--dark:#1A1A1A;--muted:#7A7570;--accent:#8B7355;--font-serif:'Noto Serif JP',serif;--font-sans:'Noto Sans JP',sans-serif}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--dark);font-family:var(--font-sans);font-weight:300;line-height:1.8;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:28px 56px;display:flex;align-items:center;justify-content:space-between;transition:all .5s}
+nav.scrolled{background:rgba(250,250,250,.97);backdrop-filter:blur(10px);padding:18px 56px;border-bottom:1px solid var(--concrete)}
+.nav-logo{font-family:var(--font-serif);font-size:1.2rem;font-weight:200;letter-spacing:.25em;color:var(--dark)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.8rem;letter-spacing:.08em;transition:color .2s}
+.nav-links a:hover{color:var(--dark)}
+.nav-contact{font-size:.78rem;letter-spacing:.1em;color:var(--dark);border-bottom:1px solid var(--dark);padding-bottom:2px;cursor:pointer;text-decoration:none;transition:color .2s}
+.nav-contact:hover{color:var(--muted)}
+
+/* HERO */
+.hero{height:100vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.hero-left{background:var(--dark);position:relative;overflow:hidden}
+.hero-img-ph{position:absolute;inset:0;background:linear-gradient(160deg,#2C2C2C,#1A1A1A);display:flex;align-items:center;justify-content:center}
+.hero-img-ph img{width:100%;height:100%;object-fit:cover;opacity:.7}
+.hero-img-overlay{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900&q=80') center/cover;opacity:.5}
+.hero-caption{position:absolute;bottom:40px;left:40px;right:40px;z-index:1}
+.hc-label{font-size:.65rem;letter-spacing:.2em;color:rgba(255,255,255,.45);text-transform:uppercase;margin-bottom:6px}
+.hc-name{font-family:var(--font-serif);font-size:1rem;color:rgba(255,255,255,.8);font-weight:200;letter-spacing:.1em}
+.hero-right{display:flex;flex-direction:column;justify-content:flex-end;padding:60px 56px;background:var(--off)}
+.hero-eyebrow{font-size:.7rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin-bottom:24px}
+h1{font-family:var(--font-serif);font-size:clamp(2.2rem,3.8vw,3.5rem);font-weight:200;line-height:1.35;letter-spacing:.04em;margin-bottom:28px}
+h1 em{font-style:normal;border-bottom:1px solid var(--accent);padding-bottom:2px}
+.hero-sub{font-size:.875rem;color:var(--muted);line-height:1.95;max-width:380px;margin-bottom:40px}
+.hero-cta{display:inline-flex;align-items:center;gap:14px;text-decoration:none;font-size:.78rem;letter-spacing:.12em;color:var(--dark);transition:gap .3s}
+.hero-cta:hover{gap:22px}
+.hero-cta-line{width:36px;height:1px;background:var(--accent);position:relative;transition:width .3s}
+.hero-cta:hover .hero-cta-line{width:52px}
+.hero-cta-line::after{content:'';position:absolute;right:-1px;top:-3px;width:6px;height:6px;border-top:1px solid var(--accent);border-right:1px solid var(--accent);transform:rotate(45deg)}
+.hero-num{position:absolute;top:50%;right:0;transform:translateY(-50%) rotate(90deg);font-family:var(--font-serif);font-size:.65rem;letter-spacing:.2em;color:var(--stone);white-space:nowrap;text-transform:uppercase}
+
+/* WORKS */
+.works{padding:100px 56px;max-width:1400px;margin:0 auto}
+.works-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px}
+.works-header h2{font-family:var(--font-serif);font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:200;letter-spacing:.06em;line-height:1.3}
+.works-header h2 em{font-style:normal;color:var(--accent)}
+.works-all{font-size:.75rem;letter-spacing:.12em;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:10px;transition:color .2s}
+.works-all:hover{color:var(--dark)}
+.works-all-line{width:28px;height:1px;background:currentColor;position:relative}
+.works-all-line::after{content:'';position:absolute;right:-1px;top:-3px;width:6px;height:6px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg)}
+.works-grid{display:grid;grid-template-columns:2fr 1fr;gap:3px}
+.works-right-col{display:grid;grid-template-rows:1fr 1fr;gap:3px}
+.work-item{position:relative;overflow:hidden;cursor:pointer;background:var(--concrete)}
+.work-ph{width:100%;height:100%;min-height:280px;display:flex;align-items:center;justify-content:center;font-size:3rem;color:rgba(124,117,112,.15);transition:transform .8s cubic-bezier(.25,.46,.45,.94)}
+.work-item:hover .work-ph{transform:scale(1.03)}
+.work-item:nth-child(1) .work-ph{min-height:560px;background:linear-gradient(160deg,#E8E4DF,#D8D2C8)}
+.work-item:nth-child(2) .work-ph{background:linear-gradient(160deg,#2C2C2C,#1A1A1A)}
+.work-item:nth-child(3) .work-ph{background:linear-gradient(160deg,#DDD8D2,#CECA C0)}
+.work-overlay{position:absolute;bottom:0;left:0;right:0;padding:24px 28px;background:linear-gradient(transparent,rgba(0,0,0,.5));opacity:0;transition:opacity .4s}
+.work-item:hover .work-overlay{opacity:1}
+.work-cat{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:4px}
+.work-name{font-family:var(--font-serif);font-size:1rem;color:#fff;font-weight:200;letter-spacing:.06em}
+.work-meta-bar{position:absolute;top:20px;left:20px;font-size:.65rem;letter-spacing:.1em;color:rgba(255,255,255,.4);font-family:var(--font-sans)}
+
+/* PHILOSOPHY */
+.philosophy{padding:100px 56px;background:var(--dark)}
+.phil-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start}
+.phil-label{font-size:.68rem;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:20px}
+.phil-h2{font-family:var(--font-serif);font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:200;color:#fff;line-height:1.5;letter-spacing:.05em}
+.phil-h2 em{font-style:normal;color:rgba(255,255,255,.4)}
+.phil-right{}
+.phil-quote{font-family:var(--font-serif);font-size:clamp(1.2rem,2vw,1.6rem);font-weight:200;color:rgba(255,255,255,.75);line-height:1.7;letter-spacing:.04em;margin-bottom:40px;border-left:2px solid var(--accent);padding-left:28px}
+.phil-body{font-size:.875rem;color:rgba(255,255,255,.38);line-height:2;margin-bottom:40px}
+.phil-values{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.pv-item{}
+.pv-num{font-family:var(--font-serif);font-size:1.8rem;font-weight:200;color:rgba(139,115,85,.5);line-height:1;margin-bottom:12px}
+.pv-title{font-size:.85rem;font-weight:400;color:rgba(255,255,255,.7);margin-bottom:6px}
+.pv-desc{font-size:.78rem;color:rgba(255,255,255,.3);line-height:1.8}
+
+/* SERVICES */
+.services{padding:100px 56px;max-width:1400px;margin:0 auto}
+.services-label{font-size:.68rem;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:16px}
+.services-title{font-family:var(--font-serif);font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:200;line-height:1.4;margin-bottom:56px}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--concrete)}
+.svc{background:var(--white);padding:40px 32px;transition:background .3s}
+.svc:hover{background:var(--off)}
+.svc-num{font-family:var(--font-serif);font-size:2rem;font-weight:200;color:var(--concrete);line-height:1;margin-bottom:20px}
+.svc h3{font-family:var(--font-serif);font-size:1.05rem;font-weight:300;color:var(--dark);margin-bottom:12px;letter-spacing:.04em}
+.svc p{font-size:.82rem;color:var(--muted);line-height:1.85}
+.svc-link{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-size:.72rem;letter-spacing:.1em;color:var(--accent);text-decoration:none;transition:gap .2s}
+.svc-link:hover{gap:14px}
+
+/* PROFILE */
+.profile{padding:100px 56px;background:var(--off)}
+.profile-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.profile-label{font-size:.68rem;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:20px}
+.profile-h2{font-family:var(--font-serif);font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:200;line-height:1.5;margin-bottom:24px;letter-spacing:.04em}
+.profile-body{font-size:.875rem;color:var(--muted);line-height:2;margin-bottom:32px}
+.profile-awards{display:flex;flex-direction:column;gap:10px;border-left:1px solid var(--concrete);padding-left:20px;margin-bottom:36px}
+.pa-item{font-size:.8rem;color:var(--muted);line-height:1.6}
+.pa-year{font-family:var(--font-serif);color:var(--accent);font-weight:300;margin-right:12px}
+.profile-photo{width:100%;aspect-ratio:3/4;background:linear-gradient(160deg,var(--concrete),#D0CBC3);display:flex;align-items:center;justify-content:center;font-size:5rem;color:rgba(124,117,112,.2)}
+
+/* CONTACT CTA */
+.cta{padding:120px 56px;text-align:center;border-top:1px solid var(--concrete)}
+.cta-inner{max-width:600px;margin:0 auto}
+.cta-label{font-size:.68rem;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:24px}
+.cta h2{font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:200;line-height:1.4;letter-spacing:.04em;margin-bottom:20px}
+.cta p{font-size:.875rem;color:var(--muted);line-height:1.9;margin-bottom:40px}
+.btn-dark{background:var(--dark);color:#fff;padding:16px 40px;font-family:var(--font-sans);font-size:.8rem;letter-spacing:.12em;border:none;cursor:pointer;transition:background .25s;text-decoration:none;display:inline-block}
+.btn-dark:hover{background:var(--charcoal)}
+
+footer{background:var(--dark);padding:64px 56px 36px}
+.foot-inner{max-width:1400px;margin:0 auto}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px}
+.foot-logo{font-family:var(--font-serif);font-size:1.1rem;font-weight:200;letter-spacing:.25em;color:#fff;margin-bottom:14px}
+.foot-p{font-size:.78rem;color:rgba(255,255,255,.28);line-height:1.9;max-width:230px}
+.foot-col h4{font-size:.65rem;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;margin-bottom:14px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.foot-col a{color:rgba(255,255,255,.3);text-decoration:none;font-size:.78rem;transition:color .2s;font-weight:300}
+.foot-col a:hover{color:rgba(255,255,255,.65)}
+.foot-bottom{display:flex;justify-content:space-between;padding-top:28px;border-top:1px solid rgba(255,255,255,.07);flex-wrap:wrap;gap:12px}
+.foot-copy{font-size:.7rem;color:rgba(255,255,255,.2)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .9s,transform .9s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  nav{padding:16px 24px}.nav-links{display:none}
+  .hero{grid-template-columns:1fr;height:auto}
+  .hero-left{min-height:50vh}
+  .hero-right{padding:48px 28px}
+  .works{padding:72px 24px}
+  .works-grid{grid-template-columns:1fr}
+  .works-right-col{grid-template-rows:auto auto}
+  .work-item:nth-child(1) .work-ph{min-height:280px}
+  .philosophy{padding:72px 24px}.phil-inner{grid-template-columns:1fr}
+  .services{padding:72px 24px}.services-grid{grid-template-columns:1fr}
+  .profile{padding:72px 24px;background:var(--off)}.profile-inner{grid-template-columns:1fr}
+  .cta{padding:80px 24px}
+  footer{padding:56px 24px 28px}.foot-top{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <div class="nav-logo">MA</div>
+  <ul class="nav-links">
+    <li><a href="#">実績</a></li>
+    <li><a href="#">設計の考え方</a></li>
+    <li><a href="#">サービス</a></li>
+    <li><a href="#">事務所案内</a></li>
+  </ul>
+  <a href="#contact" class="nav-contact">お問い合わせ</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-img-overlay"></div>
+    <div class="hero-caption">
+      <div class="hc-label">Recent Work</div>
+      <div class="hc-name">白川の家 — 東京都世田谷区 / 2024</div>
+    </div>
+  </div>
+  <div class="hero-right" style="position:relative">
+    <div class="hero-num">Architecture & Interior Design</div>
+    <div class="hero-eyebrow">建築設計事務所 · 東京</div>
+    <h1>空間に、<br><em>静けさ</em>を<br>設計する</h1>
+    <p class="hero-sub">光と風と素材が対話する場所をつくる。過剰を排し、本質だけを残す。そこに住む人の、そこで働く人の、時間を美しくする建築を。</p>
+    <a href="#works" class="hero-cta">
+      実績を見る
+      <span class="hero-cta-line"></span>
+    </a>
+  </div>
+</section>
+
+<section class="works reveal" id="works">
+  <div class="works-header">
+    <h2>最近の<em>作品</em></h2>
+    <a href="#" class="works-all">すべての実績 <span class="works-all-line"></span></a>
+  </div>
+  <div class="works-grid">
+    <div class="work-item">
+      <div class="work-ph" style="background:linear-gradient(160deg,#E8E4DF,#D8D2C8)">□</div>
+      <div class="work-meta-bar">住宅 · 2024</div>
+      <div class="work-overlay">
+        <div class="work-cat">個人住宅</div>
+        <div class="work-name">白川の家</div>
+      </div>
+    </div>
+    <div class="works-right-col">
+      <div class="work-item">
+        <div class="work-ph" style="background:linear-gradient(160deg,#2C2C2C,#1A1A1A)">△</div>
+        <div class="work-meta-bar">商業 · 2023</div>
+        <div class="work-overlay"><div class="work-cat">カフェ</div><div class="work-name">HAKO Coffee</div></div>
+      </div>
+      <div class="work-item">
+        <div class="work-ph" style="background:linear-gradient(160deg,#DDD8D2,#CECCBF)">◯</div>
+        <div class="work-meta-bar">リノベーション · 2024</div>
+        <div class="work-overlay"><div class="work-cat">集合住宅改修</div><div class="work-name">代官山アパートメント</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="philosophy reveal">
+  <div class="phil-inner">
+    <div>
+      <div class="phil-label">設計の考え方</div>
+      <h2 class="phil-h2">余白が、<br>空間を<br><em>語らせる</em></h2>
+    </div>
+    <div class="phil-right">
+      <p class="phil-quote">「間」とは、日本語で空間と時間の両方を意味する。私たちはその「間」を丁寧に設計することで、そこに生きる人の時間を豊かにしたいと考えています。</p>
+      <p class="phil-body">建築は、完成した瞬間に始まる。10年後、20年後、その空間がどう変容していくか。素材の経年変化を設計に組み込み、時間とともに美しくなる建物をつくることが、私たちの目標です。</p>
+      <div class="phil-values">
+        <div class="pv-item"><div class="pv-num">01</div><div class="pv-title">余白の設計</div><div class="pv-desc">何を置くかではなく、何を置かないか。引き算の思考で空間を整える。</div></div>
+        <div class="pv-item"><div class="pv-num">02</div><div class="pv-title">素材の誠実さ</div><div class="pv-desc">コンクリート、木、石。素材の本質を生かし、嘘のない仕上げを追求する。</div></div>
+        <div class="pv-item"><div class="pv-num">03</div><div class="pv-title">光と影の choreography</div><div class="pv-desc">時刻・季節によって変わる光の動きを設計段階から計算に入れる。</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services reveal">
+  <div>
+    <div class="services-label">サービス</div>
+    <h2 class="services-title">暮らしと仕事の場を、<br>丁寧に設計します</h2>
+  </div>
+  <div class="services-grid">
+    <div class="svc"><div class="svc-num">01</div><h3>住宅設計</h3><p>新築・建替えの個人住宅設計。敷地調査から竣工まで一貫対応。家族の生活スタイルを深くヒアリングし、10年後も愛せる家をつくります。</p><a href="#" class="svc-link">詳しく見る →</a></div>
+    <div class="svc"><div class="svc-num">02</div><h3>商業施設・オフィス</h3><p>カフェ、ブティック、オフィス、ギャラリー。ブランドの世界観を空間に落とし込む。来た人が「また来たい」と思う場所をつくります。</p><a href="#" class="svc-link">詳しく見る →</a></div>
+    <div class="svc"><div class="svc-num">03</div><h3>リノベーション</h3><p>既存建物の骨格を生かしながら、現代の暮らしに合う空間へ。古さを弱点でなく個性に変える設計提案が得意です。</p><a href="#" class="svc-link">詳しく見る →</a></div>
+  </div>
+</section>
+
+<section class="profile reveal">
+  <div class="profile-inner">
+    <div>
+      <div class="profile-label">代表プロフィール</div>
+      <h2 class="profile-h2">山田 間（やまだ まき）<br>建築家・代表取締役</h2>
+      <p class="profile-body">東京大学建築学科卒業後、安藤忠雄建築研究所に7年間在籍。2014年にMA建築設計事務所を設立。「余白の建築」をコンセプトに、住宅から公共施設まで幅広い設計を手がける。グッドデザイン賞など国内外の受賞多数。</p>
+      <div class="profile-awards">
+        <div class="pa-item"><span class="pa-year">2024</span>グッドデザイン賞 · 白川の家</div>
+        <div class="pa-item"><span class="pa-year">2023</span>日本建築学会賞 · 作品部門</div>
+        <div class="pa-item"><span class="pa-year">2022</span>AR House Awards · 優秀賞（ロンドン）</div>
+        <div class="pa-item"><span class="pa-year">2021</span>AACA 優秀作品賞</div>
+      </div>
+      <a href="#" class="hero-cta" style="font-size:.78rem;letter-spacing:.12em;color:var(--dark)">
+        プロフィール詳細
+        <span class="hero-cta-line"></span>
+      </a>
+    </div>
+    <div class="profile-photo">👤</div>
+  </div>
+</section>
+
+<section class="cta reveal" id="contact">
+  <div class="cta-inner">
+    <div class="cta-label">お問い合わせ</div>
+    <h2>あなたの空間について、<br>話しましょう</h2>
+    <p>「こんな家が建てられるだろうか」という漠然としたイメージでも構いません。まず話を聞かせてください。初回相談は無料です。</p>
+    <a href="#" class="btn-dark">無料相談を予約する</a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div><div class="foot-logo">MA</div><p class="foot-p">東京都渋谷区代官山町XX-XX<br>平日 10:00〜18:00<br>Tel: 03-XXXX-XXXX</p></div>
+      <div class="foot-col"><h4>作品</h4><ul><li><a href="#">住宅</a></li><li><a href="#">商業施設</a></li><li><a href="#">リノベーション</a></li><li><a href="#">公共施設</a></li></ul></div>
+      <div class="foot-col"><h4>事務所</h4><ul><li><a href="#">設計の考え方</a></li><li><a href="#">プロフィール</a></li><li><a href="#">受賞歴</a></li><li><a href="#">採用情報</a></li></ul></div>
+      <div class="foot-col"><h4>お問い合わせ</h4><ul><li><a href="#">無料相談</a></li><li><a href="#">設計料について</a></li><li><a href="#">アクセス</a></li><li><a href="#">プライバシーポリシー</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span class="foot-copy">© 2024 MA建築設計事務所. 無断転載禁止.</span>
+      <span class="foot-copy">東京都渋谷区代官山</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60)});
+const reveals=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver(e=>{e.forEach(r=>{if(r.isIntersecting){r.target.classList.add('visible');io.unobserve(r.target);}});},{threshold:.07});
+reveals.forEach(r=>io.observe(r));
+</script>
+</body>
+</html>

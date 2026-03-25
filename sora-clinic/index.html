@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>そらクリニック — こころと体に、やさしい医療を</title>
+<meta name="description" content="東京・代々木のメンタルヘルスクリニック。オンライン予約対応。心療内科・精神科・カウンセリング。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F8FAF9;--white:#FFFFFF;--mint:#4ABFA0;--mint-l:#E6F7F3;--mint-d:#2D9B82;--sage:#7EA99A;--dark:#1C2B28;--muted:#6B7E79;--light:#B8CCC8;--warn:#F5A623;--font-serif:'Noto Serif JP',serif;--font-sans:'Noto Sans JP',sans-serif}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--dark);font-family:var(--font-sans);font-weight:300;line-height:1.8;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 56px;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
+nav.scrolled{background:rgba(248,250,249,.96);backdrop-filter:blur(12px);padding:14px 56px;box-shadow:0 1px 0 rgba(0,0,0,.06)}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-mark{width:36px;height:36px;background:var(--mint);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem}
+.nav-logo-text{font-family:var(--font-serif);font-size:1.1rem;font-weight:400;color:var(--dark);letter-spacing:.06em}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:400;transition:color .2s}
+.nav-links a:hover{color:var(--dark)}
+.nav-book{background:var(--mint);color:#fff;padding:10px 24px;border-radius:100px;font-size:.875rem;font-weight:500;border:none;cursor:pointer;transition:all .2s;font-family:var(--font-sans)}
+.nav-book:hover{background:var(--mint-d);transform:translateY(-1px);box-shadow:0 8px 24px rgba(74,191,160,.3)}
+
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:120px 64px 80px;background:var(--white)}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--mint-l);color:var(--mint-d);padding:6px 14px;border-radius:100px;font-size:.78rem;font-weight:500;margin-bottom:28px;width:fit-content}
+.hero-tag::before{content:'';width:6px;height:6px;background:var(--mint);border-radius:50%}
+h1{font-family:var(--font-serif);font-size:clamp(2.2rem,3.5vw,3.2rem);font-weight:300;line-height:1.4;letter-spacing:.02em;margin-bottom:20px}
+h1 em{color:var(--mint);font-style:normal}
+.hero-sub{font-size:.95rem;color:var(--muted);line-height:1.9;max-width:440px;margin-bottom:36px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
+.btn-mint{background:var(--mint);color:#fff;padding:14px 28px;border-radius:100px;font-size:.9rem;font-weight:500;border:none;cursor:pointer;transition:all .25s;font-family:var(--font-sans);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-mint:hover{background:var(--mint-d);transform:translateY(-2px);box-shadow:0 12px 32px rgba(74,191,160,.3)}
+.btn-outline{background:transparent;color:var(--dark);padding:14px 28px;border-radius:100px;font-size:.9rem;font-weight:400;border:1.5px solid var(--light);cursor:pointer;transition:all .25s;font-family:var(--font-sans);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-outline:hover{border-color:var(--mint);color:var(--mint)}
+.hero-trust{display:flex;align-items:center;gap:16px}
+.trust-avatars{display:flex}
+.avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--mint-l),var(--mint));border:2px solid #fff;margin-left:-8px}
+.avatar:first-child{margin-left:0}
+.trust-text{font-size:.82rem;color:var(--muted);line-height:1.5}
+.trust-text strong{color:var(--dark);font-weight:500}
+.hero-right{background:linear-gradient(160deg,#E8F5F1,#D4EDE7);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:80px 48px}
+.hero-card{background:#fff;border-radius:20px;padding:32px;box-shadow:0 24px 64px rgba(0,0,0,.08);max-width:320px;width:100%;position:relative;z-index:1}
+.hc-label{font-size:.72rem;color:var(--muted);letter-spacing:.08em;margin-bottom:20px;font-weight:400}
+.hc-title{font-family:var(--font-serif);font-size:1.05rem;font-weight:400;color:var(--dark);margin-bottom:20px;line-height:1.5}
+.hc-slots{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.slot{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-radius:10px;cursor:pointer;transition:background .2s}
+.slot:hover{background:var(--mint-l)}
+.slot.open{background:var(--mint-l)}
+.slot-time{font-size:.85rem;font-weight:500;color:var(--dark)}
+.slot-status{font-size:.72rem;padding:3px 10px;border-radius:100px;font-weight:500}
+.slot.open .slot-status{background:var(--mint);color:#fff}
+.slot.full .slot-status{background:#F0F0F0;color:var(--muted)}
+.slot-doctor{font-size:.75rem;color:var(--muted);font-weight:300}
+.hc-btn{width:100%;padding:13px;background:var(--mint);color:#fff;border:none;border-radius:100px;font-size:.875rem;font-weight:500;cursor:pointer;font-family:var(--font-sans);transition:all .2s}
+.hc-btn:hover{background:var(--mint-d)}
+.hero-circles{position:absolute;inset:0}
+.hc1{position:absolute;width:300px;height:300px;border:1px solid rgba(74,191,160,.15);border-radius:50%;top:-80px;right:-80px}
+.hc2{position:absolute;width:200px;height:200px;border:1px solid rgba(74,191,160,.1);border-radius:50%;bottom:40px;left:-40px}
+
+.issues{padding:80px 56px;background:var(--white)}
+.issues-inner{max-width:1200px;margin:0 auto}
+.issues-label{font-size:.72rem;letter-spacing:.14em;color:var(--mint);font-weight:500;margin-bottom:16px}
+.issues-title{font-family:var(--font-serif);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:300;line-height:1.45;margin-bottom:48px}
+.issues-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.issue-card{background:var(--bg);padding:28px;border-radius:16px;transition:box-shadow .3s}
+.issue-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.06)}
+.issue-icon{font-size:1.6rem;margin-bottom:14px}
+.issue-card h3{font-size:.95rem;font-weight:500;color:var(--dark);margin-bottom:8px;line-height:1.5}
+.issue-card p{font-size:.85rem;color:var(--muted);line-height:1.8}
+
+.features{padding:80px 56px;background:var(--dark)}
+.features-inner{max-width:1200px;margin:0 auto}
+.feat-label{font-size:.72rem;letter-spacing:.14em;color:var(--mint);font-weight:500;margin-bottom:16px}
+.feat-title{font-family:var(--font-serif);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:300;color:#fff;line-height:1.45;margin-bottom:56px}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.feat-item{background:#243530;padding:36px 28px;transition:background .3s}
+.feat-item:hover{background:#2A3D38}
+.feat-num{font-family:var(--font-serif);font-size:2.5rem;color:rgba(74,191,160,.3);line-height:1;margin-bottom:16px;font-weight:300}
+.feat-item h3{font-size:.95rem;font-weight:500;color:#fff;margin-bottom:10px}
+.feat-item p{font-size:.83rem;color:rgba(255,255,255,.4);line-height:1.8}
+
+.doctors{padding:80px 56px;background:var(--white)}
+.doc-inner{max-width:1200px;margin:0 auto}
+.doc-label{font-size:.72rem;letter-spacing:.14em;color:var(--mint);font-weight:500;margin-bottom:16px}
+.doc-title{font-family:var(--font-serif);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:300;line-height:1.45;margin-bottom:48px}
+.doc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.doc-card{text-align:center}
+.doc-photo{width:120px;height:120px;background:linear-gradient(135deg,var(--mint-l),var(--mint));border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:rgba(74,191,160,.5)}
+.doc-name{font-family:var(--font-serif);font-size:1.05rem;font-weight:400;color:var(--dark);margin-bottom:4px}
+.doc-title-text{font-size:.78rem;color:var(--mint);font-weight:500;margin-bottom:10px;letter-spacing:.04em}
+.doc-bio{font-size:.82rem;color:var(--muted);line-height:1.8}
+
+.flow{padding:80px 56px;background:var(--bg)}
+.flow-inner{max-width:1000px;margin:0 auto}
+.flow-label{font-size:.72rem;letter-spacing:.14em;color:var(--mint);font-weight:500;margin-bottom:16px}
+.flow-title{font-family:var(--font-serif);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:300;line-height:1.45;margin-bottom:48px}
+.flow-steps{display:flex;flex-direction:column;gap:0}
+.flow-step{display:grid;grid-template-columns:80px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid rgba(184,204,200,.4);position:relative}
+.flow-step:last-child{border-bottom:none}
+.fs-num{width:56px;height:56px;background:var(--mint-l);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:1.2rem;color:var(--mint-d);font-weight:400;flex-shrink:0}
+.fs-content h3{font-size:1rem;font-weight:500;color:var(--dark);margin-bottom:6px}
+.fs-content p{font-size:.875rem;color:var(--muted);line-height:1.8}
+
+.booking{padding:80px 56px;background:linear-gradient(135deg,var(--mint),var(--mint-d));text-align:center}
+.booking-inner{max-width:680px;margin:0 auto}
+.booking h2{font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:300;color:#fff;line-height:1.4;margin-bottom:16px}
+.booking p{color:rgba(255,255,255,.75);font-size:.95rem;margin-bottom:36px;line-height:1.8}
+.btn-white{background:#fff;color:var(--mint-d);padding:16px 36px;border-radius:100px;font-size:1rem;font-weight:500;border:none;cursor:pointer;font-family:var(--font-sans);transition:all .25s;display:inline-block;text-decoration:none}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.15)}
+.booking-note{font-size:.78rem;color:rgba(255,255,255,.6);margin-top:16px}
+
+footer{background:var(--dark);padding:64px 56px 36px}
+.foot-inner{max-width:1200px;margin:0 auto}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px}
+.foot-logo-w{font-family:var(--font-serif);font-size:1.1rem;color:#fff;letter-spacing:.06em}
+.foot-brand-p{font-size:.82rem;color:rgba(255,255,255,.3);margin-top:12px;line-height:1.8;max-width:240px}
+.foot-col h4{font-size:.72rem;letter-spacing:.12em;color:var(--mint);font-weight:500;margin-bottom:16px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.foot-col a{color:rgba(255,255,255,.35);text-decoration:none;font-size:.82rem;transition:color .2s;font-weight:300}
+.foot-col a:hover{color:rgba(255,255,255,.7)}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid rgba(255,255,255,.07);flex-wrap:wrap;gap:12px}
+.foot-copy{font-size:.72rem;color:rgba(255,255,255,.22)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  nav{padding:16px 24px}.nav-links{display:none}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-left{padding:90px 28px 48px}
+  .hero-right{padding:48px 28px;min-height:400px}
+  .issues{padding:60px 24px}.issues-grid{grid-template-columns:1fr}
+  .features{padding:60px 24px}.feat-grid{grid-template-columns:1fr}
+  .doctors{padding:60px 24px}.doc-grid{grid-template-columns:1fr}
+  .flow{padding:60px 24px}
+  .booking{padding:60px 24px}
+  footer{padding:56px 24px 28px}.foot-top{grid-template-columns:1fr 1fr}
+  .foot-bottom{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <div class="nav-logo">
+    <div class="nav-logo-mark">☽</div>
+    <span class="nav-logo-text">そらクリニック</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#">診療科目</a></li>
+    <li><a href="#">医師紹介</a></li>
+    <li><a href="#">初診の方へ</a></li>
+    <li><a href="#">アクセス</a></li>
+  </ul>
+  <button class="nav-book">オンライン予約</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">心療内科 · 精神科 · カウンセリング</div>
+    <h1>こころと体に、<br><em>やさしい</em>医療を</h1>
+    <p class="hero-sub">一人で抱えないでください。そらクリニックは、あなたのペースに合わせた、安心できる医療環境を提供しています。初診はオンラインでも受け付けています。</p>
+    <div class="hero-btns">
+      <a href="#" class="btn-mint">オンラインで予約する →</a>
+      <a href="#" class="btn-outline">初診の方へ</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-avatars">
+        <div class="avatar"></div><div class="avatar"></div><div class="avatar"></div><div class="avatar"></div>
+      </div>
+      <div class="trust-text"><strong>2,400名以上</strong>が当院で<br>新しい一歩を踏み出しました</div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-circles">
+      <div class="hc1"></div><div class="hc2"></div>
+    </div>
+    <div class="hero-card">
+      <div class="hc-label">本日の予約可能枠</div>
+      <div class="hc-title">心療内科 初診<br>田中 由美 医師</div>
+      <div class="hc-slots">
+        <div class="slot full"><div><div class="slot-time">10:00</div><div class="slot-doctor">田中 由美 医師</div></div><span class="slot-status">満枠</span></div>
+        <div class="slot open"><div><div class="slot-time">14:00</div><div class="slot-doctor">田中 由美 医師</div></div><span class="slot-status">空き有り</span></div>
+        <div class="slot open"><div><div class="slot-time">15:30</div><div class="slot-doctor">佐藤 健一 医師</div></div><span class="slot-status">空き有り</span></div>
+        <div class="slot full"><div><div class="slot-time">17:00</div><div class="slot-doctor">田中 由美 医師</div></div><span class="slot-status">満枠</span></div>
+      </div>
+      <button class="hc-btn">この時間帯を予約する</button>
+    </div>
+  </div>
+</section>
+
+<section class="issues reveal">
+  <div class="issues-inner">
+    <div class="issues-label">こんなお悩みはありませんか？</div>
+    <h2 class="issues-title">一人で抱え込まずに、<br>まずは話してみませんか</h2>
+    <div class="issues-grid">
+      <div class="issue-card"><div class="issue-icon">😔</div><h3>気分が落ち込んで、何もやる気が出ない</h3><p>好きだったことへの興味が薄れ、日常生活が重く感じられる。そんな状態が続いていませんか。</p></div>
+      <div class="issue-card"><div class="issue-icon">😰</div><h3>不安感や緊張が強く、仕事や人間関係がつらい</h3><p>会議に出るのが怖い、外に出られない。原因が分からない不安に悩まされていませんか。</p></div>
+      <div class="issue-card"><div class="issue-icon">😴</div><h3>眠れない、または眠りすぎてしまう</h3><p>夜になっても頭が冴えて眠れない、または朝起きられない。睡眠の乱れは心のサインです。</p></div>
+      <div class="issue-card"><div class="issue-icon">🫀</div><h3>身体の不調が続くのに、検査では異常がない</h3><p>頭痛、動悸、胃の不快感。心と体はつながっています。心療内科でご相談ください。</p></div>
+      <div class="issue-card"><div class="issue-icon">💼</div><h3>仕事のストレスが限界に達している</h3><p>燃え尽き症候群、職場のハラスメント、適応障害。働く人の心の問題をサポートします。</p></div>
+      <div class="issue-card"><div class="issue-icon">🌱</div><h3>自分のことをもっとよく理解したい</h3><p>なぜこうなるのか知りたい。カウンセリングを通じて、自己理解を深めるお手伝いをします。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="features reveal">
+  <div class="features-inner">
+    <div class="feat-label">そらクリニックの特徴</div>
+    <h2 class="feat-title">あなたが安心して<br>来られる場所でありたい</h2>
+    <div class="feat-grid">
+      <div class="feat-item"><div class="feat-num">01</div><h3>完全個室・プライバシー保護</h3><p>待合室での他の患者様との接触を最小限に。完全個室診察で、安心してお話しいただけます。</p></div>
+      <div class="feat-item"><div class="feat-num">02</div><h3>オンライン診察対応</h3><p>スマートフォンやPCからビデオ通話で受診可能。通院が難しい方もご利用いただけます。</p></div>
+      <div class="feat-item"><div class="feat-num">03</div><h3>当日予約・夜間診察</h3><p>平日20時まで診察受付。当日の空き枠もオンラインでリアルタイム確認できます。</p></div>
+      <div class="feat-item"><div class="feat-num">04</div><h3>多職種チームによるサポート</h3><p>精神科医・心理士・看護師・医療ソーシャルワーカーがチームで支えます。</p></div>
+      <div class="feat-item"><div class="feat-num">05</div><h3>薬に頼らない選択肢も</h3><p>カウンセリング、TMS療法、マインドフルネスなど、薬以外のアプローチも提供しています。</p></div>
+      <div class="feat-item"><div class="feat-num">06</div><h3>セカンドオピニオン歓迎</h3><p>他院でのご診断に疑問を感じている方も、遠慮なくご相談ください。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="doctors reveal">
+  <div class="doc-inner">
+    <div class="doc-label">医師紹介</div>
+    <h2 class="doc-title">あなたの話を、<br>きちんと聴く医師がいます</h2>
+    <div class="doc-grid">
+      <div class="doc-card">
+        <div class="doc-photo">👩‍⚕️</div>
+        <div class="doc-name">田中 由美</div>
+        <div class="doc-title-text">院長 · 心療内科専門医</div>
+        <p class="doc-bio">慶應義塾大学医学部卒。10年以上にわたり心療内科・精神科領域に従事。患者様の話をゆっくり丁寧に聴くことを大切にしています。</p>
+      </div>
+      <div class="doc-card">
+        <div class="doc-photo">👨‍⚕️</div>
+        <div class="doc-name">佐藤 健一</div>
+        <div class="doc-title-text">副院長 · 精神科専門医</div>
+        <p class="doc-bio">東京大学医学部卒。うつ病・不安障害・ADHD診療を専門とする。CBT（認知行動療法）の認定資格を保有。</p>
+      </div>
+      <div class="doc-card">
+        <div class="doc-photo">👩‍⚕️</div>
+        <div class="doc-name">山口 さくら</div>
+        <div class="doc-title-text">臨床心理士 · 公認心理師</div>
+        <p class="doc-bio">早稲田大学大学院修了。カウンセリング歴12年。トラウマ・対人関係・自己肯定感の問題を専門としています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="flow reveal">
+  <div class="flow-inner">
+    <div class="flow-label">初診の流れ</div>
+    <h2 class="flow-title">はじめての方も、<br>安心して受診いただけます</h2>
+    <div class="flow-steps">
+      <div class="flow-step"><div class="fs-num">1</div><div class="fs-content"><h3>オンラインで予約する</h3><p>24時間いつでも予約可能。希望の医師・日時を選んで、5分で完了します。保険証の準備だけでOK。</p></div></div>
+      <div class="flow-step"><div class="fs-num">2</div><div class="fs-content"><h3>問診票に答える</h3><p>受診前に専用フォームで体調・お悩みをお知らせください。当日の診察をよりスムーズにするためです。</p></div></div>
+      <div class="flow-step"><div class="fs-num">3</div><div class="fs-content"><h3>医師と話す（30〜60分）</h3><p>初診は時間をかけてお話を聴きます。焦らなくて大丈夫。気になることは何でもご相談ください。</p></div></div>
+      <div class="flow-step"><div class="fs-num">4</div><div class="fs-content"><h3>一緒に治療方針を決める</h3><p>診断・薬・カウンセリングなど、治療の選択肢をご説明します。無理なく続けられる方法を一緒に考えます。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="booking reveal">
+  <div class="booking-inner">
+    <h2>今日から、<br>一歩踏み出しませんか</h2>
+    <p>「受診するほどでもないかも」と思っていても、その気持ち自体が大切なサインです。まずはお気軽にご相談ください。</p>
+    <a href="#" class="btn-white">オンラインで予約する（無料）</a>
+    <p class="booking-note">初診 · オンライン可 · 当日予約受付中</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div><div class="foot-logo-w">そらクリニック</div><p class="foot-brand-p">東京都渋谷区代々木1-2-3<br>月–土 10:00〜20:00（日祝休診）<br>Tel: 03-XXXX-XXXX</p></div>
+      <div class="foot-col"><h4>診療案内</h4><ul><li><a href="#">心療内科</a></li><li><a href="#">精神科</a></li><li><a href="#">カウンセリング</a></li><li><a href="#">TMS療法</a></li></ul></div>
+      <div class="foot-col"><h4>初めての方</h4><ul><li><a href="#">初診の流れ</a></li><li><a href="#">料金案内</a></li><li><a href="#">よくある質問</a></li><li><a href="#">オンライン診療</a></li></ul></div>
+      <div class="foot-col"><h4>クリニック情報</h4><ul><li><a href="#">医師紹介</a></li><li><a href="#">アクセス</a></li><li><a href="#">採用情報</a></li><li><a href="#">プライバシーポリシー</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span class="foot-copy">© 2024 そらクリニック. 無断転載禁止.</span>
+      <span class="foot-copy">医療法人社団 そら会</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60)});
+const reveals=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver(e=>{e.forEach(r=>{if(r.isIntersecting){r.target.classList.add('visible');io.unobserve(r.target);}});},{threshold:.08});
+reveals.forEach(r=>io.observe(r));
+</script>
+</body>
+</html>
