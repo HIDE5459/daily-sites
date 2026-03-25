@@ -1,43 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nexus AI — Think Faster. Build Smarter.</title>
-<meta name="description" content="AI-powered workflow automation that eliminates busywork and lets your team focus on what matters.">
+<title>Nexus AI — 考える速さで、仕事が動く</title>
+<meta name="description" content="AIがチームの動きを学習し、雑務を自動化。本当に大切な仕事に集中できる環境を。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #06060A;
-  --surface: #0F0F1A;
-  --border: rgba(255,255,255,0.08);
-  --purple: #7C3AED;
-  --purple-light: #A855F7;
-  --cyan: #06B6D4;
-  --green: #10B981;
-  --text: #F0F0F5;
-  --muted: #7B7B9A;
-  --font-display: 'Space Grotesk', sans-serif;
-  --font-body: 'Inter', sans-serif;
-}
+:root{--bg:#06060A;--surface:#0F0F1A;--border:rgba(255,255,255,.08);--purple:#7C3AED;--purple-light:#A855F7;--cyan:#06B6D4;--green:#10B981;--text:#F0F0F5;--muted:#7B7B9A;--font-jp:'Noto Sans JP',sans-serif;--font-display:'Space Grotesk',sans-serif}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.6;overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--font-jp);line-height:1.7;overflow-x:hidden}
 
-/* ─── NAV ─── */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
-nav.scrolled{background:rgba(6,6,10,.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:14px 40px}
+nav.scrolled{background:rgba(6,6,10,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:14px 40px}
 .nav-logo{font-family:var(--font-display);font-weight:700;font-size:1.25rem;background:linear-gradient(135deg,#A855F7,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.875rem;transition:color .2s}
 .nav-links a:hover{color:var(--text)}
-.nav-cta{background:var(--purple);color:#fff;border:none;padding:10px 22px;border-radius:8px;font-size:.875rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:var(--font-display)}
+.nav-cta{background:var(--purple);color:#fff;border:none;padding:10px 22px;border-radius:8px;font-size:.875rem;font-weight:500;cursor:pointer;transition:all .2s;font-family:var(--font-jp)}
 .nav-cta:hover{background:var(--purple-light);transform:translateY(-1px)}
 
-/* ─── HERO ─── */
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px 40px 80px;text-align:center;position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
 .glow{position:absolute;border-radius:50%;filter:blur(120px);opacity:.35}
 .glow-1{width:600px;height:600px;background:radial-gradient(circle,#7C3AED,transparent);top:-100px;left:-100px;animation:drift1 12s ease-in-out infinite}
 .glow-2{width:500px;height:500px;background:radial-gradient(circle,#06B6D4,transparent);bottom:-100px;right:-50px;animation:drift2 15s ease-in-out infinite}
@@ -46,272 +32,192 @@ nav.scrolled{background:rgba(6,6,10,.8);backdrop-filter:blur(20px);border-bottom
 @keyframes drift2{0%,100%{transform:translate(0,0)}50%{transform:translate(-50px,30px)}}
 @keyframes drift3{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-40px)}}
 .grid-overlay{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px}
-.hero-content{position:relative;z-index:1;max-width:900px}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.3);color:#A855F7;padding:6px 16px;border-radius:100px;font-size:.8rem;font-weight:600;margin-bottom:32px;letter-spacing:.05em}
-.hero-badge::before{content:'';width:6px;height:6px;background:#A855F7;border-radius:50%;animation:pulse 2s infinite}
+.hero-content{position:relative;z-index:1;max-width:860px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.3);color:#A855F7;padding:6px 16px;border-radius:100px;font-size:.78rem;font-weight:500;margin-bottom:32px;letter-spacing:.04em}
+.hero-badge::before{content:'';width:6px;height:6px;background:#A855F7;border-radius:50%;animation:pulse 2s infinite;flex-shrink:0}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
-h1{font-family:var(--font-display);font-size:clamp(2.8rem,6vw,5.5rem);font-weight:700;line-height:1.05;letter-spacing:-0.03em;margin-bottom:24px}
-h1 span{background:linear-gradient(135deg,#A855F7 0%,#06B6D4 50%,#10B981 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero-sub{font-size:1.15rem;color:var(--muted);max-width:560px;margin:0 auto 40px;line-height:1.7}
+h1{font-size:clamp(2.8rem,6vw,5rem);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:24px}
+h1 .grad{background:linear-gradient(135deg,#A855F7 0%,#06B6D4 50%,#10B981 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:1.1rem;color:var(--muted);max-width:540px;margin:0 auto 40px;line-height:1.8}
 .hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.btn-primary{background:linear-gradient(135deg,#7C3AED,#06B6D4);color:#fff;padding:14px 32px;border-radius:10px;font-size:1rem;font-weight:600;border:none;cursor:pointer;transition:all .3s;font-family:var(--font-display);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-primary{background:linear-gradient(135deg,#7C3AED,#06B6D4);color:#fff;padding:14px 32px;border-radius:10px;font-size:1rem;font-weight:500;border:none;cursor:pointer;transition:all .3s;font-family:var(--font-jp);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 60px rgba(124,58,237,.4)}
-.btn-ghost{background:transparent;color:var(--text);padding:14px 32px;border-radius:10px;font-size:1rem;font-weight:500;border:1px solid var(--border);cursor:pointer;transition:all .3s;font-family:var(--font-display);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-ghost{background:transparent;color:var(--text);padding:14px 32px;border-radius:10px;font-size:1rem;font-weight:400;border:1px solid var(--border);cursor:pointer;transition:all .3s;font-family:var(--font-jp);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
 .btn-ghost:hover{border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.04)}
 .hero-stats{display:flex;gap:48px;justify-content:center;margin-top:60px;flex-wrap:wrap}
-.stat{text-align:center}
 .stat-number{font-family:var(--font-display);font-size:2rem;font-weight:700;background:linear-gradient(135deg,#A855F7,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.stat-label{font-size:.8rem;color:var(--muted);margin-top:4px;letter-spacing:.08em;text-transform:uppercase}
+.stat-label{font-size:.78rem;color:var(--muted);margin-top:4px}
 
-/* ─── LOGOS ─── */
-.logos{padding:48px 40px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.logos-inner{max-width:1100px;margin:0 auto;text-align:center}
-.logos-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:32px}
-.logos-grid{display:flex;gap:48px;align-items:center;justify-content:center;flex-wrap:wrap;opacity:.45}
-.logo-item{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--text);letter-spacing:-0.02em}
+.logos{padding:44px 40px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.logos-inner{max-width:1000px;margin:0 auto;text-align:center}
+.logos-label{font-size:.78rem;color:var(--muted);margin-bottom:28px;letter-spacing:.05em}
+.logos-grid{display:flex;gap:48px;align-items:center;justify-content:center;flex-wrap:wrap;opacity:.4}
+.logo-item{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--text)}
 
-/* ─── FEATURES ─── */
 .section{padding:100px 40px;max-width:1200px;margin:0 auto}
-.section-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.14em;color:var(--purple-light);margin-bottom:16px;font-weight:600}
-.section-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:700;line-height:1.15;letter-spacing:-0.02em;margin-bottom:20px}
-.section-sub{font-size:1.05rem;color:var(--muted);max-width:560px;line-height:1.7}
-.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:64px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden}
-.feature-card{background:var(--surface);padding:40px 36px;transition:background .3s;cursor:default}
+.section-label{font-size:.72rem;letter-spacing:.14em;color:var(--purple-light);margin-bottom:16px;font-weight:500}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;line-height:1.2;letter-spacing:-.01em;margin-bottom:16px}
+.section-sub{font-size:1rem;color:var(--muted);max-width:520px;line-height:1.8}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:60px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.feature-card{background:var(--surface);padding:36px 32px;transition:background .3s}
 .feature-card:hover{background:#13131F}
-.feature-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:24px}
-.feature-card:nth-child(1) .feature-icon{background:rgba(124,58,237,.15)}
-.feature-card:nth-child(2) .feature-icon{background:rgba(6,182,212,.15)}
-.feature-card:nth-child(3) .feature-icon{background:rgba(16,185,129,.15)}
-.feature-card:nth-child(4) .feature-icon{background:rgba(245,158,11,.15)}
-.feature-card:nth-child(5) .feature-icon{background:rgba(239,68,68,.15)}
-.feature-card:nth-child(6) .feature-icon{background:rgba(168,85,247,.15)}
-.feature-card h3{font-family:var(--font-display);font-size:1.1rem;font-weight:600;margin-bottom:10px}
-.feature-card p{font-size:.9rem;color:var(--muted);line-height:1.65}
+.feature-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:20px}
+.fc1{background:rgba(124,58,237,.15)}.fc2{background:rgba(6,182,212,.15)}.fc3{background:rgba(16,185,129,.15)}
+.fc4{background:rgba(245,158,11,.15)}.fc5{background:rgba(239,68,68,.15)}.fc6{background:rgba(168,85,247,.15)}
+.feature-card h3{font-size:1rem;font-weight:700;margin-bottom:8px}
+.feature-card p{font-size:.875rem;color:var(--muted);line-height:1.7}
 
-/* ─── HOW IT WORKS ─── */
 .how{padding:100px 40px;background:linear-gradient(180deg,transparent,rgba(124,58,237,.04),transparent)}
 .how-inner{max-width:1100px;margin:0 auto}
-.how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:64px;position:relative}
+.how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:60px;position:relative}
 .how-steps::after{content:'';position:absolute;top:32px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--purple),var(--cyan),var(--green),transparent);z-index:0}
 .step{text-align:center;position:relative;z-index:1}
-.step-num{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.25rem;font-weight:700;margin:0 auto 24px;position:relative}
-.step:nth-child(1) .step-num{background:rgba(124,58,237,.2);border:2px solid rgba(124,58,237,.5);color:#A855F7}
-.step:nth-child(2) .step-num{background:rgba(6,182,212,.2);border:2px solid rgba(6,182,212,.5);color:#06B6D4}
-.step:nth-child(3) .step-num{background:rgba(16,185,129,.2);border:2px solid rgba(16,185,129,.5);color:#10B981}
-.step:nth-child(4) .step-num{background:rgba(245,158,11,.2);border:2px solid rgba(245,158,11,.5);color:#F59E0B}
-.step h3{font-family:var(--font-display);font-size:1rem;font-weight:600;margin-bottom:8px}
-.step p{font-size:.875rem;color:var(--muted);line-height:1.6}
+.step-num{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.2rem;font-weight:700;margin:0 auto 20px}
+.sn1{background:rgba(124,58,237,.2);border:2px solid rgba(124,58,237,.5);color:#A855F7}
+.sn2{background:rgba(6,182,212,.2);border:2px solid rgba(6,182,212,.5);color:#06B6D4}
+.sn3{background:rgba(16,185,129,.2);border:2px solid rgba(16,185,129,.5);color:#10B981}
+.sn4{background:rgba(245,158,11,.2);border:2px solid rgba(245,158,11,.5);color:#F59E0B}
+.step h3{font-size:.95rem;font-weight:700;margin-bottom:8px}
+.step p{font-size:.85rem;color:var(--muted);line-height:1.7}
 
-/* ─── SHOWCASE ─── */
 .showcase{padding:60px 40px 100px;max-width:1200px;margin:0 auto}
-.showcase-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:60px;position:relative;overflow:hidden}
+.showcase-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:56px;position:relative;overflow:hidden}
 .showcase-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#7C3AED,#06B6D4,#10B981)}
-.showcase-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.showcase-text h2{font-family:var(--font-display);font-size:2.2rem;font-weight:700;line-height:1.2;letter-spacing:-0.02em;margin-bottom:20px}
-.showcase-text p{color:var(--muted);line-height:1.7;margin-bottom:32px}
-.mock-terminal{background:#0A0A0F;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:24px;font-family:'Space Grotesk',monospace;font-size:.82rem;line-height:1.8}
-.terminal-bar{display:flex;gap:8px;margin-bottom:20px}
+.showcase-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.showcase-text h2{font-size:2rem;font-weight:700;line-height:1.3;letter-spacing:-.01em;margin-bottom:16px}
+.showcase-text p{color:var(--muted);line-height:1.8;margin-bottom:28px;font-size:.95rem}
+.mock-terminal{background:#0A0A0F;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:24px;font-family:'Space Grotesk',monospace;font-size:.8rem;line-height:1.9}
+.terminal-bar{display:flex;gap:8px;margin-bottom:18px}
 .dot{width:12px;height:12px;border-radius:50%}
 .dot-r{background:#FF5F56}.dot-y{background:#FFBD2E}.dot-g{background:#27C93F}
-.t-line{color:#7B7B9A}
-.t-cmd{color:#A855F7}
-.t-out{color:#06B6D4}
-.t-ok{color:#10B981}
+.t-line{color:#7B7B9A}.t-cmd{color:#A855F7}.t-out{color:#06B6D4}.t-ok{color:#10B981}
 .t-cursor{display:inline-block;width:8px;height:14px;background:#A855F7;animation:blink .8s step-end infinite;vertical-align:middle}
 @keyframes blink{50%{opacity:0}}
 
-/* ─── PRICING ─── */
-.pricing{padding:100px 40px;background:radial-gradient(ellipse at 50% 100%,rgba(124,58,237,.08),transparent 70%)}
+.pricing{padding:100px 40px;background:radial-gradient(ellipse at 50% 100%,rgba(124,58,237,.07),transparent 70%)}
 .pricing-inner{max-width:1100px;margin:0 auto;text-align:center}
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
-.price-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:40px 32px;text-align:left;position:relative;transition:transform .3s,box-shadow .3s}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
+.price-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:36px 28px;text-align:left;position:relative;transition:transform .3s,box-shadow .3s}
 .price-card:hover{transform:translateY(-4px);box-shadow:0 40px 80px rgba(0,0,0,.4)}
 .price-card.featured{border-color:rgba(124,58,237,.5);background:linear-gradient(160deg,#0F0F1A,#130F20)}
-.price-card.featured::before{content:'Most Popular';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#7C3AED,#06B6D4);color:#fff;padding:4px 16px;border-radius:100px;font-size:.75rem;font-weight:700;white-space:nowrap}
-.price-name{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:16px}
-.price-amount{font-family:var(--font-display);font-size:3rem;font-weight:700;line-height:1}
-.price-amount span{font-size:1rem;font-weight:400;color:var(--muted)}
-.price-desc{font-size:.875rem;color:var(--muted);margin:16px 0 32px}
-.price-features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:36px}
-.price-features li{display:flex;align-items:center;gap:10px;font-size:.9rem}
-.price-features li::before{content:'✓';width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;flex-shrink:0}
+.price-card.featured::before{content:'おすすめ';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#7C3AED,#06B6D4);color:#fff;padding:4px 16px;border-radius:100px;font-size:.72rem;font-weight:500;white-space:nowrap}
+.price-name{font-size:.75rem;letter-spacing:.1em;color:var(--muted);margin-bottom:12px}
+.price-amount{font-family:var(--font-display);font-size:2.8rem;font-weight:700;line-height:1}
+.price-amount span{font-size:.95rem;font-weight:400;color:var(--muted)}
+.price-desc{font-size:.85rem;color:var(--muted);margin:12px 0 28px;line-height:1.7}
+.price-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.price-features li{display:flex;align-items:center;gap:10px;font-size:.875rem}
+.price-features li::before{content:'✓';width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.68rem;flex-shrink:0}
 .price-card:not(.featured) .price-features li::before{background:rgba(16,185,129,.15);color:#10B981}
 .price-card.featured .price-features li::before{background:rgba(124,58,237,.2);color:#A855F7}
-.btn-plan{width:100%;padding:12px;border-radius:8px;font-weight:600;font-family:var(--font-display);cursor:pointer;transition:all .2s;border:none;font-size:.95rem}
+.btn-plan{width:100%;padding:12px;border-radius:8px;font-weight:500;font-family:var(--font-jp);cursor:pointer;transition:all .2s;border:none;font-size:.9rem}
 .btn-plan-ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
-.btn-plan-ghost:hover{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.04)}
+.btn-plan-ghost:hover{border-color:rgba(255,255,255,.3)}
 .btn-plan-primary{background:linear-gradient(135deg,#7C3AED,#A855F7);color:#fff}
 .btn-plan-primary:hover{transform:translateY(-1px);box-shadow:0 10px 30px rgba(124,58,237,.4)}
 
-/* ─── CTA ─── */
 .cta-section{padding:120px 40px;text-align:center}
-.cta-inner{max-width:700px;margin:0 auto}
-.cta-section h2{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.5rem);font-weight:700;line-height:1.1;letter-spacing:-0.02em;margin-bottom:20px}
-.cta-section p{font-size:1.1rem;color:var(--muted);margin-bottom:40px}
+.cta-inner{max-width:680px;margin:0 auto}
+.cta-section h2{font-size:clamp(1.8rem,4vw,3rem);font-weight:700;line-height:1.2;letter-spacing:-.01em;margin-bottom:16px}
+.cta-section p{font-size:1rem;color:var(--muted);margin-bottom:36px;line-height:1.8}
 
-/* ─── FOOTER ─── */
 footer{border-top:1px solid var(--border);padding:60px 40px 40px}
 .footer-inner{max-width:1200px;margin:0 auto}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:60px}
-.footer-brand p{font-size:.875rem;color:var(--muted);margin-top:12px;line-height:1.6;max-width:280px}
-.footer-col h4{font-family:var(--font-display);font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px;color:var(--muted)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:56px}
+.footer-brand p{font-size:.85rem;color:var(--muted);margin-top:10px;line-height:1.7;max-width:260px}
+.footer-col h4{font-size:.75rem;letter-spacing:.08em;margin-bottom:14px;color:var(--muted)}
 .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.footer-col a{color:var(--muted);text-decoration:none;font-size:.875rem;transition:color .2s}
+.footer-col a{color:var(--muted);text-decoration:none;font-size:.85rem;transition:color .2s}
 .footer-col a:hover{color:var(--text)}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid var(--border)}
-.footer-copy{font-size:.8rem;color:var(--muted)}
-.footer-social{display:flex;gap:16px}
-.social-btn{width:36px;height:36px;border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;font-size:.8rem;transition:all .2s}
-.social-btn:hover{border-color:rgba(255,255,255,.25);color:var(--text)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid var(--border)}
+.footer-copy{font-size:.78rem;color:var(--muted)}
 
-/* ─── ANIMATIONS ─── */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
-/* ─── MOBILE ─── */
 @media(max-width:768px){
-  nav{padding:16px 20px}
-  .nav-links{display:none}
+  nav{padding:16px 20px}.nav-links{display:none}
   .hero{padding:100px 24px 60px}
-  h1{font-size:2.6rem}
-  .hero-stats{gap:24px}
-  .section{padding:60px 24px}
   .features-grid{grid-template-columns:1fr;gap:1px}
-  .how{padding:60px 24px}
-  .how-steps{grid-template-columns:1fr 1fr;gap:32px}
-  .how-steps::after{display:none}
+  .how-steps{grid-template-columns:1fr 1fr}.how-steps::after{display:none}
   .showcase-inner{grid-template-columns:1fr}
   .pricing-grid{grid-template-columns:1fr}
   .footer-top{grid-template-columns:1fr 1fr}
-  .footer-bottom{flex-direction:column;gap:16px;text-align:center}
+  .footer-bottom{flex-direction:column;gap:12px}
 }
 </style>
 </head>
 <body>
-
 <nav id="nav">
   <div class="nav-logo">Nexus AI</div>
   <ul class="nav-links">
-    <li><a href="#features">Features</a></li>
-    <li><a href="#how">How it works</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#">Docs</a></li>
+    <li><a href="#features">機能</a></li>
+    <li><a href="#how">使い方</a></li>
+    <li><a href="#pricing">料金</a></li>
+    <li><a href="#">ドキュメント</a></li>
   </ul>
-  <button class="nav-cta">Get started free →</button>
+  <button class="nav-cta">無料で始める →</button>
 </nav>
 
 <section class="hero">
   <div class="hero-bg">
-    <div class="glow glow-1"></div>
-    <div class="glow glow-2"></div>
-    <div class="glow glow-3"></div>
+    <div class="glow glow-1"></div><div class="glow glow-2"></div><div class="glow glow-3"></div>
     <div class="grid-overlay"></div>
   </div>
   <div class="hero-content reveal">
-    <div class="hero-badge">✦ Now in public beta</div>
-    <h1>Think Faster.<br><span>Build Smarter.</span></h1>
-    <p class="hero-sub">AI-powered workflow automation that learns your team's patterns, eliminates busywork, and surfaces what actually needs your attention.</p>
+    <div class="hero-badge">✦ パブリックベータ 公開中</div>
+    <h1>考える速さで、<br><span class="grad">仕事が動く。</span></h1>
+    <p class="hero-sub">AIがチームの動きを学習し、繰り返しの作業を自動化。本当に大切なことだけに集中できる環境を作ります。</p>
     <div class="hero-actions">
-      <a href="#" class="btn-primary">Start for free <span>→</span></a>
-      <a href="#" class="btn-ghost">Watch demo <span>▶</span></a>
+      <a href="#" class="btn-primary">無料で始める →</a>
+      <a href="#" class="btn-ghost">▶ デモを見る</a>
     </div>
     <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-number" data-target="12000">0</div>
-        <div class="stat-label">Teams using Nexus</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number" data-target="94">0</div>
-        <div class="stat-label">% time saved</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number" data-target="4.9">0</div>
-        <div class="stat-label">Average rating</div>
-      </div>
+      <div class="stat"><div class="stat-number" data-target="12000">0</div><div class="stat-label">導入チーム数</div></div>
+      <div class="stat"><div class="stat-number" data-target="94">0</div><div class="stat-label">% 時間削減</div></div>
+      <div class="stat"><div class="stat-number" data-target="4.9">0</div><div class="stat-label">平均評価</div></div>
     </div>
   </div>
 </section>
 
 <div class="logos">
   <div class="logos-inner">
-    <p class="logos-label">Trusted by teams at</p>
+    <p class="logos-label">導入企業</p>
     <div class="logos-grid">
-      <span class="logo-item">Stripe</span>
-      <span class="logo-item">Vercel</span>
-      <span class="logo-item">Linear</span>
-      <span class="logo-item">Notion</span>
-      <span class="logo-item">Figma</span>
-      <span class="logo-item">Loom</span>
-      <span class="logo-item">Retool</span>
+      <span class="logo-item">サイバーエージェント</span>
+      <span class="logo-item">メルカリ</span>
+      <span class="logo-item">freee</span>
+      <span class="logo-item">Sansan</span>
+      <span class="logo-item">LayerX</span>
     </div>
   </div>
 </div>
 
 <div class="section reveal" id="features">
-  <div class="section-label">Features</div>
-  <h2 class="section-title">Everything your team<br>needs to move faster</h2>
-  <p class="section-sub">Purpose-built AI that understands context, not just commands.</p>
+  <div class="section-label">機能</div>
+  <h2 class="section-title">チームが速く動くための、<br>すべてが揃っている</h2>
+  <p class="section-sub">コマンドではなく、文脈を理解するAI。</p>
   <div class="features-grid">
-    <div class="feature-card">
-      <div class="feature-icon">⚡</div>
-      <h3>Smart Automation</h3>
-      <p>Build complex workflows in seconds. Nexus learns from your patterns and suggests automations before you know you need them.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🧠</div>
-      <h3>Context-Aware AI</h3>
-      <p>Unlike generic AI tools, Nexus understands your team structure, project history, and communication style.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🔗</div>
-      <h3>Universal Integrations</h3>
-      <p>Connect 200+ tools with one click. GitHub, Slack, Linear, Notion, Salesforce — everything works together instantly.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">📊</div>
-      <h3>Real-time Analytics</h3>
-      <p>See exactly where time is being wasted. Nexus surfaces bottlenecks and suggests fixes automatically.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🛡️</div>
-      <h3>Enterprise Security</h3>
-      <p>SOC2 Type II certified. Your data never trains our models. Full audit logs, SSO, and custom data retention.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🚀</div>
-      <h3>Instant Deployment</h3>
-      <p>Ship automations to your entire team in one click. No engineering required. Roll back any change in seconds.</p>
-    </div>
+    <div class="feature-card"><div class="feature-icon fc1">⚡</div><h3>スマート自動化</h3><p>パターンを学習し、必要になる前に自動化を提案。複雑なワークフローを数秒で構築できます。</p></div>
+    <div class="feature-card"><div class="feature-icon fc2">🧠</div><h3>文脈理解AI</h3><p>チームの構成、プロジェクト履歴、コミュニケーションスタイルを理解した上で動作します。</p></div>
+    <div class="feature-card"><div class="feature-icon fc3">🔗</div><h3>200以上の連携</h3><p>GitHub、Slack、Notion、Salesforce——ワンクリックですべてのツールが繋がります。</p></div>
+    <div class="feature-card"><div class="feature-icon fc4">📊</div><h3>リアルタイム分析</h3><p>時間が無駄になっている場所を可視化。ボトルネックを自動で発見し、改善策を提案します。</p></div>
+    <div class="feature-card"><div class="feature-icon fc5">🛡️</div><h3>エンタープライズ対応</h3><p>SOC2 Type II認定。データはモデルの学習に使用されません。完全な監査ログとSSO対応。</p></div>
+    <div class="feature-card"><div class="feature-icon fc6">🚀</div><h3>即時展開</h3><p>エンジニア不要で、チーム全体への展開がワンクリック。変更はいつでもロールバック可能。</p></div>
   </div>
 </div>
 
 <div class="how" id="how">
   <div class="how-inner">
     <div class="reveal" style="text-align:center">
-      <div class="section-label" style="justify-content:center;display:flex">How it works</div>
-      <h2 class="section-title">Up and running in minutes</h2>
+      <div class="section-label" style="display:flex;justify-content:center">使い方</div>
+      <h2 class="section-title">数分で動き始める</h2>
     </div>
     <div class="how-steps reveal">
-      <div class="step">
-        <div class="step-num">01</div>
-        <h3>Connect your tools</h3>
-        <p>Link your existing stack. Nexus maps your workflows automatically.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <h3>AI learns your team</h3>
-        <p>In 48 hours, Nexus understands your patterns and identifies waste.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <h3>Review suggestions</h3>
-        <p>Accept, modify, or reject AI-generated automations with one click.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <h3>Ship &amp; scale</h3>
-        <p>Deploy to your team instantly. Nexus improves as you use it.</p>
-      </div>
+      <div class="step"><div class="step-num sn1">01</div><h3>ツールを繋ぐ</h3><p>既存のスタックを連携。ワークフローを自動でマッピングします。</p></div>
+      <div class="step"><div class="step-num sn2">02</div><h3>AIが学習する</h3><p>48時間でチームのパターンを把握し、無駄を発見します。</p></div>
+      <div class="step"><div class="step-num sn3">03</div><h3>提案をレビュー</h3><p>AIが生成した自動化をワンクリックで承認・修正・却下できます。</p></div>
+      <div class="step"><div class="step-num sn4">04</div><h3>展開して成長</h3><p>チームへ即時展開。使うほどに賢くなります。</p></div>
     </div>
   </div>
 </div>
@@ -320,28 +226,24 @@ footer{border-top:1px solid var(--border);padding:60px 40px 40px}
   <div class="showcase-card">
     <div class="showcase-inner">
       <div class="showcase-text">
-        <div class="section-label">Developer-first</div>
-        <h2>Built for<br>engineers who<br>care about craft</h2>
-        <p>Full API access. Custom webhooks. CLI tooling. Nexus gets out of your way and lets you build exactly what you need.</p>
-        <a href="#" class="btn-ghost">Read the docs →</a>
+        <div class="section-label">開発者向け</div>
+        <h2>エンジニアの<br>こだわりに<br>応える設計</h2>
+        <p>フルAPIアクセス、カスタムWebhook、CLIツール完備。Nexusは邪魔をせず、必要なものを作る自由を渡します。</p>
+        <a href="#" class="btn-ghost">ドキュメントを読む →</a>
       </div>
       <div class="mock-terminal">
-        <div class="terminal-bar">
-          <div class="dot dot-r"></div>
-          <div class="dot dot-y"></div>
-          <div class="dot dot-g"></div>
-        </div>
+        <div class="terminal-bar"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
         <div class="t-line">$ nexus init</div>
-        <div class="t-out">✓ Connected to workspace</div>
-        <div class="t-out">✓ Detected 12 tools</div>
+        <div class="t-out">✓ ワークスペースに接続しました</div>
+        <div class="t-out">✓ 12個のツールを検出しました</div>
         <div class="t-line"> </div>
         <div class="t-line">$ nexus automate --analyze</div>
-        <div class="t-out">Analyzing 847 workflows...</div>
-        <div class="t-ok">Found 23 automation opportunities</div>
-        <div class="t-ok">Estimated time saved: 14h/week</div>
+        <div class="t-out">847件のワークフローを分析中...</div>
+        <div class="t-ok">23件の自動化機会を発見</div>
+        <div class="t-ok">予測削減時間: 週14時間</div>
         <div class="t-line"> </div>
         <div class="t-line">$ nexus deploy --all</div>
-        <div class="t-ok">✓ Deployed to 48 team members</div>
+        <div class="t-ok">✓ 48名のメンバーに展開完了</div>
         <div class="t-line">$ <span class="t-cursor"></span></div>
       </div>
     </div>
@@ -351,49 +253,37 @@ footer{border-top:1px solid var(--border);padding:60px 40px 40px}
 <div class="pricing" id="pricing">
   <div class="pricing-inner">
     <div class="reveal">
-      <div class="section-label" style="display:flex;justify-content:center">Pricing</div>
-      <h2 class="section-title">Simple, transparent pricing</h2>
-      <p style="color:var(--muted)">Start free. Scale as you grow. No hidden fees.</p>
+      <div class="section-label" style="display:flex;justify-content:center">料金プラン</div>
+      <h2 class="section-title">シンプルで明瞭な料金体系</h2>
+      <p style="color:var(--muted)">無料で始めて、必要に応じてスケールアップ。隠れた費用は一切ありません。</p>
     </div>
     <div class="pricing-grid reveal">
       <div class="price-card">
-        <div class="price-name">Starter</div>
-        <div class="price-amount">$0<span>/mo</span></div>
-        <p class="price-desc">Perfect for solo developers and small teams getting started.</p>
+        <div class="price-name">スターター</div>
+        <div class="price-amount">¥0<span>/月</span></div>
+        <p class="price-desc">個人開発者や小規模チームに最適なプラン。</p>
         <ul class="price-features">
-          <li>Up to 3 team members</li>
-          <li>50 automations/month</li>
-          <li>5 integrations</li>
-          <li>Community support</li>
+          <li>メンバー3名まで</li><li>月50件の自動化</li><li>5つの連携</li><li>コミュニティサポート</li>
         </ul>
-        <button class="btn-plan btn-plan-ghost">Get started free</button>
+        <button class="btn-plan btn-plan-ghost">無料で始める</button>
       </div>
       <div class="price-card featured">
-        <div class="price-name">Pro</div>
-        <div class="price-amount">$49<span>/mo</span></div>
-        <p class="price-desc">For growing teams that need serious automation power.</p>
+        <div class="price-name">プロ</div>
+        <div class="price-amount">¥6,600<span>/月</span></div>
+        <p class="price-desc">本格的な自動化が必要な成長チームに。</p>
         <ul class="price-features">
-          <li>Unlimited team members</li>
-          <li>Unlimited automations</li>
-          <li>200+ integrations</li>
-          <li>Priority support</li>
-          <li>Advanced analytics</li>
-          <li>Custom workflows</li>
+          <li>メンバー無制限</li><li>自動化無制限</li><li>200以上の連携</li><li>優先サポート</li><li>高度な分析</li><li>カスタムワークフロー</li>
         </ul>
-        <button class="btn-plan btn-plan-primary">Start free trial</button>
+        <button class="btn-plan btn-plan-primary">無料トライアルを開始</button>
       </div>
       <div class="price-card">
-        <div class="price-name">Enterprise</div>
-        <div class="price-amount">Custom</div>
-        <p class="price-desc">For large organizations with complex security and compliance needs.</p>
+        <div class="price-name">エンタープライズ</div>
+        <div class="price-amount">要相談</div>
+        <p class="price-desc">高度なセキュリティとコンプライアンスが必要な組織に。</p>
         <ul class="price-features">
-          <li>Everything in Pro</li>
-          <li>SOC2 / HIPAA compliance</li>
-          <li>Custom data retention</li>
-          <li>Dedicated support</li>
-          <li>SLA guarantee</li>
+          <li>プロのすべて</li><li>SOC2 / ISMS対応</li><li>カスタムデータ保持</li><li>専任サポート</li><li>SLA保証</li>
         </ul>
-        <button class="btn-plan btn-plan-ghost">Contact sales</button>
+        <button class="btn-plan btn-plan-ghost">営業に問い合わせる</button>
       </div>
     </div>
   </div>
@@ -401,93 +291,42 @@ footer{border-top:1px solid var(--border);padding:60px 40px 40px}
 
 <div class="cta-section reveal">
   <div class="cta-inner">
-    <h2>Ready to reclaim<br><span style="background:linear-gradient(135deg,#A855F7,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent">your team's time?</span></h2>
-    <p>Join 12,000+ teams already saving 14 hours per week with Nexus AI.</p>
-    <a href="#" class="btn-primary">Get started for free — no credit card needed</a>
+    <h2>チームの時間を<br><span style="background:linear-gradient(135deg,#A855F7,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent">取り戻しませんか？</span></h2>
+    <p>1万2千チームがすでに、週14時間の削減を実現しています。</p>
+    <a href="#" class="btn-primary">クレジットカード不要で無料スタート</a>
   </div>
 </div>
 
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
-      <div class="footer-brand">
-        <div class="nav-logo">Nexus AI</div>
-        <p>AI-powered workflow automation that helps teams work smarter, not harder.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Product</h4>
-        <ul>
-          <li><a href="#">Features</a></li>
-          <li><a href="#">Integrations</a></li>
-          <li><a href="#">Pricing</a></li>
-          <li><a href="#">Changelog</a></li>
-          <li><a href="#">Roadmap</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Press</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="#">Privacy</a></li>
-          <li><a href="#">Terms</a></li>
-          <li><a href="#">Security</a></li>
-          <li><a href="#">Status</a></li>
-        </ul>
-      </div>
+      <div class="footer-brand"><div class="nav-logo">Nexus AI</div><p>AIがチームの働き方を変える。賢く、速く、もっと人間らしく。</p></div>
+      <div class="footer-col"><h4>プロダクト</h4><ul><li><a href="#">機能一覧</a></li><li><a href="#">連携サービス</a></li><li><a href="#">料金</a></li><li><a href="#">更新履歴</a></li></ul></div>
+      <div class="footer-col"><h4>会社情報</h4><ul><li><a href="#">私たちについて</a></li><li><a href="#">ブログ</a></li><li><a href="#">採用情報</a></li><li><a href="#">プレス</a></li></ul></div>
+      <div class="footer-col"><h4>サポート</h4><ul><li><a href="#">プライバシー</a></li><li><a href="#">利用規約</a></li><li><a href="#">セキュリティ</a></li><li><a href="#">ステータス</a></li></ul></div>
     </div>
     <div class="footer-bottom">
-      <span class="footer-copy">© 2024 Nexus AI, Inc. All rights reserved.</span>
-      <div class="footer-social">
-        <a href="#" class="social-btn">𝕏</a>
-        <a href="#" class="social-btn">in</a>
-        <a href="#" class="social-btn">gh</a>
-      </div>
+      <span class="footer-copy">© 2024 Nexus AI株式会社 無断転載禁止</span>
+      <span class="footer-copy">東京 · 渋谷</span>
     </div>
   </div>
 </footer>
 
 <script>
-// Scroll nav
-window.addEventListener('scroll',()=>{
-  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);
-});
-
-// Reveal on scroll
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)});
 const reveals=document.querySelectorAll('.reveal');
-const io=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
-},{threshold:.12});
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.1});
 reveals.forEach(r=>io.observe(r));
-
-// Counter animation
 const counters=document.querySelectorAll('[data-target]');
-const counterIo=new IntersectionObserver((entries)=>{
+const cio=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(!e.isIntersecting)return;
-    const el=e.target;
-    const target=parseFloat(el.dataset.target);
-    const decimals=target%1!==0?1:0;
-    const duration=1800;
-    const start=performance.now();
-    const animate=(now)=>{
-      const p=Math.min((now-start)/duration,1);
-      const ease=1-Math.pow(1-p,4);
-      el.textContent=(target*ease).toFixed(decimals)+(target===12000?'+':(target===94?'%':''));
-      if(p<1)requestAnimationFrame(animate);
-    };
-    requestAnimationFrame(animate);
-    counterIo.unobserve(el);
-  });
-},{threshold:1});
-counters.forEach(c=>counterIo.observe(c));
+    const el=e.target,target=parseFloat(el.dataset.target),dec=target%1!==0?1:0,dur=1800,start=performance.now();
+    const ani=now=>{const p=Math.min((now-start)/dur,1),ease=1-Math.pow(1-p,4);
+      el.textContent=(target*ease).toFixed(dec)+(target===12000?'チーム':(target===94?'%':''));
+      if(p<1)requestAnimationFrame(ani);};
+    requestAnimationFrame(ani);cio.unobserve(el);});},{threshold:1});
+counters.forEach(c=>cio.observe(c));
 </script>
 </body>
 </html>
