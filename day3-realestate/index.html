@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TATAMI LIVING — 高級不動産</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--green:#1A2E1A;--cream:#F5F0E8;--gold:#C9A84C;--muted:#6B7B6B}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--green)}
+nav{position:fixed;top:0;width:100%;z-index:100;padding:24px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(245,240,232,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(26,46,26,.08)}
+.logo{font-family:'Playfair Display',serif;font-size:1.3rem;letter-spacing:.05em;color:var(--green)}
+.nav-links{display:flex;gap:40px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--green);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;opacity:.7;transition:.3s}
+.nav-links a:hover{opacity:1}
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;padding-top:80px}
+.hero-left{background:var(--green);display:flex;flex-direction:column;justify-content:center;padding:80px 60px;color:var(--cream)}
+.hero-eyebrow{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,4vw,4rem);line-height:1.1;margin-bottom:32px}
+.hero-title em{font-style:italic;color:var(--gold)}
+.hero-desc{font-size:.9rem;line-height:1.8;opacity:.7;margin-bottom:48px;max-width:380px}
+.search-bar{background:rgba(245,240,232,.1);border:1px solid rgba(245,240,232,.2);border-radius:4px;padding:20px 24px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.search-bar select,.search-bar input{background:transparent;border:none;color:var(--cream);font-family:'Inter',sans-serif;font-size:.85rem;outline:none;min-width:120px}
+.search-bar select option{color:#000}
+.search-bar::placeholder{color:rgba(245,240,232,.5)}
+.search-btn{background:var(--gold);color:var(--green);border:none;padding:10px 24px;border-radius:2px;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-weight:600;white-space:nowrap}
+.hero-right{position:relative;overflow:hidden}
+.hero-img{width:100%;height:100%;background:linear-gradient(135deg,#2D4A2D 0%,#1A2E1A 30%,#0D1F0D 60%,#3D5C3D 100%);position:relative}
+.hero-img::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A84C' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-img-overlay{position:absolute;bottom:40px;left:40px;background:rgba(245,240,232,.95);padding:24px 28px;border-radius:4px}
+.overlay-label{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.overlay-price{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--green);font-weight:700}
+.overlay-loc{font-size:.8rem;color:var(--muted);margin-top:4px}
+
+section{padding:100px 60px}
+.section-label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,3vw,2.8rem);margin-bottom:48px;line-height:1.2}
+
+.properties{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.prop-card{border:1px solid rgba(26,46,26,.12);border-radius:4px;overflow:hidden;transition:.3s;cursor:pointer}
+.prop-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(26,46,26,.12)}
+.prop-img{height:220px;position:relative;overflow:hidden}
+.prop-img-1{background:linear-gradient(145deg,#2D4A2D,#4A6B4A)}
+.prop-img-2{background:linear-gradient(145deg,#3B5E3B,#1A2E1A)}
+.prop-img-3{background:linear-gradient(145deg,#4D7A4D,#2D4A2D)}
+.prop-badge{position:absolute;top:16px;left:16px;background:var(--gold);color:var(--green);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;font-weight:600}
+.prop-body{padding:24px}
+.prop-area{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.prop-name{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:12px}
+.prop-price{font-size:1.3rem;font-weight:600;color:var(--green);margin-bottom:16px}
+.prop-stats{display:flex;gap:20px;font-size:.78rem;color:var(--muted)}
+
+.strengths{background:var(--green);padding:100px 60px}
+.strengths .section-title{color:var(--cream)}
+.strengths .section-label{color:var(--gold)}
+.strength-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+.strength-num{font-family:'Playfair Display',serif;font-size:3rem;color:var(--gold);font-weight:700;margin-bottom:16px}
+.strength-title{font-size:1rem;font-weight:500;color:var(--cream);margin-bottom:12px;letter-spacing:.02em}
+.strength-desc{font-size:.85rem;color:rgba(245,240,232,.6);line-height:1.8}
+
+.cta{text-align:center;padding:100px 60px;background:var(--cream)}
+.cta-title{font-family:'Playfair Display',serif;font-size:2.5rem;margin-bottom:16px}
+.cta-sub{font-size:.9rem;color:var(--muted);margin-bottom:40px}
+.btn-primary{background:var(--green);color:var(--cream);border:none;padding:16px 40px;font-family:'Inter',sans-serif;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;margin-right:16px;transition:.3s}
+.btn-primary:hover{background:#2D4A2D}
+.btn-outline{background:transparent;color:var(--green);border:2px solid var(--green);padding:14px 40px;font-family:'Inter',sans-serif;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:.3s}
+.btn-outline:hover{background:var(--green);color:var(--cream)}
+
+footer{background:var(--green);color:var(--cream);padding:40px 60px;display:flex;justify-content:space-between;align-items:center;font-size:.8rem;opacity:.8}
+
+@media(max-width:768px){
+  nav{padding:20px 24px}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-left{padding:60px 24px}
+  .hero-right{height:300px}
+  section,.strengths,.cta{padding:60px 24px}
+  .properties,.strength-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:16px;text-align:center}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">TATAMI LIVING</div>
+  <ul class="nav-links">
+    <li><a href="#">物件一覧</a></li>
+    <li><a href="#">エリア</a></li>
+    <li><a href="#">売却相談</a></li>
+    <li><a href="#">会社概要</a></li>
+  </ul>
+</nav>
+
+<section class="hero" style="padding:0">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Tokyo Premium Real Estate</div>
+    <h1 class="hero-title">住まいは、<br><em>静けさを</em><br>纏う場所。</h1>
+    <p class="hero-desc">都心に息づく、静謐な高級邸宅。暮らしの質を問い直す、上質な不動産との出逢いを。</p>
+    <div class="search-bar">
+      <select><option>エリア選択</option><option>港区</option><option>渋谷区</option><option>千代田区</option><option>新宿区</option></select>
+      <select><option>種別</option><option>マンション</option><option>戸建</option><option>土地</option></select>
+      <input type="text" placeholder="予算（万円）">
+      <button class="search-btn">検索</button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img" style="height:100%;min-height:500px">
+      <div class="hero-img-overlay">
+        <div class="overlay-label">Featured Property</div>
+        <div class="overlay-price">¥380,000万</div>
+        <div class="overlay-loc">港区白金台 4LDK 280㎡</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">Featured Properties</div>
+  <h2 class="section-title">厳選物件</h2>
+  <div class="properties">
+    <div class="prop-card">
+      <div class="prop-img prop-img-1"><div class="prop-badge">New</div></div>
+      <div class="prop-body">
+        <div class="prop-area">港区 · 白金台</div>
+        <div class="prop-name">白金台レジデンス</div>
+        <div class="prop-price">¥380,000万</div>
+        <div class="prop-stats"><span>🛏 4LDK</span><span>📐 280㎡</span><span>🚉 徒歩5分</span></div>
+      </div>
+    </div>
+    <div class="prop-card">
+      <div class="prop-img prop-img-2"><div class="prop-badge">Exclusive</div></div>
+      <div class="prop-body">
+        <div class="prop-area">渋谷区 · 松濤</div>
+        <div class="prop-name">松濤グランドハウス</div>
+        <div class="prop-price">¥520,000万</div>
+        <div class="prop-stats"><span>🛏 5LDK</span><span>📐 420㎡</span><span>🚉 徒歩8分</span></div>
+      </div>
+    </div>
+    <div class="prop-card">
+      <div class="prop-img prop-img-3"><div class="prop-badge">Views</div></div>
+      <div class="prop-body">
+        <div class="prop-area">千代田区 · 番町</div>
+        <div class="prop-name">番町ガーデンタワー</div>
+        <div class="prop-price">¥195,000万</div>
+        <div class="prop-stats"><span>🛏 3LDK</span><span>📐 185㎡</span><span>🚉 徒歩3分</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="strengths">
+  <div class="section-label">Why TATAMI LIVING</div>
+  <h2 class="section-title" style="color:var(--cream)">私たちを選ぶ理由</h2>
+  <div class="strength-grid">
+    <div>
+      <div class="strength-num">28</div>
+      <div class="strength-title">年の実績</div>
+      <div class="strength-desc">1996年の創業以来、都心高級不動産に特化。28年で培った目利きと人脈が、唯一の物件との出逢いを生み出します。</div>
+    </div>
+    <div>
+      <div class="strength-num">¥∞</div>
+      <div class="strength-title">完全非公開物件</div>
+      <div class="strength-desc">市場に出回らない特別な物件を多数保有。プライベートな取引を求めるオーナーと、最良の買主を繋ぎます。</div>
+    </div>
+    <div>
+      <div class="strength-num">97%</div>
+      <div class="strength-title">顧客満足度</div>
+      <div class="strength-desc">担当者が物件選定から契約・引渡しまで一貫サポート。ご購入後のアフターケアも万全に対応いたします。</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="section-label">Consultation</div>
+  <h2 class="cta-title">まず、お話しましょう。</h2>
+  <p class="cta-sub">ご希望の条件をお聞かせください。最適な物件をご提案いたします。</p>
+  <button class="btn-primary">無料相談を予約</button>
+  <button class="btn-outline">物件一覧を見る</button>
+</section>
+
+<footer>
+  <span>© 2026 TATAMI LIVING. All rights reserved.</span>
+  <span>東京都港区白金台1-2-3 TLビル</span>
+</footer>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>久良杜 KURAMORI — 日本酒蔵元</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#0D1B2A;--gold:#C9A84C;--cream:#F5EDD8;--mid:#8A7A5A;--paper:#FAF6ED}
+body{font-family:'Noto Serif JP',serif;background:var(--paper);color:var(--navy);overflow-x:hidden}
+
+/* 和紙テクスチャ */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")}
+
+nav{position:fixed;top:0;width:100%;z-index:100;padding:24px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(250,246,237,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(13,27,42,.08)}
+.logo{font-size:1.2rem;font-weight:700;letter-spacing:.15em;color:var(--navy)}
+.logo-sub{font-size:.65rem;letter-spacing:.25em;color:var(--mid);margin-top:2px;font-family:'Inter',sans-serif;text-transform:uppercase}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--navy);font-size:.8rem;letter-spacing:.1em;opacity:.6;transition:.3s}
+.nav-links a:hover{opacity:1}
+
+.hero{min-height:100vh;background:var(--navy);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(201,168,76,.05) 39px,rgba(201,168,76,.05) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(201,168,76,.05) 39px,rgba(201,168,76,.05) 40px)}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:120px 60px;position:relative;z-index:1}
+.hero-kamon{font-size:60px;margin-bottom:32px;opacity:.4}
+.hero-eyebrow{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-family:'Inter',sans-serif}
+.hero-title{font-size:clamp(3rem,5vw,5rem);color:var(--cream);font-weight:300;line-height:1.1;margin-bottom:16px;letter-spacing:.05em}
+.hero-title-en{font-size:clamp(1rem,2vw,1.4rem);color:var(--gold);letter-spacing:.3em;font-weight:300;margin-bottom:40px;font-family:'Inter',sans-serif}
+.hero-desc{font-size:.88rem;color:rgba(245,237,216,.65);line-height:2.2;margin-bottom:48px;max-width:380px}
+.hero-btn{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:14px 40px;font-size:.78rem;letter-spacing:.2em;text-decoration:none;transition:.3s;font-family:'Inter',sans-serif}
+.hero-btn:hover{background:var(--gold);color:var(--navy)}
+.hero-right{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;padding:60px}
+.sake-bottle{width:200px;height:500px;background:linear-gradient(180deg,#1A3A4A 0%,#0D2030 40%,#071520 100%);border-radius:80px 80px 20px 20px;position:relative;margin:0 auto;box-shadow:0 40px 100px rgba(0,0,0,.6),inset 0 0 40px rgba(201,168,76,.1)}
+.sake-bottle::before{content:'';position:absolute;top:10%;left:15%;right:15%;bottom:15%;border:1px solid rgba(201,168,76,.2);border-radius:70px 70px 15px 15px}
+.sake-label{position:absolute;top:25%;left:50%;transform:translateX(-50%);text-align:center;color:var(--gold);width:120px}
+.sake-label-title{font-size:1.8rem;font-weight:700;letter-spacing:.15em;margin-bottom:4px}
+.sake-label-sub{font-size:.6rem;letter-spacing:.2em;color:rgba(201,168,76,.7);font-family:'Inter',sans-serif}
+.sake-neck{width:60px;height:80px;background:linear-gradient(180deg,#1A3A4A,#0D2030);border-radius:40px 40px 0 0;position:absolute;top:-70px;left:50%;transform:translateX(-50%);box-shadow:inset 0 0 20px rgba(201,168,76,.1)}
+
+.story{padding:100px 60px;max-width:900px;margin:0 auto;text-align:center}
+.section-mark{font-size:2rem;margin-bottom:24px;opacity:.4}
+.section-tag{font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-family:'Inter',sans-serif}
+.section-title{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;line-height:1.4;margin-bottom:32px;letter-spacing:.05em}
+.story-text{font-size:.9rem;color:#4A4030;line-height:2.4;margin-bottom:16px}
+
+.brands{background:var(--navy);padding:100px 60px}
+.brands .section-tag{color:var(--gold)}
+.brands .section-title{color:var(--cream);margin-bottom:56px}
+.brand-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.brand-card{background:#0F2030;border:1px solid rgba(201,168,76,.12);padding:48px 40px;transition:.3s;cursor:pointer;position:relative;overflow:hidden}
+.brand-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:.4s;transform-origin:center}
+.brand-card:hover{background:#152535}
+.brand-card:hover::before{transform:scaleX(1)}
+.brand-type{font-size:.68rem;letter-spacing:.2em;color:rgba(201,168,76,.6);margin-bottom:16px;font-family:'Inter',sans-serif;text-transform:uppercase}
+.brand-name-ja{font-size:2rem;color:var(--cream);font-weight:700;letter-spacing:.1em;margin-bottom:8px}
+.brand-name-en{font-size:.8rem;letter-spacing:.2em;color:var(--gold);font-family:'Inter',sans-serif;margin-bottom:24px}
+.brand-desc{font-size:.82rem;color:rgba(245,237,216,.55);line-height:2;margin-bottom:24px}
+.brand-detail{display:flex;gap:20px;font-size:.72rem;color:rgba(201,168,76,.7);font-family:'Inter',sans-serif}
+
+.process{padding:100px 60px}
+.process .section-title{margin-bottom:64px}
+.timeline{position:relative;padding-left:60px}
+.timeline::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold),transparent)}
+.step{position:relative;margin-bottom:56px}
+.step-dot{position:absolute;left:-48px;top:4px;width:16px;height:16px;border:2px solid var(--gold);border-radius:50%;background:var(--paper)}
+.step-num{font-size:.68rem;letter-spacing:.2em;color:var(--gold);font-family:'Inter',sans-serif;text-transform:uppercase;margin-bottom:8px}
+.step-title{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.step-desc{font-size:.85rem;color:#6A5A40;line-height:2}
+
+.purchase{background:var(--navy);padding:100px 60px;text-align:center}
+.purchase .section-title{color:var(--cream);margin-bottom:16px}
+.purchase-desc{font-size:.88rem;color:rgba(245,237,216,.6);line-height:2;margin-bottom:48px}
+.purchase-btn{display:inline-block;background:var(--gold);color:var(--navy);padding:16px 48px;font-size:.82rem;letter-spacing:.2em;text-decoration:none;font-weight:700;font-family:'Inter',sans-serif;transition:.3s;margin:0 8px}
+.purchase-btn:hover{background:#DFC06A}
+.purchase-btn-outline{background:transparent;border:1px solid rgba(201,168,76,.5);color:var(--gold)}
+.purchase-btn-outline:hover{border-color:var(--gold)}
+
+footer{padding:40px 60px;background:var(--navy);border-top:1px solid rgba(201,168,76,.12);display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:rgba(245,237,216,.4);font-family:'Inter',sans-serif}
+
+@media(max-width:768px){
+  nav{padding:20px 24px}.nav-links{display:none}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-left{padding:100px 24px 60px}
+  .hero-right{padding:40px;height:300px}
+  .sake-bottle{width:120px;height:300px}
+  .story,.brands,.process,.purchase{padding:60px 24px}
+  .brand-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:12px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div>
+    <div class="logo">久良杜</div>
+    <div class="logo-sub">KURAMORI SAKE BREWERY</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#">銘柄</a></li>
+    <li><a href="#">蔵元について</a></li>
+    <li><a href="#">製造工程</a></li>
+    <li><a href="#">購入</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-kamon">⛩</div>
+    <div class="hero-eyebrow">Since 1847 · Niigata, Japan</div>
+    <h1 class="hero-title">米と水と、<br>時間が醸す。</h1>
+    <div class="hero-title-en">Rice · Water · Time</div>
+    <p class="hero-desc">越後の雪解け水と、契約農家が育てた山田錦。三代にわたる杜氏の技が、一滴の中に宿ります。</p>
+    <a href="#" class="hero-btn">銘柄を見る</a>
+  </div>
+  <div class="hero-right">
+    <div class="sake-bottle">
+      <div class="sake-neck"></div>
+      <div class="sake-label">
+        <div class="sake-label-title">久良杜</div>
+        <div class="sake-label-sub">KURAMORI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="section-mark">〇</div>
+  <div class="section-tag">Our Story</div>
+  <h2 class="section-title">蔵元の物語</h2>
+  <p class="story-text">嘉永元年（1848年）、越後の地に初代・久良杜孫七が小さな蔵を構えました。以来175年、米どころ新潟の風土と向き合いながら、変わらない製法を守り続けています。</p>
+  <p class="story-text">「酒は時間の芸術だ」という初代の言葉が、今もこの蔵に息づいています。</p>
+</section>
+
+<section class="brands">
+  <div class="section-tag" style="text-align:center">Our Sake</div>
+  <h2 class="section-title" style="color:var(--cream);text-align:center;margin-bottom:56px">銘柄</h2>
+  <div class="brand-grid">
+    <div class="brand-card">
+      <div class="brand-type">Junmai Daiginjo</div>
+      <div class="brand-name-ja">蒼穹</div>
+      <div class="brand-name-en">SŌKYŪ</div>
+      <p class="brand-desc">精米歩合23%。山田錦を極限まで磨き上げた、透明感のある果実香と絹のような口当たり。</p>
+      <div class="brand-detail"><span>精米歩合 23%</span><span>日本酒度 +3</span></div>
+    </div>
+    <div class="brand-card">
+      <div class="brand-type">Tokubetsu Junmai</div>
+      <div class="brand-name-ja">雪月</div>
+      <div class="brand-name-en">YUKITSUKI</div>
+      <p class="brand-desc">越後の厳冬期に仕込む、冷卸の特別純米。米の旨味と穏やかな酸が調和する定番銘柄。</p>
+      <div class="brand-detail"><span>精米歩合 55%</span><span>日本酒度 +1</span></div>
+    </div>
+    <div class="brand-card">
+      <div class="brand-type">Nigori Sake</div>
+      <div class="brand-name-ja">白露</div>
+      <div class="brand-name-en">HAKURO</div>
+      <p class="brand-desc">粗めに濾した活性にごり酒。米の甘みと発泡感が心地よく、食前酒として最適。</p>
+      <div class="brand-detail"><span>精米歩合 65%</span><span>日本酒度 -8</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="section-tag">Brewing Process</div>
+  <h2 class="section-title">醸造の工程</h2>
+  <div class="timeline">
+    <div class="step">
+      <div class="step-dot"></div>
+      <div class="step-num">Step 01 — 精米</div>
+      <div class="step-title">米を磨く</div>
+      <p class="step-desc">契約農家から届いた山田錦を、独自の低速精米機で3〜7日かけて丁寧に磨きます。雑味の元となる脂質とタンパク質を削ぎ落とし、澄んだ酒質を実現します。</p>
+    </div>
+    <div class="step">
+      <div class="step-dot"></div>
+      <div class="step-num">Step 02 — 洗米・浸漬</div>
+      <div class="step-title">水を吸わせる</div>
+      <p class="step-desc">精米後の白米を雪解け水で洗い、秒単位で管理した浸漬時間で吸水率をコントロール。この工程が発酵の基盤を作ります。</p>
+    </div>
+    <div class="step">
+      <div class="step-dot"></div>
+      <div class="step-num">Step 03 — 製麹</div>
+      <div class="step-title">麹を育てる</div>
+      <p class="step-desc">蒸し米に麹菌を振り、48時間をかけて手入れを繰り返します。温度と湿度を肌で感じながら麹を育てる、最も集中力を要する作業です。</p>
+    </div>
+    <div class="step">
+      <div class="step-dot"></div>
+      <div class="step-num">Step 04 — 発酵・搾り</div>
+      <div class="step-title">時間が仕上げる</div>
+      <p class="step-desc">仕込みから30〜40日の低温発酵を経て、槽（ふね）で静かに搾ります。急がず、圧力をかけず。酒が自ら流れ出すのを待ちます。</p>
+    </div>
+  </div>
+</section>
+
+<section class="purchase">
+  <div class="section-tag">Purchase</div>
+  <h2 class="section-title">お買い求め</h2>
+  <p class="purchase-desc">全国発送承ります。ギフト包装・熨斗対応可。<br>法人・贈答用のご相談はお気軽にどうぞ。</p>
+  <a href="#" class="purchase-btn">オンラインショップ</a>
+  <a href="#" class="purchase-btn purchase-btn-outline">取扱店舗を見る</a>
+</section>
+
+<footer>
+  <span>© 2026 久良杜酒造株式会社</span>
+  <span>新潟県南魚沼市久良杜1847番地</span>
+</footer>
+</body>
+</html>

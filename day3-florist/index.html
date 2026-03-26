@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HANA ATELIER — フラワーアトリエ</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--pink:#D4A5A5;--rose:#C17B7B;--charcoal:#2C2C2C;--off:#FAF7F4;--mid:#6B5B5B}
+body{font-family:'Inter',sans-serif;background:var(--off);color:var(--charcoal)}
+nav{position:fixed;top:0;width:100%;z-index:100;padding:28px 60px;display:flex;justify-content:space-between;align-items:center;mix-blend-mode:normal;background:rgba(250,247,244,.9);backdrop-filter:blur(16px)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.1rem;letter-spacing:.25em;text-transform:uppercase;color:var(--charcoal)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--mid);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;transition:.3s}
+.nav-links a:hover{color:var(--charcoal)}
+
+.hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:flex-end}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,#E8D0D0 0%,#C9A8A8 25%,#B08080 50%,#8B5E5E 75%,#6B3E3E 100%)}
+.hero-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(255,220,200,.4) 0%,transparent 60%)}
+.hero-bg::after{content:'🌸';font-size:300px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.08;filter:blur(2px)}
+.hero-content{position:relative;z-index:2;padding:80px 60px;color:var(--off)}
+.hero-sub{font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;opacity:.7;margin-bottom:16px}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,6rem);line-height:1;font-weight:300;margin-bottom:24px}
+.hero-title em{font-style:italic}
+.hero-desc{font-size:.88rem;line-height:1.9;opacity:.8;max-width:420px;margin-bottom:40px}
+.hero-btn{display:inline-block;border:1px solid rgba(250,247,244,.6);color:var(--off);padding:14px 36px;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;transition:.3s}
+.hero-btn:hover{background:var(--off);color:var(--charcoal)}
+
+.marquee-wrap{overflow:hidden;background:var(--charcoal);padding:18px 0}
+.marquee{display:flex;gap:60px;animation:scroll 20s linear infinite;white-space:nowrap}
+.marquee span{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--pink);letter-spacing:.15em;flex-shrink:0}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.products{padding:100px 60px}
+.section-tag{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);margin-bottom:12px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);margin-bottom:56px;font-weight:300;line-height:1.2}
+.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.product-card{background:var(--charcoal);position:relative;overflow:hidden;aspect-ratio:3/4;cursor:pointer}
+.product-card:first-child{grid-row:span 2;aspect-ratio:auto}
+.product-bg-1{background:linear-gradient(145deg,#C9A8A8,#A07070)}
+.product-bg-2{background:linear-gradient(145deg,#D4B8A0,#B89070)}
+.product-bg-3{background:linear-gradient(145deg,#B0C0A8,#8A9A80)}
+.product-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(44,44,44,.9) 0%,transparent 50%);display:flex;flex-direction:column;justify-content:flex-end;padding:32px}
+.product-emoji{position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);font-size:80px;opacity:.3}
+.product-cat{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--pink);margin-bottom:8px}
+.product-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--off);margin-bottom:6px}
+.product-price{font-size:.85rem;color:rgba(250,247,244,.7)}
+
+.philosophy{padding:100px 60px;background:var(--charcoal);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.phil-label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);margin-bottom:16px}
+.phil-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,2.8rem);color:var(--off);font-weight:300;line-height:1.3;margin-bottom:32px}
+.phil-text{font-size:.88rem;color:rgba(250,247,244,.65);line-height:2}
+.phil-visual{aspect-ratio:4/5;background:linear-gradient(135deg,#8B5E5E,#C9A8A8,#E8D0D0);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:120px;opacity:.6}
+
+.subscription{padding:100px 60px;text-align:center}
+.sub-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);margin-bottom:16px;font-weight:300}
+.sub-desc{font-size:.88rem;color:var(--mid);margin-bottom:56px;line-height:1.9}
+.sub-plans{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:900px;margin:0 auto 48px}
+.plan{border:1px solid rgba(44,44,44,.15);padding:40px 32px;text-align:left;transition:.3s;cursor:pointer}
+.plan:hover,.plan.featured{border-color:var(--rose);background:rgba(193,123,123,.06)}
+.plan-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;margin-bottom:8px}
+.plan-price{font-size:1.6rem;font-weight:300;margin-bottom:4px}
+.plan-per{font-size:.75rem;color:var(--mid);margin-bottom:24px}
+.plan-items{list-style:none;font-size:.82rem;color:var(--mid);line-height:2.2}
+.plan-items li::before{content:'— '}
+.sub-btn{background:var(--charcoal);color:var(--off);border:none;padding:16px 48px;font-family:'Inter',sans-serif;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:.3s}
+.sub-btn:hover{background:var(--rose)}
+
+footer{background:var(--charcoal);color:var(--off);padding:48px 60px;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.1rem;letter-spacing:.25em}
+.footer-info{font-size:.78rem;opacity:.5;text-align:right;line-height:1.8}
+
+@media(max-width:768px){
+  nav{padding:20px 24px}.nav-links{display:none}
+  .hero-content{padding:60px 24px}
+  .products,.philosophy,.subscription{padding:60px 24px}
+  .product-grid{grid-template-columns:1fr 1fr}.product-card:first-child{grid-row:span 1;aspect-ratio:3/4}
+  .philosophy{grid-template-columns:1fr}.phil-visual{display:none}
+  .sub-plans{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:16px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">Hana Atelier</div>
+  <ul class="nav-links">
+    <li><a href="#">コレクション</a></li>
+    <li><a href="#">定期便</a></li>
+    <li><a href="#">ウェディング</a></li>
+    <li><a href="#">アトリエ</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-sub">Paris-Inspired Floral Atelier · Tokyo</p>
+    <h1 class="hero-title">花は、<br><em>静寂の</em><br>言葉。</h1>
+    <p class="hero-desc">フランスの花文化と日本の美意識が交わる場所で、あなたの想いをひとつの花束にします。</p>
+    <a href="#" class="hero-btn">コレクションを見る</a>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee">
+    <span>Seasonal Bouquet</span><span>·</span><span>Bridal Flowers</span><span>·</span><span>Subscription</span><span>·</span><span>Gift Wrapping</span><span>·</span><span>Event Décor</span><span>·</span><span>Workshop</span><span>·</span>
+    <span>Seasonal Bouquet</span><span>·</span><span>Bridal Flowers</span><span>·</span><span>Subscription</span><span>·</span><span>Gift Wrapping</span><span>·</span><span>Event Décor</span><span>·</span><span>Workshop</span><span>·</span>
+  </div>
+</div>
+
+<section class="products">
+  <div class="section-tag">Collection</div>
+  <h2 class="section-title">季節の花たち</h2>
+  <div class="product-grid">
+    <div class="product-card product-bg-1">
+      <div class="product-emoji">🌹</div>
+      <div class="product-overlay">
+        <div class="product-cat">Signature Bouquet</div>
+        <div class="product-name">Rouge Éternel</div>
+        <div class="product-price">¥15,000〜</div>
+      </div>
+    </div>
+    <div class="product-card product-bg-2">
+      <div class="product-emoji">🌷</div>
+      <div class="product-overlay">
+        <div class="product-cat">Arrangement</div>
+        <div class="product-name">Printemps</div>
+        <div class="product-price">¥22,000〜</div>
+      </div>
+    </div>
+    <div class="product-card product-bg-3">
+      <div class="product-emoji">🌿</div>
+      <div class="product-overlay">
+        <div class="product-cat">Green &amp; Botanical</div>
+        <div class="product-name">Forêt</div>
+        <div class="product-price">¥18,000〜</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="philosophy">
+  <div>
+    <div class="phil-label">Our Philosophy</div>
+    <h2 class="phil-title">花を贈ることは、<br>時間を贈ること。</h2>
+    <p class="phil-text">パリのマルシェで花の言葉を学んだフローリストが、東京の片隅でアトリエを開いて12年。毎朝、豊洲の市場で最良の花を選ぶところから、私たちの一日は始まります。<br><br>染料も人工着色も使わない。花本来の色を、最後の一輪まで美しく。</p>
+  </div>
+  <div class="phil-visual">🌸</div>
+</section>
+
+<section class="subscription">
+  <div class="section-tag">Subscription</div>
+  <h2 class="sub-title">花の定期便</h2>
+  <p class="sub-desc">毎週または隔週、季節の花をお届けします。<br>フローリストが選んだ旬の花束が、暮らしに彩りを添えます。</p>
+  <div class="sub-plans">
+    <div class="plan">
+      <div class="plan-name">Petit</div>
+      <div class="plan-price">¥4,800</div>
+      <div class="plan-per">/ 月（月2回）</div>
+      <ul class="plan-items">
+        <li>季節のミニブーケ</li>
+        <li>花の手入れガイド</li>
+        <li>ラッピング込み</li>
+      </ul>
+    </div>
+    <div class="plan featured">
+      <div class="plan-name">Classique</div>
+      <div class="plan-price">¥9,200</div>
+      <div class="plan-per">/ 月（毎週）</div>
+      <ul class="plan-items">
+        <li>フルサイズブーケ</li>
+        <li>季節のグリーン添え</li>
+        <li>ギフトラッピング</li>
+        <li>メッセージカード</li>
+      </ul>
+    </div>
+    <div class="plan">
+      <div class="plan-name">Prestige</div>
+      <div class="plan-price">¥18,000</div>
+      <div class="plan-per">/ 月（毎週）</div>
+      <ul class="plan-items">
+        <li>プレミアムアレンジ</li>
+        <li>希少品種を含む</li>
+        <li>専用フラワーベース</li>
+        <li>専任フローリスト</li>
+      </ul>
+    </div>
+  </div>
+  <button class="sub-btn">定期便を始める</button>
+</section>
+
+<footer>
+  <div class="footer-logo">Hana Atelier</div>
+  <div class="footer-info">東京都目黒区中目黒2-1-8<br>© 2026 HANA ATELIER</div>
+</footer>
+</body>
+</html>
