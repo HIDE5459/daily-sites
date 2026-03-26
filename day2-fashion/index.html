@@ -3,177 +3,180 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SHIRO LABEL — 東京ファッションブランド</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Sans+JP:wght@100;200;300&display=swap" rel="stylesheet">
+<title>SHIRO LABEL</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Sans+JP:wght@100;200&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--w:#FAFAFA;--b:#0D0D0D;--g:#888;--line:rgba(13,13,13,.08);--font:'Cormorant Garamond',serif;--jp:'Noto Sans JP',sans-serif}
-html{scroll-behavior:smooth}
-body{background:var(--w);color:var(--b);font-family:var(--jp);font-weight:200;overflow-x:hidden}
+html,body{height:100%}
+body{background:#FAFAFA;color:#111;font-family:'Noto Sans JP',sans-serif;font-weight:100;overflow-x:hidden;cursor:default}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 40px;height:60px;display:flex;align-items:center;justify-content:space-between;background:rgba(250,250,250,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nl a{color:var(--g);text-decoration:none;font-size:.68rem;letter-spacing:.15em;margin-right:28px;font-weight:200;transition:color .2s}
-.nl a:hover{color:var(--b)}
-.n-logo{position:absolute;left:50%;transform:translateX(-50%);font-family:var(--font);font-size:1.1rem;letter-spacing:.35em;font-weight:300}
-.n-r a{color:var(--g);text-decoration:none;font-size:.68rem;letter-spacing:.15em;margin-left:28px;font-weight:200;transition:color .2s}
-.n-r a:hover{color:var(--b)}
+/* NAV — ほぼ存在しない */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 28px;display:flex;align-items:center;justify-content:space-between;mix-blend-mode:difference}
+.nav-logo{font-family:'Playfair Display',serif;font-size:.9rem;letter-spacing:.25em;color:#fff;font-style:italic}
+.nav-r{display:flex;gap:28px}
+.nav-r a{color:#fff;text-decoration:none;font-size:.65rem;letter-spacing:.2em;font-weight:100;opacity:.7;transition:opacity .2s}
+.nav-r a:hover{opacity:1}
 
-/* HERO — 全画面分割 */
-.hero{height:100vh;display:grid;grid-template-columns:1fr 1fr;margin-top:60px}
-.hero-img{background:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80') center/cover;filter:grayscale(8%)}
-.hero-text{display:flex;flex-direction:column;justify-content:center;padding:60px 64px;background:#F5F3F0}
-.ht-season{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--g);margin-bottom:20px}
-.ht-h1{font-family:var(--font);font-size:clamp(3.5rem,6vw,7rem);font-weight:300;line-height:.95;letter-spacing:-.01em;font-style:italic;margin-bottom:28px}
-.ht-p{font-size:.8rem;color:var(--g);line-height:2.2;max-width:320px;margin-bottom:40px}
-.ht-btns{display:flex;gap:12px}
-.btn-b{background:var(--b);color:var(--w);padding:12px 28px;font-size:.72rem;letter-spacing:.15em;text-decoration:none;transition:opacity .2s;font-weight:200}
-.btn-b:hover{opacity:.75}
-.btn-o{border:1px solid var(--b);color:var(--b);padding:12px 28px;font-size:.72rem;letter-spacing:.15em;text-decoration:none;transition:all .2s;font-weight:200}
-.btn-o:hover{background:var(--b);color:var(--w)}
+/* EDITORIAL SECTION 1 — 巨大タイポ */
+.ed1{height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 28px 40px;position:relative;overflow:hidden;background:#111}
+.ed1-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=90') center 30%/cover;opacity:.45}
+.ed1-h{position:relative;z-index:1}
+.ed1-h1{font-family:'Playfair Display',serif;font-size:clamp(5rem,18vw,22rem);font-weight:700;line-height:.82;letter-spacing:-.03em;color:#FAFAFA;margin-bottom:20px}
+.ed1-h1 em{display:block;font-style:italic;font-weight:400;font-size:clamp(3rem,10vw,13rem);color:rgba(250,250,250,.4)}
+.ed1-sub{color:rgba(250,250,250,.4);font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;display:flex;align-items:center;gap:20px}
+.ed1-sub::before{content:'';display:block;width:40px;height:1px;background:rgba(250,250,250,.4)}
 
-/* MARQUEE */
-.marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;background:var(--b)}
-.mq-track{display:flex;white-space:nowrap;animation:mq 20s linear infinite}
-.mq-item{font-size:.72rem;letter-spacing:.2em;color:rgba(250,250,250,.5);padding:0 32px;font-family:var(--font);font-style:italic}
-@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* EDITORIAL SECTION 2 — テキスト主役 */
+.ed2{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative}
+.ed2-left{padding:100px 56px;background:#FAFAFA;display:flex;flex-direction:column;justify-content:center}
+.ed2-right{position:relative;overflow:hidden}
+.ed2-right-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&q=85') center/cover;filter:grayscale(15%)}
+.ed2-num{font-family:'Playfair Display',serif;font-size:8rem;font-weight:700;line-height:1;color:rgba(17,17,17,.06);margin-bottom:-20px}
+.ed2-h2{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,6rem);font-weight:400;line-height:1.05;letter-spacing:-.02em;font-style:italic;margin-bottom:28px}
+.ed2-rule{width:40px;height:1px;background:#111;margin-bottom:24px}
+.ed2-p{font-size:.8rem;line-height:2.4;color:#666;max-width:340px;font-weight:200}
+.ed2-cta{margin-top:40px;display:inline-flex;align-items:center;gap:16px;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:#111;text-decoration:none;font-weight:200}
+.ed2-cta::after{content:'';display:block;width:32px;height:1px;background:#111;transition:width .3s}
+.ed2-cta:hover::after{width:56px}
+.ed2-caption{position:absolute;bottom:28px;left:24px;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:200}
 
-/* COLLECTION */
-.collection{padding:80px 40px}
-.col-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:40px;border-bottom:1px solid var(--line);padding-bottom:20px}
-.col-h2{font-family:var(--font);font-size:clamp(1.5rem,3vw,2.8rem);font-style:italic;font-weight:300}
-.col-a{font-size:.7rem;letter-spacing:.15em;color:var(--g);text-decoration:none;font-weight:200;border-bottom:1px solid rgba(136,136,136,.3);padding-bottom:2px;transition:color .2s}
-.col-a:hover{color:var(--b)}
-.col-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
-.col-item{position:relative;overflow:hidden;cursor:pointer}
-.col-item-img{aspect-ratio:3/4;transition:transform .6s ease}
-.col-item:hover .col-item-img{transform:scale(1.03)}
-.ci1{background:url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=400&q=80') center/cover;filter:grayscale(10%)}
-.ci2{background:url('https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=400&q=80') center/cover;filter:grayscale(15%)}
-.ci3{background:url('https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&q=80') center/cover;filter:grayscale(10%)}
-.ci4{background:linear-gradient(180deg,#E8E4DF,#D0CCC7);display:flex;align-items:center;justify-content:center;font-family:var(--font);font-size:5rem;color:rgba(13,13,13,.08);font-style:italic}
-.col-info{padding:16px 0 0;display:flex;justify-content:space-between;align-items:baseline}
-.ci-name{font-family:var(--font);font-size:1rem;font-style:italic;font-weight:300}
-.ci-price{font-size:.75rem;color:var(--g);font-weight:200}
+/* EDITORIAL SECTION 3 — 3カラムグリッド、ずれた配置 */
+.ed3{padding:60px 28px;background:#111;display:grid;grid-template-columns:repeat(12,1fr);gap:8px;align-items:start}
+.ed3-item{overflow:hidden;position:relative;cursor:pointer}
+.ed3-item:nth-child(1){grid-column:1/5;grid-row:1;margin-top:80px}
+.ed3-item:nth-child(2){grid-column:5/10;grid-row:1}
+.ed3-item:nth-child(3){grid-column:10/13;grid-row:1;margin-top:160px}
+.ed3-img{aspect-ratio:3/4;overflow:hidden}
+.ed3-img div{width:100%;height:100%;transition:transform .8s ease}
+.ed3-item:hover .ed3-img div{transform:scale(1.04)}
+.i1{background:url('https://images.unsplash.com/photo-1509631179647-0177331693ae?w=500&q=80') center/cover;filter:grayscale(10%)}
+.i2{background:url('https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=500&q=80') center/cover}
+.i3{background:url('https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&q=80') center/cover;filter:grayscale(20%)}
+.ed3-meta{padding:12px 0 0;display:flex;justify-content:space-between;align-items:baseline}
+.em-name{font-family:'Playfair Display',serif;font-style:italic;font-size:.9rem;color:#FAFAFA;font-weight:400}
+.em-price{font-size:.7rem;color:#888;font-weight:100}
 
-/* EDITORIAL */
-.editorial{display:grid;grid-template-columns:2fr 1fr;min-height:70vh;border-top:1px solid var(--line)}
-.ed-img{background:url('https://images.unsplash.com/photo-1483985988355-763728e1935b?w=900&q=80') center/cover;filter:grayscale(5%)}
-.ed-text{background:#F0EDE8;padding:64px 48px;display:flex;flex-direction:column;justify-content:center}
-.ed-label{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--g);margin-bottom:20px}
-.ed-h2{font-family:var(--font);font-size:clamp(2rem,3.5vw,3.5rem);font-style:italic;font-weight:300;line-height:1.25;margin-bottom:28px}
-.ed-p{font-size:.8rem;color:var(--g);line-height:2.2;max-width:340px;margin-bottom:36px}
-.ed-link{font-size:.7rem;letter-spacing:.2em;color:var(--b);text-decoration:none;display:inline-flex;align-items:center;gap:14px;transition:gap .3s;font-weight:200}
-.ed-link:hover{gap:22px}
-.ed-link::after{content:'';display:block;width:28px;height:1px;background:var(--b)}
+/* EDITORIAL SECTION 4 — 全幅テキスト */
+.ed4{padding:100px 28px;background:#FAFAFA;border-top:1px solid rgba(17,17,17,.06)}
+.ed4-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:3fr 2fr;gap:80px;align-items:start}
+.ed4-big{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,7rem);font-weight:400;line-height:1;letter-spacing:-.02em;font-style:italic;color:#111}
+.ed4-right{}
+.ed4-label{font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:#999;margin-bottom:20px;font-weight:200}
+.ed4-p{font-size:.82rem;line-height:2.2;color:#666;font-weight:200;margin-bottom:28px}
+.ed4-link{display:inline-block;border-bottom:1px solid #111;padding-bottom:2px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#111;text-decoration:none;font-weight:200;transition:color .2s}
+.ed4-link:hover{color:#999}
 
-/* VALUES */
-.values{padding:80px 40px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-top:1px solid var(--line)}
-.val{background:var(--w);padding:48px 32px}
-.val-n{font-family:var(--font);font-size:3.5rem;font-style:italic;color:rgba(13,13,13,.05);margin-bottom:12px;line-height:1}
-.val-t{font-size:.82rem;font-weight:300;margin-bottom:10px;letter-spacing:.04em}
-.val-p{font-size:.75rem;color:var(--g);line-height:2;font-weight:200}
+/* EDITORIAL SECTION 5 — フルブリードひとつの画像 */
+.ed5{height:80vh;position:relative;overflow:hidden;display:flex;align-items:flex-end}
+.ed5-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1400&q=85') center 20%/cover;filter:brightness(.5)}
+.ed5-text{position:relative;z-index:1;padding:0 56px 60px}
+.ed5-text p{font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(250,250,250,.5);margin-bottom:10px;font-weight:200}
+.ed5-text h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,5rem);font-weight:400;font-style:italic;color:#FAFAFA;max-width:600px;line-height:1.15}
 
 /* NEWSLETTER */
-.newsletter{padding:80px 40px;text-align:center;border-top:1px solid var(--line);background:#F7F5F2}
-.nl-label{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--g);margin-bottom:16px}
-.nl-h2{font-family:var(--font);font-size:clamp(2rem,4vw,4rem);font-style:italic;font-weight:300;margin-bottom:32px;line-height:1.1}
-.nl-form{display:flex;gap:0;max-width:440px;margin:0 auto;border:1px solid rgba(13,13,13,.15)}
-.nl-form input{flex:1;padding:14px 20px;font-family:var(--jp);font-size:.78rem;border:none;background:transparent;outline:none;font-weight:200;color:var(--b)}
-.nl-form input::placeholder{color:var(--g)}
-.nl-form button{padding:14px 24px;background:var(--b);color:var(--w);font-family:var(--jp);font-size:.72rem;border:none;cursor:pointer;font-weight:200;letter-spacing:.08em;transition:opacity .2s;white-space:nowrap}
-.nl-form button:hover{opacity:.75}
+.nl{padding:80px 56px;background:#111;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:32px}
+.nl-text{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,3rem);font-style:italic;font-weight:400;color:#FAFAFA}
+.nl-form{display:flex;border-bottom:1px solid rgba(250,250,250,.3)}
+.nl-form input{background:none;border:none;outline:none;padding:10px 0;font-family:'Noto Sans JP';font-size:.8rem;color:#FAFAFA;min-width:260px;font-weight:100}
+.nl-form input::placeholder{color:rgba(250,250,250,.35)}
+.nl-form button{background:none;border:none;color:rgba(250,250,250,.5);font-size:.7rem;letter-spacing:.15em;cursor:pointer;padding:10px 0 10px 16px;font-weight:200;transition:color .2s}
+.nl-form button:hover{color:#FAFAFA}
 
-footer{padding:40px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-.f-logo{font-family:var(--font);font-size:1rem;letter-spacing:.3em;font-weight:300}
-.f-l{display:flex;gap:24px}
-.f-l a{font-size:.68rem;color:var(--g);text-decoration:none;letter-spacing:.1em;font-weight:200;transition:color .2s}
-.f-l a:hover{color:var(--b)}
-.f-copy{font-size:.62rem;color:rgba(136,136,136,.5);font-weight:200}
+footer{padding:28px 56px;background:#111;border-top:1px solid rgba(250,250,250,.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer .fl{font-family:'Playfair Display',serif;font-style:italic;color:rgba(250,250,250,.4);font-size:.85rem}
+.f-links a{color:rgba(250,250,250,.25);text-decoration:none;font-size:.65rem;letter-spacing:.1em;margin-left:20px;font-weight:100;transition:color .2s}
+.f-links a:hover{color:rgba(250,250,250,.7)}
 
-@media(max-width:900px){
-  .hero{grid-template-columns:1fr}.hero-img{height:60vw}
-  .hero-text{padding:48px 24px;background:#F5F3F0}
-  .col-grid{grid-template-columns:1fr 1fr}
-  .editorial{grid-template-columns:1fr}
-  .ed-img{height:60vw}
-  .ed-text{padding:48px 24px}
-  .values{grid-template-columns:1fr}
-  nav{padding:0 24px}
+@media(max-width:768px){
+  .ed2{grid-template-columns:1fr}.ed2-right{height:60vw}.ed2-left{padding:56px 24px}
+  .ed3{grid-template-columns:1fr 1fr;gap:4px}
+  .ed3-item{grid-column:auto!important;grid-row:auto!important;margin-top:0!important}
+  .ed4-inner{grid-template-columns:1fr}.ed4-big{font-size:clamp(2rem,10vw,4rem)}
+  .nl{padding:48px 24px;flex-direction:column}
+  footer{padding:24px;flex-direction:column;align-items:flex-start}
 }
 </style>
 </head>
 <body>
-<nav>
-  <div class="nl">
-    <a href="#">コレクション</a>
-    <a href="#">ルックブック</a>
+<div class="nav">
+  <div class="nav-logo">Shiro</div>
+  <div class="nav-r">
+    <a href="#">Collection</a>
+    <a href="#">Shop</a>
+    <a href="#">About</a>
   </div>
-  <div class="n-logo">SHIRO</div>
-  <div class="n-r">
-    <a href="#">ストア</a>
-    <a href="#">カート</a>
-  </div>
-</nav>
+</div>
 
-<section class="hero">
-  <div class="hero-img"></div>
-  <div class="hero-text">
-    <p class="ht-season">SS 2024 Collection</p>
-    <h1 class="ht-h1">静けさの<br>なかに<br>美がある</h1>
-    <p class="ht-p">余白を纏う。引き算の美学から生まれた、東京発のコンテンポラリーウェア。</p>
-    <div class="ht-btns">
-      <a href="#" class="btn-b">コレクションを見る</a>
-      <a href="#" class="btn-o">ルックブック</a>
+<section class="ed1">
+  <div class="ed1-bg"></div>
+  <div class="ed1-h">
+    <h1 class="ed1-h1">SHIRO<em>label</em></h1>
+    <div class="ed1-sub">SS 2024 · Tokyo</div>
+  </div>
+</section>
+
+<section class="ed2">
+  <div class="ed2-left">
+    <div class="ed2-num">01</div>
+    <h2 class="ed2-h2">纏う、<br>静けさ。</h2>
+    <div class="ed2-rule"></div>
+    <p class="ed2-p">「着る人の存在を引き立てる」。余白を纏う美学から生まれた東京発のコンテンポラリーウェア。素材は国産、生産は小ロット。</p>
+    <a href="#" class="ed2-cta">コレクションを見る</a>
+  </div>
+  <div class="ed2-right">
+    <div class="ed2-right-bg"></div>
+    <div class="ed2-caption">SS 2024 Lookbook</div>
+  </div>
+</section>
+
+<section class="ed3">
+  <div class="ed3-item">
+    <div class="ed3-img"><div class="i1"></div></div>
+    <div class="ed3-meta"><span class="em-name">Linen Coat</span><span class="em-price">¥42,900</span></div>
+  </div>
+  <div class="ed3-item">
+    <div class="ed3-img"><div class="i2"></div></div>
+    <div class="ed3-meta"><span class="em-name">Silk Blouse</span><span class="em-price">¥18,700</span></div>
+  </div>
+  <div class="ed3-item">
+    <div class="ed3-img"><div class="i3"></div></div>
+    <div class="ed3-meta"><span class="em-name">Jersey Dress</span><span class="em-price">¥29,700</span></div>
+  </div>
+</section>
+
+<section class="ed4">
+  <div class="ed4-inner">
+    <div class="ed4-big">服は、着る人が<br>完成させる。</div>
+    <div class="ed4-right">
+      <div class="ed4-label">Brand Philosophy</div>
+      <p class="ed4-p">SHIROは2019年、東京・代官山で生まれた。使用素材の90%は国内の染色・織物工場から。産地を訪ね、職人と対話しながら生地を選ぶ。各アイテム最大200着、作りすぎない。</p>
+      <a href="#" class="ed4-link">ブランドの物語を読む</a>
     </div>
   </div>
 </section>
 
-<div class="marquee">
-  <div class="mq-track">
-    <span class="mq-item">Minimal</span><span class="mq-item">·</span><span class="mq-item">Contemporary</span><span class="mq-item">·</span><span class="mq-item">Tokyo</span><span class="mq-item">·</span><span class="mq-item">SS 2024</span><span class="mq-item">·</span><span class="mq-item">New Arrival</span><span class="mq-item">·</span><span class="mq-item">Free Shipping</span><span class="mq-item">·</span>
-    <span class="mq-item">Minimal</span><span class="mq-item">·</span><span class="mq-item">Contemporary</span><span class="mq-item">·</span><span class="mq-item">Tokyo</span><span class="mq-item">·</span><span class="mq-item">SS 2024</span><span class="mq-item">·</span><span class="mq-item">New Arrival</span><span class="mq-item">·</span><span class="mq-item">Free Shipping</span><span class="mq-item">·</span>
+<section class="ed5">
+  <div class="ed5-bg"></div>
+  <div class="ed5-text">
+    <p>New Arrival</p>
+    <h2>夏の訪れを、<br>白い服で迎える。</h2>
   </div>
+</section>
+
+<div class="nl">
+  <div class="nl-text">New collection,<br>delivered first.</div>
+  <form class="nl-form" onsubmit="return false">
+    <input type="email" placeholder="your@email.com">
+    <button type="submit">登録 →</button>
+  </form>
 </div>
 
-<section class="collection">
-  <div class="col-head"><h2 class="col-h2">New Arrivals</h2><a href="#" class="col-a">すべて見る</a></div>
-  <div class="col-grid">
-    <div class="col-item"><div class="col-item-img ci1"></div><div class="col-info"><span class="ci-name">Linen Coat</span><span class="ci-price">¥42,900</span></div></div>
-    <div class="col-item"><div class="col-item-img ci2"></div><div class="col-info"><span class="ci-name">Silk Blouse</span><span class="ci-price">¥18,700</span></div></div>
-    <div class="col-item"><div class="col-item-img ci3"></div><div class="col-info"><span class="ci-name">Wide Trousers</span><span class="ci-price">¥24,200</span></div></div>
-    <div class="col-item"><div class="col-item-img ci4">S</div><div class="col-info"><span class="ci-name">Jersey Dress</span><span class="ci-price">¥29,700</span></div></div>
-  </div>
-</section>
-
-<section class="editorial">
-  <div class="ed-img"></div>
-  <div class="ed-text">
-    <p class="ed-label">The Story</p>
-    <h2 class="ed-h2">服は、<br>言葉よりも<br>正直だ。</h2>
-    <p class="ed-p">SHIROは2019年、東京・代官山で生まれた。「着る人の存在を引き立てる服」という一つの問いから、すべての服は始まる。</p>
-    <a href="#" class="ed-link">ブランドの物語</a>
-  </div>
-</section>
-
-<section class="values">
-  <div class="val"><div class="val-n">素材</div><div class="val-t">国産素材へのこだわり</div><div class="val-p">使用素材の90%は国内の染色・織物工場から。産地を訪ね、職人と対話しながら生地を選ぶ。</div></div>
-  <div class="val"><div class="val-n">製造</div><div class="val-t">小ロット生産</div><div class="val-p">大量生産はしない。各アイテム最大200着。着る人を選ぶ服だから、作りすぎない。</div></div>
-  <div class="val"><div class="val-n">環境</div><div class="val-t">サステナブルな選択</div><div class="val-p">余剰在庫はゼロを目指す。シーズン終わりの残布は別ラインへ。廃棄ゼロを目標に。</div></div>
-</section>
-
-<section class="newsletter">
-  <p class="nl-label">Newsletter</p>
-  <h2 class="nl-h2">新コレクションを、<br>いちばん早く。</h2>
-  <div class="nl-form">
-    <input type="email" placeholder="メールアドレスを入力">
-    <button>登録する</button>
-  </div>
-</section>
-
 <footer>
-  <div class="f-logo">SHIRO</div>
-  <div class="f-l"><a href="#">コレクション</a><a href="#">ルックブック</a><a href="#">ストア情報</a><a href="#">サステナビリティ</a><a href="#">プライバシー</a></div>
-  <div class="f-copy">© 2024 SHIRO LABEL, Tokyo</div>
+  <div class="fl">Shiro Label, Tokyo</div>
+  <div class="f-links">
+    <a href="#">Collection</a><a href="#">Sustainability</a><a href="#">Store</a><a href="#">Privacy</a>
+  </div>
+  <div style="font-size:.6rem;color:rgba(250,250,250,.2);font-weight:100">© 2024 SHIRO LABEL</div>
 </footer>
 </body>
 </html>
