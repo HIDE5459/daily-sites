@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Sites — 毎日3サイト</title>
+<title>Daily Sites — 毎日6サイト</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -12,40 +12,42 @@ h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;letter-spacing:-.03em;margin
 .sub{color:#7B7B9A;margin-bottom:60px;font-size:.95rem}
 .day{margin-bottom:60px}
 .day-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:#A855F7;margin-bottom:20px;font-weight:600}
-.sites{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.sites{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
 .site-card{background:#0F0F1A;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:28px;text-decoration:none;color:inherit;display:block;transition:all .3s}
 .site-card:hover{border-color:rgba(168,85,247,.4);transform:translateY(-2px)}
 .site-genre{font-size:.72rem;text-transform:uppercase;letter-spacing:.15em;color:#7B7B9A;margin-bottom:10px}
-.site-name{font-size:1.3rem;font-weight:700;margin-bottom:8px}
-.site-desc{font-size:.85rem;color:#7B7B9A;line-height:1.6}
+.site-name{font-size:1.2rem;font-weight:700;margin-bottom:8px}
+.site-desc{font-size:.82rem;color:#7B7B9A;line-height:1.6}
 .site-link{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:.78rem;color:#A855F7;letter-spacing:.05em}
 </style>
 </head>
 <body>
 <h1>Daily Sites</h1>
-<p class="sub">毎日3ジャンル × 世界レベルのデザイン</p>
+<p class="sub">毎日6ジャンル × 各ジャンルのトップサイトを参考にした世界レベルのデザイン</p>
+
 <div class="day">
-  <div class="day-label">Day 1 — 2026.03.25</div>
+  <div class="day-label">Day 1 — 2026.03.25 · リデザイン完了</div>
   <div class="sites">
-    <a class="site-card" href="nexus-ai/">
-      <div class="site-genre">SaaS / AI Product</div>
-      <div class="site-name">Nexus AI</div>
-      <div class="site-desc">AIワークフロー自動化。Linear × Vercel風ダークデザイン。カウンターアニメ・グロウ・グリッド演出。</div>
-      <div class="site-link">→ nexus-ai/</div>
-    </a>
-    <a class="site-card" href="aurum-tokyo/">
-      <div class="site-genre">Luxury Jewelry</div>
-      <div class="site-name">Aurum Tokyo</div>
-      <div class="site-desc">東京・銀座の高級ジュエリーブランド。Cartier × 日本的ミニマル。セリフ体・ゴールド・圧倒的な余白。</div>
-      <div class="site-link">→ aurum-tokyo/</div>
-    </a>
-    <a class="site-card" href="volta-fest/">
-      <div class="site-genre">Music Festival</div>
-      <div class="site-name">Volta Fest</div>
-      <div class="site-desc">東京電子音楽フェス。SXSW × パンクエネルギー。カウントダウン・ティッカー・スケジュールタブ搭載。</div>
-      <div class="site-link">→ volta-fest/</div>
-    </a>
+    <a class="site-card" href="nexus-ai/"><div class="site-genre">SaaS / AI Product</div><div class="site-name">Nexus AI</div><div class="site-desc">Warp/Raycast系ターミナルUI。JetBrains Mono、シアングロウ、コマンドライン演出。</div><div class="site-link">→ nexus-ai/</div></a>
+    <a class="site-card" href="aurum-tokyo/"><div class="site-genre">Luxury Jewelry</div><div class="site-name">Aurum Tokyo</div><div class="site-desc">Cartier系フルブリード。超大型セリフ体、縦書きラベル、章立て構成。</div><div class="site-link">→ aurum-tokyo/</div></a>
+    <a class="site-card" href="volta-fest/"><div class="site-genre">Music Festival</div><div class="site-name">Volta Fest</div><div class="site-desc">ブルータリスト。重なるタイポ、オフグリッド、カウントダウン、タイムテーブルタブ。</div><div class="site-link">→ volta-fest/</div></a>
+    <a class="site-card" href="sora-clinic/"><div class="site-genre">Mental Health Clinic</div><div class="site-name">そらクリニック</div><div class="site-desc">Headspace系。有機ブロブ形状、チップ+パルスアニメ、予約スロットUI。</div><div class="site-link">→ sora-clinic/</div></a>
+    <a class="site-card" href="kuro-coffee/"><div class="site-genre">Specialty Coffee</div><div class="site-name">KURO COFFEE</div><div class="site-desc">% Arabica系極限ミニマル。Cormorant Garamond、縦書き、産地直輸入感。</div><div class="site-link">→ kuro-coffee/</div></a>
+    <a class="site-card" href="arch-studio/"><div class="site-genre">Architecture Studio</div><div class="site-name">MA建築設計事務所</div><div class="site-desc">SANAA系。タイポグラフィ=デザイン、装飾ゼロ、作品リストが主役。</div><div class="site-link">→ arch-studio/</div></a>
   </div>
 </div>
+
+<div class="day">
+  <div class="day-label">Day 2 — 2026.03.26</div>
+  <div class="sites">
+    <a class="site-card" href="day2-fashion/"><div class="site-genre">Fashion Brand</div><div class="site-name">SHIRO LABEL</div><div class="site-desc">東京発ミニマルウェア。Arket/COS系。縦分割ヒーロー、マーキー、エディトリアルグリッド。</div><div class="site-link">→ day2-fashion/</div></a>
+    <a class="site-card" href="day2-restaurant/"><div class="site-genre">Restaurant</div><div class="site-name">炭 SUMI</div><div class="site-desc">銀座炭火割烹。漆黒×金、備長炭の世界観、コース料金表、章立て構成。</div><div class="site-link">→ day2-restaurant/</div></a>
+    <a class="site-card" href="day2-travel/"><div class="site-genre">Travel Agency</div><div class="site-name">NAGI TRAVEL</div><div class="site-desc">オーダーメイド旅行。縦型3分割ヒーロー、検索バー、旅先グリッド。</div><div class="site-link">→ day2-travel/</div></a>
+    <a class="site-card" href="day2-fitness/"><div class="site-genre">Premium Gym</div><div class="site-name">APEX GYM</div><div class="site-desc">渋谷プレミアムジム。漆黒×赤、Bebas Neue、強度インジケーター付きプログラム。</div><div class="site-link">→ day2-fitness/</div></a>
+    <a class="site-card" href="day2-photo/"><div class="site-genre">Photography Studio</div><div class="site-name">Shutter Collective</div><div class="site-desc">写真スタジオ。非対称マガジンレイアウト、マソングリッド、DM Serif Display。</div><div class="site-link">→ day2-photo/</div></a>
+    <a class="site-card" href="day2-law/"><div class="site-genre">Law Firm</div><div class="site-name">橘法律事務所</div><div class="site-desc">企業法務・顧問弁護士。権威感×信頼感、ネイビー×ゴールド、解決事例リスト。</div><div class="site-link">→ day2-law/</div></a>
+  </div>
+</div>
+
 </body>
 </html>

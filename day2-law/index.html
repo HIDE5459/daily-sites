@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>橘法律事務所 — 企業法務・顧問弁護士</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#F8F6F1;--dark:#1C1A16;--navy:#1A2744;--gold:#9B7E46;--muted:#7A7468;--line:rgba(28,26,22,.08);--font:'Noto Serif JP',serif;--jp:'Noto Sans JP',sans-serif}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--dark);font-family:var(--jp);font-weight:200;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between;background:rgba(248,246,241,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.n-logo{display:flex;align-items:center;gap:14px}
+.n-mark{width:32px;height:32px;background:var(--navy);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font);font-size:.9rem;font-weight:300}
+.n-name{font-family:var(--font);font-size:1rem;font-weight:300;letter-spacing:.06em;line-height:1.3}
+.n-name small{display:block;font-family:var(--jp);font-size:.6rem;color:var(--muted);letter-spacing:.1em;font-weight:200}
+nav ul{display:flex;gap:28px;list-style:none}
+nav ul a{color:var(--muted);text-decoration:none;font-size:.72rem;letter-spacing:.1em;font-weight:200;transition:color .2s}
+nav ul a:hover{color:var(--dark)}
+.n-contact{background:var(--navy);color:#fff;padding:9px 22px;font-size:.72rem;letter-spacing:.1em;text-decoration:none;font-weight:300;transition:background .2s}
+.n-contact:hover{background:#263562}
+
+/* HERO — 権威感・信頼感重視 */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:68px}
+.hero-text{padding:80px 60px;display:flex;flex-direction:column;justify-content:center;background:#fff;border-right:1px solid var(--line)}
+.ht-badge{display:inline-flex;align-items:center;gap:8px;font-size:.65rem;letter-spacing:.15em;color:var(--gold);margin-bottom:28px;font-weight:300}
+.ht-badge::before{content:'';display:block;width:20px;height:1px;background:var(--gold)}
+.hero-h1{font-family:var(--font);font-size:clamp(1.8rem,3vw,3.2rem);font-weight:300;line-height:1.55;letter-spacing:.04em;margin-bottom:28px;color:var(--dark)}
+.hero-h1 em{color:var(--navy);font-style:normal;border-bottom:2px solid var(--gold);padding-bottom:2px}
+.hero-p{font-size:.85rem;color:var(--muted);line-height:2.2;max-width:420px;margin-bottom:40px;font-weight:200}
+.hero-ctas{display:flex;gap:12px;margin-bottom:48px;flex-wrap:wrap}
+.btn-navy{background:var(--navy);color:#fff;padding:13px 28px;font-size:.78rem;letter-spacing:.1em;text-decoration:none;font-weight:300;transition:background .2s}
+.btn-navy:hover{background:#263562}
+.btn-line{border:1px solid var(--line);color:var(--dark);padding:13px 28px;font-size:.78rem;letter-spacing:.1em;text-decoration:none;font-weight:200;transition:all .2s}
+.btn-line:hover{border-color:var(--navy);color:var(--navy)}
+.hero-trust{display:flex;gap:32px;padding-top:32px;border-top:1px solid var(--line)}
+.ht-num{font-family:var(--font);font-size:2rem;font-weight:300;color:var(--navy);display:block;line-height:1}
+.ht-lab{font-size:.65rem;color:var(--muted);margin-top:4px;font-weight:200;display:block;letter-spacing:.06em}
+.hero-img{background:url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80') center/cover;filter:brightness(.55) saturate(.7);position:relative;overflow:hidden}
+.hero-img-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,39,68,.3),transparent)}
+.hero-quote{position:absolute;bottom:48px;left:40px;right:40px}
+.hq-text{font-family:var(--font);font-size:clamp(1rem,1.8vw,1.4rem);font-weight:300;color:rgba(255,255,255,.75);line-height:1.6;font-style:italic}
+.hq-line{width:32px;height:1px;background:var(--gold);margin:16px 0 10px;opacity:.6}
+.hq-source{font-size:.65rem;color:rgba(255,255,255,.35);letter-spacing:.1em;font-weight:200}
+
+/* PRACTICE AREAS */
+.practice{padding:80px 48px;border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:48px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.sh-num{font-size:.62rem;color:var(--gold);letter-spacing:.12em}
+.sh-h2{font-family:var(--font);font-size:clamp(1.4rem,2.5vw,2.2rem);font-weight:300;letter-spacing:.04em}
+.area-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
+.area{background:var(--bg);padding:36px 28px;transition:background .2s;cursor:pointer}
+.area:hover{background:#fff}
+.area-icon{width:40px;height:40px;background:rgba(26,39,68,.06);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:1.1rem}
+.area-name{font-family:var(--font);font-size:1.05rem;font-weight:300;margin-bottom:8px;color:var(--dark)}
+.area-desc{font-size:.75rem;color:var(--muted);line-height:1.85;font-weight:200}
+.area-link{display:inline-block;margin-top:16px;font-size:.7rem;color:var(--navy);letter-spacing:.1em;font-weight:300;border-bottom:1px solid rgba(26,39,68,.2);padding-bottom:2px;transition:border-color .2s}
+.area:hover .area-link{border-color:var(--navy)}
+
+/* ATTORNEYS */
+.attorneys{padding:80px 48px;background:#fff;border-top:1px solid var(--line)}
+.atty-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.atty{border:1px solid var(--line);padding:32px 24px;transition:box-shadow .2s}
+.atty:hover{box-shadow:0 8px 32px rgba(28,26,22,.07)}
+.atty-bar{width:32px;height:3px;background:var(--navy);margin-bottom:20px}
+.atty-name{font-family:var(--font);font-size:1.1rem;font-weight:300;margin-bottom:6px;letter-spacing:.04em}
+.atty-role{font-size:.7rem;color:var(--gold);margin-bottom:14px;letter-spacing:.08em;font-weight:300}
+.atty-bio{font-size:.75rem;color:var(--muted);line-height:1.85;font-weight:200;margin-bottom:14px}
+.atty-tags{display:flex;gap:6px;flex-wrap:wrap}
+.atty-tag{font-size:.62rem;background:rgba(26,39,68,.05);color:var(--navy);padding:3px 10px;letter-spacing:.05em;font-weight:200}
+
+/* FLOW */
+.flow{padding:80px 48px;border-top:1px solid var(--line)}
+.flow-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px;position:relative}
+.flow-steps::before{content:'';position:absolute;top:20px;left:10%;right:10%;height:1px;background:rgba(155,126,70,.2)}
+.fs{padding:0 16px;position:relative;z-index:1}
+.fs-n{width:40px;height:40px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--font);font-size:.85rem;font-weight:300;color:var(--gold);background:var(--bg);margin-bottom:20px}
+.fs-title{font-size:.88rem;font-weight:300;margin-bottom:8px;color:var(--dark)}
+.fs-body{font-size:.75rem;color:var(--muted);line-height:1.85;font-weight:200}
+
+/* CASES */
+.cases{padding:80px 48px;background:#fff;border-top:1px solid var(--line)}
+.case-list{display:flex;flex-direction:column;gap:0;margin-top:48px}
+.case-item{display:grid;grid-template-columns:120px 1fr 140px;gap:24px;align-items:center;padding:20px 0;border-bottom:1px solid var(--line);transition:background .15s}
+.case-item:first-child{border-top:1px solid var(--line)}
+.case-item:hover{padding-left:8px;transition:padding .2s}
+.ci-type{font-size:.68rem;letter-spacing:.1em;color:var(--gold);font-weight:300}
+.ci-title{font-size:.88rem;font-weight:300;color:var(--dark)}
+.ci-result{font-size:.72rem;color:var(--muted);font-weight:200;text-align:right}
+
+/* CTA */
+.cta{padding:80px 48px;background:var(--navy);display:grid;grid-template-columns:1fr auto;align-items:center;gap:40px}
+.cta-h2{font-family:var(--font);font-size:clamp(1.6rem,2.5vw,2.8rem);font-weight:300;color:#fff;line-height:1.5;letter-spacing:.04em}
+.cta-p{font-size:.82rem;color:rgba(255,255,255,.45);margin-top:10px;font-weight:200;line-height:1.9}
+.btn-gold{background:var(--gold);color:#fff;padding:14px 32px;font-size:.78rem;letter-spacing:.12em;text-decoration:none;font-weight:300;white-space:nowrap;transition:opacity .2s}
+.btn-gold:hover{opacity:.85}
+
+footer{padding:40px 48px;border-top:1px solid var(--line);display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.fb-name{font-family:var(--font);font-size:.95rem;font-weight:300;margin-bottom:10px;letter-spacing:.04em}
+.fb-addr{font-size:.75rem;color:var(--muted);line-height:1.9;font-weight:200}
+footer h5{font-size:.72rem;font-weight:400;margin-bottom:12px;letter-spacing:.08em;color:var(--dark)}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+footer ul li a{font-size:.72rem;color:var(--muted);text-decoration:none;font-weight:200;transition:color .2s}
+footer ul li a:hover{color:var(--dark)}
+.foot-bottom{padding-top:24px;margin-top:24px;border-top:1px solid var(--line);font-size:.68rem;color:rgba(122,116,104,.4);grid-column:1/-1;font-weight:200}
+
+@media(max-width:900px){
+  nav ul{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-img{display:none}
+  .hero-text{padding:56px 24px}
+  .practice,.attorneys,.flow,.cases,.cta{padding:56px 24px}
+  .area-grid,.atty-grid{grid-template-columns:1fr}
+  .flow-steps{grid-template-columns:1fr 1fr}.flow-steps::before{display:none}
+  .case-item{grid-template-columns:80px 1fr}.ci-result{display:none}
+  .cta{grid-template-columns:1fr;padding:48px 24px}
+  footer{grid-template-columns:1fr 1fr;padding:36px 24px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="n-logo">
+    <div class="n-mark">橘</div>
+    <div class="n-name">橘法律事務所<small>TACHIBANA LAW OFFICE</small></div>
+  </div>
+  <ul>
+    <li><a href="#">業務内容</a></li>
+    <li><a href="#">弁護士紹介</a></li>
+    <li><a href="#">解決事例</a></li>
+    <li><a href="#">費用</a></li>
+  </ul>
+  <a href="#" class="n-contact">無料相談を予約</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <span class="ht-badge">企業法務・顧問弁護士 · 東京</span>
+    <h1 class="hero-h1">あなたのビジネスを、<br><em>法律で守る</em>。<br>企業法務の専門家へ。</h1>
+    <p class="hero-p">設立15年、顧問先企業280社以上。契約書レビューから紛争解決まで、ビジネスのあらゆる法的リスクに対応します。</p>
+    <div class="hero-ctas">
+      <a href="#" class="btn-navy">無料相談を予約する</a>
+      <a href="#" class="btn-line">業務内容を見る</a>
+    </div>
+    <div class="hero-trust">
+      <div><span class="ht-num">280+</span><span class="ht-lab">顧問先企業</span></div>
+      <div><span class="ht-num">15年</span><span class="ht-lab">事務所の歴史</span></div>
+      <div><span class="ht-num">98%</span><span class="ht-lab">顧問継続率</span></div>
+    </div>
+  </div>
+  <div class="hero-img">
+    <div class="hero-img-overlay"></div>
+    <div class="hero-quote">
+      <p class="hq-text">「法律は盾であり、経営の羅針盤でもある。」</p>
+      <div class="hq-line"></div>
+      <span class="hq-source">橘 誠一郎 · 代表弁護士</span>
+    </div>
+  </div>
+</section>
+
+<section class="practice">
+  <div class="sec-head"><span class="sh-num">01</span><h2 class="sh-h2">業務内容</h2></div>
+  <div class="area-grid">
+    <div class="area"><div class="area-icon">📄</div><div class="area-name">契約書レビュー</div><div class="area-desc">取引契約・業務委託・NDA・利用規約のドラフト作成と審査。</div><a href="#" class="area-link">詳細を見る</a></div>
+    <div class="area"><div class="area-icon">🏢</div><div class="area-name">企業法務顧問</div><div class="area-desc">月額定額で法的リスクを継続管理。スタートアップから上場企業まで。</div><a href="#" class="area-link">詳細を見る</a></div>
+    <div class="area"><div class="area-icon">⚖️</div><div class="area-name">紛争・訴訟対応</div><div class="area-desc">交渉から訴訟まで。迅速かつ戦略的に問題を解決します。</div><a href="#" class="area-link">詳細を見る</a></div>
+    <div class="area"><div class="area-icon">🌏</div><div class="area-name">国際取引法務</div><div class="area-desc">海外進出・越境EC・国際契約。英語対応可能な弁護士が担当。</div><a href="#" class="area-link">詳細を見る</a></div>
+    <div class="area"><div class="area-icon">💼</div><div class="area-name">M&A・事業承継</div><div class="area-desc">デューデリジェンス、株式譲渡、事業承継スキームの設計。</div><a href="#" class="area-link">詳細を見る</a></div>
+    <div class="area"><div class="area-icon">🔒</div><div class="area-name">個人情報・コンプライアンス</div><div class="area-desc">GDPR・個人情報保護法対応。社内規程の整備と研修。</div><a href="#" class="area-link">詳細を見る</a></div>
+  </div>
+</section>
+
+<section class="attorneys">
+  <div class="sec-head"><span class="sh-num">02</span><h2 class="sh-h2">弁護士紹介</h2></div>
+  <div class="atty-grid">
+    <div class="atty"><div class="atty-bar"></div><div class="atty-name">橘 誠一郎</div><div class="atty-role">代表弁護士 · 第一東京弁護士会</div><div class="atty-bio">東京大学法学部卒。大手渉外事務所10年を経て独立。企業法務・M&A専門。英語・中国語対応可。</div><div class="atty-tags"><span class="atty-tag">M&A</span><span class="atty-tag">国際取引</span><span class="atty-tag">コーポレート</span></div></div>
+    <div class="atty"><div class="atty-bar"></div><div class="atty-name">中村 さやか</div><div class="atty-role">弁護士 · 第二東京弁護士会</div><div class="atty-bio">慶應義塾大学法科大学院卒。労働法・個人情報保護・コンプライアンス分野で豊富な実績。</div><div class="atty-tags"><span class="atty-tag">労働法</span><span class="atty-tag">個人情報</span><span class="atty-tag">コンプライアンス</span></div></div>
+    <div class="atty"><div class="atty-bar"></div><div class="atty-name">山口 健太</div><div class="atty-role">弁護士 · 第一東京弁護士会</div><div class="atty-bio">スタートアップ支援が専門。資金調達・VC契約・知的財産・利用規約作成を多数手がける。</div><div class="atty-tags"><span class="atty-tag">スタートアップ</span><span class="atty-tag">知財</span><span class="atty-tag">資金調達</span></div></div>
+  </div>
+</section>
+
+<section class="flow">
+  <div class="sec-head"><span class="sh-num">03</span><h2 class="sh-h2">ご相談の流れ</h2></div>
+  <div class="flow-steps">
+    <div class="fs"><div class="fs-n">01</div><div class="fs-title">無料相談予約</div><div class="fs-body">電話またはWebフォームよりご予約。48時間以内にご連絡します。</div></div>
+    <div class="fs"><div class="fs-n">02</div><div class="fs-title">初回面談（無料）</div><div class="fs-body">対面またはオンラインで60分。現状と課題を整理します。</div></div>
+    <div class="fs"><div class="fs-n">03</div><div class="fs-title">見積・契約</div><div class="fs-body">費用と対応内容を明示。納得いただいた上で正式契約。</div></div>
+    <div class="fs"><div class="fs-n">04</div><div class="fs-title">対応・解決</div><div class="fs-body">迅速・丁寧に問題を解決。完了後もアフターフォロー。</div></div>
+  </div>
+</section>
+
+<section class="cases">
+  <div class="sec-head"><span class="sh-num">04</span><h2 class="sh-h2">解決事例</h2></div>
+  <div class="case-list">
+    <div class="case-item"><span class="ci-type">M&A</span><span class="ci-title">IT企業の株式譲渡スキーム設計・交渉代理</span><span class="ci-result">3億円 / 3ヶ月で成立</span></div>
+    <div class="case-item"><span class="ci-type">契約紛争</span><span class="ci-title">業務委託契約の不払い問題・内容証明から仮処分まで</span><span class="ci-result">全額回収</span></div>
+    <div class="case-item"><span class="ci-type">労働法</span><span class="ci-title">不当解雇リスクを事前に回避する就業規則整備</span><span class="ci-result">紛争ゼロ継続3年</span></div>
+    <div class="case-item"><span class="ci-type">国際取引</span><span class="ci-title">米国サプライヤーとの契約交渉・準拠法条項最適化</span><span class="ci-result">年間コスト20%削減</span></div>
+    <div class="case-item"><span class="ci-type">個人情報</span><span class="ci-title">EC事業者のGDPR対応・プライバシーポリシー全面改訂</span><span class="ci-result">欧州進出成功</span></div>
+  </div>
+</section>
+
+<div class="cta">
+  <div>
+    <h2 class="cta-h2">法的リスクを、<br>今すぐ相談してください。</h2>
+    <p class="cta-p">初回60分、無料。問題が小さいうちに対処することが、最善のリスク管理です。</p>
+  </div>
+  <a href="#" class="btn-gold">無料相談を予約する</a>
+</div>
+
+<footer>
+  <div><div class="fb-name">橘法律事務所</div><div class="fb-addr">〒100-0005<br>東京都千代田区丸の内一丁目9-1<br>グラントウキョウノースタワー17F<br>Tel 03-XXXX-XXXX<br>平日 9:00〜18:00</div></div>
+  <div><h5>業務内容</h5><ul><li><a href="#">企業法務顧問</a></li><li><a href="#">契約書レビュー</a></li><li><a href="#">紛争・訴訟</a></li><li><a href="#">M&A</a></li></ul></div>
+  <div><h5>事務所情報</h5><ul><li><a href="#">弁護士紹介</a></li><li><a href="#">解決事例</a></li><li><a href="#">費用について</a></li><li><a href="#">アクセス</a></li></ul></div>
+  <div><h5>サポート</h5><ul><li><a href="#">よくある質問</a></li><li><a href="#">プライバシーポリシー</a></li><li><a href="#">免責事項</a></li></ul></div>
+  <div class="foot-bottom">© 2024 橘法律事務所. All rights reserved. 弁護士法人橘法律事務所は第一東京弁護士会所属です。</div>
+</footer>
+</body>
+</html>

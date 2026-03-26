@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>炭 SUMI — 炭火割烹</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@200;300&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0E0B08;--paper:#F5F0E8;--gold:#C9A96E;--ember:#E8613A;--stone:#6B6358;--font:'Noto Serif JP',serif;--jp:'Noto Sans JP',sans-serif}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--paper);font-family:var(--jp);font-weight:200;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(14,11,8,.9);backdrop-filter:blur(8px)}
+.n-logo{font-family:var(--font);font-size:1.4rem;font-weight:300;color:var(--gold);letter-spacing:.2em}
+.n-logo small{font-size:.7rem;letter-spacing:.3em;display:block;color:var(--stone);margin-top:2px}
+nav ul{display:flex;gap:32px;list-style:none}
+nav ul a{color:var(--stone);text-decoration:none;font-size:.7rem;letter-spacing:.15em;font-weight:200;transition:color .2s}
+nav ul a:hover{color:var(--paper)}
+.n-rsv{border:1px solid var(--gold);color:var(--gold);padding:8px 20px;font-size:.68rem;letter-spacing:.15em;text-decoration:none;transition:all .3s;font-weight:200}
+.n-rsv:hover{background:var(--gold);color:var(--bg)}
+
+/* HERO */
+.hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1400&q=80') center/cover;filter:brightness(.25) saturate(.8)}
+.hero-fire{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,rgba(232,97,58,.08),transparent 60%)}
+.hero-content{position:relative;z-index:1}
+.hero-en{font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;opacity:.7}
+.hero-h1{font-family:var(--font);font-size:clamp(5rem,12vw,12rem);font-weight:300;line-height:.9;letter-spacing:.1em;color:var(--paper);margin-bottom:8px}
+.hero-sub{font-size:.8rem;color:var(--stone);letter-spacing:.2em;margin-bottom:48px;font-weight:200}
+.hero-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;font-size:.62rem;letter-spacing:.2em;color:rgba(255,255,255,.25)}
+.scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,rgba(201,169,110,.5),transparent);animation:sl 2s ease-in-out infinite}
+@keyframes sl{0%,100%{transform:scaleY(1);opacity:.5}50%{transform:scaleY(1.3);opacity:1}}
+
+/* PHILOSOPHY */
+.phil{min-height:80vh;display:flex;flex-direction:column;justify-content:center;padding:100px 80px;border-top:1px solid rgba(201,169,110,.1)}
+.phil-label{font-size:.65rem;letter-spacing:.3em;color:var(--gold);margin-bottom:32px;opacity:.7}
+.phil-h2{font-family:var(--font);font-size:clamp(1.8rem,3.5vw,4rem);font-weight:300;line-height:1.6;color:var(--paper);max-width:700px;margin-bottom:40px}
+.phil-bar{width:40px;height:1px;background:var(--gold);margin-bottom:32px;opacity:.5}
+.phil-p{font-size:.82rem;color:var(--stone);line-height:2.4;max-width:480px;font-weight:200}
+
+/* MENU */
+.menu{padding:0 80px 80px;border-top:1px solid rgba(201,169,110,.1)}
+.menu-head{display:flex;align-items:baseline;justify-content:space-between;padding:32px 0;border-bottom:1px solid rgba(201,169,110,.08);margin-bottom:48px}
+.menu-h2{font-family:var(--font);font-size:clamp(1.5rem,3vw,3rem);font-weight:300;color:var(--paper)}
+.menu-season{font-size:.68rem;letter-spacing:.2em;color:var(--gold);font-weight:200;opacity:.7}
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.menu-item{padding:28px 0;border-bottom:1px solid rgba(201,169,110,.07);display:flex;justify-content:space-between;align-items:start;gap:20px;transition:background .2s;cursor:default}
+.menu-item:hover{padding-left:12px;transition:padding .2s}
+.mi-left{}
+.mi-num{font-size:.62rem;color:var(--gold);letter-spacing:.1em;margin-bottom:6px;opacity:.6}
+.mi-name{font-family:var(--font);font-size:1.05rem;font-weight:300;color:var(--paper);margin-bottom:4px}
+.mi-desc{font-size:.73rem;color:var(--stone);line-height:1.7;font-weight:200;max-width:280px}
+.menu-item:nth-child(odd){padding-right:40px;border-right:1px solid rgba(201,169,110,.07)}
+.menu-item:nth-child(even){padding-left:40px}
+
+/* COURSE */
+.course{padding:80px;background:rgba(201,169,110,.03);border-top:1px solid rgba(201,169,110,.1)}
+.course-inner{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(201,169,110,.08)}
+.plan{background:var(--bg);padding:40px 28px;text-align:center}
+.plan.featured{background:#120F0A}
+.plan-en{font-size:.62rem;letter-spacing:.2em;color:var(--gold);margin-bottom:12px;opacity:.6}
+.plan-name{font-family:var(--font);font-size:1.5rem;font-weight:300;color:var(--paper);margin-bottom:6px}
+.plan-price{font-family:var(--font);font-size:2.2rem;font-weight:300;color:var(--gold);margin:16px 0 6px;line-height:1}
+.plan-tax{font-size:.65rem;color:var(--stone);font-weight:200}
+.plan-div{width:24px;height:1px;background:rgba(201,169,110,.3);margin:16px auto}
+.plan-items{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:28px;text-align:left}
+.plan-items li{font-size:.75rem;color:var(--stone);font-weight:200;padding-left:16px;position:relative;line-height:1.6}
+.plan-items li::before{content:'―';position:absolute;left:0;color:var(--gold);opacity:.5;font-size:.6rem}
+.plan-btn{width:100%;padding:12px;border:1px solid rgba(201,169,110,.3);color:var(--gold);background:none;font-family:var(--jp);font-size:.72rem;cursor:pointer;transition:all .3s;letter-spacing:.1em;font-weight:200}
+.plan-btn:hover{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+
+/* SPACE */
+.space{display:grid;grid-template-columns:3fr 2fr;min-height:70vh;border-top:1px solid rgba(201,169,110,.1)}
+.space-imgs{display:grid;grid-template-rows:1fr 1fr}
+.si1{background:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80') center/cover;filter:brightness(.6) saturate(.7)}
+.si2{background:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80') center/cover;filter:brightness(.5) saturate(.7)}
+.space-text{padding:64px 48px;background:#0A0806;display:flex;flex-direction:column;justify-content:center}
+.st-label{font-size:.62rem;letter-spacing:.25em;color:var(--gold);margin-bottom:20px;opacity:.6}
+.st-h2{font-family:var(--font);font-size:clamp(1.8rem,3vw,3rem);font-weight:300;line-height:1.4;color:var(--paper);margin-bottom:24px}
+.st-p{font-size:.78rem;color:var(--stone);line-height:2.3;font-weight:200;max-width:340px;margin-bottom:32px}
+.st-detail{display:flex;flex-direction:column;gap:12px}
+.sd{display:flex;gap:16px}
+.sd-l{font-size:.62rem;color:var(--gold);opacity:.5;min-width:48px;letter-spacing:.08em}
+.sd-v{font-size:.75rem;color:var(--stone);font-weight:200}
+
+footer{padding:40px 80px;border-top:1px solid rgba(201,169,110,.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.f-logo{font-family:var(--font);font-size:1rem;color:var(--gold);letter-spacing:.2em}
+.f-l a{font-size:.68rem;color:var(--stone);text-decoration:none;margin-left:24px;letter-spacing:.1em;font-weight:200;transition:color .2s}
+.f-l a:hover{color:var(--paper)}
+.f-copy{font-size:.62rem;color:rgba(107,99,88,.4);font-weight:200}
+
+@media(max-width:900px){
+  nav ul{display:none}
+  .phil,.menu{padding:56px 24px}
+  .course{padding:56px 24px}
+  .course-inner{grid-template-columns:1fr}
+  .menu-grid{grid-template-columns:1fr}
+  .menu-item:nth-child(odd){padding-right:0;border-right:none}
+  .menu-item:nth-child(even){padding-left:0}
+  .space{grid-template-columns:1fr}
+  .space-imgs{height:60vw}
+  .space-text{padding:48px 24px}
+  footer{padding:32px 24px;flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="n-logo">炭<small>SUMI</small></div>
+  <ul>
+    <li><a href="#">献立</a></li>
+    <li><a href="#">コース</a></li>
+    <li><a href="#">空間</a></li>
+  </ul>
+  <a href="#" class="n-rsv">ご予約</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-fire"></div>
+  <div class="hero-content">
+    <p class="hero-en">Charcoal Kappo · Ginza</p>
+    <h1 class="hero-h1">炭</h1>
+    <p class="hero-sub">炭火が語る、日本の四季</p>
+    <a href="#" class="n-rsv" style="display:inline-block;margin-top:8px">席を予約する</a>
+  </div>
+  <div class="hero-scroll">SCROLL<div class="scroll-line"></div></div>
+</section>
+
+<section class="phil">
+  <p class="phil-label">// 料理哲学</p>
+  <h2 class="phil-h2">火は、食材の本質を引き出す。炭火だけが持つ、遠赤外線の優しさで。</h2>
+  <div class="phil-bar"></div>
+  <p class="phil-p">備長炭一本から、すべてが始まる。毎朝、築地から届く食材を手に取り、その日の献立が決まる。レシピはない。あるのは、素材と対話する時間だけ。</p>
+</section>
+
+<section class="menu">
+  <div class="menu-head"><h2 class="menu-h2">今月の献立</h2><span class="menu-season">2024年3月 · 春の始まり</span></div>
+  <div class="menu-grid">
+    <div class="menu-item"><div class="mi-left"><div class="mi-num">一</div><div class="mi-name">炭焼き真鯛</div><div class="mi-desc">天草産·塩焼き·木の芽味噌添え</div></div></div>
+    <div class="menu-item"><div class="mi-left"><div class="mi-num">二</div><div class="mi-name">春野菜の炭焼き盛り</div><div class="mi-desc">山菜·筍·蕗の薹·柚子味噌</div></div></div>
+    <div class="menu-item"><div class="mi-left"><div class="mi-num">三</div><div class="mi-name">黒毛和牛サーロイン</div><div class="mi-desc">A5ランク·銀座産·わさび醤油</div></div></div>
+    <div class="menu-item"><div class="mi-left"><div class="mi-num">四</div><div class="mi-name">鮎の一夜干し</div><div class="mi-desc">京都産·炭火でじっくり</div></div></div>
+    <div class="menu-item"><div class="mi-left"><div class="mi-num">五</div><div class="mi-name">桜鯛の兜焼き</div><div class="mi-desc">三重産·塩·酢橘</div></div></div>
+    <div class="menu-item"><div class="mi-left"><div class="mi-num">六</div><div class="mi-name">〆の土鍋ご飯</div><div class="mi-desc">新潟産こしひかり·季節の炊き込み</div></div></div>
+  </div>
+</section>
+
+<section class="course">
+  <div class="course-inner">
+    <div class="plan">
+      <div class="plan-en">LUNCH</div>
+      <div class="plan-name">昼の炭火</div>
+      <div class="plan-price">¥8,800</div>
+      <div class="plan-tax">税込·サービス料別</div>
+      <div class="plan-div"></div>
+      <ul class="plan-items"><li>前菜三種</li><li>炭焼き二品</li><li>土鍋ご飯·汁</li><li>水菓子</li></ul>
+      <button class="plan-btn">ランチを予約</button>
+    </div>
+    <div class="plan featured">
+      <div class="plan-en">DINNER</div>
+      <div class="plan-name">夜の炭火</div>
+      <div class="plan-price">¥22,000</div>
+      <div class="plan-tax">税込·サービス料別</div>
+      <div class="plan-div"></div>
+      <ul class="plan-items"><li>先付·前菜</li><li>造り</li><li>炭焼き四品</li><li>蒸し物·焚き合わせ</li><li>土鍋ご飯·汁·香物</li><li>菓子·抹茶</li></ul>
+      <button class="plan-btn">ディナーを予約</button>
+    </div>
+    <div class="plan">
+      <div class="plan-en">SPECIAL</div>
+      <div class="plan-name">特別会席</div>
+      <div class="plan-price">¥38,500</div>
+      <div class="plan-tax">税込·サービス料別</div>
+      <div class="plan-div"></div>
+      <ul class="plan-items"><li>全11品の特別コース</li><li>黒毛和牛A5追加</li><li>厳選日本酒ペアリング</li><li>個室確約</li></ul>
+      <button class="plan-btn">特別席を予約</button>
+    </div>
+  </div>
+</section>
+
+<section class="space">
+  <div class="space-imgs">
+    <div class="si1"></div>
+    <div class="si2"></div>
+  </div>
+  <div class="space-text">
+    <p class="st-label">// 空間</p>
+    <h2 class="st-h2">炭の香りが<br>満ちる、<br>静かな夜。</h2>
+    <p class="st-p">カウンター8席のみ。炭火の前に座り、職人の手仕事を間近で見る。それ自体がひとつの料理だと思っている。</p>
+    <div class="st-detail">
+      <div class="sd"><span class="sd-l">場所</span><span class="sd-v">東京都中央区銀座四丁目</span></div>
+      <div class="sd"><span class="sd-l">営業</span><span class="sd-v">火〜日 11:30〜14:00 / 18:00〜22:00</span></div>
+      <div class="sd"><span class="sd-l">定休</span><span class="sd-v">月曜日</span></div>
+      <div class="sd"><span class="sd-l">席数</span><span class="sd-v">カウンター8席（個室2室）</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">炭 SUMI</div>
+  <div class="f-l"><a href="#">献立</a><a href="#">ご予約</a><a href="#">アクセス</a><a href="#">プライバシー</a></div>
+  <div class="f-copy">© 2024 炭 SUMI, Ginza</div>
+</footer>
+</body>
+</html>

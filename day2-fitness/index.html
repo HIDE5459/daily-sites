@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APEX GYM — プレミアムフィットネス</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@200;300;400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#080808;--red:#E8272A;--w:#F0F0F0;--g:#3A3A3A;--muted:#666;--font:'Bebas Neue',sans-serif;--jp:'Noto Sans JP',sans-serif}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--w);font-family:var(--jp);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;display:flex;align-items:center;padding:0 48px;justify-content:space-between;background:rgba(8,8,8,.95);border-bottom:1px solid var(--g)}
+.n-logo{font-family:var(--font);font-size:1.8rem;letter-spacing:.08em;color:var(--w)}
+.n-logo span{color:var(--red)}
+nav ul{display:flex;gap:32px;list-style:none}
+nav ul a{color:var(--muted);text-decoration:none;font-size:.72rem;letter-spacing:.1em;font-weight:300;transition:color .2s}
+nav ul a:hover{color:var(--w)}
+.n-cta{background:var(--red);color:#fff;padding:10px 24px;font-size:.78rem;font-weight:700;text-decoration:none;letter-spacing:.08em;transition:opacity .2s}
+.n-cta:hover{opacity:.85}
+
+/* HERO */
+.hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:center}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1400&q=80') center/cover;filter:brightness(.2) contrast(1.1)}
+.hero-accent{position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--red)}
+.hero-content{position:relative;z-index:1;padding:0 80px}
+.hc-label{font-family:var(--font);font-size:.9rem;letter-spacing:.3em;color:var(--red);margin-bottom:12px}
+.hc-h1{font-family:var(--font);font-size:clamp(5rem,14vw,16rem);line-height:.85;letter-spacing:-.01em;color:var(--w);margin-bottom:24px}
+.hc-h1 span{display:block;color:transparent;-webkit-text-stroke:1px rgba(240,240,240,.2)}
+.hc-p{font-size:.9rem;color:var(--muted);line-height:1.8;max-width:440px;margin-bottom:36px;font-weight:300}
+.hc-btns{display:flex;gap:12px}
+.btn-r{background:var(--red);color:#fff;padding:14px 32px;font-size:.82rem;font-weight:700;text-decoration:none;letter-spacing:.08em;transition:opacity .2s}
+.btn-r:hover{opacity:.85}
+.btn-o{border:1px solid var(--g);color:var(--muted);padding:14px 32px;font-size:.82rem;font-weight:300;text-decoration:none;letter-spacing:.08em;transition:all .2s}
+.btn-o:hover{border-color:var(--w);color:var(--w)}
+.hero-stats{position:absolute;right:80px;bottom:80px;display:flex;flex-direction:column;gap:32px;text-align:right}
+.hs-n{font-family:var(--font);font-size:3.5rem;color:var(--red);line-height:1}
+.hs-l{font-size:.65rem;color:var(--muted);letter-spacing:.12em;margin-top:2px}
+
+/* TICKER */
+.ticker{background:var(--red);overflow:hidden;padding:10px 0}
+.tk-track{display:flex;white-space:nowrap;animation:tk 15s linear infinite}
+.tk-i{font-family:var(--font);font-size:1rem;letter-spacing:.12em;color:#fff;padding:0 24px;opacity:.85}
+@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* PROGRAMS */
+.programs{padding:80px 48px;border-bottom:1px solid var(--g)}
+.sec-row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:48px}
+.sec-h2{font-family:var(--font);font-size:clamp(2.5rem,5vw,5rem);letter-spacing:.02em}
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--g)}
+.prog{background:var(--bg);padding:36px 28px;transition:background .2s;cursor:pointer}
+.prog:hover{background:#111}
+.prog-icon{font-family:var(--font);font-size:3.5rem;color:rgba(232,39,42,.15);margin-bottom:16px;line-height:1}
+.prog-name{font-family:var(--font);font-size:1.6rem;letter-spacing:.04em;margin-bottom:10px;color:var(--w)}
+.prog-intensity{display:inline-flex;gap:4px;margin-bottom:12px}
+.pi-dot{width:8px;height:8px;border-radius:50%;background:var(--g)}
+.pi-dot.on{background:var(--red)}
+.prog-desc{font-size:.78rem;color:var(--muted);line-height:1.8;font-weight:300;margin-bottom:16px}
+.prog-tag{font-size:.65rem;letter-spacing:.1em;color:var(--red);font-weight:400}
+
+/* TRAINER */
+.trainer{padding:0;display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--g)}
+.trainer-img{background:url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80') center/cover;filter:grayscale(30%) brightness(.7);min-height:500px}
+.trainer-text{padding:72px 56px;background:#0C0C0C;display:flex;flex-direction:column;justify-content:center}
+.tt-label{font-family:var(--font);font-size:.85rem;letter-spacing:.2em;color:var(--red);margin-bottom:20px}
+.tt-h2{font-family:var(--font);font-size:clamp(2.5rem,4vw,5rem);line-height:.9;margin-bottom:24px;letter-spacing:.02em}
+.tt-p{font-size:.82rem;color:var(--muted);line-height:1.9;font-weight:300;max-width:380px;margin-bottom:32px}
+.trainer-cards{display:flex;flex-direction:column;gap:12px}
+.tc{display:flex;align-items:center;gap:16px;padding:14px;border:1px solid var(--g);transition:border-color .2s}
+.tc:hover{border-color:var(--red)}
+.tc-ava{width:44px;height:44px;border-radius:50%;background:var(--g);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.tc-name{font-size:.85rem;font-weight:700;margin-bottom:2px}
+.tc-role{font-size:.7rem;color:var(--muted);font-weight:300}
+
+/* PRICE */
+.price{padding:80px 48px;border-bottom:1px solid var(--g)}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--g);margin-top:48px}
+.plan{background:var(--bg);padding:40px 28px}
+.plan.featured{background:#110000}
+.plan-name{font-family:var(--font);font-size:1.8rem;letter-spacing:.05em;margin-bottom:6px}
+.plan-price{font-family:var(--font);font-size:3.5rem;color:var(--red);line-height:1;margin:16px 0 6px}
+.plan-tax{font-size:.68rem;color:var(--muted);font-weight:300;margin-bottom:20px}
+.plan-items{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:28px}
+.plan-items li{font-size:.78rem;color:var(--muted);display:flex;gap:8px;align-items:center;font-weight:300}
+.plan-items li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--g);flex-shrink:0}
+.featured .plan-items li::before{background:var(--red)}
+.plan-btn{width:100%;padding:12px;background:none;border:1px solid var(--g);color:var(--muted);font-family:var(--jp);font-size:.78rem;cursor:pointer;transition:all .2s;font-weight:300}
+.plan-btn:hover,.featured .plan-btn{background:var(--red);color:#fff;border-color:var(--red)}
+
+/* CTA */
+.cta{height:50vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
+.cta-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=1400&q=80') center/cover;filter:brightness(.15)}
+.cta-content{position:relative;z-index:1;padding:40px}
+.cta-h2{font-family:var(--font);font-size:clamp(3rem,8vw,9rem);line-height:.9;margin-bottom:28px;letter-spacing:.02em}
+.cta-h2 span{color:var(--red)}
+.cta-btn{display:inline-block;background:var(--red);color:#fff;padding:16px 48px;font-size:.88rem;font-weight:700;text-decoration:none;letter-spacing:.12em;transition:opacity .2s}
+.cta-btn:hover{opacity:.85}
+
+footer{padding:36px 48px;border-top:1px solid var(--g);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.f-logo{font-family:var(--font);font-size:1.2rem;letter-spacing:.08em}.f-logo span{color:var(--red)}
+.f-l a{font-size:.68rem;color:var(--muted);text-decoration:none;margin-left:24px;letter-spacing:.08em;font-weight:300;transition:color .2s}
+.f-l a:hover{color:var(--w)}
+.f-copy{font-size:.62rem;color:#333}
+
+@media(max-width:900px){
+  nav ul{display:none}.hero-content{padding:0 24px}.hero-stats{right:24px;bottom:60px}
+  .programs,.price{padding:56px 24px}.prog-grid,.price-grid{grid-template-columns:1fr}
+  .trainer{grid-template-columns:1fr}.trainer-img{height:60vw}
+  .trainer-text{padding:48px 24px}
+  footer{padding:28px 24px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="n-logo">APE<span>X</span></div>
+  <ul>
+    <li><a href="#">プログラム</a></li>
+    <li><a href="#">トレーナー</a></li>
+    <li><a href="#">料金</a></li>
+    <li><a href="#">施設</a></li>
+  </ul>
+  <a href="#" class="n-cta">無料体験</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-content">
+    <p class="hc-label">Premium Fitness · Shibuya</p>
+    <h1 class="hc-h1">BREAK<span>LIMITS</span></h1>
+    <p class="hc-p">限界は、自分が決めた幻想だ。APEXは、あなたの内側にある力を引き出すための場所。</p>
+    <div class="hc-btns">
+      <a href="#" class="btn-r">無料で体験する</a>
+      <a href="#" class="btn-o">施設を見る</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div><div class="hs-n">2,400</div><div class="hs-l">会員数</div></div>
+    <div><div class="hs-n">32</div><div class="hs-l">専属トレーナー</div></div>
+    <div><div class="hs-n">24H</div><div class="hs-l">営業時間</div></div>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="tk-track">
+    <span class="tk-i">STRENGTH</span><span class="tk-i">·</span><span class="tk-i">HIIT</span><span class="tk-i">·</span><span class="tk-i">YOGA</span><span class="tk-i">·</span><span class="tk-i">BOXING</span><span class="tk-i">·</span><span class="tk-i">CYCLING</span><span class="tk-i">·</span><span class="tk-i">PILATES</span><span class="tk-i">·</span><span class="tk-i">NUTRITION</span><span class="tk-i">·</span>
+    <span class="tk-i">STRENGTH</span><span class="tk-i">·</span><span class="tk-i">HIIT</span><span class="tk-i">·</span><span class="tk-i">YOGA</span><span class="tk-i">·</span><span class="tk-i">BOXING</span><span class="tk-i">·</span><span class="tk-i">CYCLING</span><span class="tk-i">·</span><span class="tk-i">PILATES</span><span class="tk-i">·</span><span class="tk-i">NUTRITION</span><span class="tk-i">·</span>
+  </div>
+</div>
+
+<section class="programs">
+  <div class="sec-row"><h2 class="sec-h2">PROGRAMS</h2></div>
+  <div class="prog-grid">
+    <div class="prog"><div class="prog-icon">⚡</div><div class="prog-name">HIIT</div><div class="prog-intensity"><span class="pi-dot on"></span><span class="pi-dot on"></span><span class="pi-dot on"></span><span class="pi-dot on"></span><span class="pi-dot"></span></div><div class="prog-desc">高強度インターバル。30分で最大カロリー消費。週3回で体が変わる。</div><div class="prog-tag">毎日 06:00〜22:00</div></div>
+    <div class="prog"><div class="prog-icon">🥊</div><div class="prog-name">BOXING</div><div class="prog-intensity"><span class="pi-dot on"></span><span class="pi-dot on"></span><span class="pi-dot on"></span><span class="pi-dot on"></span><span class="pi-dot on"></span></div><div class="prog-desc">全身を使うボクシングエクサ。ストレス発散と体幹強化を同時に。</div><div class="prog-tag">月水金 18:00〜20:00</div></div>
+    <div class="prog"><div class="prog-icon">🧘</div><div class="prog-name">YOGA</div><div class="prog-intensity"><span class="pi-dot on"></span><span class="pi-dot on"></span><span class="pi-dot"></span><span class="pi-dot"></span><span class="pi-dot"></span></div><div class="prog-desc">ヨガで柔軟性と呼吸を整える。ハードトレとのバランスに最適。</div><div class="prog-tag">火木土 07:00〜08:30</div></div>
+    <div class="prog"><div class="prog-icon">🏋️</div><div class="prog-name">STRENGTH</div><div class="prog-intensity"><span class="pi-dot on"></span><span class="pi-dot on"></span><span class="pi-dot on"></span><span class="pi-dot on"></span><span class="pi-dot"></span></div><div class="prog-desc">専任トレーナーが設計する個別筋トレプログラム。</div><div class="prog-tag">完全個別対応</div></div>
+    <div class="prog"><div class="prog-icon">🚴</div><div class="prog-name">CYCLING</div><div class="prog-intensity"><span class="pi-dot on"></span><span class="pi-dot on"></span><span class="pi-dot on"></span><span class="pi-dot"></span><span class="pi-dot"></span></div><div class="prog-desc">暗闇サイクリング。音楽に乗せてペダルを回す45分。</div><div class="prog-tag">毎日 19:00〜20:00</div></div>
+    <div class="prog"><div class="prog-icon">🍎</div><div class="prog-name">NUTRITION</div><div class="prog-intensity"><span class="pi-dot on"></span><span class="pi-dot"></span><span class="pi-dot"></span><span class="pi-dot"></span><span class="pi-dot"></span></div><div class="prog-desc">栄養士による食事コーチング。運動と食事の両輪で結果を出す。</div><div class="prog-tag">月2回カウンセリング</div></div>
+  </div>
+</section>
+
+<section class="trainer">
+  <div class="trainer-img"></div>
+  <div class="trainer-text">
+    <p class="tt-label">TRAINERS</p>
+    <h2 class="tt-h2">本物の<br>プロが、<br>変える。</h2>
+    <p class="tt-p">32名の専任トレーナーは全員、国際資格保持者。あなたの目標・体質・生活習慣に合わせた完全オーダーメイドのプログラムを提供します。</p>
+    <div class="trainer-cards">
+      <div class="tc"><div class="tc-ava">💪</div><div><div class="tc-name">田中 雄介</div><div class="tc-role">HIIT / ストレングス · NSCA-CPT</div></div></div>
+      <div class="tc"><div class="tc-ava">🧘</div><div><div class="tc-name">鈴木 愛</div><div class="tc-role">ヨガ / ピラティス · RYT500</div></div></div>
+      <div class="tc"><div class="tc-ava">🥊</div><div><div class="tc-name">山本 拓</div><div class="tc-role">ボクシング · 元プロボクサー</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="price">
+  <div class="sec-row"><h2 class="sec-h2">MEMBERSHIP</h2></div>
+  <div class="price-grid">
+    <div class="plan"><div class="plan-name">BASIC</div><div class="plan-price">¥9,800</div><div class="plan-tax">/ 月（税込）</div><ul class="plan-items"><li>全マシン利用</li><li>グループクラス参加</li><li>ロッカー使用</li></ul><button class="plan-btn">体験する</button></div>
+    <div class="plan featured"><div class="plan-name">PREMIUM</div><div class="plan-price">¥19,800</div><div class="plan-tax">/ 月（税込）</div><ul class="plan-items"><li>全BASIC特典</li><li>月4回パーソナル</li><li>栄養カウンセリング</li><li>タオル・ウォーター無制限</li></ul><button class="plan-btn">体験する</button></div>
+    <div class="plan"><div class="plan-name">ELITE</div><div class="plan-price">¥38,500</div><div class="plan-tax">/ 月（税込）</div><ul class="plan-items"><li>全PREMIUM特典</li><li>月8回パーソナル</li><li>専任トレーナー固定</li><li>VIPラウンジ</li></ul><button class="plan-btn">体験する</button></div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-bg"></div>
+  <div class="cta-content">
+    <h2 class="cta-h2">今日が、<br><span>始まり</span>だ。</h2>
+    <a href="#" class="cta-btn">無料体験を予約する</a>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">APE<span>X</span></div>
+  <div class="f-l"><a href="#">プログラム</a><a href="#">トレーナー</a><a href="#">料金</a><a href="#">アクセス</a></div>
+  <div class="f-copy">© 2024 APEX GYM, Shibuya</div>
+</footer>
+</body>
+</html>
