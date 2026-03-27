@@ -1,0 +1,11 @@
+[2026-03-15T14:33 UTC] runAllScrapers: success | newArticles=1 (news:1) | duplicates=707 | all scrapers OK
+[2026-03-15T14:53 UTC] runAllScrapers: success | newArticles=0 | duplicates=711 | official=0/24 | twitter=0/0 | instagram=0/0 | news=0/239 | youtube=0/34 | goods=0/414
+[2026-03-16 01:16 JST] runAllScrapers: success | newArticles=0 | duplicates=725 (official:24, twitter:0, instagram:0, news:241, youtube:31, goods:429)
+[2026-03-16 01:27 JST] runAllScrapers: success | newArticles=0 | duplicates=715 (official:24, twitter:0, instagram:0, news:240, youtube:32, goods:419)
+[2026-03-16 12:29 JST] runAllScrapers: success | newArticles=1 (news:1) | duplicates=719 | official:0/24 | twitter:0/0 | instagram:0/0 | news:1/239 | youtube:0/33 | goods:0/423
+[2026-03-16 14:54 JST] runAllScrapers 完了 — 新着3件(goods), 重複721件, 全スクレイパー成功
+[2026-03-16 17:09 JST] ミャクミャクスクレイパー実行完了 | 新規:1件(news) | 重複:730件 | official:0 twitter:0 instagram:0 news:1 youtube:0 goods:0
+[2026-03-16 17:29 JST] runAllScrapers: success | newArticles=2 (news:1, youtube:1) | duplicates=729 | all scrapers OK
+[2026-03-18 18:05 JST] runAllScrapers 完了 — 新規10件(YouTube:1, goods:9), 重複716件
+2026-03-19T15:10:39Z [myakumyaku-scraper] success | newArticles=17 duplicates=739 | official:0 twitter:0 instagram:0 news:0 youtube:0 goods:17
+2026-03-24T21:05:26Z [myakumyaku-scraper] success | newArticles=44 (goods:44) | duplicates=701 | all scrapers OK

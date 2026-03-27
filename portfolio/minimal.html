@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAN HIDE | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --text: #1a1a1a;
+            --muted: #6b7280;
+            --accent: #111;
+            --bg: #fafafa;
+            --card: #fff;
+            --border: #e5e7eb;
+            --hover: #f3f4f6;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: var(--bg); color: var(--text);
+            line-height: 1.8;
+        }
+        a { color: inherit; text-decoration: none; }
+
+        .container { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
+
+        /* Nav */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            background: rgba(250,250,250,0.9); backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        nav .container {
+            display: flex; justify-content: space-between; align-items: center;
+            height: 60px;
+        }
+        .logo { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.3rem; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { font-size: 0.85rem; color: var(--muted); transition: color 0.3s; }
+        .nav-links a:hover { color: var(--text); }
+
+        /* Hero */
+        .hero {
+            padding: 10rem 0 6rem; text-align: center;
+        }
+        .hero-avatar {
+            width: 100px; height: 100px; border-radius: 50%;
+            background: var(--border); margin: 0 auto 2rem;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.5rem;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem; font-weight: 700; margin-bottom: 1rem;
+        }
+        .hero p { color: var(--muted); font-size: 1.1rem; max-width: 500px; margin: 0 auto; font-weight: 300; }
+        .hero-links {
+            display: flex; gap: 1.5rem; justify-content: center; margin-top: 2rem;
+        }
+        .hero-links a {
+            color: var(--muted); font-size: 1.3rem; transition: color 0.3s;
+        }
+        .hero-links a:hover { color: var(--text); }
+
+        /* Section */
+        .section { padding: 5rem 0; }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem; margin-bottom: 0.5rem;
+        }
+        .section-line { width: 40px; height: 2px; background: var(--text); margin-bottom: 2.5rem; }
+
+        /* Work */
+        .work-item {
+            border-bottom: 1px solid var(--border);
+            padding: 2rem 0;
+            display: flex; gap: 2rem; align-items: flex-start;
+            transition: background 0.3s;
+        }
+        .work-item:first-child { border-top: 1px solid var(--border); }
+        .work-item:hover { background: var(--hover); margin: 0 -1rem; padding: 2rem 1rem; }
+        .work-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem; color: var(--border); font-weight: 700;
+            min-width: 50px;
+        }
+        .work-info h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+        .work-info p { color: var(--muted); font-size: 0.9rem; }
+        .work-tags { display: flex; gap: 0.5rem; margin-top: 0.8rem; flex-wrap: wrap; }
+        .work-tag {
+            font-size: 0.7rem; padding: 0.2rem 0.6rem;
+            border: 1px solid var(--border); border-radius: 4px; color: var(--muted);
+        }
+
+        /* Skills */
+        .skill-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .skill-group h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 0.8rem; }
+        .skill-group ul { list-style: none; }
+        .skill-group li { padding: 0.4rem 0; font-size: 0.95rem; border-bottom: 1px solid var(--border); }
+
+        /* Contact */
+        .contact { text-align: center; padding: 5rem 0; }
+        .contact p { color: var(--muted); margin-bottom: 1.5rem; }
+        .contact-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.8rem 2rem; border: 1px solid var(--text);
+            font-size: 0.9rem; transition: all 0.3s;
+        }
+        .contact-btn:hover { background: var(--text); color: #fff; }
+
+        /* Footer */
+        footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.75rem; border-top: 1px solid var(--border); }
+
+        /* Reveal */
+        [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
+        [data-reveal].visible { opacity: 1; transform: none; }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            .work-item { flex-direction: column; gap: 0.5rem; }
+            .skill-list { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <span class="logo">KAN</span>
+            <ul class="nav-links">
+                <li><a href="#work">Work</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-avatar">👨‍💻</div>
+            <h1 data-reveal>KAN HIDE</h1>
+            <p data-reveal>iOS Developer & AI Creator<br>テクノロジーで面白いものを作る人</p>
+            <div class="hero-links" data-reveal>
+                <a href="https://youtube.com/@ainews-mw1xf" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://twitter.com/Appmakeaa" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://instagram.com/aiinsta26" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://tiktok.com/@newsai830" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="work">
+        <div class="container">
+            <h2 class="section-title" data-reveal>Work</h2>
+            <div class="section-line" data-reveal></div>
+            <div class="work-item" data-reveal>
+                <span class="work-num">01</span>
+                <div class="work-info">
+                    <h3>ミャクミャクウォッチャー</h3>
+                    <p>大阪万博ミャクミャク情報収集iOSアプリ。リアルタイム通知でミャクミャクの最新情報をお届け。TestFlight配信中。</p>
+                    <div class="work-tags">
+                        <span class="work-tag">Swift</span>
+                        <span class="work-tag">SwiftUI</span>
+                        <span class="work-tag">Firebase</span>
+                    </div>
+                </div>
+            </div>
+            <div class="work-item" data-reveal>
+                <span class="work-num">02</span>
+                <div class="work-info">
+                    <h3>AI NEWS — YouTube 自動化</h3>
+                    <p>Googleトレンドから30秒ショート動画を自動生成・投稿するパイプライン。企画→生成→投稿を完全自動化。</p>
+                    <div class="work-tags">
+                        <span class="work-tag">Remotion</span>
+                        <span class="work-tag">Python</span>
+                        <span class="work-tag">TTS</span>
+                    </div>
+                </div>
+            </div>
+            <div class="work-item" data-reveal>
+                <span class="work-num">03</span>
+                <div class="work-info">
+                    <h3>AI Traveler — Instagram</h3>
+                    <p>AI生成画像による仮想旅行コンテンツ。画像生成から投稿まで自動化したクリエイティブパイプライン。</p>
+                    <div class="work-tags">
+                        <span class="work-tag">Leonardo AI</span>
+                        <span class="work-tag">Playwright</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="skills" style="background:#fff;">
+        <div class="container">
+            <h2 class="section-title" data-reveal>Skills</h2>
+            <div class="section-line" data-reveal></div>
+            <div class="skill-list" data-reveal>
+                <div class="skill-group">
+                    <h3>Development</h3>
+                    <ul>
+                        <li>Swift / SwiftUI</li>
+                        <li>Python</li>
+                        <li>Firebase / Firestore</li>
+                        <li>HTML / CSS / JS</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h3>Tools & Platform</h3>
+                    <ul>
+                        <li>Xcode</li>
+                        <li>FFmpeg / Remotion</li>
+                        <li>OpenAI / Claude</li>
+                        <li>Leonardo AI</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title" data-reveal>Contact</h2>
+            <div class="section-line" style="margin:0 auto 2rem;" data-reveal></div>
+            <p data-reveal>お仕事のご相談、お気軽にどうぞ。</p>
+            <a href="mailto:appmake2000@gmail.com" class="contact-btn" data-reveal>
+                <i class="fas fa-envelope"></i> メールを送る
+            </a>
+        </div>
+    </section>
+
+    <footer><p>&copy; 2025 KAN HIDE</p></footer>
+
+    <script>
+        const obs = new IntersectionObserver(es => {
+            es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+    </script>
+</body>
+</html>

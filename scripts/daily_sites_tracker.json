@@ -1,0 +1,26 @@
+{
+  "last_built": "2026-03-25",
+  "total_sites": 3,
+  "days": [
+    {
+      "date": "2026-03-25",
+      "sites": [
+        {"name": "Nexus AI", "genre": "SaaS/AI Product", "dir": "nexus-ai"},
+        {"name": "Aurum Tokyo", "genre": "Luxury Jewelry", "dir": "aurum-tokyo"},
+        {"name": "Volta Fest", "genre": "Music Festival", "dir": "volta-fest"}
+      ],
+      "url": "https://hide5459.github.io/daily-sites/",
+      "status": "deployed"
+    }
+  ],
+  "used_genres": ["SaaS/AI Product", "Luxury Jewelry", "Music Festival"],
+  "next_genres_pool": [
+    "Healthcare Clinic", "Architecture Studio", "Coffee Brand",
+    "Travel Agency", "Fitness App", "Law Firm",
+    "Restaurant", "Fashion Brand", "Real Estate",
+    "Photography Portfolio", "Education Platform", "Gaming Studio",
+    "NFT/Web3 Project", "Interior Design", "Nonprofit",
+    "Food Delivery", "Podcast", "Wedding Planner",
+    "Fintech", "Hotel & Resort"
+  ]
+}

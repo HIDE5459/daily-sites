@@ -1,0 +1,7 @@
+[2026-03-15T16:48:16Z] runAllScrapers: totalNew=1, totalDup=716 | official(new=0,dup=24) twitter(new=0,dup=0) instagram(new=0,dup=0) news(new=0,dup=240) youtube(new=1,dup=32) goods(new=0,dup=420)
+[2026-03-15T17:50:23Z] runAllScrapers: success | totalNewArticles=1 | totalDuplicates=722 | youtube(new=1) official(dup=24) news(dup=246) goods(dup=419)
+[2026-03-15T20:04:58Z] runAllScrapers: success | newArticles=1 (news:1) | duplicates=732 | official:0 twitter:0 instagram:0 news:1 youtube:0 goods:0
+[2026-03-16 05:46 JST] runAllScrapers OK — new:10 (goods:10) / dup:735
+[2026-03-16 04:42 UTC] runAllScrapers: success | newArticles=1 (youtube:1) | duplicates=715 | official:0/24, twitter:0/0, instagram:0/0, news:0/239, youtube:1/34, goods:0/418
+[2026-03-16 18:00 JST] runAllScrapers: success | newArticles=3 (news:3) | duplicates=732 | official✅ twitter✅ instagram✅ news✅ youtube✅ goods✅
+[2026-03-21 07:16 UTC] runAllScrapers: success | newArticles=2 (goods) | duplicates=776 | official:0 twitter:0 instagram:0 news:0 youtube:0 goods:2

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kan@portfolio:~$</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap');
+        :root {
+            --green: #00ff41;
+            --dim: #00aa2a;
+            --cyan: #00d4ff;
+            --yellow: #ffd700;
+            --red: #ff4444;
+            --bg: #0a0a0a;
+            --card: #111;
+            --border: #1a1a1a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--bg); color: var(--green);
+            line-height: 1.7; font-size: 14px;
+        }
+        ::selection { background: var(--green); color: var(--bg); }
+        a { color: var(--cyan); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Scanline overlay */
+        body::after {
+            content: ''; position: fixed; inset: 0; z-index: 9999;
+            pointer-events: none;
+            background: repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, rgba(0,0,0,0.03) 1px, transparent 1px, transparent 2px);
+        }
+
+        .terminal {
+            max-width: 800px; margin: 0 auto;
+            padding: 2rem; min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            border: 1px solid var(--border);
+            border-radius: 8px; overflow: hidden; margin-bottom: 2rem;
+        }
+        .title-bar {
+            background: #1a1a1a; padding: 0.5rem 1rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot.red { background: #ff5f57; }
+        .dot.yellow { background: #febc2e; }
+        .dot.green { background: #28c840; }
+        .title-bar span { margin-left: 0.5rem; color: #666; font-size: 0.8rem; }
+        .header-content { padding: 1.5rem; }
+        .prompt { color: var(--cyan); }
+        .cursor {
+            display: inline-block; width: 8px; height: 16px;
+            background: var(--green); margin-left: 2px;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        .ascii-art {
+            color: var(--dim); font-size: 10px; line-height: 1.2;
+            margin: 1rem 0; white-space: pre;
+        }
+
+        /* Sections */
+        .block { margin-bottom: 2rem; }
+        .block-cmd {
+            padding: 0.3rem 0; margin-bottom: 0.5rem;
+        }
+        .comment { color: #555; }
+        .output { padding-left: 0; }
+        .output-line { padding: 0.15rem 0; }
+
+        .tree-item {
+            padding: 0.2rem 0;
+            display: flex; gap: 0.5rem;
+        }
+        .tree-branch { color: #555; }
+        .file-name { color: var(--green); }
+        .file-desc { color: #555; }
+
+        .table { width: 100%; border-collapse: collapse; margin: 0.5rem 0; }
+        .table td { padding: 0.3rem 1rem 0.3rem 0; }
+        .table td:first-child { color: var(--yellow); white-space: nowrap; }
+        .table td:last-child { color: #aaa; }
+
+        .tag {
+            display: inline-block; padding: 0.1rem 0.5rem;
+            border: 1px solid var(--dim); border-radius: 3px;
+            font-size: 0.75rem; margin: 0.15rem;
+            color: var(--dim);
+        }
+
+        .link-list a {
+            display: block; padding: 0.3rem 0;
+        }
+        .link-list .icon { color: var(--yellow); margin-right: 0.5rem; }
+
+        .highlight { color: var(--yellow); }
+        .success { color: var(--green); }
+        .error { color: var(--red); }
+
+        .footer {
+            border-top: 1px solid var(--border);
+            padding-top: 1rem; margin-top: 3rem;
+            color: #444; font-size: 0.8rem; text-align: center;
+        }
+
+        [data-reveal] { opacity: 0; transform: translateY(10px); transition: opacity 0.5s, transform 0.5s; }
+        [data-reveal].visible { opacity: 1; transform: none; }
+
+        @media (max-width: 600px) {
+            .terminal { padding: 1rem; }
+            .ascii-art { font-size: 7px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal">
+        <!-- Header -->
+        <div class="header">
+            <div class="title-bar">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span>kan@portfolio — zsh — 80×24</span>
+            </div>
+            <div class="header-content">
+<pre class="ascii-art">
+ _  __    _    _   _   _   _ ___ ____  _____
+| |/ /   / \  | \ | | | | | |_ _|  _ \| ____|
+| ' /   / _ \ |  \| | | |_| || || | | |  _|
+| . \  / ___ \| |\  | |  _  || || |_| | |___
+|_|\_\/_/   \_\_| \_| |_| |_|___|____/|_____|
+</pre>
+                <div><span class="prompt">kan@portfolio:~$</span> whoami<span class="cursor"></span></div>
+                <div style="margin-top:0.5rem;">iOS Developer & AI Creator — 東京</div>
+            </div>
+        </div>
+
+        <!-- About -->
+        <div class="block" data-reveal>
+            <div class="block-cmd"><span class="prompt">$</span> cat about.md</div>
+            <div class="output">
+                <div class="output-line">アプリ開発からAI自動化パイプラインまで。</div>
+                <div class="output-line">テクノロジーで面白いものを作るのが好きです。</div>
+                <div class="output-line">Swift/SwiftUI でiOSアプリを、Python + AI で</div>
+                <div class="output-line">コンテンツ自動生成システムを構築しています。</div>
+            </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="block" data-reveal>
+            <div class="block-cmd"><span class="prompt">$</span> ls -la ~/projects/</div>
+            <div class="output">
+                <div class="tree-item">
+                    <span class="tree-branch">drwxr-xr-x</span>
+                    <span class="highlight">myakumyaku-watcher/</span>
+                </div>
+                <div class="output-line" style="padding-left:2rem; color:#aaa;">
+                    大阪万博ミャクミャク情報収集iOSアプリ<br>
+                    Swift + SwiftUI + Firebase | TestFlight配信中<br>
+                    <span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">Firebase</span><span class="tag">FCM</span>
+                </div>
+                <br>
+                <div class="tree-item">
+                    <span class="tree-branch">drwxr-xr-x</span>
+                    <span class="highlight">ai-news-youtube/</span>
+                </div>
+                <div class="output-line" style="padding-left:2rem; color:#aaa;">
+                    Googleトレンド→ショート動画 自動生成パイプライン<br>
+                    Remotion + TTS + Python で完全自動化<br>
+                    <span class="tag">Remotion</span><span class="tag">Python</span><span class="tag">FFmpeg</span><span class="tag">TTS</span>
+                </div>
+                <br>
+                <div class="tree-item">
+                    <span class="tree-branch">drwxr-xr-x</span>
+                    <span class="highlight">ai-traveler/</span>
+                </div>
+                <div class="output-line" style="padding-left:2rem; color:#aaa;">
+                    AI生成画像による仮想旅行 Instagram<br>
+                    Leonardo AI + Playwright で自動投稿<br>
+                    <span class="tag">Leonardo AI</span><span class="tag">Playwright</span><span class="tag">Instagram</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="block" data-reveal>
+            <div class="block-cmd"><span class="prompt">$</span> cat skills.json | jq</div>
+            <div class="output">
+                <table class="table">
+                    <tr><td>"languages"</td><td>: [ Swift, Python, JavaScript, HTML/CSS ]</td></tr>
+                    <tr><td>"frameworks"</td><td>: [ SwiftUI, Firebase, Remotion ]</td></tr>
+                    <tr><td>"ai_tools"</td><td>: [ OpenAI, Claude, Leonardo AI ]</td></tr>
+                    <tr><td>"devtools"</td><td>: [ Xcode, FFmpeg, Playwright, Git ]</td></tr>
+                    <tr><td>"platforms"</td><td>: [ iOS, YouTube, Instagram, TikTok, X ]</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="block" data-reveal>
+            <div class="block-cmd"><span class="prompt">$</span> curl -s api.stats/kan | jq '.summary'</div>
+            <div class="output">
+                <table class="table">
+                    <tr><td>"youtube_views"</td><td>: <span class="success">2,400+</span></td></tr>
+                    <tr><td>"projects"</td><td>: <span class="success">6</span></td></tr>
+                    <tr><td>"platforms"</td><td>: <span class="success">5</span></td></tr>
+                    <tr><td>"status"</td><td>: <span class="success">"building cool stuff"</span></td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Links -->
+        <div class="block" data-reveal>
+            <div class="block-cmd"><span class="prompt">$</span> cat links.md</div>
+            <div class="link-list">
+                <a href="https://youtube.com/@ainews-mw1xf" target="_blank"><span class="icon"><i class="fab fa-youtube"></i></span> youtube.com/@ainews-mw1xf</a>
+                <a href="https://twitter.com/Appmakeaa" target="_blank"><span class="icon"><i class="fab fa-x-twitter"></i></span> x.com/Appmakeaa</a>
+                <a href="https://instagram.com/aiinsta26" target="_blank"><span class="icon"><i class="fab fa-instagram"></i></span> instagram.com/aiinsta26</a>
+                <a href="https://tiktok.com/@newsai830" target="_blank"><span class="icon"><i class="fab fa-tiktok"></i></span> tiktok.com/@newsai830</a>
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="block" data-reveal>
+            <div class="block-cmd"><span class="prompt">$</span> echo $CONTACT</div>
+            <div class="output">
+                <a href="mailto:appmake2000@gmail.com">📧 appmake2000@gmail.com</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <span class="prompt">$</span> echo "© 2025 KAN HIDE" <span class="comment"># EOF</span>
+        </div>
+    </div>
+
+    <script>
+        const obs = new IntersectionObserver(es => {
+            es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+    </script>
+</body>
+</html>

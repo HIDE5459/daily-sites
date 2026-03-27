@@ -1,0 +1,22 @@
+2026-03-15T08:10:38Z | newArticles=5 | duplicates=728 | official(new=0,dup=24) twitter(new=0,dup=0) instagram(new=0,dup=0) news(new=0,dup=243) youtube(new=1,dup=33) goods(new=4,dup=428)
+[2026-03-15 18:02 JST] runAllScrapers 完了 — 新規1件(news), 重複725件 | official:0/24, twitter:0/0, instagram:0/0, news:1/248, youtube:0/31, goods:0/422
+[2026-03-15 20:37 JST] runAllScrapers: success | newArticles=1 (goods) | duplicates=734 | official=0new/24dup | twitter=0new | instagram=0new | news=0new/244dup | youtube=0new/31dup | goods=1new/435dup
+[2026-03-15T18:21:26Z] runAllScrapers completed — newArticles: 20, duplicates: 707 | official(0/24) twitter(0/0) instagram(0/0) news(0/248) youtube(1/32) goods(19/403)
+2026-03-15T19:23:34Z | newArticles=7 | duplicates=720 | youtube:2new goods:5new official/twitter/instagram/news:0new
+2026-03-15T20:15:18Z | newArticles=0 | duplicates=740 | official(new=0,dup=24) twitter(new=0,dup=0) instagram(new=0,dup=0) news(new=0,dup=246) youtube(new=0,dup=34) goods(new=0,dup=436) | status=OK
+2026-03-16T03:19:42Z | totalNew=1 totalDup=716 | official:new=0,dup=24 | twitter:new=0,dup=0 | instagram:new=0,dup=0 | news:new=0,dup=239 | youtube:new=1,dup=32 | goods:new=0,dup=421
+[2026-03-16 12:40 JST] runAllScrapers: success | newArticles=0 | duplicates=715 (official=24, twitter=0, instagram=0, news=238, youtube=33, goods=420)
+2026-03-16T03:50:43Z | totalNew=0 | totalDup=717 | official(new=0,dup=24) twitter(new=0,dup=0) instagram(new=0,dup=0) news(new=0,dup=239) youtube(new=0,dup=32) goods(new=0,dup=422)
+[2026-03-16 15:15 JST] runAllScrapers 実行結果: 成功 / 新記事2件(news) / 重複723件 / official:0新 twitter:0新 instagram:0新 news:2新 youtube:0新 goods:0新
+2026-03-16T07:07:28Z | new=44 (news:8, goods:36) dup=702 | all scrapers OK
+[2026-03-16 17:50 JST] runAllScrapers 完了 — 新着3件(news:2, goods:1), 重複742件
+[2026-03-18 06:05 JST] runAllScrapers OK — new:58 (news:2, goods:56), dup:699
+[2026-03-19T09:04 JST] runAllScrapers OK — newArticles: 36 (news:1, goods:35), duplicates: 726
+[2026-03-20 18:04 JST] runAllScrapers: success | newArticles=8 (news:2, goods:6) | duplicates=744 | all scrapers OK
+[2026-03-21 04:20 UTC] runAllScrapers: success | newArticles=0 | duplicates=778 (official:24, twitter:0, instagram:0, news:276, youtube:35, goods:443)
+[2026-03-21 16:27 JST] runAllScrapers OK — 新規0件 / 重複778件 (official:24, news:273, youtube:36, goods:445, twitter:0, instagram:0)
+2026-03-21T08:40:01Z | newArticles=10 | duplicates=772 | official:0 twitter:0 instagram:0 news:9 youtube:0 goods:1
+[2026-03-23 06:04 JST] runAllScrapers: success | newArticles=37 (official=0, twitter=0, instagram=0, news=1, youtube=0, goods=36) | duplicates=723
+[2026-03-25 18:10 JST] runAllScrapers 完了 - 新着1件(YouTube), 重複755件, 全スクレイパー成功
+[2026-03-26T09:50 JST] スクレイパー実行完了 | 新規: 1件(news) | 重複: 759件 | 全スクレイパー成功
+[2026-03-26T10:11 JST] runAllScrapers: success | newArticles=5 (news:1, goods:4) | duplicates=750 | all scrapers OK

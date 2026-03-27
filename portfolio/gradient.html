@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAN HIDE | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --pink: #ec4899;
+            --purple: #8b5cf6;
+            --blue: #3b82f6;
+            --cyan: #06b6d4;
+            --text: #1e1b4b;
+            --muted: #6366f1;
+            --bg: #faf5ff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--bg); color: var(--text);
+            line-height: 1.7; overflow-x: hidden;
+        }
+        a { color: inherit; text-decoration: none; }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--pink), var(--purple), var(--blue));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        /* Floating blobs */
+        .blob {
+            position: fixed; border-radius: 50%; filter: blur(80px);
+            opacity: 0.3; z-index: -1; pointer-events: none;
+        }
+        .blob-1 { width: 400px; height: 400px; background: var(--pink); top: -100px; right: -100px; }
+        .blob-2 { width: 300px; height: 300px; background: var(--blue); bottom: 20%; left: -100px; }
+        .blob-3 { width: 350px; height: 350px; background: var(--purple); top: 50%; right: 10%; }
+
+        /* Nav */
+        nav {
+            position: fixed; top: 1rem; left: 50%; transform: translateX(-50%); z-index: 100;
+            background: rgba(255,255,255,0.8); backdrop-filter: blur(20px);
+            border-radius: 50px; padding: 0.6rem 2rem;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+            display: flex; align-items: center; gap: 2rem;
+        }
+        .nav-brand { font-weight: 700; font-size: 1.1rem; }
+        nav a:not(.nav-brand) {
+            font-size: 0.85rem; color: var(--muted); font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:not(.nav-brand):hover { color: var(--text); }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; padding: 6rem 2rem;
+        }
+        .hero-emoji { font-size: 4rem; margin-bottom: 1.5rem; animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; color: #64748b; max-width: 500px; margin: 0 auto 2rem; }
+        .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            padding: 0.8rem 2rem; border-radius: 50px; font-weight: 600;
+            font-size: 0.9rem; transition: all 0.3s; display: inline-flex; align-items: center; gap: 0.5rem;
+        }
+        .btn-grad {
+            background: linear-gradient(135deg, var(--pink), var(--purple));
+            color: #fff; box-shadow: 0 4px 20px rgba(139,92,246,0.3);
+        }
+        .btn-grad:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(139,92,246,0.4); }
+        .btn-white {
+            background: #fff; color: var(--text); border: 2px solid #e2e8f0;
+        }
+        .btn-white:hover { border-color: var(--purple); }
+
+        /* Section */
+        .section { padding: 5rem 0; }
+        .section-badge {
+            display: inline-block; padding: 0.3rem 1rem; border-radius: 50px;
+            font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 2px; margin-bottom: 1rem;
+            background: linear-gradient(135deg, rgba(236,72,153,0.1), rgba(139,92,246,0.1));
+            color: var(--purple);
+        }
+        .section-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .section-desc { color: #64748b; margin-bottom: 3rem; }
+
+        /* Project cards */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .p-card {
+            background: #fff; border-radius: 20px; padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            transition: transform 0.4s, box-shadow 0.4s;
+            position: relative; overflow: hidden;
+        }
+        .p-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--pink), var(--purple), var(--blue));
+        }
+        .p-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+        .p-card .emoji { font-size: 2.5rem; margin-bottom: 1rem; }
+        .p-card h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+        .p-card p { color: #64748b; font-size: 0.9rem; margin-bottom: 1rem; }
+        .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+        .tag {
+            padding: 0.2rem 0.7rem; border-radius: 50px; font-size: 0.7rem; font-weight: 500;
+            background: linear-gradient(135deg, rgba(236,72,153,0.08), rgba(139,92,246,0.08));
+            color: var(--purple);
+        }
+
+        /* Skills */
+        .skills-flex { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+        .s-pill {
+            display: flex; align-items: center; gap: 0.6rem;
+            background: #fff; padding: 0.8rem 1.5rem; border-radius: 50px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            font-weight: 500; font-size: 0.9rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .s-pill:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+        .s-pill i { color: var(--purple); }
+
+        /* SNS */
+        .sns-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .sns-btn {
+            display: flex; align-items: center; gap: 0.8rem;
+            background: #fff; padding: 1rem 1.8rem; border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 500;
+        }
+        .sns-btn:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+        .sns-btn i { font-size: 1.3rem; }
+        .sns-btn .fa-youtube { color: #ff0000; }
+        .sns-btn .fa-x-twitter { color: #000; }
+        .sns-btn .fa-instagram { color: #e4405f; }
+        .sns-btn .fa-tiktok { color: #000; }
+
+        /* Contact */
+        .contact-box {
+            background: linear-gradient(135deg, var(--pink), var(--purple), var(--blue));
+            border-radius: 24px; padding: 3rem; text-align: center; color: #fff;
+        }
+        .contact-box h3 { font-size: 1.8rem; margin-bottom: 0.8rem; }
+        .contact-box p { opacity: 0.9; margin-bottom: 2rem; }
+        .contact-box .btn {
+            background: #fff; color: var(--purple); font-weight: 700;
+        }
+        .contact-box .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+
+        footer { text-align: center; padding: 3rem; color: #94a3b8; font-size: 0.8rem; }
+
+        [data-reveal] { opacity: 0; transform: translateY(25px); transition: opacity 0.6s, transform 0.6s; }
+        [data-reveal].visible { opacity: 1; transform: none; }
+        [data-reveal][data-delay="1"] { transition-delay: 0.1s; }
+        [data-reveal][data-delay="2"] { transition-delay: 0.2s; }
+        [data-reveal][data-delay="3"] { transition-delay: 0.3s; }
+
+        @media (max-width: 600px) {
+            nav { padding: 0.5rem 1.2rem; gap: 1rem; }
+            nav a:not(.nav-brand) { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <nav>
+        <a href="#" class="nav-brand gradient-text">KAN</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#sns">SNS</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section class="hero">
+        <div>
+            <div class="hero-emoji">🚀</div>
+            <h1 data-reveal>Hi, I'm <span class="gradient-text">KAN</span></h1>
+            <p data-reveal>iOS Developer & AI Creator<br>テクノロジーで面白いものを作っています ✨</p>
+            <div class="hero-btns" data-reveal>
+                <a href="#projects" class="btn btn-grad"><i class="fas fa-sparkles"></i> Projects</a>
+                <a href="#contact" class="btn btn-white"><i class="fas fa-envelope"></i> Contact</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="projects">
+        <div class="container">
+            <div style="text-align:center;">
+                <span class="section-badge" data-reveal>Projects</span>
+                <h2 class="section-title" data-reveal>つくったもの</h2>
+                <p class="section-desc" data-reveal>アプリからAI自動化パイプラインまで</p>
+            </div>
+            <div class="projects-grid">
+                <div class="p-card" data-reveal>
+                    <div class="emoji">👁️</div>
+                    <h3>ミャクミャクウォッチャー</h3>
+                    <p>大阪万博ミャクミャク情報収集iOSアプリ。リアルタイム通知機能付き。TestFlight配信中。</p>
+                    <div class="tags">
+                        <span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">Firebase</span>
+                    </div>
+                </div>
+                <div class="p-card" data-reveal data-delay="1">
+                    <div class="emoji">🎬</div>
+                    <h3>AI NEWS YouTube</h3>
+                    <p>トレンドからショート動画を自動生成。企画→撮影→編集→投稿を完全自動化。</p>
+                    <div class="tags">
+                        <span class="tag">Remotion</span><span class="tag">Python</span><span class="tag">TTS</span>
+                    </div>
+                </div>
+                <div class="p-card" data-reveal data-delay="2">
+                    <div class="emoji">🌍</div>
+                    <h3>AI Traveler</h3>
+                    <p>AI生成画像による仮想旅行コンテンツ。画像生成から投稿まで自動化。</p>
+                    <div class="tags">
+                        <span class="tag">Leonardo AI</span><span class="tag">Playwright</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="skills">
+        <div class="container" style="text-align:center;">
+            <span class="section-badge" data-reveal>Skills</span>
+            <h2 class="section-title" data-reveal>技術スタック</h2>
+            <p class="section-desc" data-reveal>使っている技術たち</p>
+            <div class="skills-flex" data-reveal>
+                <div class="s-pill"><i class="fab fa-swift"></i> Swift</div>
+                <div class="s-pill"><i class="fab fa-python"></i> Python</div>
+                <div class="s-pill"><i class="fas fa-fire"></i> Firebase</div>
+                <div class="s-pill"><i class="fas fa-robot"></i> OpenAI</div>
+                <div class="s-pill"><i class="fas fa-wand-magic-sparkles"></i> Claude</div>
+                <div class="s-pill"><i class="fas fa-video"></i> FFmpeg</div>
+                <div class="s-pill"><i class="fas fa-code"></i> Remotion</div>
+                <div class="s-pill"><i class="fas fa-palette"></i> Leonardo AI</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="sns">
+        <div class="container" style="text-align:center;">
+            <span class="section-badge" data-reveal>Connect</span>
+            <h2 class="section-title" data-reveal>SNS</h2>
+            <p class="section-desc" data-reveal>フォローしてね 👋</p>
+            <div class="sns-row" data-reveal>
+                <a href="https://youtube.com/@ainews-mw1xf" target="_blank" class="sns-btn"><i class="fab fa-youtube"></i> YouTube</a>
+                <a href="https://twitter.com/Appmakeaa" target="_blank" class="sns-btn"><i class="fab fa-x-twitter"></i> X</a>
+                <a href="https://instagram.com/aiinsta26" target="_blank" class="sns-btn"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://tiktok.com/@newsai830" target="_blank" class="sns-btn"><i class="fab fa-tiktok"></i> TikTok</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="contact-box" data-reveal>
+                <h3>一緒に何か作ろう 🎉</h3>
+                <p>アプリ開発、AI活用、コンテンツ制作のご相談はお気軽に。</p>
+                <a href="mailto:appmake2000@gmail.com" class="btn"><i class="fas fa-envelope"></i> メールを送る</a>
+            </div>
+        </div>
+    </section>
+
+    <footer><p>&copy; 2025 KAN HIDE ✨</p></footer>
+
+    <script>
+        const obs = new IntersectionObserver(es => {
+            es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+    </script>
+</body>
+</html>
