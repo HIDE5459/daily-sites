@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOCK WORKS — コワーキングスペース</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--dark:#0C0C10;--card:#13131A;--border:rgba(255,255,255,.07);--neon:#39FF9F;--blue:#4488FF;--text:#E8E8F0;--mid:#6868A0}
+body{font-family:'Space Grotesk',sans-serif;background:var(--dark);color:var(--text);overflow-x:hidden}
+nav{position:fixed;top:0;width:100%;z-index:100;padding:18px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(12,12,16,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Space Mono',monospace;font-size:1.1rem;letter-spacing:.05em;color:#fff}
+.logo span{color:var(--neon)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--mid);font-size:.8rem;letter-spacing:.08em;transition:.3s}
+.nav-links a:hover{color:var(--neon)}
+.nav-status{display:flex;align-items:center;gap:8px;font-size:.75rem;color:var(--neon);font-family:'Space Mono',monospace}
+.status-dot{width:6px;height:6px;border-radius:50%;background:var(--neon);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(57,255,159,.4)}50%{box-shadow:0 0 0 6px rgba(57,255,159,0)}}
+
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 60px 80px;position:relative;overflow:hidden}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px}
+.hero-glow{position:absolute;top:30%;left:20%;width:600px;height:400px;background:radial-gradient(ellipse,rgba(57,255,159,.06) 0%,transparent 70%);pointer-events:none}
+.hero-tag{font-family:'Space Mono',monospace;font-size:.72rem;color:var(--neon);letter-spacing:.15em;margin-bottom:24px;position:relative;z-index:1}
+h1{font-size:clamp(3.5rem,8vw,7rem);font-weight:700;line-height:.95;letter-spacing:-.04em;margin-bottom:32px;position:relative;z-index:1}
+h1 .line-neon{color:var(--neon)}
+h1 .line-dim{color:rgba(232,232,240,.25)}
+.hero-desc{font-size:.95rem;color:var(--mid);line-height:1.8;max-width:520px;margin-bottom:48px;position:relative;z-index:1;font-weight:300}
+.hero-actions{display:flex;gap:16px;margin-bottom:80px;position:relative;z-index:1}
+.btn-neon{background:var(--neon);color:#000;border:none;padding:14px 32px;font-family:'Space Grotesk',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.05em;cursor:pointer;transition:.3s;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%)}
+.btn-neon:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(57,255,159,.4)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border);padding:14px 32px;font-family:'Space Grotesk',sans-serif;font-size:.85rem;cursor:pointer;transition:.3s}
+.btn-outline:hover{border-color:var(--neon);color:var(--neon)}
+.hero-stats{display:flex;gap:60px;position:relative;z-index:1}
+.hstat-num{font-family:'Space Mono',monospace;font-size:2.2rem;font-weight:700;color:#fff;letter-spacing:-.02em}
+.hstat-num span{color:var(--neon)}
+.hstat-label{font-size:.72rem;color:var(--mid);margin-top:4px;letter-spacing:.08em}
+
+.live{padding:0 60px 80px;position:relative;z-index:1}
+.live-bar{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.live-label{font-family:'Space Mono',monospace;font-size:.72rem;color:var(--neon);letter-spacing:.12em}
+.live-seats{display:flex;gap:8px;flex-wrap:wrap}
+.seat{width:32px;height:32px;border-radius:6px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-family:'Space Mono',monospace;transition:.3s}
+.seat.taken{background:rgba(57,255,159,.08);border-color:rgba(57,255,159,.3);color:var(--neon)}
+.seat.available{background:transparent;color:var(--mid)}
+.live-count{font-size:.82rem;color:var(--mid)}
+.live-count strong{color:#fff}
+
+.spaces{padding:80px 60px}
+.section-tag{font-family:'Space Mono',monospace;font-size:.68rem;color:var(--neon);letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px}
+.section-title{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;letter-spacing:-.03em;margin-bottom:48px}
+.spaces-bento{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.space-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:.3s;cursor:pointer}
+.space-card:hover{border-color:rgba(57,255,159,.25);transform:translateY(-4px)}
+.space-visual{height:180px;display:flex;align-items:center;justify-content:center;font-size:64px;position:relative}
+.sv-1{background:linear-gradient(135deg,#1A1A2E,#16213E)}
+.sv-2{background:linear-gradient(135deg,#0D1B0D,#1A3A1A)}
+.sv-3{background:linear-gradient(135deg,#1A0D1A,#3A1A3A)}
+.space-body{padding:28px}
+.space-name{font-weight:700;font-size:1rem;margin-bottom:8px}
+.space-desc{font-size:.78rem;color:var(--mid);line-height:1.7;margin-bottom:20px}
+.space-meta{display:flex;justify-content:space-between;align-items:center}
+.space-price{font-family:'Space Mono',monospace;font-size:.88rem;color:var(--neon)}
+.space-capacity{font-size:.72rem;color:var(--mid)}
+
+.amenities{padding:80px 60px;background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.amenities-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px}
+.amenity{text-align:center;padding:32px 20px}
+.amenity-icon{font-size:2.4rem;margin-bottom:16px;display:block}
+.amenity-name{font-weight:600;font-size:.88rem;margin-bottom:8px}
+.amenity-desc{font-size:.75rem;color:var(--mid);line-height:1.7}
+
+.plans{padding:80px 60px}
+.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.plan-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:36px;transition:.3s}
+.plan-card.featured{border-color:rgba(57,255,159,.3);position:relative}
+.plan-card.featured::before{content:'POPULAR';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--neon);color:#000;font-family:'Space Mono',monospace;font-size:.62rem;font-weight:700;padding:4px 16px;letter-spacing:.1em}
+.plan-name{font-family:'Space Mono',monospace;font-size:.8rem;color:var(--neon);margin-bottom:12px;letter-spacing:.1em}
+.plan-price{font-size:2rem;font-weight:700;letter-spacing:-.04em;margin-bottom:4px}
+.plan-per{font-size:.75rem;color:var(--mid);margin-bottom:28px}
+.plan-features{list-style:none;margin-bottom:28px}
+.plan-features li{font-size:.8rem;color:var(--mid);padding:8px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.plan-features li::before{content:'›';color:var(--neon)}
+.plan-btn{width:100%;background:transparent;border:1px solid var(--border);color:var(--text);padding:12px;font-family:'Space Grotesk',sans-serif;font-size:.8rem;cursor:pointer;transition:.3s;border-radius:8px}
+.plan-btn:hover{border-color:var(--neon);color:var(--neon)}
+.plan-card.featured .plan-btn{background:var(--neon);color:#000;border-color:var(--neon);font-weight:700}
+.plan-card.featured .plan-btn:hover{transform:translateY(-2px)}
+
+.cta-strip{margin:0 60px 80px;background:linear-gradient(135deg,rgba(57,255,159,.08),rgba(68,136,255,.08));border:1px solid rgba(57,255,159,.2);border-radius:20px;padding:60px;display:flex;align-items:center;justify-content:space-between;gap:40px}
+.cta-text h2{font-size:clamp(1.5rem,2.5vw,2rem);font-weight:700;letter-spacing:-.03em;margin-bottom:8px}
+.cta-text p{font-size:.85rem;color:var(--mid)}
+footer{padding:32px 60px;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:.75rem;color:var(--mid);font-family:'Space Mono',monospace}
+
+@media(max-width:768px){
+  nav{padding:16px 24px}.nav-links{display:none}
+  .hero,.live,.spaces,.amenities,.plans{padding-left:24px;padding-right:24px}
+  .hero{padding-top:100px}.hero-stats{gap:32px;flex-wrap:wrap}
+  .spaces-bento,.amenities-grid,.plans-grid{grid-template-columns:1fr}
+  .cta-strip{flex-direction:column;margin:0 24px 60px;padding:40px 28px}
+  footer{flex-direction:column;gap:8px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">DOCK<span>.</span>WORKS</div>
+  <ul class="nav-links">
+    <li><a href="#">スペース</a></li>
+    <li><a href="#">料金</a></li>
+    <li><a href="#">アクセス</a></li>
+    <li><a href="#">法人</a></li>
+  </ul>
+  <div class="nav-status"><span class="status-dot"></span>OPEN · 08:00〜22:00</div>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-tag">// COWORKING SPACE · SHIBUYA</div>
+  <h1>
+    <span class="line-neon">WORK</span><br>
+    <span>DIFFERENT</span><br>
+    <span class="line-dim">THINK BETTER</span>
+  </h1>
+  <p class="hero-desc">創造力を最大化する環境。24時間365日、あなたのペースで働けるコワーキングスペース。高速ネット・個室ブース・会議室完備。</p>
+  <div class="hero-actions">
+    <button class="btn-neon">今すぐ見学予約</button>
+    <button class="btn-outline">料金を見る</button>
+  </div>
+  <div class="hero-stats">
+    <div><div class="hstat-num">340<span>+</span></div><div class="hstat-label">会員数</div></div>
+    <div><div class="hstat-num">99<span>%</span></div><div class="hstat-label">WiFi稼働率</div></div>
+    <div><div class="hstat-num">24<span>h</span></div><div class="hstat-label">利用可能</div></div>
+  </div>
+</section>
+
+<div class="live">
+  <div class="live-bar">
+    <div><div class="live-label">// LIVE AVAILABILITY</div></div>
+    <div class="live-seats">
+      <div class="seat taken">01</div><div class="seat taken">02</div><div class="seat available">03</div>
+      <div class="seat taken">04</div><div class="seat available">05</div><div class="seat available">06</div>
+      <div class="seat taken">07</div><div class="seat taken">08</div><div class="seat available">09</div>
+      <div class="seat available">10</div><div class="seat taken">11</div><div class="seat available">12</div>
+    </div>
+    <div class="live-count">空席 <strong>6 / 12</strong> — 今すぐ利用可</div>
+  </div>
+</div>
+
+<section class="spaces">
+  <div class="section-tag">// SPACES</div>
+  <h2 class="section-title">スペースラインナップ</h2>
+  <div class="spaces-bento">
+    <div class="space-card">
+      <div class="space-visual sv-1">💻</div>
+      <div class="space-body">
+        <div class="space-name">Open Desk</div>
+        <p class="space-desc">フレキシブルな共有デスク。自由な席で集中作業に。コミュニティとの交流も生まれる開放的な空間。</p>
+        <div class="space-meta"><span class="space-price">¥550 / 時間</span><span class="space-capacity">最大 80席</span></div>
+      </div>
+    </div>
+    <div class="space-card">
+      <div class="space-visual sv-2">🎧</div>
+      <div class="space-body">
+        <div class="space-name">Focus Booth</div>
+        <p class="space-desc">完全防音の個室ブース。ビデオ通話・録音作業も安心。集中力が求められる作業に最適な環境。</p>
+        <div class="space-meta"><span class="space-price">¥1,100 / 時間</span><span class="space-capacity">全12ブース</span></div>
+      </div>
+    </div>
+    <div class="space-card">
+      <div class="space-visual sv-3">🤝</div>
+      <div class="space-body">
+        <div class="space-name">Meeting Room</div>
+        <p class="space-desc">4〜12名対応の会議室。プロジェクター・ホワイトボード完備。ケータリング手配も可能です。</p>
+        <div class="space-meta"><span class="space-price">¥2,200 / 時間</span><span class="space-capacity">4〜12名</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="amenities">
+  <div class="section-tag">// AMENITIES</div>
+  <h2 class="section-title">設備・サービス</h2>
+  <div class="amenities-grid">
+    <div class="amenity"><span class="amenity-icon">⚡</span><div class="amenity-name">10Gbps 光回線</div><p class="amenity-desc">全席有線・無線対応。バックアップ回線も完備で途切れ知らず。</p></div>
+    <div class="amenity"><span class="amenity-icon">☕</span><div class="amenity-name">カフェカウンター</div><p class="amenity-desc">コーヒー・ドリンク飲み放題。軽食の販売も行っています。</p></div>
+    <div class="amenity"><span class="amenity-icon">🔒</span><div class="amenity-name">24時間入退室</div><p class="amenity-desc">ICカードで夜間・早朝も安心してご利用いただけます。</p></div>
+    <div class="amenity"><span class="amenity-icon">🖨</span><div class="amenity-name">複合機・ロッカー</div><p class="amenity-desc">A3対応プリンター、スキャナー、個人ロッカーをご用意。</p></div>
+  </div>
+</section>
+
+<section class="plans">
+  <div class="section-tag">// PLANS</div>
+  <h2 class="section-title">料金プラン</h2>
+  <div class="plans-grid">
+    <div class="plan-card">
+      <div class="plan-name">DROP-IN</div>
+      <div class="plan-price">¥550</div>
+      <div class="plan-per">/ 1時間</div>
+      <ul class="plan-features">
+        <li>オープンデスク利用</li>
+        <li>Wi-Fi・電源</li>
+        <li>ドリンク1杯付き</li>
+      </ul>
+      <button class="plan-btn">今日から使う</button>
+    </div>
+    <div class="plan-card featured">
+      <div class="plan-name">MONTHLY</div>
+      <div class="plan-price">¥19,800</div>
+      <div class="plan-per">/ 月（無制限）</div>
+      <ul class="plan-features">
+        <li>24時間利用し放題</li>
+        <li>個室ブース 月8時間</li>
+        <li>会議室 月2時間無料</li>
+        <li>郵便物受取サービス</li>
+      </ul>
+      <button class="plan-btn">このプランで始める</button>
+    </div>
+    <div class="plan-card">
+      <div class="plan-name">OFFICE</div>
+      <div class="plan-price">¥55,000</div>
+      <div class="plan-per">/ 月（専用デスク）</div>
+      <ul class="plan-features">
+        <li>固定デスク確保</li>
+        <li>会議室 月10時間</li>
+        <li>法人登記利用可</li>
+        <li>専用ロッカー</li>
+      </ul>
+      <button class="plan-btn">法人でご相談</button>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <div class="cta-text">
+    <h2>まず、3日間無料で体験。</h2>
+    <p>見学後そのまま試せるトライアルパス。クレジットカード不要。</p>
+  </div>
+  <button class="btn-neon" style="white-space:nowrap">無料トライアルを申込む</button>
+</div>
+
+<footer>
+  <span>DOCK.WORKS — 東京都渋谷区道玄坂2-10-1 B1F</span>
+  <span>© 2026 DOCK WORKS Inc.</span>
+</footer>
+</body>
+</html>

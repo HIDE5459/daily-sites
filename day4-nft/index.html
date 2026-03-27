@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GENESIS COLLECTIVE — NFT & Web3 Art</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#07070F;--card:#0E0E1C;--border:rgba(255,255,255,.06);--purple:#8B5CF6;--cyan:#06B6D4;--pink:#EC4899;--text:#E2E8F0;--mid:#64748B}
+body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+
+/* animated gradient bg */
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 20% 20%,rgba(139,92,246,.08) 0%,transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(6,182,212,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(236,72,153,.06) 0%,transparent 50%);pointer-events:none;z-index:0}
+
+nav{position:fixed;top:0;width:100%;z-index:100;padding:20px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(7,7,15,.8);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;letter-spacing:.04em;background:linear-gradient(135deg,var(--purple),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--mid);font-size:.8rem;font-weight:500;transition:.3s}
+.nav-links a:hover{color:var(--purple)}
+.nav-connect{background:linear-gradient(135deg,var(--purple),var(--cyan));color:#fff;border:none;padding:10px 24px;border-radius:100px;font-family:inherit;font-size:.8rem;font-weight:700;cursor:pointer;transition:.3s}
+.nav-connect:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(139,92,246,.4)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 60px 80px;position:relative;z-index:1}
+.hero-live{display:inline-flex;align-items:center;gap:8px;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.25);border-radius:100px;padding:7px 18px;font-size:.72rem;font-weight:600;color:var(--cyan);margin-bottom:40px;letter-spacing:.06em}
+.hero-live-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);animation:glow 2s infinite}
+@keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(6,182,212,.5)}50%{box-shadow:0 0 0 8px rgba(6,182,212,0)}}
+h1{font-family:'Syne',sans-serif;font-size:clamp(3rem,9vw,8rem);font-weight:800;line-height:.92;letter-spacing:-.04em;margin-bottom:28px}
+.h1-gradient{background:linear-gradient(135deg,var(--purple) 0%,var(--cyan) 50%,var(--pink) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.h1-white{color:#fff;display:block}
+.hero-desc{font-size:.95rem;color:var(--mid);line-height:1.8;max-width:560px;margin:0 auto 48px;font-weight:300}
+.hero-actions{display:flex;gap:16px;justify-content:center;margin-bottom:80px;flex-wrap:wrap}
+.btn-gradient{background:linear-gradient(135deg,var(--purple),var(--cyan));color:#fff;border:none;padding:14px 36px;border-radius:100px;font-family:inherit;font-size:.88rem;font-weight:700;cursor:pointer;transition:.3s}
+.btn-gradient:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(139,92,246,.4)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border);padding:14px 36px;border-radius:100px;font-family:inherit;font-size:.88rem;cursor:pointer;transition:.3s}
+.btn-ghost:hover{border-color:var(--purple);color:var(--purple)}
+
+/* LIVE STATS TICKER */
+.ticker{display:flex;gap:60px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.tick-item{text-align:center}
+.tick-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;background:linear-gradient(135deg,var(--purple),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.tick-label{font-size:.7rem;color:var(--mid);margin-top:4px;letter-spacing:.1em;text-transform:uppercase}
+
+/* FEATURED DROP */
+.featured{padding:100px 60px;position:relative;z-index:1}
+.sec-eyebrow{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--purple);margin-bottom:16px;font-weight:600}
+.sec-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;margin-bottom:48px;letter-spacing:-.02em}
+.featured-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.featured-main{background:var(--card);border:1px solid var(--border);border-radius:24px;overflow:hidden;transition:.4s;cursor:pointer}
+.featured-main:hover{border-color:rgba(139,92,246,.3);transform:translateY(-6px)}
+.nft-visual-large{height:420px;background:linear-gradient(135deg,#1A0A2E,#0A1A3E,#1A0A2E);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.nft-visual-large::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(139,92,246,.4) 0%,transparent 60%)}
+.nft-emoji-large{font-size:120px;position:relative;z-index:1;animation:float 4s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-20px) rotate(5deg)}}
+.nft-info{padding:28px}
+.nft-collection{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px}
+.nft-title-text{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:8px}
+.nft-creator{font-size:.75rem;color:var(--mid);margin-bottom:20px}
+.nft-creator span{color:var(--purple)}
+.nft-bid-row{display:flex;justify-content:space-between;align-items:flex-end}
+.nft-bid-label{font-size:.68rem;color:var(--mid);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+.nft-bid-price{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;color:#fff}
+.nft-bid-usd{font-size:.72rem;color:var(--mid)}
+.nft-timer{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.2);border-radius:8px;padding:8px 16px;text-align:right}
+.nft-timer-label{font-size:.65rem;color:var(--mid);margin-bottom:4px}
+.nft-timer-time{font-family:'Space Grotesk',monospace;font-size:1rem;font-weight:700;color:var(--purple)}
+.btn-bid{width:100%;background:linear-gradient(135deg,var(--purple),var(--cyan));color:#fff;border:none;padding:14px;border-radius:12px;font-family:inherit;font-size:.85rem;font-weight:700;cursor:pointer;transition:.3s;margin-top:20px}
+.btn-bid:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(139,92,246,.4)}
+.featured-side{display:flex;flex-direction:column;gap:16px}
+.nft-card-sm{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;display:flex;gap:0;cursor:pointer;transition:.3s}
+.nft-card-sm:hover{border-color:rgba(6,182,212,.3);transform:translateX(4px)}
+.nft-visual-sm{width:100px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:40px}
+.nv-1{background:linear-gradient(135deg,#1A2E1A,#0A1E0A)}
+.nv-2{background:linear-gradient(135deg,#2E1A1A,#1E0A0A)}
+.nv-3{background:linear-gradient(135deg,#2E2A1A,#1E1A0A)}
+.nft-card-sm-info{padding:20px;flex:1}
+.sm-collection{font-size:.65rem;letter-spacing:.12em;color:var(--cyan);margin-bottom:6px}
+.sm-title{font-weight:600;font-size:.88rem;margin-bottom:6px}
+.sm-price{font-size:.8rem;color:var(--purple);font-weight:600}
+
+/* COLLECTION */
+.collection{padding:100px 60px;position:relative;z-index:1}
+.coll-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
+.coll-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;transition:.4s}
+.coll-card:hover{border-color:rgba(139,92,246,.3);transform:translateY(-8px);box-shadow:0 20px 60px rgba(139,92,246,.15)}
+.coll-visual{height:200px;display:flex;align-items:center;justify-content:center;font-size:56px;position:relative}
+.cv-1{background:linear-gradient(135deg,#0A0A2E,#1A1A4E)}
+.cv-2{background:linear-gradient(135deg,#2E0A1A,#4E1A2A)}
+.cv-3{background:linear-gradient(135deg,#0A2E1A,#1A4E2A)}
+.cv-4{background:linear-gradient(135deg,#2E2A0A,#4E4A1A)}
+.coll-info{padding:20px}
+.coll-name{font-weight:600;font-size:.9rem;margin-bottom:6px}
+.coll-by{font-size:.72rem;color:var(--mid);margin-bottom:14px}
+.coll-footer{display:flex;justify-content:space-between;font-size:.75rem}
+.coll-floor{color:var(--purple);font-weight:600}
+.coll-vol{color:var(--mid)}
+
+/* ROADMAP */
+.roadmap{padding:100px 60px;background:var(--card);border-top:1px solid var(--border)}
+.rm-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:48px}
+.rm-phase{padding:36px 28px;border-right:1px solid var(--border);position:relative}
+.rm-phase:last-child{border-right:none}
+.rm-q{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--purple);margin-bottom:12px;font-weight:600}
+.rm-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:16px}
+.rm-items{list-style:none;display:flex;flex-direction:column;gap:8px}
+.rm-items li{font-size:.78rem;color:var(--mid);display:flex;align-items:center;gap:8px}
+.rm-check{color:var(--cyan)}
+.rm-pending{color:var(--mid)}
+
+/* CTA */
+.cta{padding:100px 60px;text-align:center;position:relative;z-index:1}
+.cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(139,92,246,.08) 0%,transparent 70%)}
+.cta-title{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:800;letter-spacing:-.04em;margin-bottom:20px;position:relative;z-index:1}
+.cta-sub{font-size:.9rem;color:var(--mid);margin-bottom:48px;position:relative;z-index:1}
+.cta-actions{display:flex;gap:16px;justify-content:center;position:relative;z-index:1}
+
+footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:var(--mid);position:relative;z-index:1}
+.footer-logo{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;background:linear-gradient(135deg,var(--purple),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.footer-links{display:flex;gap:24px}
+.footer-links a{color:var(--mid);text-decoration:none;transition:.3s}
+.footer-links a:hover{color:var(--purple)}
+
+@media(max-width:768px){
+  nav{padding:16px 24px}.nav-links{display:none}
+  .hero,.featured,.collection,.roadmap,.cta{padding:80px 24px}
+  .featured-grid{grid-template-columns:1fr}
+  .coll-grid{grid-template-columns:1fr 1fr}
+  .rm-grid{grid-template-columns:1fr 1fr}
+  footer{flex-direction:column;gap:16px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">GENESIS COLLECTIVE</div>
+  <ul class="nav-links">
+    <li><a href="#">ドロップ</a></li>
+    <li><a href="#">コレクション</a></li>
+    <li><a href="#">アーティスト</a></li>
+    <li><a href="#">ロードマップ</a></li>
+  </ul>
+  <button class="nav-connect">🔗 ウォレット接続</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-live"><div class="hero-live-dot"></div>LIVE AUCTION — 残り 02:14:33</div>
+  <h1>
+    <span class="h1-white">CREATE</span>
+    <span class="h1-gradient">COLLECT</span>
+    <span class="h1-white">OWN</span>
+  </h1>
+  <p class="hero-desc">日本発のWeb3アートプラットフォーム。ジェネラティブアートからAIアート、フォトグラフィーまで——次世代のデジタルアートコレクションがここに集まる。</p>
+  <div class="hero-actions">
+    <button class="btn-gradient">🎨 コレクションを探す</button>
+    <button class="btn-ghost">作品を出品する</button>
+  </div>
+  <div class="ticker">
+    <div class="tick-item"><div class="tick-num">¥2.4B+</div><div class="tick-label">総取引高</div></div>
+    <div class="tick-item"><div class="tick-num">18K+</div><div class="tick-label">アーティスト</div></div>
+    <div class="tick-item"><div class="tick-num">340K</div><div class="tick-label">作品数</div></div>
+    <div class="tick-item"><div class="tick-num">96K+</div><div class="tick-label">コレクター</div></div>
+  </div>
+</section>
+
+<section class="featured">
+  <div class="sec-eyebrow">Live Drop</div>
+  <h2 class="sec-title">注目のオークション</h2>
+  <div class="featured-grid">
+    <div class="featured-main">
+      <div class="nft-visual-large"><div class="nft-emoji-large">🌌</div></div>
+      <div class="nft-info">
+        <div class="nft-collection">Genesis Series #001</div>
+        <div class="nft-title-text">Void Between Stars</div>
+        <div class="nft-creator">by <span>@yuki_creates</span></div>
+        <div class="nft-bid-row">
+          <div><div class="nft-bid-label">Current Bid</div><div class="nft-bid-price">3.2 ETH</div><div class="nft-bid-usd">≈ ¥1,280,000</div></div>
+          <div class="nft-timer"><div class="nft-timer-label">残り時間</div><div class="nft-timer-time">02:14:33</div></div>
+        </div>
+        <button class="btn-bid">入札する</button>
+      </div>
+    </div>
+    <div class="featured-side">
+      <div class="nft-card-sm">
+        <div class="nft-visual-sm nv-1">🌿</div>
+        <div class="nft-card-sm-info">
+          <div class="sm-collection">Digital Nature</div>
+          <div class="sm-title">Quantum Forest #12</div>
+          <div class="sm-price">1.8 ETH · ≈¥720,000</div>
+        </div>
+      </div>
+      <div class="nft-card-sm">
+        <div class="nft-visual-sm nv-2">🔥</div>
+        <div class="nft-card-sm-info">
+          <div class="sm-collection">Fire Series</div>
+          <div class="sm-title">Eternal Flame #07</div>
+          <div class="sm-price">0.9 ETH · ≈¥360,000</div>
+        </div>
+      </div>
+      <div class="nft-card-sm">
+        <div class="nft-visual-sm nv-3">✨</div>
+        <div class="nft-card-sm-info">
+          <div class="sm-collection">AI Dreams</div>
+          <div class="sm-title">Neural Bloom #33</div>
+          <div class="sm-price">2.4 ETH · ≈¥960,000</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="collection">
+  <div class="sec-eyebrow">Collections</div>
+  <h2 class="sec-title">人気コレクション</h2>
+  <div class="coll-grid">
+    <div class="coll-card"><div class="coll-visual cv-1">🌌</div><div class="coll-info"><div class="coll-name">Cosmic Genesis</div><div class="coll-by">by @starmaker</div><div class="coll-footer"><span class="coll-floor">Floor: 0.8 ETH</span><span class="coll-vol">Vol: 284 ETH</span></div></div></div>
+    <div class="coll-card"><div class="coll-visual cv-2">🦋</div><div class="coll-info"><div class="coll-name">Metamorphosis</div><div class="coll-by">by @yuki_creates</div><div class="coll-footer"><span class="coll-floor">Floor: 1.2 ETH</span><span class="coll-vol">Vol: 512 ETH</span></div></div></div>
+    <div class="coll-card"><div class="coll-visual cv-3">🌊</div><div class="coll-info"><div class="coll-name">Ocean Protocol</div><div class="coll-by">by @deepsea_art</div><div class="coll-footer"><span class="coll-floor">Floor: 0.4 ETH</span><span class="coll-vol">Vol: 128 ETH</span></div></div></div>
+    <div class="coll-card"><div class="coll-visual cv-4">🏛</div><div class="coll-info"><div class="coll-name">Ancient Future</div><div class="coll-by">by @temple_dao</div><div class="coll-footer"><span class="coll-floor">Floor: 2.1 ETH</span><span class="coll-vol">Vol: 890 ETH</span></div></div></div>
+  </div>
+</section>
+
+<section class="roadmap">
+  <div class="sec-eyebrow">Roadmap</div>
+  <h2 class="sec-title">ロードマップ 2026</h2>
+  <div class="rm-grid">
+    <div class="rm-phase">
+      <div class="rm-q">Q1 2026 ✅</div>
+      <div class="rm-title">Launch</div>
+      <ul class="rm-items">
+        <li><span class="rm-check">✓</span>プラットフォーム公開</li>
+        <li><span class="rm-check">✓</span>初期100アーティスト招待</li>
+        <li><span class="rm-check">✓</span>ETH/Polygon対応</li>
+      </ul>
+    </div>
+    <div class="rm-phase">
+      <div class="rm-q">Q2 2026 🔄</div>
+      <div class="rm-title">Expand</div>
+      <ul class="rm-items">
+        <li><span class="rm-check">✓</span>ライブオークション機能</li>
+        <li><span class="rm-pending">◦</span>モバイルアプリ</li>
+        <li><span class="rm-pending">◦</span>法人向けAPI</li>
+      </ul>
+    </div>
+    <div class="rm-phase">
+      <div class="rm-q">Q3 2026</div>
+      <div class="rm-title">DAO</div>
+      <ul class="rm-items">
+        <li><span class="rm-pending">◦</span>GENトークン発行</li>
+        <li><span class="rm-pending">◦</span>DAO投票機能</li>
+        <li><span class="rm-pending">◦</span>収益分配</li>
+      </ul>
+    </div>
+    <div class="rm-phase">
+      <div class="rm-q">Q4 2026</div>
+      <div class="rm-title">Metaverse</div>
+      <ul class="rm-items">
+        <li><span class="rm-pending">◦</span>バーチャルギャラリー</li>
+        <li><span class="rm-pending">◦</span>AR展示機能</li>
+        <li><span class="rm-pending">◦</span>IRL展示会連携</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-bg"></div>
+  <h2 class="cta-title"><span class="h1-gradient">あなたの作品</span><br>が、世界へ。</h2>
+  <p class="cta-sub">今すぐアーティスト登録して、初回出品手数料0%の特典を受け取ろう。</p>
+  <div class="cta-actions">
+    <button class="btn-gradient" style="padding:16px 40px">アーティスト登録</button>
+    <button class="btn-ghost" style="padding:16px 40px">コレクターとして参加</button>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">GENESIS COLLECTIVE</div>
+  <div class="footer-links">
+    <a href="#">Discord</a>
+    <a href="#">Twitter</a>
+    <a href="#">利用規約</a>
+    <a href="#">プライバシー</a>
+  </div>
+  <span>© 2026 Genesis Collective Inc.</span>
+</footer>
+</body>
+</html>
