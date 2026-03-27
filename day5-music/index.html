@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOID RECORDS — 音楽レーベル</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#070510;--card:#0E0B1A;--purple:#7C3AED;--pink:#EC4899;--lime:#84CC16;--text:#E8E0F0;--mid:#6050A0;--border:rgba(255,255,255,.06)}
+body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 15% 40%,rgba(124,58,237,.08) 0%,transparent 50%),radial-gradient(ellipse at 85% 60%,rgba(236,72,153,.06) 0%,transparent 50%);pointer-events:none;z-index:0}
+nav{position:fixed;top:0;width:100%;z-index:100;padding:20px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(7,5,16,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.08em;background:linear-gradient(135deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--mid);font-size:.8rem;transition:.3s}
+.nav-links a:hover{color:var(--text)}
+.nav-submit{border:1px solid rgba(124,58,237,.4);color:var(--purple);background:transparent;padding:9px 20px;border-radius:100px;font-family:inherit;font-size:.76rem;cursor:pointer;transition:.3s}
+.nav-submit:hover{background:rgba(124,58,237,.1)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 60px 80px;position:relative;z-index:1;overflow:hidden}
+.vinyl{position:absolute;top:50%;left:-100px;transform:translateY(-50%);font-size:400px;opacity:.03;animation:spin 40s linear infinite;pointer-events:none}
+@keyframes spin{from{transform:translateY(-50%) rotate(0)}to{transform:translateY(-50%) rotate(360deg)}}
+.vinyl-right{left:auto;right:-100px;animation-direction:reverse}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.25);border-radius:100px;padding:6px 18px;font-size:.72rem;color:var(--purple);margin-bottom:36px;letter-spacing:.08em}
+.hero-tag::before{content:'▶';font-size:.6rem;animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-family:'Syne',sans-serif;font-size:clamp(4rem,10vw,9rem);font-weight:800;line-height:.88;letter-spacing:-.05em;margin-bottom:28px}
+.h1-fill{background:linear-gradient(135deg,#fff,rgba(255,255,255,.7));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.h1-outline{-webkit-text-stroke:1px rgba(255,255,255,.2);-webkit-text-fill-color:transparent;display:block}
+.h1-purple{background:linear-gradient(135deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block}
+.hero-desc{font-size:.92rem;color:var(--mid);line-height:1.85;max-width:540px;margin:0 auto 48px;font-weight:300}
+.hero-actions{display:flex;gap:14px;justify-content:center;margin-bottom:80px;flex-wrap:wrap}
+.btn-gradient{background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border:none;padding:14px 34px;border-radius:100px;font-family:inherit;font-size:.86rem;font-weight:600;cursor:pointer;transition:.3s}
+.btn-gradient:hover{transform:translateY(-3px);box-shadow:0 16px 50px rgba(124,58,237,.45)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border);padding:14px 30px;border-radius:100px;font-family:inherit;font-size:.86rem;cursor:pointer;transition:.3s}
+.btn-ghost:hover{border-color:var(--purple);color:var(--purple)}
+.hero-stats{display:flex;gap:60px;justify-content:center;flex-wrap:wrap}
+.hstat-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;background:linear-gradient(135deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hstat-label{font-size:.7rem;color:var(--mid);margin-top:4px;letter-spacing:.1em;text-transform:uppercase}
+
+/* NOW PLAYING */
+.now-playing{padding:60px;background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;z-index:1}
+.np-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;max-width:1100px;margin:0 auto;flex-wrap:wrap}
+.np-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--purple);margin-bottom:8px}
+.np-track{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:4px}
+.np-artist{font-size:.82rem;color:var(--mid)}
+.np-bar{flex:1;min-width:200px;height:3px;background:rgba(255,255,255,.08);border-radius:100px;position:relative}
+.np-progress{width:62%;height:100%;background:linear-gradient(90deg,var(--purple),var(--pink));border-radius:100px}
+.np-controls{display:flex;gap:16px;align-items:center}
+.np-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:transparent;color:var(--text);font-size:.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.3s}
+.np-btn.play{background:linear-gradient(135deg,var(--purple),var(--pink));border:none}
+.np-btn:hover{border-color:var(--purple)}
+
+/* ARTISTS */
+.artists{padding:100px 60px;position:relative;z-index:1}
+.sec-tag{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--purple);margin-bottom:16px;font-weight:600}
+.sec-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.04em;margin-bottom:48px;color:#fff}
+.artist-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.artist-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;transition:.4s}
+.artist-card:hover{border-color:rgba(124,58,237,.3);transform:translateY(-8px);box-shadow:0 20px 60px rgba(124,58,237,.15)}
+.artist-visual{height:200px;display:flex;align-items:center;justify-content:center;font-size:64px;position:relative}
+.av-1{background:linear-gradient(145deg,#1A0A2E,#2E1A0A)}
+.av-2{background:linear-gradient(145deg,#0A1A2E,#1A2E0A)}
+.av-3{background:linear-gradient(145deg,#2E0A1A,#0A2E1A)}
+.av-4{background:linear-gradient(145deg,#1A2E0A,#2E0A2E)}
+.artist-info{padding:20px}
+.artist-name{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:4px}
+.artist-genre{font-size:.72rem;color:var(--purple);margin-bottom:10px;letter-spacing:.08em}
+.artist-stats{display:flex;gap:16px;font-size:.72rem;color:var(--mid)}
+
+/* NEW RELEASES */
+.releases{padding:100px 60px;background:var(--card);border-top:1px solid var(--border);position:relative;z-index:1}
+.release-list{display:flex;flex-direction:column;gap:2px;margin-top:48px}
+.release-item{background:var(--bg);border:1px solid var(--border);padding:20px 28px;display:grid;grid-template-columns:48px 1fr auto auto;gap:20px;align-items:center;cursor:pointer;transition:.3s}
+.release-item:hover{border-color:rgba(124,58,237,.2);background:rgba(124,58,237,.04);border-radius:8px}
+.release-num{font-family:'Syne',sans-serif;font-size:.8rem;color:var(--mid);font-weight:700}
+.release-cover{width:48px;height:48px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.rc-1{background:linear-gradient(135deg,var(--purple),var(--pink))}
+.rc-2{background:linear-gradient(135deg,var(--pink),#F97316)}
+.rc-3{background:linear-gradient(135deg,var(--lime),#22D3EE)}
+.rc-4{background:linear-gradient(135deg,#F59E0B,var(--purple))}
+.release-info .release-title{font-weight:600;font-size:.88rem;color:#fff;margin-bottom:2px}
+.release-info .release-artist{font-size:.75rem;color:var(--mid)}
+.release-date{font-size:.72rem;color:var(--mid);white-space:nowrap}
+.release-duration{font-family:'Space Grotesk',monospace;font-size:.75rem;color:var(--mid)}
+
+/* SUBMIT */
+.submit{padding:100px 60px;position:relative;z-index:1;text-align:center}
+.submit-inner{background:linear-gradient(135deg,rgba(124,58,237,.08),rgba(236,72,153,.08));border:1px solid rgba(124,58,237,.15);border-radius:24px;padding:80px 60px;max-width:800px;margin:0 auto}
+.submit-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;color:#fff;margin-bottom:16px;letter-spacing:-.04em}
+.submit-desc{font-size:.88rem;color:var(--mid);margin-bottom:48px;line-height:1.9}
+.submit-form{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:600px;margin:0 auto 24px;text-align:left}
+.submit-input{background:rgba(255,255,255,.04);border:1px solid var(--border);padding:12px 16px;border-radius:8px;font-family:inherit;font-size:.84rem;color:var(--text);outline:none;transition:.3s}
+.submit-input:focus{border-color:var(--purple)}
+.submit-input::placeholder{color:var(--mid)}
+.submit-input.full{grid-column:span 2}
+.submit-select{background:rgba(255,255,255,.04);border:1px solid var(--border);padding:12px 16px;border-radius:8px;font-family:inherit;font-size:.84rem;color:var(--text);outline:none;cursor:pointer}
+.submit-select option{background:#0E0B1A}
+
+footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:var(--mid);position:relative;z-index:1}
+.footer-logo{font-family:'Syne',sans-serif;font-weight:800;background:linear-gradient(135deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+@media(max-width:768px){
+  nav{padding:16px 24px}.nav-links{display:none}
+  .hero,.artists,.releases,.submit{padding:80px 24px}
+  .hero-stats{gap:32px}.artist-grid{grid-template-columns:1fr 1fr}
+  .now-playing{padding:40px 24px}
+  .release-item{grid-template-columns:32px 1fr auto}.release-duration{display:none}
+  .submit-form{grid-template-columns:1fr}.submit-input.full{grid-column:auto}
+  footer{flex-direction:column;gap:12px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">VOID RECORDS</div>
+  <ul class="nav-links">
+    <li><a href="#">アーティスト</a></li>
+    <li><a href="#">新着リリース</a></li>
+    <li><a href="#">ライブ</a></li>
+    <li><a href="#">ストア</a></li>
+  </ul>
+  <button class="nav-submit">デモ送付</button>
+</nav>
+
+<section class="hero">
+  <div class="vinyl">🎵</div>
+  <div class="vinyl vinyl-right">🎵</div>
+  <div class="hero-tag">Now Signing New Artists</div>
+  <h1>
+    <span class="h1-fill">SOUND</span>
+    <span class="h1-outline">THAT</span>
+    <span class="h1-purple">MOVES</span>
+  </h1>
+  <p class="hero-desc">東京発の独立系音楽レーベル。ジャンルを超えた実験的なサウンドと、アーティストの自由を最大限に尊重した音楽制作環境を提供します。</p>
+  <div class="hero-actions">
+    <button class="btn-gradient">🎵 最新リリースを聴く</button>
+    <button class="btn-ghost">アーティスト一覧</button>
+  </div>
+  <div class="hero-stats">
+    <div><div class="hstat-num">48</div><div class="hstat-label">所属アーティスト</div></div>
+    <div><div class="hstat-num">320M+</div><div class="hstat-label">総再生回数</div></div>
+    <div><div class="hstat-num">12</div><div class="hstat-label">年の歴史</div></div>
+  </div>
+</section>
+
+<div class="now-playing">
+  <div class="np-inner">
+    <div><div class="np-label">▶ Now Playing</div><div class="np-track">Neon Rainfall (feat. ARIA)</div><div class="np-artist">VOID Collective — Transcend EP</div></div>
+    <div class="np-bar"><div class="np-progress"></div></div>
+    <div><div style="font-size:.72rem;color:var(--mid);margin-bottom:4px">2:47 / 4:22</div></div>
+    <div class="np-controls">
+      <button class="np-btn">⏮</button>
+      <button class="np-btn play">⏸</button>
+      <button class="np-btn">⏭</button>
+    </div>
+  </div>
+</div>
+
+<section class="artists">
+  <div class="sec-tag">Artists</div>
+  <h2 class="sec-title">所属アーティスト</h2>
+  <div class="artist-grid">
+    <div class="artist-card"><div class="artist-visual av-1">🎤</div><div class="artist-info"><div class="artist-name">ARIA</div><div class="artist-genre">Ambient / Electronic</div><div class="artist-stats"><span>12M streams</span><span>3 Albums</span></div></div></div>
+    <div class="artist-card"><div class="artist-visual av-2">🎸</div><div class="artist-info"><div class="artist-name">SORA NOVA</div><div class="artist-genre">Indie Rock / Shoegaze</div><div class="artist-stats"><span>8M streams</span><span>2 EPs</span></div></div></div>
+    <div class="artist-card"><div class="artist-visual av-3">🎹</div><div class="artist-info"><div class="artist-name">KAI FLUX</div><div class="artist-genre">Neo-Soul / R&B</div><div class="artist-stats"><span>24M streams</span><span>5 Albums</span></div></div></div>
+    <div class="artist-card"><div class="artist-visual av-4">🎧</div><div class="artist-info"><div class="artist-name">VOID COLLECTIVE</div><div class="artist-genre">Hip-Hop / Experimental</div><div class="artist-stats"><span>18M streams</span><span>4 Albums</span></div></div></div>
+  </div>
+</section>
+
+<section class="releases">
+  <div class="sec-tag">New Releases</div>
+  <h2 class="sec-title" style="color:#fff">最新リリース</h2>
+  <div class="release-list">
+    <div class="release-item"><div class="release-num">01</div><div class="release-cover rc-1">🌙</div><div class="release-info"><div class="release-title">Neon Rainfall</div><div class="release-artist">ARIA</div></div><div class="release-date">2026.03.28</div><div class="release-duration">4:22</div></div>
+    <div class="release-item"><div class="release-num">02</div><div class="release-cover rc-2">🔥</div><div class="release-info"><div class="release-title">Cascade</div><div class="release-artist">KAI FLUX</div></div><div class="release-date">2026.03.21</div><div class="release-duration">3:58</div></div>
+    <div class="release-item"><div class="release-num">03</div><div class="release-cover rc-3">🌊</div><div class="release-info"><div class="release-title">Ghost Signal</div><div class="release-artist">SORA NOVA</div></div><div class="release-date">2026.03.14</div><div class="release-duration">5:11</div></div>
+    <div class="release-item"><div class="release-num">04</div><div class="release-cover rc-4">⚡</div><div class="release-info"><div class="release-title">Frequency (Remix)</div><div class="release-artist">VOID COLLECTIVE</div></div><div class="release-date">2026.03.07</div><div class="release-duration">4:47</div></div>
+  </div>
+</section>
+
+<section class="submit">
+  <div class="submit-inner">
+    <h2 class="submit-title">デモを送る</h2>
+    <p class="submit-desc">新しい才能をいつも探しています。<br>あなたの音楽を聴かせてください。全てのデモに目を通します。</p>
+    <div class="submit-form">
+      <input class="submit-input" type="text" placeholder="アーティスト名">
+      <select class="submit-select">
+        <option>ジャンルを選択</option>
+        <option>Electronic / Ambient</option>
+        <option>Hip-Hop / R&B</option>
+        <option>Rock / Alternative</option>
+        <option>Pop / Indie</option>
+        <option>その他</option>
+      </select>
+      <input class="submit-input" type="email" placeholder="メールアドレス">
+      <input class="submit-input" type="url" placeholder="SoundCloud / Spotify URL">
+      <textarea class="submit-input full" style="height:80px;resize:none" placeholder="一言メッセージ（任意）"></textarea>
+    </div>
+    <button class="btn-gradient" style="padding:14px 40px">デモを送信する</button>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">VOID RECORDS</div>
+  <span>東京都渋谷区神南1-8-16 / info@voidrecords.jp</span>
+  <span>© 2026 VOID RECORDS Inc.</span>
+</footer>
+</body>
+</html>

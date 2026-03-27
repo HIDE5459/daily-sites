@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APEX AERIAL — ドローン映像制作</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--black:#06080C;--blue:#0A84FF;--sky:#60BFFF;--dark:#0E1218;--card:#121820;--text:#D8E4F0;--mid:#5878A0;--border:rgba(255,255,255,.06)}
+body{font-family:'Inter',sans-serif;background:var(--black);color:var(--text);overflow-x:hidden}
+nav{position:fixed;top:0;width:100%;z-index:100;padding:20px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(6,8,12,.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;letter-spacing:.08em;color:#fff}
+.logo span{color:var(--blue)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--mid);font-size:.8rem;font-weight:500;transition:.3s}
+.nav-links a:hover{color:var(--sky)}
+.nav-btn{background:var(--blue);color:#fff;border:none;padding:10px 22px;border-radius:4px;font-family:inherit;font-size:.8rem;font-weight:600;cursor:pointer;transition:.3s}
+.nav-btn:hover{background:var(--sky)}
+
+.hero{min-height:100vh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:0 60px 80px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,8,12,.2) 0%,rgba(6,8,12,.7) 60%,rgba(6,8,12,.95) 100%)}
+.hero-sky{position:absolute;inset:0;background:linear-gradient(145deg,#0A1830 0%,#060C20 30%,#020810 60%,#000408 100%)}
+.hero-clouds{position:absolute;inset:0;overflow:hidden}
+.cloud{position:absolute;border-radius:50%;background:rgba(10,132,255,.06);filter:blur(60px)}
+.c1{width:600px;height:300px;top:10%;left:10%;animation:drift 20s ease-in-out infinite}
+.c2{width:400px;height:200px;top:30%;right:20%;animation:drift 25s ease-in-out infinite reverse}
+.c3{width:300px;height:150px;top:50%;left:40%;animation:drift 18s ease-in-out infinite 5s}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,-20px)}}
+.drone-icon{position:absolute;top:25%;left:50%;transform:translate(-50%,-50%);font-size:80px;animation:hover-drone 4s ease-in-out infinite;filter:drop-shadow(0 0 40px rgba(10,132,255,.6))}
+@keyframes hover-drone{0%,100%{transform:translate(-50%,-50%) translateY(0)}50%{transform:translate(-50%,-50%) translateY(-20px)}}
+.hero-content{position:relative;z-index:1;max-width:720px}
+.hero-tag{font-family:'Syne',sans-serif;font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:var(--blue);margin-bottom:20px}
+h1{font-family:'Syne',sans-serif;font-size:clamp(3rem,7vw,6rem);font-weight:800;line-height:.95;letter-spacing:-.03em;margin-bottom:24px;color:#fff}
+h1 .accent{color:var(--blue)}
+.hero-desc{font-size:.92rem;color:var(--mid);line-height:1.85;max-width:500px;margin-bottom:40px;font-weight:300}
+.hero-actions{display:flex;gap:14px;margin-bottom:60px}
+.btn-blue{background:var(--blue);color:#fff;border:none;padding:14px 32px;border-radius:4px;font-family:inherit;font-size:.85rem;font-weight:600;cursor:pointer;transition:.3s}
+.btn-blue:hover{background:var(--sky);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border);padding:14px 28px;border-radius:4px;font-family:inherit;font-size:.85rem;cursor:pointer;transition:.3s}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+.hero-specs{display:flex;gap:40px;flex-wrap:wrap}
+.spec{display:flex;align-items:center;gap:10px}
+.spec-icon{color:var(--blue);font-size:1rem}
+.spec-text{font-size:.78rem;color:var(--mid)}
+
+.reel{padding:80px 60px;background:var(--dark);border-top:1px solid var(--border)}
+.reel-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;margin-top:48px}
+.reel-item{border-radius:12px;overflow:hidden;position:relative;cursor:pointer;aspect-ratio:16/9}
+.reel-item:first-child{grid-row:span 2;aspect-ratio:auto}
+.reel-bg-1{background:linear-gradient(145deg,#0A2040,#051020)}
+.reel-bg-2{background:linear-gradient(145deg,#102040,#081828)}
+.reel-bg-3{background:linear-gradient(145deg,#081830,#040C18)}
+.reel-bg-4{background:linear-gradient(145deg,#0C2848,#061420)}
+.reel-bg-5{background:linear-gradient(145deg,#102038,#080E20)}
+.reel-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:20px;background:linear-gradient(to top,rgba(6,8,12,.85) 0%,transparent 50%);opacity:0;transition:.3s}
+.reel-item:hover .reel-overlay{opacity:1}
+.reel-emoji{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:48px;opacity:.3}
+.reel-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.play-btn{width:56px;height:56px;border-radius:50%;background:rgba(10,132,255,.8);display:flex;align-items:center;justify-content:center;font-size:1.2rem;opacity:0;transition:.3s}
+.reel-item:hover .play-btn{opacity:1}
+.reel-title{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;color:#fff;margin-bottom:4px}
+.reel-loc{font-size:.72rem;color:var(--sky)}
+
+.services{padding:80px 60px}
+.sec-tag{font-family:'Syne',sans-serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:16px;font-weight:600}
+.sec-title{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:800;letter-spacing:-.03em;margin-bottom:48px;color:#fff}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.service-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:36px;transition:.4s;cursor:pointer}
+.service-card:hover{border-color:rgba(10,132,255,.3);transform:translateY(-6px)}
+.service-icon{font-size:2.4rem;margin-bottom:20px;display:block}
+.service-name{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:10px}
+.service-desc{font-size:.8rem;color:var(--mid);line-height:1.8;margin-bottom:20px}
+.service-price{font-size:.85rem;color:var(--blue);font-weight:600}
+
+.specs{padding:80px 60px;background:var(--dark);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.specs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:48px}
+.spec-card{padding:36px 28px;background:var(--card);text-align:center;border:1px solid var(--border)}
+.spec-num{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:800;color:var(--blue);margin-bottom:8px}
+.spec-label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mid)}
+
+.cta{padding:80px 60px;text-align:center}
+.cta-inner{background:linear-gradient(135deg,rgba(10,132,255,.1),rgba(6,8,12,0));border:1px solid rgba(10,132,255,.2);border-radius:20px;padding:80px 60px;max-width:900px;margin:0 auto}
+.cta-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:#fff;margin-bottom:16px;letter-spacing:-.03em}
+.cta-sub{font-size:.9rem;color:var(--mid);margin-bottom:40px}
+
+footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:.75rem;color:var(--mid)}
+
+@media(max-width:768px){
+  nav{padding:16px 24px}.nav-links{display:none}
+  .hero{padding:0 24px 60px}
+  .reel,.services,.specs,.cta{padding:60px 24px}
+  .reel-grid{grid-template-columns:1fr 1fr}.reel-item:first-child{grid-row:auto;aspect-ratio:16/9}
+  .services-grid,.specs-grid{grid-template-columns:1fr 1fr}
+  footer{flex-direction:column;gap:8px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">APEX<span>.</span>AERIAL</div>
+  <ul class="nav-links">
+    <li><a href="#">実績</a></li>
+    <li><a href="#">サービス</a></li>
+    <li><a href="#">機材</a></li>
+    <li><a href="#">お問い合わせ</a></li>
+  </ul>
+  <button class="nav-btn">見積もり依頼</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-sky"></div>
+  <div class="hero-clouds"><div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div></div>
+  <div class="hero-bg"></div>
+  <div class="drone-icon">🚁</div>
+  <div class="hero-content">
+    <div class="hero-tag">Drone Aerial Cinematography</div>
+    <h1>空から見る、<br><span class="accent">別次元の</span><br>映像体験。</h1>
+    <p class="hero-desc">4K/8K対応ドローンで、地上では不可能な映像表現を実現。CM・不動産・結婚式・イベント撮影まで、空からの視点で価値を届けます。</p>
+    <div class="hero-actions">
+      <button class="btn-blue">▶ デモ映像を見る</button>
+      <button class="btn-outline">見積もり依頼</button>
+    </div>
+    <div class="hero-specs">
+      <div class="spec"><span class="spec-icon">📷</span><span class="spec-text">8K RAW撮影対応</span></div>
+      <div class="spec"><span class="spec-icon">🌙</span><span class="spec-text">夜間・屋内撮影可</span></div>
+      <div class="spec"><span class="spec-icon">🏛</span><span class="spec-text">国交省認定取得済</span></div>
+      <div class="spec"><span class="spec-icon">⚡</span><span class="spec-text">最短翌日納品</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="reel">
+  <div class="sec-tag">Portfolio</div>
+  <h2 class="sec-title">制作実績</h2>
+  <div class="reel-grid">
+    <div class="reel-item reel-bg-1"><div class="reel-emoji">🏙</div><div class="reel-play"><div class="play-btn">▶</div></div><div class="reel-overlay"><div class="reel-title">Tokyo Skyline — CM映像</div><div class="reel-loc">東京都 / 2026</div></div></div>
+    <div class="reel-item reel-bg-2"><div class="reel-emoji">🏖</div><div class="reel-play"><div class="play-btn">▶</div></div><div class="reel-overlay"><div class="reel-title">海岸ウェディング</div><div class="reel-loc">葉山 / 2025</div></div></div>
+    <div class="reel-item reel-bg-3"><div class="reel-emoji">⛰</div><div class="reel-play"><div class="play-btn">▶</div></div><div class="reel-overlay"><div class="reel-title">富士山 4K記録</div><div class="reel-loc">山梨県 / 2025</div></div></div>
+    <div class="reel-item reel-bg-4"><div class="reel-emoji">🌾</div><div class="reel-play"><div class="play-btn">▶</div></div><div class="reel-overlay"><div class="reel-title">農業ドキュメンタリー</div><div class="reel-loc">北海道 / 2025</div></div></div>
+    <div class="reel-item reel-bg-5"><div class="reel-emoji">🏗</div><div class="reel-play"><div class="play-btn">▶</div></div><div class="reel-overlay"><div class="reel-title">建設進捗管理</div><div class="reel-loc">大阪 / 2026</div></div></div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="sec-tag">Services</div>
+  <h2 class="sec-title">サービス一覧</h2>
+  <div class="services-grid">
+    <div class="service-card"><span class="service-icon">🎬</span><div class="service-name">CM・PV制作</div><p class="service-desc">企業のブランドムービーやPVを空撮映像で演出。編集・カラグレまでワンストップで対応。</p><div class="service-price">¥80,000〜</div></div>
+    <div class="service-card"><span class="service-icon">🏢</span><div class="service-name">不動産空撮</div><p class="service-desc">物件の魅力を最大化する空撮写真・動画。ウォークスルー動画との組み合わせも人気。</p><div class="service-price">¥35,000〜</div></div>
+    <div class="service-card"><span class="service-icon">💒</span><div class="service-name">ウェディング</div><p class="service-desc">式場・バンケット・披露宴の空撮。オープニングやエンディング映像に。ドローン一台から。</p><div class="service-price">¥55,000〜</div></div>
+  </div>
+</section>
+
+<section class="specs">
+  <div class="sec-tag">Equipment</div>
+  <h2 class="sec-title">機材スペック</h2>
+  <div class="specs-grid">
+    <div class="spec-card"><div class="spec-num">8K</div><div class="spec-label">最大解像度</div></div>
+    <div class="spec-card"><div class="spec-num">48min</div><div class="spec-label">最長飛行時間</div></div>
+    <div class="spec-card"><div class="spec-num">15km</div><div class="spec-label">最大通信距離</div></div>
+    <div class="spec-card"><div class="spec-num">12m/s</div><div class="spec-label">最大対風速</div></div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-inner">
+    <h2 class="cta-title">まずは<br>無料相談から。</h2>
+    <p class="cta-sub">撮影内容・予算・スケジュールをお気軽にご相談ください。<br>全国どこでも対応可能です。</p>
+    <button class="btn-blue" style="padding:16px 44px;font-size:.9rem">無料見積もりを依頼</button>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 APEX AERIAL Inc.</span>
+  <span>東京都渋谷区 / 全国出張対応 / 国土交通省 無人航空機操縦士認定</span>
+</footer>
+</body>
+</html>

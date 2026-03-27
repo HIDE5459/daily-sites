@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHRONO MAISON — 高級時計</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--black:#080706;--gold:#C4A862;--silver:#D8D0C4;--cream:#F8F4EE;--dark:#1A1610;--mid:#7A6A58;--warm:#F0E8DC}
+body{font-family:'Jost',sans-serif;background:var(--black);color:var(--cream);overflow-x:hidden}
+nav{position:fixed;top:0;width:100%;z-index:100;padding:24px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(8,7,6,.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(196,168,98,.1)}
+.logo{font-family:'Cormorant',serif;font-size:1.2rem;font-weight:600;letter-spacing:.2em;color:var(--gold)}
+.nav-links{display:flex;gap:40px;list-style:none}
+.nav-links a{text-decoration:none;color:rgba(248,244,238,.4);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;transition:.3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-contact{font-size:.72rem;color:var(--gold);letter-spacing:.15em;text-transform:uppercase;border-bottom:1px solid rgba(196,168,98,.4);padding-bottom:2px;cursor:pointer}
+
+/* HERO - full screen luxury */
+.hero{height:100vh;position:relative;display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 60% 30%,rgba(196,168,98,.06) 0%,transparent 60%),linear-gradient(180deg,rgba(8,7,6,.3) 0%,rgba(8,7,6,.85) 80%,rgba(8,7,6,1) 100%)}
+.hero-watch{position:absolute;right:10%;top:50%;transform:translateY(-50%);font-size:280px;opacity:.15;filter:blur(2px);animation:rotate-slow 60s linear infinite}
+@keyframes rotate-slow{from{transform:translateY(-50%) rotate(0)}to{transform:translateY(-50%) rotate(360deg)}}
+.hero-content{position:relative;z-index:1;padding:0 60px 100px;max-width:700px}
+.hero-eyebrow{font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:32px;display:flex;align-items:center;gap:16px}
+.hero-eyebrow::before{content:'';display:block;width:48px;height:1px;background:var(--gold)}
+h1{font-family:'Cormorant',serif;font-size:clamp(4rem,8vw,7.5rem);line-height:.9;font-weight:300;letter-spacing:.02em;margin-bottom:32px;color:var(--cream)}
+h1 em{font-style:italic;display:block;color:var(--gold)}
+.hero-desc{font-size:.86rem;line-height:2.3;color:rgba(248,244,238,.55);max-width:460px;margin-bottom:52px;font-weight:300;letter-spacing:.02em}
+.hero-actions{display:flex;gap:20px;align-items:center}
+.btn-gold{background:var(--gold);color:var(--black);border:none;padding:16px 40px;font-family:'Jost',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:.3s}
+.btn-gold:hover{background:#D4B872;transform:translateY(-2px);box-shadow:0 12px 40px rgba(196,168,98,.25)}
+.btn-ghost{background:transparent;color:var(--gold);border:1px solid rgba(196,168,98,.3);padding:15px 36px;font-family:'Jost',sans-serif;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:.3s}
+.btn-ghost:hover{border-color:var(--gold)}
+
+/* COLLECTIONS */
+.collections{padding:120px 60px}
+.sec-eyebrow{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:16px}
+.sec-eyebrow::before{content:'';display:block;width:36px;height:1px;background:var(--gold)}
+.sec-title{font-family:'Cormorant',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:300;margin-bottom:64px;color:var(--cream);letter-spacing:.02em}
+.sec-title em{font-style:italic;color:var(--gold)}
+.collection-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.watch-card{background:#0F0D0A;cursor:pointer;overflow:hidden;transition:.4s;position:relative}
+.watch-card:hover{transform:scale(1.01);box-shadow:0 0 60px rgba(196,168,98,.05)}
+.watch-visual{height:360px;display:flex;align-items:center;justify-content:center;font-size:100px;position:relative;overflow:hidden}
+.wv-1{background:linear-gradient(145deg,#1A1508,#0D0A04)}
+.wv-2{background:linear-gradient(145deg,#080D18,#040810)}
+.wv-3{background:linear-gradient(145deg,#0D1010,#050808)}
+.watch-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:200px;height:200px;border-radius:50%;opacity:.08}
+.wg-1{background:var(--gold)}
+.wg-2{background:#8898D8}
+.wg-3{background:#88C8A8}
+.watch-info{padding:32px 28px;border-top:1px solid rgba(196,168,98,.08)}
+.watch-collection{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.watch-name{font-family:'Cormorant',serif;font-size:1.4rem;font-weight:400;color:var(--cream);margin-bottom:8px;font-style:italic}
+.watch-desc{font-size:.75rem;color:rgba(248,244,238,.4);line-height:1.8;margin-bottom:20px}
+.watch-price{font-size:.92rem;font-weight:300;color:var(--gold);letter-spacing:.06em}
+
+/* CRAFTSMANSHIP */
+.craft{padding:120px 60px;display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
+.craft-visual{background:linear-gradient(145deg,#1A1508,#0D0A04);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;font-size:160px;position:relative;overflow:hidden}
+.craft-visual::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(196,168,98,.1) 0%,transparent 60%)}
+.craft-text .sec-title{margin-bottom:32px}
+.craft-text p{font-size:.88rem;line-height:2.3;color:rgba(248,244,238,.55);margin-bottom:20px;font-weight:300;letter-spacing:.02em}
+.craft-specs{margin-top:40px;display:flex;flex-direction:column;gap:0}
+.craft-spec{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid rgba(196,168,98,.08);font-size:.8rem}
+.cs-label{color:rgba(248,244,238,.4);letter-spacing:.08em}
+.cs-value{color:var(--gold);font-weight:500}
+
+/* HERITAGE */
+.heritage{padding:100px 60px;background:#0A0806;border-top:1px solid rgba(196,168,98,.06)}
+.heritage-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:64px}
+.hstat{padding:48px 36px;background:#0F0D0A}
+.hstat-num{font-family:'Cormorant',serif;font-size:3.5rem;font-weight:300;color:var(--gold);font-style:italic;margin-bottom:8px}
+.hstat-label{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(248,244,238,.35)}
+
+/* CTA */
+.cta{padding:100px 60px;text-align:center}
+.cta-title{font-family:'Cormorant',serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;color:var(--cream);margin-bottom:24px;font-style:italic}
+.cta-sub{font-size:.82rem;color:rgba(248,244,238,.4);margin-bottom:48px;letter-spacing:.06em;line-height:2}
+.cta-divider{width:60px;height:1px;background:var(--gold);margin:32px auto}
+
+footer{padding:48px 60px;border-top:1px solid rgba(196,168,98,.08);display:flex;justify-content:space-between;align-items:center;font-size:.72rem;color:rgba(248,244,238,.25);letter-spacing:.08em}
+.footer-logo{font-family:'Cormorant',serif;font-size:1rem;color:var(--gold);letter-spacing:.2em}
+
+@media(max-width:768px){
+  nav{padding:18px 24px}.nav-links{display:none}
+  .hero-content{padding:0 24px 80px}
+  .collections,.craft,.heritage,.cta{padding:60px 24px}
+  .collection-grid{grid-template-columns:1fr}
+  .craft{grid-template-columns:1fr}.craft-visual{aspect-ratio:16/9}
+  .heritage-grid{grid-template-columns:1fr 1fr}
+  footer{flex-direction:column;gap:12px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">CHRONO MAISON</div>
+  <ul class="nav-links">
+    <li><a href="#">コレクション</a></li>
+    <li><a href="#">職人技</a href="#"></li>
+    <li><a href="#">ヘリテージ</a></li>
+    <li><a href="#">サービス</a></li>
+  </ul>
+  <span class="nav-contact">アポイントメント</span>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-watch">⌚</div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Maison de Haute Horlogerie · Since 1887</div>
+    <h1>時を刻む、<br><em>芸術品。</em></h1>
+    <p class="hero-desc">1887年の創業以来、スイスの工房で一本ずつ手作業で仕上げられる時計。機械工学と美の融合——それがChrono Maisonの哲学です。</p>
+    <div class="hero-actions">
+      <button class="btn-gold">コレクションを見る</button>
+      <button class="btn-ghost">アポイント予約</button>
+    </div>
+  </div>
+</section>
+
+<section class="collections">
+  <div class="sec-eyebrow">Collections</div>
+  <h2 class="sec-title">2026 コレクション<br><em>精緻なる美</em></h2>
+  <div class="collection-grid">
+    <div class="watch-card"><div class="watch-visual wv-1"><div class="watch-glow wg-1"></div>⌚</div><div class="watch-info"><div class="watch-collection">Grande Complication</div><div class="watch-name">Perpetuel Or</div><p class="watch-desc">自動巻きパーペチュアルカレンダー。18Kローズゴールドケース。職人が400時間をかけて仕上げる傑作。</p><div class="watch-price">¥24,800,000</div></div></div>
+    <div class="watch-card"><div class="watch-visual wv-2"><div class="watch-glow wg-2"></div>🕐</div><div class="watch-info"><div class="watch-collection">Sport Chronograph</div><div class="watch-name">Veloce Acier</div><p class="watch-desc">サファイアガラス風防、セラミックベゼル。10気圧防水。スタイルと機能を両立するスポーツモデル。</p><div class="watch-price">¥3,200,000</div></div></div>
+    <div class="watch-card"><div class="watch-visual wv-3"><div class="watch-glow wg-3"></div>🕰</div><div class="watch-info"><div class="watch-collection">Dress Collection</div><div class="watch-name">Lumière Mince</div><p class="watch-desc">世界最薄クラスの自動巻き。厚さわずか3.65mm。礼装からビジネスまで対応するエレガントな一本。</p><div class="watch-price">¥8,600,000</div></div></div>
+  </div>
+</section>
+
+<section class="craft">
+  <div class="craft-visual">⚙️</div>
+  <div class="craft-text">
+    <div class="sec-eyebrow">Savoir-Faire</div>
+    <h2 class="sec-title">職人の手が宿す、<em>生きた時間。</em></h2>
+    <p>一つの時計が完成するまで、熟練した職人が平均6ヶ月を費やします。小さな歯車一枚一枚を磨き、組み上げる工程は、まさに機械工学の芸術です。</p>
+    <p>ムーブメントのコンポーネントは、すべてスイスの自社工房で製造。外部調達は一切行いません。それがChrono Maisonが守り続ける原則です。</p>
+    <div class="craft-specs">
+      <div class="craft-spec"><span class="cs-label">コンポーネント数</span><span class="cs-value">487パーツ（最上位機種）</span></div>
+      <div class="craft-spec"><span class="cs-label">精度</span><span class="cs-value">±1秒/日（COSC認定）</span></div>
+      <div class="craft-spec"><span class="cs-label">製造地</span><span class="cs-value">Le Locle, Switzerland</span></div>
+      <div class="craft-spec"><span class="cs-label">保証期間</span><span class="cs-value">5年（国際保証）</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="heritage">
+  <div class="sec-eyebrow">Heritage</div>
+  <h2 class="sec-title"><em>139年の遺産</em></h2>
+  <div class="heritage-grid">
+    <div class="hstat"><div class="hstat-num">1887</div><div class="hstat-label">創業年</div></div>
+    <div class="hstat"><div class="hstat-num">48</div><div class="hstat-label">世界の販売拠点</div></div>
+    <div class="hstat"><div class="hstat-num">280+</div><div class="hstat-label">特許取得技術</div></div>
+    <div class="hstat"><div class="hstat-num">4代</div><div class="hstat-label">家族経営</div></div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2 class="cta-title">あなたの腕に、<br>時の物語を。</h2>
+  <div class="cta-divider"></div>
+  <p class="cta-sub">銀座サロンにて、ご試着・ご相談を承っております。<br>プライベートアポイントメントも可能です。</p>
+  <button class="btn-gold" style="padding:17px 48px">アポイントメントを予約</button>
+</section>
+
+<footer>
+  <div class="footer-logo">CHRONO MAISON</div>
+  <span>東京都中央区銀座6-8-1 / 営業 11:00〜19:00（月曜定休）</span>
+  <span>© 2026 Chrono Maison S.A.</span>
+</footer>
+</body>
+</html>

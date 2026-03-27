@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>にじのそら保育園</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--sky:#4AB8E8;--sun:#F5C842;--green:#5AC88A;--pink:#F07890;--purple:#9B7BE8;--white:#FEFEFE;--light:#F5F8FC;--dark:#2A3850;--mid:#6A7A90}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--white);color:var(--dark);overflow-x:hidden}
+nav{position:fixed;top:0;width:100%;z-index:100;padding:16px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(254,254,254,.95);backdrop-filter:blur(16px);box-shadow:0 2px 20px rgba(42,56,80,.06)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--sky),var(--purple));display:flex;align-items:center;justify-content:center;font-size:18px}
+.logo-text{font-family:'Nunito',sans-serif;font-size:1.1rem;font-weight:800;color:var(--dark)}
+.logo-text span{color:var(--sky)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--mid);font-size:.82rem;font-weight:500;transition:.3s}
+.nav-links a:hover{color:var(--sky)}
+.nav-btn{background:var(--sky);color:#fff;border:none;padding:10px 22px;border-radius:100px;font-family:inherit;font-size:.8rem;font-weight:700;cursor:pointer;transition:.3s}
+.nav-btn:hover{background:#3090C0}
+
+/* HERO - playful, colorful */
+.hero{min-height:100vh;background:linear-gradient(160deg,#EFF8FF 0%,#F0FFF5 50%,#FFF5EF 100%);display:flex;align-items:center;padding:100px 60px 60px;position:relative;overflow:hidden}
+.bubble{position:absolute;border-radius:50%;opacity:.15;animation:bubble-float 8s ease-in-out infinite}
+.b1{width:300px;height:300px;background:var(--sky);top:-100px;right:10%;animation-delay:0s}
+.b2{width:200px;height:200px;background:var(--sun);bottom:10%;left:5%;animation-delay:2s}
+.b3{width:150px;height:150px;background:var(--green);top:30%;right:30%;animation-delay:4s}
+.b4{width:100px;height:100px;background:var(--pink);top:20%;left:20%;animation-delay:1s}
+@keyframes bubble-float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.05)}}
+.hero-content{max-width:600px;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border-radius:100px;padding:8px 20px;font-size:.78rem;font-weight:600;color:var(--sky);box-shadow:0 4px 20px rgba(74,184,232,.2);margin-bottom:32px;border:1px solid rgba(74,184,232,.2)}
+h1{font-family:'Nunito',sans-serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:800;line-height:1.15;margin-bottom:20px;letter-spacing:-.01em}
+h1 .color-sky{color:var(--sky)}
+h1 .color-sun{color:var(--sun)}
+h1 .color-green{color:var(--green)}
+.hero-desc{font-size:.92rem;line-height:2;color:var(--mid);max-width:480px;margin-bottom:40px;font-weight:300}
+.hero-actions{display:flex;gap:14px;margin-bottom:56px;flex-wrap:wrap}
+.btn-sky{background:var(--sky);color:#fff;border:none;padding:14px 32px;border-radius:100px;font-family:inherit;font-size:.88rem;font-weight:700;cursor:pointer;transition:.3s}
+.btn-sky:hover{background:#3090C0;transform:translateY(-2px);box-shadow:0 10px 30px rgba(74,184,232,.3)}
+.btn-ghost{background:transparent;color:var(--dark);border:2px solid rgba(42,56,80,.15);padding:12px 28px;border-radius:100px;font-family:inherit;font-size:.88rem;font-weight:600;cursor:pointer;transition:.3s}
+.btn-ghost:hover{border-color:var(--sky);color:var(--sky)}
+.hero-features{display:flex;gap:24px;flex-wrap:wrap}
+.hfeat{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--mid);font-weight:500}
+.hfeat-dot{width:8px;height:8px;border-radius:50%}
+.hero-right{position:absolute;right:60px;top:50%;transform:translateY(-50%);text-align:center}
+.hero-illus{font-size:120px;animation:bounce 2s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+.stat-chips{display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.chip{background:#fff;border-radius:100px;padding:10px 20px;font-size:.78rem;font-weight:700;box-shadow:0 4px 16px rgba(0,0,0,.08);display:flex;align-items:center;gap:8px}
+
+/* FEATURES */
+.features{padding:80px 60px}
+.sec-eyebrow{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin-bottom:12px}
+.sec-title{font-family:'Nunito',sans-serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;margin-bottom:48px;letter-spacing:-.01em}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feat-card{background:var(--light);border-radius:24px;padding:36px;transition:.3s;border:2px solid transparent}
+.feat-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(42,56,80,.1)}
+.feat-card.sky{border-color:rgba(74,184,232,.2)}.feat-card.sky:hover{background:#EBF7FF}
+.feat-card.sun{border-color:rgba(245,200,66,.2)}.feat-card.sun:hover{background:#FFFBEB}
+.feat-card.green{border-color:rgba(90,200,138,.2)}.feat-card.green:hover{background:#EDFAF3}
+.feat-icon{font-size:2.8rem;margin-bottom:20px;display:block}
+.feat-title{font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:800;margin-bottom:10px}
+.feat-desc{font-size:.82rem;color:var(--mid);line-height:1.9}
+
+/* SCHEDULE */
+.schedule{padding:80px 60px;background:var(--light)}
+.schedule-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px;align-items:start}
+.schedule-table{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 4px 20px rgba(42,56,80,.06)}
+.sched-header{background:var(--sky);color:#fff;padding:20px 28px;font-family:'Nunito',sans-serif;font-weight:800;font-size:.95rem}
+.sched-row{display:grid;grid-template-columns:80px 1fr;gap:0;border-bottom:1px solid rgba(42,56,80,.06)}
+.sched-row:last-child{border-bottom:none}
+.sched-time{padding:16px 20px;background:rgba(74,184,232,.05);font-size:.8rem;font-weight:700;color:var(--sky);border-right:1px solid rgba(74,184,232,.1)}
+.sched-activity{padding:16px 20px;font-size:.82rem;color:var(--mid)}
+.age-cards{display:flex;flex-direction:column;gap:16px}
+.age-card{background:#fff;border-radius:16px;padding:24px;display:flex;align-items:center;gap:16px;box-shadow:0 4px 16px rgba(42,56,80,.06)}
+.age-icon{font-size:2rem;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.age-icon.sky{background:#EBF7FF}
+.age-icon.sun{background:#FFFBEB}
+.age-icon.pink{background:#FFF0F3}
+.age-title{font-family:'Nunito',sans-serif;font-weight:800;font-size:.92rem;margin-bottom:4px}
+.age-desc{font-size:.78rem;color:var(--mid)}
+
+/* STAFF */
+.staff{padding:80px 60px}
+.staff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
+.staff-card{text-align:center;cursor:pointer}
+.staff-avatar{width:100px;height:100px;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:40px;transition:.3s}
+.staff-card:hover .staff-avatar{transform:scale(1.08)}
+.sa-1{background:linear-gradient(135deg,#C8E8FF,#A0C8F0)}
+.sa-2{background:linear-gradient(135deg,#C8FFD8,#A0E0B8)}
+.sa-3{background:linear-gradient(135deg,#FFECC8,#FFD8A0)}
+.sa-4{background:linear-gradient(135deg,#F0C8FF,#D8A0F0)}
+.staff-name{font-family:'Nunito',sans-serif;font-weight:800;font-size:.92rem;margin-bottom:4px}
+.staff-role{font-size:.72rem;color:var(--mid)}
+
+/* CTA */
+.cta-section{padding:80px 60px;background:linear-gradient(135deg,#EBF7FF,#F0FFF5)}
+.cta-inner{background:#fff;border-radius:32px;padding:64px 60px;max-width:900px;margin:0 auto;text-align:center;box-shadow:0 20px 60px rgba(42,56,80,.08)}
+.cta-emoji{font-size:4rem;margin-bottom:20px;display:block}
+.cta-title{font-family:'Nunito',sans-serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;margin-bottom:16px}
+.cta-sub{font-size:.88rem;color:var(--mid);margin-bottom:40px;line-height:1.9}
+
+footer{padding:40px 60px;border-top:1px solid rgba(42,56,80,.08);display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:var(--mid)}
+
+@media(max-width:768px){
+  nav{padding:14px 20px}.nav-links{display:none}
+  .hero{flex-direction:column;padding:80px 24px 48px}.hero-right{position:static;transform:none;margin-top:32px}
+  .features,.schedule,.staff,.cta-section{padding:60px 24px}
+  .features-grid,.staff-grid{grid-template-columns:1fr 1fr}
+  .schedule-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:8px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo"><div class="logo-icon">🌈</div><div class="logo-text">にじのそら<span>保育園</span></div></div>
+  <ul class="nav-links">
+    <li><a href="#">保育理念</a></li>
+    <li><a href="#">一日の流れ</a></li>
+    <li><a href="#">スタッフ</a></li>
+    <li><a href="#">入園案内</a></li>
+  </ul>
+  <button class="nav-btn">見学を予約</button>
+</nav>
+
+<section class="hero">
+  <div class="bubble b1"></div><div class="bubble b2"></div><div class="bubble b3"></div><div class="bubble b4"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🌱 2026年度 入園申込受付中</div>
+    <h1>子どもたちの<br><span class="color-sky">笑顔</span>が、<br><span class="color-sun">輝く</span><span class="color-green">場所</span>。</h1>
+    <p class="hero-desc">にじのそら保育園は、子どもたちが自分のペースで育つことを大切にする認可保育園です。遊びを通して学び、仲間と育つ環境を提供します。</p>
+    <div class="hero-actions">
+      <button class="btn-sky">🏫 見学を予約する</button>
+      <button class="btn-ghost">入園案内を見る</button>
+    </div>
+    <div class="hero-features">
+      <div class="hfeat"><div class="hfeat-dot" style="background:var(--sky)"></div>認可保育園</div>
+      <div class="hfeat"><div class="hfeat-dot" style="background:var(--green)"></div>0〜5歳児対応</div>
+      <div class="hfeat"><div class="hfeat-dot" style="background:var(--sun)"></div>延長保育あり</div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-illus">🏫</div>
+    <div class="stat-chips">
+      <div class="chip" style="color:var(--sky)">👧 定員60名</div>
+      <div class="chip" style="color:var(--green)">🌿 自然豊かな園庭</div>
+      <div class="chip" style="color:var(--pink)">❤️ 保育士常駐</div>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="sec-eyebrow" style="color:var(--sky)">Features</div>
+  <h2 class="sec-title">にじのそらの3つの特徴</h2>
+  <div class="features-grid">
+    <div class="feat-card sky"><span class="feat-icon">🌿</span><div class="feat-title">自然体験を大切に</div><p class="feat-desc">広い園庭と近くの公園で、季節ごとの自然に触れます。土や草木に触れながら、豊かな感性を育みます。</p></div>
+    <div class="feat-card sun"><span class="feat-icon">🎨</span><div class="feat-title">表現する喜びを育む</div><p class="feat-desc">絵を描く、歌う、つくる——創造する活動を毎日取り入れ、子どもたちの表現力と自信を伸ばします。</p></div>
+    <div class="feat-card green"><span class="feat-icon">👫</span><div class="feat-title">異年齢でともに育つ</div><p class="feat-desc">0〜5歳の縦割り保育で、思いやりと社会性を自然に学びます。年上の子が年下のお手伝いをする姿が見られます。</p></div>
+  </div>
+</section>
+
+<section class="schedule">
+  <div class="sec-eyebrow" style="color:var(--green)">Daily Life</div>
+  <h2 class="sec-title">一日の流れ</h2>
+  <div class="schedule-grid">
+    <div class="schedule-table">
+      <div class="sched-header">🌅 一日のスケジュール（3〜5歳）</div>
+      <div class="sched-row"><div class="sched-time">7:00</div><div class="sched-activity">開園・順次登園・自由遊び</div></div>
+      <div class="sched-row"><div class="sched-time">9:30</div><div class="sched-activity">朝の会・体操</div></div>
+      <div class="sched-row"><div class="sched-time">10:00</div><div class="sched-activity">設定活動（制作・音楽・運動）</div></div>
+      <div class="sched-row"><div class="sched-time">11:30</div><div class="sched-activity">給食（自園調理）</div></div>
+      <div class="sched-row"><div class="sched-time">13:00</div><div class="sched-activity">午睡（3歳以上は任意）</div></div>
+      <div class="sched-row"><div class="sched-time">15:00</div><div class="sched-activity">おやつ・自由遊び</div></div>
+      <div class="sched-row"><div class="sched-time">17:00</div><div class="sched-activity">順次降園（延長〜19:00）</div></div>
+    </div>
+    <div class="age-cards">
+      <div class="age-card"><div class="age-icon sky">👶</div><div><div class="age-title">0・1・2歳児クラス</div><div class="age-desc">愛着形成を大切に。担当制保育で一人ひとりに寄り添います。</div></div></div>
+      <div class="age-card"><div class="age-icon sun">🧒</div><div><div class="age-title">3歳児クラス（すみれ組）</div><div class="age-desc">集団生活の基礎づくり。友達との関わりが広がる時期。</div></div></div>
+      <div class="age-card"><div class="age-icon pink">🧒</div><div><div class="age-title">4・5歳児クラス（そら組）</div><div class="age-desc">就学準備も含め、主体性と協調性を育む活動を充実させています。</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="staff">
+  <div class="sec-eyebrow" style="color:var(--purple)">Our Staff</div>
+  <h2 class="sec-title">保育士・スタッフ紹介</h2>
+  <div class="staff-grid">
+    <div class="staff-card"><div class="staff-avatar sa-1">👩‍🏫</div><div class="staff-name">田中 あやか</div><div class="staff-role">園長 / 保育士歴18年</div></div>
+    <div class="staff-card"><div class="staff-avatar sa-2">👨‍🏫</div><div class="staff-name">鈴木 けんた</div><div class="staff-role">主任保育士 / 音楽担当</div></div>
+    <div class="staff-card"><div class="staff-avatar sa-3">👩‍🏫</div><div class="staff-name">山本 さくら</div><div class="staff-role">保育士 / 体育担当</div></div>
+    <div class="staff-card"><div class="staff-avatar sa-4">👩‍⚕️</div><div class="staff-name">伊藤 みのり</div><div class="staff-role">看護師 / 嘱託医連携</div></div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-inner">
+    <span class="cta-emoji">🌈</span>
+    <h2 class="cta-title">まず見学においでください。</h2>
+    <p class="cta-sub">実際の保育の様子を見ていただきながら、ご質問に丁寧にお答えします。<br>お気軽にお申し込みください。</p>
+    <button class="btn-sky" style="padding:15px 40px;font-size:.9rem">見学を予約する</button>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 にじのそら保育園</span>
+  <span>東京都杉並区高円寺南3-12-5 / ☎ 03-XXXX-XXXX</span>
+</footer>
+</body>
+</html>
