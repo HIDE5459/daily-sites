@@ -1,2 +1,3 @@
 [2026-03-21 14:12] ミャクミャクスクレイパー実行完了 — 新規3件(news:1, goods:2), 重複768件
 [2026-03-26 18:19:50] runAllScrapers completed: totalNewArticles=14, totalDuplicates=732 | goods: new=14 | official/twitter/instagram/news/youtube: new=0
+[2026-03-29 14:37 JST] runAllScrapers completed: totalNewArticles=1, totalDuplicates=750 | official(new=0,dup=24) twitter(new=0,dup=0) instagram(new=0,dup=0) news(new=0,dup=250) youtube(new=0,dup=32) goods(new=1,dup=444)

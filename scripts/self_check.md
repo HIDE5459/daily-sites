@@ -7,6 +7,10 @@
 ## 今日の未完了タスク
 （なし）
 
+## Day5完了 (2026-03-28)
+- [x] Day5 6サイト作成: Yoga/Bookstore/Drone/Kindergarten/Watches/Music (commit: d8baed5)
+- [x] 自己レビュー×3周（コードレビュー＋修正適用）
+
 ## 完了済み
 - [x] nexus-ai リデザイン (Warp/Raycast系)
 - [x] aurum-tokyo リデザイン (Cartier系フルブリード)

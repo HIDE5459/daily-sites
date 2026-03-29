@@ -82,3 +82,9 @@
 2026-03-27 00:05:21 JST | newArticles=2 (goods:2) | duplicates=750 | all scrapers success
 2026-03-26T21:05:23Z | newArticles=53 (goods:53, others:0) | dupes=694 | all scrapers SUCCESS
 2026-03-27T03:08:27Z | totalNew=14 totalDup=731 | official:new=0,dup=24 | twitter:new=0,dup=0 | instagram:new=0,dup=0 | news:new=1,dup=242 | youtube:new=1,dup=31 | goods:new=12,dup=434
+2026-03-27T21:05:20Z | totalNew=31 | totalDup=723 | official:new=0,dup=24 | twitter:new=0,dup=0 | instagram:new=0,dup=0 | news:new=0,dup=256 | youtube:new=1,dup=31 | goods:new=30,dup=412
+2026-03-28T03:44:46Z | newArticles=18 (news:1, goods:17) | duplicates=721 | all scrapers OK
+2026-03-28T09:06:42Z | newArticles=13 | duplicates=732 | official:0 twitter:0 instagram:0 news:1 youtube:1 goods:11
+2026-03-28T15:05:20Z | totalNew=1 totalDup=643 | official:new=0,dup=24 | twitter:new=0,dup=0 | instagram:new=0,dup=0 | news:new=0,dup=254 | youtube:new=0,dup=33 | goods:new=1,dup=332
+2026-03-28T21:05:21Z | newArticles=26 | duplicates=730 | official:0 twitter:0 instagram:0 news:2 youtube:2 goods:22
+2026-03-29T15:05:24Z | totalNew=2 totalDup=603 | official(new=0,dup=24) twitter(new=0,dup=0) instagram(new=0,dup=0) news(new=0,dup=249) youtube(new=0,dup=32) goods(new=2,dup=298)

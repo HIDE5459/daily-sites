@@ -1,66 +1,5 @@
 [
   {
-    "time": "2026-03-21 01:48",
-    "slot": "01時 スキップ",
-    "success": false,
-    "note": "深夜1時47分トリガー。スケジュール外（10時/15時/20時のみ）。Leonardo APIトークン枯渇。00:47に春分桜アイドル投稿済み。3月21日10時スロットまで待機。"
-  },
-  {
-    "time": "2026-03-21 02:49",
-    "file": "whitday_idol_20260314_10.jpg",
-    "caption": "🌸 春が来た…🌸 3月21日、春分の翌日",
-    "success": true,
-    "note": "Step 6まで完了。APIトークン枯渇のため既存画像使用。"
-  },
-  {
-    "time": "2026-03-21 03:22",
-    "slot": "03時 スキップ",
-    "success": false,
-    "note": "3:20 AM トリガー。定刻外（10時/15時/20時のみ）。02:49に既に投稿済み。Leonardo APIトークン枯渇中。次回10時スロットまで待機。"
-  },
-  {
-    "time": "2026-03-21 03:30",
-    "slot": "03時 スキップ",
-    "success": false,
-    "note": "3:30 AM トリガー。定刻外（10時/15時/20時のみ）。02:49に既に投稿済み（whitday_idol）。Leonardo APIトークン枯渇中。次回10時スロットまで待機。"
-  },
-  {
-    "time": "2026-03-21 03:41",
-    "slot": "03時 スキップ",
-    "success": false,
-    "note": "3:41 AM トリガー。定刻外（10時/15時/20時のみ）。02:49に既に投稿済み（whitday_idol）。Leonardo APIトークン枯渇中。HuggingFace新APIエンドポイント(router.huggingface.co)未テスト。次回10時スロットまで待機。"
-  },
-  {
-    "time": "2026-03-21 03:51",
-    "slot": "03時 スキップ",
-    "success": false,
-    "note": "3:51 AM トリガー。定刻外（10時/15時/20時のみ）。02:49に既に投稿済み（whitday_idol）。Leonardo APIトークン枯渇中。Pollinations/HuggingFace代替APIも失敗。次回10時スロットまで待機。"
-  },
-  {
-    "time": "2026-03-21 04:01",
-    "slot": "04時 スキップ",
-    "success": false,
-    "note": "4:01 AM トリガー。定刻外（10時/15時/20時のみ）。02:49に春分桜アイドル投稿済み。Leonardo APIトークン枯渇中。次回10時スロットまで待機。"
-  },
-  {
-    "time": "2026-03-21 04:32",
-    "slot": "04時 スキップ",
-    "success": false,
-    "note": "4:32 AM トリガー。定刻外（10時/15時/20時のみ）。02:49に春分桜アイドル投稿済み。Leonardo APIトークン枯渇中。次回10時スロットまでスキップ。"
-  },
-  {
-    "time": "2026-03-21 04:45",
-    "slot": "04時 スキップ",
-    "success": false,
-    "note": "4:43 AM トリガー。定刻外（10時/15時/20時のみ）。02:49に春分桜アイドル投稿済み。Leonardo APIトークン枯渇（apiSubscriptionTokens=null, subscriptionTokens=82のみ）。Pollinations 500エラー、HuggingFace 410。次回10時スロットで別の画像生成手段を試行予定。"
-  },
-  {
-    "time": "2026-03-21 05:14",
-    "slot": "05時 スキップ",
-    "success": false,
-    "note": "5:14 AM トリガー。定刻外（10時/15時/20時のみ）。02:49にwhitday_idol投稿済み。Leonardo APIトークン枯渇（82トークン残、最小必要数以下）。Pollinations 60秒タイムアウト、代替API引き続き調査中。次回10時スロットで再試行。"
-  },
-  {
     "time": "2026-03-21 06:09",
     "file": "spring_idol_20260321_06.jpg",
     "caption": "🌸 春分の日、特別な一枚✨\n\n白と桜色の振袖に包まれて、\n春の神社で静かに佇む…\n\n新しい季節の始ま",
@@ -320,6 +259,87 @@
     "time": "2026-03-27 15:08",
     "file": "bali_rice_terraces.jpg",
     "caption": "🌿 バリ島の棚田、夢のような絶景✨ AIトラベラーが旅する世界の美しい風景をお届け🌏\n\n#AI生成 ",
+    "success": true
+  },
+  {
+    "time": "2026-03-28 10:03",
+    "file": "idol_concert_20260315_0138.jpg",
+    "caption": "🎌 AnimeJapan 2026、熱気最高潮！✨\n\n東京ビッグサイトが世界中のアニメファンで溢れる",
+    "success": true
+  },
+  {
+    "time": "2026-03-28 10:00",
+    "timestamp": "2026-03-28T10:03:22.396560",
+    "slot": "10:00",
+    "theme": "AIアイドル/AnimeJapan2026×桜テーマ",
+    "file": "idol_concert_20260315_0138.jpg",
+    "caption": "AnimeJapan 2026 × AIアイドル コンサート",
+    "success": true,
+    "note": "Leonardo API token不足のためストック画像使用。AnimeJapan 2026（3/28-29）×桜春テーマ。"
+  },
+  {
+    "time": "2026-03-28 15:02",
+    "file": "santorini_golden_hour.jpg",
+    "caption": "🌅 サントリーニ島のゴールデンアワー、息を飲む絶景 ✨\n\n白と青のコントラスト、夕日に染まるエーゲ海",
+    "success": true
+  },
+  {
+    "time": "2026-03-28 15:00",
+    "timestamp": "2026-03-28T15:02:37.626103",
+    "slot": "15:00",
+    "theme": "AIトラベル/サントリーニ島・エーゲ海",
+    "file": "santorini_golden_hour.jpg",
+    "caption": "🌅 サントリーニ島のゴールデンアワー #AI生成 #AITravel #バーチャル旅行",
+    "success": true,
+    "note": "Leonardo API token不足のためストック画像使用。"
+  },
+  {
+    "time": "2026-03-28 18:09",
+    "file": "ai_idol_20h_20260314.jpg",
+    "caption": "🌸 春の夜、桜舞う夜景の中で✨\n\nAIアイドルが紡ぐ、幻想的な夜の世界。\n桜の花びらとともに、特別な",
+    "success": true
+  },
+  {
+    "time": "2026-03-28 20:06",
+    "timestamp": "2026-03-28T18:10:04.288913",
+    "slot": "20:00",
+    "theme": "AIアイドル/春の夜桜シーン",
+    "file": "ai_idol_20h_20260314.jpg",
+    "caption": "🌸 春の夜、桜舞う夜景の中で✨ #AI生成 #AIgirl #AIアイドル",
+    "success": true,
+    "note": "Leonardo API token不足のためストック画像使用。春の夜桜×AIアイドルテーマ。"
+  },
+  {
+    "time": "2026-03-29 10:22",
+    "file": "idol_photobooth_2.jpg",
+    "caption": "🎌 AnimeJapan 2026 最終日！推しと桜のフォトブース✨\n\n東京ビッグサイト、今日も熱気",
+    "success": false
+  },
+  {
+    "time": "2026-03-29 10:32",
+    "file": "hanami_idol_20260315_0436.jpg",
+    "caption": "🌸 春の花見シーズン到来！桜の下で一枚 ✨\n\n3月末の東京、桜が満開に近づいてきたね🌸\n今年の花見ス",
+    "success": false
+  },
+  {
+    "timestamp": "2026-03-29 10:43:06",
+    "type": "idol_sakura_10am",
+    "image": "idol_sakura_1774748497.jpg",
+    "caption": "桜咲く春 AIアイドル",
+    "hashtags": "#AI生成 #AIgirl #AIアイドル #バーチャル女子 #桜 #花見2026",
+    "status": "success",
+    "note": "Leonardo API token exhausted, used Pillow fallback"
+  },
+  {
+    "time": "2026-03-29 15:00",
+    "file": "santorini_golden_hour.jpg",
+    "caption": "Golden hour in Santorini 🌅✨ The most magical sunse",
+    "success": true
+  },
+  {
+    "time": "2026-03-29 18:03",
+    "file": "idol_sakura_1774748497.jpg",
+    "caption": "🌸✨ Spring night vibes with our AI idol 🌸\n\n桜の季節の夜、幻",
     "success": true
   }
 ]
